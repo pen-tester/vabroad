@@ -397,9 +397,8 @@
             <h2 class="ViewPropertyPageFonts">
                 <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %> is a
                 <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %>, Rates: <%# PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>-<%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %> 
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom,
-                , Sleeps <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"] %>
-                , Minimum nightly rental - <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinimumNightlyRental"] %>.
+                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom
+                , Sleeps <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"] %>, Minimum nightly rental - <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinimumNightlyRental"] %>.
                 <br />
                 <%# ((int)PropertiesFullSet.Tables["Properties"].Rows[0]["IfPaid"] == 1) && (bool)PropertiesFullSet.Tables["Properties"].Rows[0]["IfShowAddress"] ? "Address: " + PropertiesFullSet.Tables["Properties"].Rows[0]["Address"] : "" %>
             </h2>
