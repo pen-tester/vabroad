@@ -798,6 +798,8 @@
                     </div>
                     <%} %>
                     <%--attractions--%>
+                    <% if (AttractionsDistancesSet.Tables[0].Rows.Count > 0)
+                        { %>
                     <div class="tableCenter">
                         <asp:Repeater ID="Repeater2" runat="server" DataMember="Attractions" DataSource="<%# AttractionsDistancesSet %>">
                             <HeaderTemplate>
@@ -824,6 +826,7 @@
                             </FooterTemplate>
                         </asp:Repeater>
                     </div>
+                    <%} %>
                 </div>
             </div>
 
