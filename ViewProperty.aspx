@@ -395,8 +395,9 @@
 
         <div class="TitleFont">
             <h2 class="ViewPropertyPageFonts">
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %>
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %>
+                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %> is a
+                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %>, Rates: <%# PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>-<%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %> 
+                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom,
                 , Sleeps <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"] %>
                 , Minimum nightly rental - <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinimumNightlyRental"] %>.
                 <br />
@@ -840,6 +841,9 @@
 
         <br />
      </div>
+        <div class="newline">
+             <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %> is a  <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> in <%# PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Country"] %>
+        </div>
        <div class="newline">
              <ul class="citylist">
                  <li><%=stateprovince %> Cities: </li>
