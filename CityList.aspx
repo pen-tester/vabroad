@@ -133,6 +133,7 @@
  
         <div class="srow">
             <div class="pcontent">
+                <%=cityid %>
                 <%  int pages = (proplistset.allnums+19) / 20 ;
     for (int pg = 0; pg < pages; pg++)
     {
