@@ -133,15 +133,14 @@
  
         <div class="srow">
             <div class="pcontent">
-                <%=cityid %>
                 <%  int pages = (proplistset.allnums+19) / 20 ;
     for (int pg = 0; pg < pages; pg++)
     {
                          %>
+                <%=String.Format("{0}  {1} {2}",pages, proplistset.allnums, proplistset.propertyList[0].detail.City) %>
                 <div class="page_hid" id="cpage<%=pg %>">
 
-                        
-                          <%   int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
+                         <%   int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
                               for (int i = pg*20; i < maxitem; i++)
                               {
                                   //Response.Write(proplistset.propertyList.Count);break;
