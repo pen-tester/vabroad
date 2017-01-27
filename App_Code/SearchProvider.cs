@@ -368,7 +368,7 @@ public class SearchProvider
         }
         catch (Exception ex)
         {
-            
+            throw ex;
         }
         
         foreach (PropertyDetailInfo propinfo in prop_detail)
@@ -400,7 +400,7 @@ public class SearchProvider
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             propertyList.Add(propamenity);
         }
