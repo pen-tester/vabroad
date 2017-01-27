@@ -133,7 +133,6 @@
  
         <div class="srow">
             <div class="pcontent">
-                  <%=String.Format("{0}  {1} ", proplistset.allnums, cityid) %>
                 <%  int pages = (proplistset.allnums+19) / 20 ;
     for (int pg = 0; pg < pages; pg++)
     {
