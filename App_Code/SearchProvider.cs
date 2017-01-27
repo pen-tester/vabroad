@@ -360,7 +360,7 @@ public class SearchProvider
                           Object safeValue = (reader[prop_info.Name] == null) ? null : Convert.ChangeType(reader[prop_info.Name], type);
                           */
                         //prop_info.SetValue(tmp, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
-                        Object safeValue = (reader[prop_info.Name] == DBNull.Value)?"": reader[prop_info.Name];
+                        Object safeValue = (reader[prop_info.Name] == DBNull.Value)?"0": reader[prop_info.Name];
                         prop_info.SetValue(tmp, Convert.ChangeType(safeValue, prop_info.PropertyType), null);
 
                     }
