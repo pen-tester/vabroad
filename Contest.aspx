@@ -72,7 +72,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;margin-top:30px;display:block;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
             .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:25px;}
-           .shareitem{min-height:1px; display:inline-block;border:solid 1px #ff7d26; color:#ff7d26;width:25px;height:25px;font-size:16px;} .shareitem:hover{cursor:pointer;}
+           .shareitem{ display:inline-block;border:solid 1px #ff7d26; color:#ff7d26;min-width:25px;min-height:25px;font-size:16px;} .shareitem:hover{cursor:pointer;}
                         
     </style>
 </asp:Content>
