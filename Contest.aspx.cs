@@ -10,6 +10,7 @@ public partial class Contest : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         txt_result.Visible = false;
+        chkerror.Visible = false;
     }
 
     protected void Agreecheck_ServerValidate(object source, ServerValidateEventArgs args)
@@ -19,7 +20,12 @@ public partial class Contest : System.Web.UI.Page
 
     protected void Submit_Click(object sender, EventArgs e)
     {
-        if (Page.IsValid)
+        if (!chk_rule.Checked)
+        {
+            chkerror.Visible = true;
+            return;
+        }
+        if (Page.IsValid )
         {
             int ret= ContestHelper.addContestEmail(Server.HtmlEncode(firstname.Text), Server.HtmlEncode(lastname.Text), Server.HtmlEncode(email.Text), Server.HtmlEncode(phonenumber.Text));
             if (ret > 0)

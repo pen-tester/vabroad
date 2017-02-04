@@ -75,6 +75,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
             .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:10px;} 
             .contest_result{color: #39200d;font-weight: 700;text-align: center;font-family: inherit;font-size: 2em;padding:20px;}
+            .chkerror{visibility:hidden;color:red;}
 
             .shareicon{ display:inline-block;border:solid 1px #ff7d26; color:#ff7d26;min-width:25px;min-height:25px;font-size:16px;} .shareicon:hover{cursor:pointer;}
             .glenn {
@@ -132,8 +133,9 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                         <div>
                             <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule"  runat="server"/>
                             <label for="bodycontent_chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
-                            <asp:CustomValidator ID="Agreecheck" runat="server" Display="Dynamic" ForeColor="Red" ErrorMessage="You have to agree the rules." ControlToValidate="ctl00$bodycontent$chk_rule" OnServerValidate="Agreecheck_ServerValidate"></asp:CustomValidator>
+                            
                         </div>
+                        <asp:Label ID="chkerror" runat="server" CssClass="chkerror">You have to agree the official rules</asp:Label>
                     <div>
                     <div class="contestbox">
                         <asp:Button CssClass="contestbtn" id="Submit" Text="Submit" OnClick="Submit_Click" runat="server"/>
