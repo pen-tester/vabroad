@@ -16,10 +16,14 @@ public partial class Contest : System.Web.UI.Page
         chkerror.Visible = false;
 
         cont_info = ContestHelper.getCotestInfo();
-        con_name.Text = Server.HtmlDecode(cont_info.Name);  con_text.Text = Server.HtmlDecode(cont_info.Text);
-        con_price.Text = cont_info.Price.ToString();
-        con_rule.Text = Server.HtmlDecode(cont_info.RuleText).Replace("<br />",Environment.NewLine);
-        con_valdation.Text = cont_info.ValidMonth.ToString();
+        if (!IsPostBack)
+        {
+         
+            con_name.Text = Server.HtmlDecode(cont_info.Name); con_text.Text = Server.HtmlDecode(cont_info.Text);
+            con_price.Text = cont_info.Price.ToString();
+            con_rule.Text = Server.HtmlDecode(cont_info.RuleText).Replace("<br />", Environment.NewLine);
+            con_valdation.Text = cont_info.ValidMonth.ToString();
+        }
     }
 
     protected void Agreecheck_ServerValidate(object source, ServerValidateEventArgs args)
@@ -60,6 +64,7 @@ public partial class Contest : System.Web.UI.Page
         DateTime dt;
         DateTime.TryParse(con_startdate.Text,out dt);
         ContestHelper.addContest(name, text, price, validmonth, ruletext, dt.ToString());
+        Response.Write(name+text+ price+ validmonth+ ruletext+ dt.ToString());
         cont_info = ContestHelper.getCotestInfo();
     }
 }
