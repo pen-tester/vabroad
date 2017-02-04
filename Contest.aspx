@@ -108,7 +108,18 @@ body {
                         <input id="chk_rule" class="checkbox-custom" />
                         <label for="chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
                     <div>
-                    
+        <div>
+            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox" checked/>
+            <label for="checkbox-1" class="checkbox-custom-label">First Choice</label>
+        </div>
+        <div>
+            <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox"/>
+            <label for="checkbox-2" class="checkbox-custom-label">Second Choice</label>
+        </div>
+        <div>
+            <input id="checkbox-3" class="checkbox-custom" name="checkbox-3" type="checkbox"/>
+            <label for="checkbox-3"class="checkbox-custom-label">Third Choice</label>    
+        </div>                    
                 </div>
             </div>
 
