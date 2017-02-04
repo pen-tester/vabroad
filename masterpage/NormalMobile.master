@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterMobile.master.cs" Inherits="masterpage_NoramlMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NormalMobile.master.cs" Inherits="masterpage_NoramlMaster" %>
 
 <!DOCTYPE html>
 
@@ -109,11 +109,9 @@
           
 
 
-    <div class="scontainer">
             <asp:ContentPlaceHolder id="bodycontent" runat="server">
         
             </asp:ContentPlaceHolder>
-    </div>
     </form>
     <div class="clear"></div>
     <div class="footertopline">

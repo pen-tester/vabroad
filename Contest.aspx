@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="Contest.aspx.cs" Inherits="Contest" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMobile.master" AutoEventWireup="true" CodeFile="Contest.aspx.cs" Inherits="Contest" %>
 
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -45,8 +45,8 @@ background-repeat: repeat;}
         .checkbox-custom:checked + .checkbox-custom-label:before {
             content: "\f00c";
             font-family: 'FontAwesome';
-            background: rebeccapurple;
-            color: #fff;
+            background: #fff;
+            color: #000;
         }
 
         .radio-custom + .radio-custom-label:before {
@@ -56,7 +56,7 @@ background-repeat: repeat;}
         .radio-custom:checked + .radio-custom-label:before {
             content: "\f00c";
             font-family: 'FontAwesome';
-            color: #bbb;
+            color: #000;
         }
 
         .checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
@@ -67,7 +67,8 @@ background-repeat: repeat;}
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
     <div class="contestbackground">
-        <div class="internalpagewidth">
+        <div class="scontainer">
+            <div class="internalpagewidth">
             <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                 { %>
                 <div class="contestform" id="adminform">
@@ -93,25 +94,19 @@ background-repeat: repeat;}
                     <asp:RegularExpressionValidator ID="emailregular" runat="server" ErrorMessage="Email format wrong" ControlToValidate="email" Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber 1(240)2341234" CssClass="contestinputfield"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
-                    <div class="contestbox">
-                         <asp:CheckBox ID="chk_agree_rule" runat="server" CssClass="contestchkbox" Text="I have read and agree to the official rules" />
-                                <div>
-            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox" checked>
-            <label for="checkbox-1" class="checkbox-custom-label">First Choice</label>
-        </div>
-        <div>
-            <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox">
-            <label for="checkbox-2" class="checkbox-custom-label">Second Choice</label>
-        </div>
-        <div>
-            <input id="checkbox-3" class="checkbox-custom" name="checkbox-3" type="checkbox">
-            <label for="checkbox-3"class="checkbox-custom-label">Third Choice</label>    
-        </div>
-                    </div>
+                    <div class="contestbox" >
+                            <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule" runat="server" />
+                            <label for="chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
+                    <div>
                     
                 </div>
             </div>
 
+        
+             </div>
+        
+         </div>
+    </div>
         </div>
     </div>
 </asp:Content>
