@@ -89,7 +89,7 @@ public class ContestHelper
                     con.Open();
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@fist", SqlDbType.NVarChar, 50).Value = first;
+                    cmd.Parameters.Add("@first", SqlDbType.NVarChar, 50).Value = first;
                     cmd.Parameters.Add("@last", SqlDbType.NVarChar, 50).Value = last;
                     cmd.Parameters.Add("@email", SqlDbType.NVarChar, 400).Value = email;
                     cmd.Parameters.Add("@phone", SqlDbType.NVarChar, 50).Value = phone;
