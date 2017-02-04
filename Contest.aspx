@@ -132,7 +132,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                         <div>
                             <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule"  runat="server"/>
                             <label for="bodycontent_chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
-                            <asp:CustomValidator ID="Agreecheck" runat="server" Display="Dynamic" ForeColor="Red" ErrorMessage="You have to agree the rules." ControlToValidate="bodycontent_chk_rule" OnServerValidate="Agreecheck_ServerValidate"></asp:CustomValidator>
+                            <asp:CustomValidator ID="Agreecheck" runat="server" Display="Dynamic" ForeColor="Red" ErrorMessage="You have to agree the rules." OnServerValidate="Agreecheck_ServerValidate"></asp:CustomValidator>
                         </div>
                     <div>
                     <div class="contestbox">
