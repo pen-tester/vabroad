@@ -11,6 +11,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
         .groupfield{margin-top:30px;}
         .contestinputfield{display:block; margin-top:10px;margin-left:10%;width:80%;height: 2.5em;line-height: 1.42857;box-shadow: none;border:1px solid #c4ae9c;border-radius: 2px;transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;color: #39200d;font-weight: 700;}
         .contestinputfield:focus{outline: none;border-color: #ff7d26;}
+
         .contestbox{margin:10px auto;width:80%;text-align:left;}
 
           .checkbox-custom, .radio-custom {
@@ -64,13 +65,14 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             }
 
             .contestbtn{
-                border-radius:3px;background-color:#ff7d26;border:2px solid #cdbfac;font-size:13px;font-family:Verdana;text-align:center;
-                width: 100%;
-                text-transform: uppercase;
-                color: #fff;
-            }
+                border-radius:3px;background-color:#ff7d26;border:2px solid #cdbfac;font-size:16px;font-family:Verdana;text-align:center;
+                width: 100%; padding-top:10px;padding-bottom:10px; text-transform: uppercase;   color: #fff;       }
 
- 
+            .contestfooter{background-color:#39200d;font-size:16px; text-align:center;width:100%;color:#fff; }
+            .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;}
+            .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
+            .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:30px;}
+                        
     </style>
 </asp:Content>
 
@@ -97,14 +99,14 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                 </div>
                 <div class="groupfield center">
                     <asp:TextBox ID="firstname" runat="server" placeholder="FirstName" CssClass="contestinputfield"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="firstnamevalid" runat="server" ErrorMessage="First Name required" ControlToValidate="firstname" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="firstnamevalid" runat="server" ForeColor="Red" ErrorMessage="First Name required" ControlToValidate="firstname" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="lastname" runat="server" placeholder="LastName" CssClass="contestinputfield"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="lastnamevalid" runat="server" ErrorMessage="Last Name required" ControlToValidate="lastname" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="lastnamevalid" runat="server" ForeColor="Red" ErrorMessage="Last Name required" ControlToValidate="lastname" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="email" runat="server" placeholder="Email" CssClass="contestinputfield"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="emailvalid" runat="server" ErrorMessage="Email Required" ControlToValidate="email" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="emailregular" runat="server" ErrorMessage="Email format wrong" ControlToValidate="email" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="emailvalid" runat="server" ForeColor="Red" ErrorMessage="Email Required" ControlToValidate="email" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="emailregular" runat="server" ForeColor="Red" ErrorMessage="Email format wrong" ControlToValidate="email" Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber 1(240)2341234" CssClass="contestinputfield"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ForeColor="Red" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
                     <div class="contestbox" >
                         <div>
                             <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule"  runat="server"/>
@@ -121,7 +123,55 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
              </div>
         
          </div>
-    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="contestfooter">
+            <div class="scontainer">
+                <div class="srow">
+                    <div class="col-2 col-x-4"></div>
+                     <div class="col-8 col-x-4">
+                   <div class="srow center">
+                    <label class="contest_footer_title">
+                        SHARE THIS CONTEST WITH FRIENDS 
+                    </label>
+                </div>
+                   <div class="srow center">
+                        <ul class="contest_footer_share">
+                            <li>
+                                item1
+                            </li>
+                            <li>
+                                item2
+                            </li>
+                            <li>
+                                item3
+                            </li>
+                            <li>
+                                item4
+                            </li>
+                       </ul>
+                </div>
+                    <div class="srow center">
+                        <label class="contest_copyright">
+                            Copyright 2017 Vacations-Abroad.com
+                        </label>
+                        <hr />
+                    </div>
+                    <div class="srow center">
+                        <h4>
+                            CONTEST RULES
+                        </h4>
+                        <label class="contest_footer_text">
+                            Coupon is valid for 6 months from February 14, 2017- August 14, 2017.<br /><br />
+                            Coupon can only be used for (1) purchase<br /><br />
+                            You must be 21 years of age to enter the contest.<br /><br />
+                            Coupon must be used on purchase of $400 or more.<br /><br />
+                        </label>
+                    </div>
+                </div>
+                 </div>
             </div>
         </div>
     </div>
