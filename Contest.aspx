@@ -6,8 +6,8 @@
 </asp:Content>
 <asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
     <style>
-        .contestbackground{background-color:#f60;margin:0px;border:0px;}
-        .contestform{padding:50px 20px; background:#fff; font-weight: 300;text-decoration: none;text-transform: none;}
+        .contestbackground{background-color:#f60;margin:0px;border:1px solid #fff;}
+        .contestform{margin:50px 20px; background:#fff; padding:30px 0px;font-weight: 300;text-decoration: none;text-transform: none;}
         .contestform h1{color: inherit;text-align: inherit;font-family: inherit;font-size: 2.5em;font-style: inherit;}
         .groupfield{margin-top:30px;}
         .contestinputfield{padding-left:10px;   display:block; margin-top:10px;margin-left:10%;width:80%;height: 2.5em;line-height: 1.42857;box-shadow: none;border:1px solid #c4ae9c;border-radius: 2px;transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;color: #39200d;font-weight: 700;}
