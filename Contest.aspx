@@ -106,7 +106,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                <div class="internalpagewidth">
             <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                 { %>
-                <div class="contestform" id="adminform">
+                <div class="contestform center" id="adminform">
                     <label>Contest Site</label>
                     <asp:TextBox ID="con_name" runat="server" placeholder="Contest Site(ex Vacations Abroad)" CssClass="contestinputfield" ></asp:TextBox>
                     <label>Contest Title</label>
