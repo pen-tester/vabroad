@@ -71,9 +71,25 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             .contestfooter{background-color:#39200d;font-size:16px; text-align:center;width:100%;color:#fff; }
             .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;margin-top:30px;display:block;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
-            .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:25px;} .shareitem{min-height:25px;min-width:25px;}
+            .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:25px;} 
             .shareicon{ display:inline-block;border:solid 1px #ff7d26; color:#ff7d26;min-width:25px;min-height:25px;font-size:16px;} .shareicon:hover{cursor:pointer;}
-                        
+            .glenn {
+              min-height:25px;min-width:25px;
+              position: relative;
+            }
+
+            .member-glenn {
+              position: absolute;
+              top: 0;
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.75s ease;
+            }
+
+            .glenn:hover .member-glenn {
+              visibility: visible;
+              opacity: 1;
+            }                        
     </style>
 </asp:Content>
 
@@ -141,15 +157,15 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                    <div class="srow center">
                         <ul class="contest_footer_share">
                             <li>
-                                <div class="shareitem">
-                                    <div class="shareicon">
+                                <div class="glenn">
+                                    <div class="shareicon member-glenn">
                                     <i class="fa fa-share-alt" aria-hidden="true"></i>
                                      </div>
                                 </div>
                                 
                             </li>
                               <li>
-                                <div class="shareitem">
+                                <div class="glenn .member-glenn">
                                     <div class="shareicon">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                     </div>
@@ -157,26 +173,26 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                                 
                             </li>
                             <li>
-                                <div class="shareitem">
-                                    <div class="shareicon"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                <div class="glenn">
+                                    <div class="shareicon member-glenn"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
                             <li>
-                                <div class="shareitem">
-                                   <div class="shareicon"> <i class="fa fa-pinterest-p" aria-hidden="true"></i></div>
+                                <div class="glenn">
+                                   <div class="shareicon member-glenn"> <i class="fa fa-pinterest-p" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
                             <li>
-                                <div class="shareitem">
-                                   <div class="shareicon"> <i class="fa fa-google-plus" aria-hidden="true"></i></div>
+                                <div class="glenn">
+                                   <div class="shareicon member-glenn"> <i class="fa fa-google-plus" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
                             <li>
-                                <div class="shareitem">
-                                    <div class="shareicon"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                <div class="glenn">
+                                    <div class="shareicon member-glenn"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
