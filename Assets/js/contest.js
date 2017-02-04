@@ -1,11 +1,11 @@
 ﻿
 $(document).ready(function () {
-    $('.contest_footer_share li').mouseleave(function () {
-        $(this).children('.shareitem').fadeIn();
+    $('.shareitem').mouseleave(function () {
+        $(this).children('.shareicon').fadeIn();
         console.log("out");
     });
-    $('.contest_footer_share li').mouseover(function () {
-        $(this).children('.shareitem').fadeOut();
+    $('.shareitem').mouseover(function () {
+        $(this).children('.shareicon').fadeOut();
         console.log("in");
     });
 
