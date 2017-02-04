@@ -75,7 +75,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
             .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:10px;} 
             .contest_result{color: #39200d;font-weight: 700;text-align: center;font-family: inherit;font-size: 2em;padding:20px;}
-            .chkerror{visibility:hidden;color:red;}
+            .chkerror{color:red;}
 
             .shareicon{ display:inline-block;border:solid 1px #ff7d26; color:#ff7d26;min-width:25px;min-height:25px;font-size:16px;} .shareicon:hover{cursor:pointer;}
             .glenn {
