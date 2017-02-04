@@ -35,8 +35,8 @@ background-repeat: repeat;}
                 border: 2px solid #ddd;
                 display: inline-block;
                 vertical-align: middle;
-                width: 20px;
-                height: 20px;
+                width: 15px;
+                height: 15px;
                 padding: 2px;
                 margin-right: 10px;
                 text-align: center;
@@ -45,8 +45,8 @@ background-repeat: repeat;}
             .checkbox-custom:checked + .checkbox-custom-label:before {
                 content: "\f00c";
                 font-family: 'FontAwesome';
-                background: rebeccapurple;
-                color: #fff;
+                background: #fff;
+                color: #000;
             }
 
             .radio-custom + .radio-custom-label:before {
@@ -105,8 +105,8 @@ body {
                     <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber 1(240)2341234" CssClass="contestinputfield"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
                     <div class="contestbox" >
-                            <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule" runat="server" />
-                            <label for="chk_rule" class="checkbox-custom-label"></label>
+                        <asp:CheckBox ID="chk_rule" class="checkbox-custom" ClientIDMode="Static" runat="server" />
+                        <label for="chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
                     <div>
                     
                 </div>
