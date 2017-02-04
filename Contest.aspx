@@ -12,56 +12,66 @@ background-repeat: repeat;}
         .contestinputfield{display:block; margin-top:10px;margin-left:10%;width:80%;height: 2.5em;line-height: 1.42857;box-shadow: none;border:1px solid #c4ae9c;border-radius: 2px;transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;color: #39200d;font-weight: 700;}
         .contestinputfield:focus{outline: none;border-color: #ff7d26;}
         .contestbox{margin:10px auto;width:80%;text-align:left;}
- 
-        .checkbox-custom, .radio-custom {
-            opacity: 0;
-            position: absolute;   
-        }
 
-        .checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
-            display: inline-block;
-            vertical-align: middle;
-            margin: 5px;
-            cursor: pointer;
-        }
+          .checkbox-custom, .radio-custom {
+                opacity: 0;
+                position: absolute;   
+            }
 
-        .checkbox-custom-label, .radio-custom-label {
-            position: relative;
-        }
+            .checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 5px;
+                cursor: pointer;
+            }
 
-        .checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
-            content: '';
-            background: #fff;
-            border: 2px solid #ddd;
-            display: inline-block;
-            vertical-align: middle;
-            width: 15px;
-            height: 15px;
-            padding: 2px;
-            margin-right: 10px;
-            text-align: center;
-        }
+            .checkbox-custom-label, .radio-custom-label {
+                position: relative;
+            }
 
-        .checkbox-custom:checked + .checkbox-custom-label:before {
-            content: "\f00c";
-            font-family: 'FontAwesome';
-            background: #fff;
-            color: #000;
-        }
+            .checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
+                content: '';
+                background: #fff;
+                border: 2px solid #ddd;
+                display: inline-block;
+                vertical-align: middle;
+                width: 20px;
+                height: 20px;
+                padding: 2px;
+                margin-right: 10px;
+                text-align: center;
+            }
 
-        .radio-custom + .radio-custom-label:before {
-            border-radius: 50%;
-        }
+            .checkbox-custom:checked + .checkbox-custom-label:before {
+                content: "\f00c";
+                font-family: 'FontAwesome';
+                background: rebeccapurple;
+                color: #fff;
+            }
 
-        .radio-custom:checked + .radio-custom-label:before {
-            content: "\f00c";
-            font-family: 'FontAwesome';
-            color: #000;
-        }
+            .radio-custom + .radio-custom-label:before {
+                border-radius: 50%;
+            }
 
-        .checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
-          outline: 1px solid #ddd; /* focus style */
-        }
+            .radio-custom:checked + .radio-custom-label:before {
+                content: "\f00c";
+                font-family: 'FontAwesome';
+                color: #bbb;
+            }
+
+            .checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
+              outline: 1px solid #ddd; /* focus style */
+            }
+
+   
+  
+
+/* only demo styles */
+
+body {
+  font-family: Raleway;
+}
+
     </style>
 </asp:Content>
 
@@ -96,7 +106,7 @@ background-repeat: repeat;}
                     <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
                     <div class="contestbox" >
                             <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule" runat="server" />
-                            <label for="chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
+                            <label for="chk_rule" class="checkbox-custom-label"></label>
                     <div>
                     
                 </div>
