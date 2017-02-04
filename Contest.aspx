@@ -106,7 +106,7 @@ body {
                     <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
                     <div class="contestbox" >
                         <div>
-                            <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule"  runat="server"/>
+                            <input type="checkbox"  id="bodycontent_chk_rule" class="checkbox-custom" name="chk_rule"  runat="server"/>
                             <label for="chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
                         </div>
                     <div>
