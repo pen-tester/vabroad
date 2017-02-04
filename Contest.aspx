@@ -5,7 +5,7 @@
 <asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
     <style>
         .contestbackground{background-color:#fc8c40;background-image: url("https://d2xcq4qphg1ge9.cloudfront.net/assets/19/3244482/original_grunge.png");
-background-repeat: repeat;}
+background-repeat: repeat;margin:0px;}
         .contestform{margin:50px 20px; background:#fff; padding:30px 0px;font-weight: 300;text-decoration: none;text-transform: none;}
         .contestform h1{color: inherit;text-align: inherit;font-family: inherit;font-size: 2.5em;font-style: inherit;}
         .groupfield{margin-top:30px;}
@@ -35,8 +35,8 @@ background-repeat: repeat;}
                 border: 2px solid #ddd;
                 display: inline-block;
                 vertical-align: middle;
-                width: 20px;
-                height: 20px;
+                width: 15px;
+                height: 15px;
                 padding: 2px;
                 margin-right: 10px;
                 text-align: center;
@@ -110,18 +110,7 @@ body {
                             <label for="bodycontent_chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
                         </div>
                     <div>
-        <div>
-            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox" checked/>
-            <label for="checkbox-1" class="checkbox-custom-label">First Choice</label>
-        </div>
-        <div>
-            <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox"/>
-            <label for="checkbox-2" class="checkbox-custom-label">Second Choice</label>
-        </div>
-        <div>
-            <input id="checkbox-3" class="checkbox-custom" name="checkbox-3" type="checkbox"/>
-            <label for="checkbox-3"class="checkbox-custom-label">Third Choice</label>    
-        </div>                    
+                  
                 </div>
             </div>
 
