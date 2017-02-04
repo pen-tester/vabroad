@@ -35,8 +35,8 @@ background-repeat: repeat;}
                 border: 2px solid #ddd;
                 display: inline-block;
                 vertical-align: middle;
-                width: 15px;
-                height: 15px;
+                width: 20px;
+                height: 20px;
                 padding: 2px;
                 margin-right: 10px;
                 text-align: center;
