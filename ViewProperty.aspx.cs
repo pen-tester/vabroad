@@ -225,9 +225,10 @@ public partial class ViewProperty : CommonPage
 
         PropertyDetailInfo pinfo = AjaxProvider.getPropertyDetailInfo(propertyid);
 
-        string Des = "%name% is a %city% %numbedrooms% Bedroom %type%, Sleeps %numsleeps%, Price: %low%-%high% %cur% per %quote%";
+        // string Des = "%name% is a %city% %numbedrooms% Bedroom %type%, Sleeps %numsleeps%, Price: %low%-%high% %cur% per %quote%";
+        string Des = "%name% is a %city% %numbedrooms% Bedroom %type%, Sleeps %numsleeps%, Price: %low%-%high% %cur% per night";
 
- 
+
         description.Name = "description";
         if (PropertiesFullSet.Tables["Properties"].Rows.Count < 1)
             description.Content = "View property";
