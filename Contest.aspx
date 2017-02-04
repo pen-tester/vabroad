@@ -69,7 +69,7 @@
                 border-radius:3px;background-color:#ff7d26;border:2px solid #cdbfac;font-size:16px;font-family:Verdana;text-align:center;
                 width: 100%; padding-top:10px;padding-bottom:10px; text-transform: uppercase;   color: #fff;    cursor:pointer;   }
 
-            .contestfooter{background-color:#39200d;font-size:16px; text-align:center;width:100%;color:#fff; }
+            .contestfooter{background-color:#154890;;font-size:16px; text-align:center;width:100%;color:#fff; }
             .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;margin-top:30px;display:block;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
             .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:10px;} 
