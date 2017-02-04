@@ -9,7 +9,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
         .contestform{margin:50px 20px; background:#fff; padding:30px 0px;font-weight: 300;text-decoration: none;text-transform: none;}
         .contestform h1{color: inherit;text-align: inherit;font-family: inherit;font-size: 2.5em;font-style: inherit;}
         .groupfield{margin-top:30px;}
-        .contestinputfield{display:block; margin-top:10px;margin-left:10%;width:80%;height: 2.5em;line-height: 1.42857;box-shadow: none;border:1px solid #c4ae9c;border-radius: 2px;transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;color: #39200d;font-weight: 700;}
+        .contestinputfield{padding-left:10px;   display:block; margin-top:10px;margin-left:10%;width:80%;height: 2.5em;line-height: 1.42857;box-shadow: none;border:1px solid #c4ae9c;border-radius: 2px;transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;color: #39200d;font-weight: 700;}
         .contestinputfield:focus{outline: none;border-color: #ff7d26;}
 
         .contestbox{margin:10px auto;width:80%;text-align:left;}
@@ -69,9 +69,10 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                 width: 100%; padding-top:10px;padding-bottom:10px; text-transform: uppercase;   color: #fff;       }
 
             .contestfooter{background-color:#39200d;font-size:16px; text-align:center;width:100%;color:#fff; }
-            .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;}
+            .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;margin-top:30px;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
             .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:30px;}
+           .shareitem{display:inline-block;}
                         
     </style>
 </asp:Content>
@@ -140,16 +141,40 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                    <div class="srow center">
                         <ul class="contest_footer_share">
                             <li>
-                                item1
+                                <div class="shareitem">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </div>
+                                
+                            </li>
+                              <li>
+                                <div class="shareitem">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </div>
+                                
                             </li>
                             <li>
-                                item2
+                                <div class="shareitem">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </div>
+                                
                             </li>
                             <li>
-                                item3
+                                <div class="shareitem">
+                                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                </div>
+                                
                             </li>
                             <li>
-                                item4
+                                <div class="shareitem">
+                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <div class="shareitem">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </div>
+                                
                             </li>
                        </ul>
                 </div>
