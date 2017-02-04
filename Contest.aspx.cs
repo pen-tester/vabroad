@@ -7,10 +7,19 @@ using System.Web.UI.WebControls;
 
 public partial class Contest : System.Web.UI.Page
 {
+
+    public ContestInfo cont_info;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         txt_result.Visible = false;
         chkerror.Visible = false;
+
+        cont_info = ContestHelper.getCotestInfo();
+        con_name.Text = Server.HtmlDecode(cont_info.Name);  con_text.Text = Server.HtmlDecode(cont_info.Text);
+        con_price.Text = cont_info.Price.ToString();
+        con_rule.Text = Server.HtmlDecode(cont_info.RuleText).Replace("<br />",Environment.NewLine);
+        con_valdation.Text = cont_info.ValidMonth.ToString();
     }
 
     protected void Agreecheck_ServerValidate(object source, ServerValidateEventArgs args)
@@ -40,5 +49,17 @@ public partial class Contest : System.Web.UI.Page
                 txt_result.Visible = true;
             }
         }
+    }
+
+    protected void AdminSubmit_Click(object sender, EventArgs e)
+    {
+        string name = con_name.Text; string text = con_text.Text; string ruletext = Server.HtmlEncode( con_rule.Text.Replace(Environment.NewLine, "<br />"));
+        int price, validmonth;
+        Int32.TryParse(con_price.Text, out price);
+        Int32.TryParse(con_valdation.Text, out validmonth);
+        DateTime dt;
+        DateTime.TryParse(con_startdate.Text,out dt);
+        ContestHelper.addContest(name, text, price, validmonth, ruletext, dt.ToString());
+        cont_info = ContestHelper.getCotestInfo();
     }
 }

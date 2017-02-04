@@ -4,11 +4,26 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 
 /// <summary>
 /// Summary description for ContestHelper
 /// </summary>
+/// 
+
+public class ContestInfo
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public string Text { get; set; }
+    public int Price { get; set; }
+    public int ValidMonth { get; set; }
+    public string Created { get; set; }
+    public string StartDate { get; set; }
+    public string RuleText { get; set; }
+}
+
 public class ContestHelper
 {
     public static string connString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
@@ -19,7 +34,7 @@ public class ContestHelper
         //
    }
 
-    public static int addContest(string name, string text, int price , int validmonth)
+    public static int addContest(string name, string text, int price , int validmonth,string ruletext, string startdate)
     {
         int ret = 0;
         try
@@ -45,6 +60,8 @@ public class ContestHelper
                     cmd.Parameters.Add("@text", SqlDbType.NVarChar, 500).Value = text;
                     cmd.Parameters.Add("@price", SqlDbType.Int).Value = price;
                     cmd.Parameters.Add("@validmonth", SqlDbType.Int).Value = validmonth;
+                    cmd.Parameters.Add("@startdate", SqlDbType.Date).Value = startdate;
+                    cmd.Parameters.Add("@ruletext", SqlDbType.NVarChar,2000).Value = ruletext;
 
 
 
@@ -114,4 +131,53 @@ public class ContestHelper
         return ret;
 
     }
+
+    public static ContestInfo getCotestInfo()
+    {
+        //uspGetCountryInfo  @PropID
+        ContestInfo contest_info = new ContestInfo();
+        try
+        {
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                using (SqlCommand cmd = new SqlCommand("uspGetContest", con))
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                  //  cmd.Parameters.Add("@PropID", SqlDbType.Int).Value = prop_id;
+
+
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader.Read())
+                            {
+                                //more code
+                                PropertyInfo[] props = contest_info.GetType().GetProperties();
+                                foreach(PropertyInfo prop in props)
+                                {
+                                    prop.SetValue(contest_info, Convert.ChangeType(reader[prop.Name], prop.PropertyType), null);
+                                }
+                            }
+                        }
+
+                    }
+
+
+                    con.Close();
+
+                }
+            }
+
+        }
+        catch (Exception ex)
+        {
+             throw ex;
+            // return 0;
+        }
+        return contest_info;
+    }
+
 }

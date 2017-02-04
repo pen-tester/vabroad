@@ -107,7 +107,17 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                 { %>
                 <div class="contestform" id="adminform">
-
+                    <asp:TextBox ID="con_name" runat="server" placeholder="Contest Site(ex Vacations Abroad)" CssClass="contestinputfield" ></asp:TextBox>
+                    <asp:TextBox ID="con_text" runat="server" placeholder="Contest Title(ex $200 Valentine's Day Giveaway.)" CssClass="contestinputfield" ></asp:TextBox>
+                    <asp:TextBox ID="con_price" runat="server" placeholder="Coupon Price$(ex 200)" CssClass="contestinputfield" ></asp:TextBox>
+                    <div class="groupfield center">
+                            CONTEST RULES<br />
+                            Coupon is valid for <asp:TextBox ID="con_valdation" runat="server" CssClass="contestinputfield" ></asp:TextBox> months from <asp:TextBox ID="con_startdate" placeholder="2017/1/1" runat="server" CssClass="contestinputfield" ></asp:TextBox>.<br />
+                           <asp:TextBox ID="con_rule" runat="server" placeholder="Contest rule" CssClass="contestinputfield" TextMode="MultiLine" Height="240px" ></asp:TextBox>
+                    </div>
+                    <div class="contestbox">
+                        <asp:Button CssClass="contestbtn" id="AdminSubmit" Text="Submit" OnClick="AdminSubmit_Click" runat="server" ValidationGroup="adminpage"/>
+                    </div>
                 </div>
             <%} %>
 
@@ -140,7 +150,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                     <div class="contestbox">
                         <asp:Button CssClass="contestbtn" id="Submit" Text="Submit" OnClick="Submit_Click" runat="server"/>
                     </div>
-                    <div>
+                    <div class="center">
                         <asp:Label CssClass="contest_result" runat="server" ID="txt_result">Thank you for your submission</asp:Label>
                     </div>
                 </div>
