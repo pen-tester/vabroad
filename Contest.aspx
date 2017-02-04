@@ -141,7 +141,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                         <asp:Button CssClass="contestbtn" id="Submit" Text="Submit" OnClick="Submit_Click" runat="server"/>
                     </div>
                     <div>
-                        <asp:Label CssClass="contest_result" runat="server" ID="txt_result"></asp:Label>
+                        <asp:Label CssClass="contest_result" runat="server" ID="txt_result">Thank you for your submission</asp:Label>
                     </div>
                 </div>
             </div>

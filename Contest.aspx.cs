@@ -28,9 +28,15 @@ public partial class Contest : System.Web.UI.Page
         if (Page.IsValid )
         {
             int ret= ContestHelper.addContestEmail(Server.HtmlEncode(firstname.Text), Server.HtmlEncode(lastname.Text), Server.HtmlEncode(email.Text), Server.HtmlEncode(phonenumber.Text));
-            if (ret > 0)
+            if (ret == 0)
             {
                 txt_result.Text = "Thank you for your submission";
+                txt_result.Visible = true;
+                firstname.Text = ""; lastname.Text = "";email.Text = ""; phonenumber.Text = "";
+            }
+            else
+            {
+                txt_result.Text = "There is high traffic in the server. Please retry later!";
                 txt_result.Visible = true;
             }
         }
