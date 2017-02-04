@@ -107,8 +107,11 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                 { %>
                 <div class="contestform" id="adminform">
+                    <label>Contest Site</label>
                     <asp:TextBox ID="con_name" runat="server" placeholder="Contest Site(ex Vacations Abroad)" CssClass="contestinputfield" ></asp:TextBox>
+                    <label>Contest Title</label>
                     <asp:TextBox ID="con_text" runat="server" placeholder="Contest Title(ex $200 Valentine's Day Giveaway.)" CssClass="contestinputfield" ></asp:TextBox>
+                    <label>Coupon Price</label>
                     <asp:TextBox ID="con_price" runat="server" placeholder="Coupon Price$(ex 200)" CssClass="contestinputfield" ></asp:TextBox>
                     <div class="groupfield center">
                             CONTEST RULES<br />
