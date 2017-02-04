@@ -5,7 +5,7 @@
 <asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
     <style>
         .contestbackground{background-color:#fc8c40;background-image: url("https://d2xcq4qphg1ge9.cloudfront.net/assets/19/3244482/original_grunge.png");
-background-repeat: repeat;margin:0px;}
+background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
         .contestform{margin:50px 20px; background:#fff; padding:30px 0px;font-weight: 300;text-decoration: none;text-transform: none;}
         .contestform h1{color: inherit;text-align: inherit;font-family: inherit;font-size: 2.5em;font-style: inherit;}
         .groupfield{margin-top:30px;}
@@ -63,22 +63,26 @@ background-repeat: repeat;margin:0px;}
               outline: 1px solid #ddd; /* focus style */
             }
 
-   
-  
+            .contestbtn{
+                width: 100%;
+                font-size: 1.5em;
+                text-transform: uppercase;
+                color: #fff;
+                padding-top: .5em;
+                padding-right: 2em;
+                padding-bottom: .5em;
+                padding-left: 2em;
+                background-color: #ff7d26;
+            }
 
-/* only demo styles */
-
-body {
-  font-family: Raleway;
-}
-
+ 
     </style>
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
     <div class="clearfix"></div>
     <div class="contestbackground">
-        <div class="scontainer" style="margin:0 auto;">
+        <div class="scontainer">
             <div class="srow">
                <div class="internalpagewidth">
             <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
@@ -112,7 +116,9 @@ body {
                             <label for="bodycontent_chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
                         </div>
                     <div>
-                  
+                    <div class="contestbox">
+                        <asp:Button CssClass="contestbtn" id="Submit" Text="Submit" runat="server"/>
+                    </div>
                 </div>
             </div>
 
