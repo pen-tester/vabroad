@@ -81,14 +81,14 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             .member-glenn {
               position: absolute;
               top: 0;
-              opacity: 0;
-              visibility: hidden;
+              opacity: 1;
+              visibility: visible;
               transition: all 0.75s ease;
             }
 
             .glenn:hover .member-glenn {
-              visibility: visible;
-              opacity: 1;
+              visibility: hidden;
+              opacity: 0;
             }                        
     </style>
 </asp:Content>
@@ -165,8 +165,8 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                                 
                             </li>
                               <li>
-                                <div class="glenn .member-glenn">
-                                    <div class="shareicon">
+                                <div class="glenn ">
+                                    <div class="shareico member-glennn">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                     </div>
                                 </div>
