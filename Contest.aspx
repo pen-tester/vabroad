@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
     <style>
-        .contestbackground{background-color:#f60;margin:0px;border:solid 1px #f60;}
+        .contestbackground{background-color:#f60;margin:0px;border:0px;}
         .contestform{margin:50px 20px; background:#fff; padding:30px 0px;font-weight: 300;text-decoration: none;text-transform: none;}
         .contestform h1{color: inherit;text-align: inherit;font-family: inherit;font-size: 2.5em;font-style: inherit;}
         .groupfield{margin-top:30px;}
@@ -69,7 +69,7 @@
                 border-radius:3px;background-color:#ff7d26;border:2px solid #cdbfac;font-size:16px;font-family:Verdana;text-align:center;
                 width: 100%; padding-top:10px;padding-bottom:10px; text-transform: uppercase;   color: #fff;    cursor:pointer;   }
 
-            .contestfooter{background-color:#cdbfac;font-size:16px; text-align:center;width:100%;color:#fff; }
+            .contestfooter{background-color:#cdbfac;font-size:16px; text-align:center;width:100%;color:#000; }
             .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;margin-top:30px;display:block;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
             .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:10px;} 
