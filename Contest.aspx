@@ -105,8 +105,10 @@ body {
                     <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber 1(240)2341234" CssClass="contestinputfield"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
                     <div class="contestbox" >
+                        <div>
                         <input id="chk_rule" class="checkbox-custom" />
                         <label for="chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
+                        </div>
                     <div>
         <div>
             <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox" checked/>
