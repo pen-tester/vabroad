@@ -78,7 +78,8 @@ body {
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
     <div class="contestbackground">
         <div class="scontainer" style="margin:0 auto;">
-            <div class="internalpagewidth">
+            <div class="srow">
+               <div class="internalpagewidth">
             <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                 { %>
                 <div class="contestform" id="adminform">
@@ -119,6 +120,7 @@ body {
         
          </div>
     </div>
+            </div>
         </div>
     </div>
 </asp:Content>
