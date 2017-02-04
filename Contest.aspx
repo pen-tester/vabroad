@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMobile.master" AutoEventWireup="true" CodeFile="Contest.aspx.cs" Inherits="Contest" %>
 
 
-<asp:Content ID="head" ContentPlaceHolderID="head" runat="server"></asp:Content>
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    Vacations-Abroad Valentine Giveaway! | Create Your Own Contests at ShortStack.com
+</asp:Content>
 <asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
     <style>
         .contestbackground{background-color:#fc8c40;background-image: url("https://d2xcq4qphg1ge9.cloudfront.net/assets/19/3244482/original_grunge.png");
@@ -71,7 +73,9 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             .contestfooter{background-color:#39200d;font-size:16px; text-align:center;width:100%;color:#fff; }
             .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;margin-top:30px;display:block;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
-            .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:25px;} 
+            .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:10px;} 
+            .contest_result{color: #39200d;font-weight: 700;text-align: center;font-family: inherit;font-size: 2em;padding:20px;}
+
             .shareicon{ display:inline-block;border:solid 1px #ff7d26; color:#ff7d26;min-width:25px;min-height:25px;font-size:16px;} .shareicon:hover{cursor:pointer;}
             .glenn {
               min-height:25px;min-width:25px;
@@ -121,17 +125,21 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                     <asp:RequiredFieldValidator ID="lastnamevalid" runat="server" ForeColor="Red" ErrorMessage="Last Name required" ControlToValidate="lastname" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="email" runat="server" placeholder="Email" CssClass="contestinputfield"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="emailvalid" runat="server" ForeColor="Red" ErrorMessage="Email Required" ControlToValidate="email" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="emailregular" runat="server" ForeColor="Red" ErrorMessage="Email format wrong" ControlToValidate="email" Display="Dynamic"></asp:RegularExpressionValidator>
-                    <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber 1(240)2341234" CssClass="contestinputfield"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ForeColor="Red" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="emailregular" runat="server" ForeColor="Red" ErrorMessage="Email format wrong" ControlToValidate="email" Display="Dynamic" ValidationExpression="\w+@\w{1,4}\.\w{1,4}"></asp:RegularExpressionValidator>
+                    <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber with country code" CssClass="contestinputfield"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ForeColor="Red" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" ValidationExpression="\+\d{9,}" Display="Dynamic"></asp:RegularExpressionValidator>
                     <div class="contestbox" >
                         <div>
                             <input type="checkbox"  id="chk_rule" class="checkbox-custom" name="chk_rule"  runat="server"/>
                             <label for="bodycontent_chk_rule" class="checkbox-custom-label">I have read and agree to the official rules</label>
+                            <asp:CustomValidator ID="Agreecheck" runat="server" Display="Dynamic" ForeColor="Red" ErrorMessage="You have to agree the rules." ControlToValidate="chk_rule" OnServerValidate="Agreecheck_ServerValidate"></asp:CustomValidator>
                         </div>
                     <div>
                     <div class="contestbox">
-                        <asp:Button CssClass="contestbtn" id="Submit" Text="Submit" runat="server"/>
+                        <asp:Button CssClass="contestbtn" id="Submit" Text="Submit" OnClick="Submit_Click" runat="server"/>
+                    </div>
+                    <div>
+                        <asp:Label CssClass="contest_result" runat="server" ID="txt_result"></asp:Label>
                     </div>
                 </div>
             </div>
