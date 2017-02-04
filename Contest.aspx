@@ -126,8 +126,8 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
 
             <div class="contestform">
                 <div class="center">
-                    <h1>Vacations Abroad</h1>
-                    <h1>$200 Valentine's Day Giveaway.</h1>
+                    <h1><%=cont_info.Name %></h1>
+                    <h1><%=cont_info.Text %></h1>
                 </div>
                 <div class="center">
                     <p>Enter your contact details below for a chance to win a $200 coupon towards your next vacation with Vacations-Abroad.com</p>
@@ -232,10 +232,11 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                             CONTEST RULES
                         </h4>
                         <label class="contest_footer_text">
-                            Coupon is valid for 6 months from February 14, 2017- August 14, 2017.<br /><br />
-                            Coupon can only be used for (1) purchase<br /><br />
-                            You must be 21 years of age to enter the contest.<br /><br />
-                            Coupon must be used on purchase of $400 or more.<br /><br />
+                            <% DateTime dt = DateTime.Parse(cont_info.StartDate);
+                                DateTime dtend = dt.AddMonths(cont_info.ValidMonth);
+                                 %>
+                            Coupon is valid for <%=cont_info.ValidMonth %> months from <%=dt.ToString("MMMM dd, yyyy") %> - <%=dtend.ToString("MMMM dd, yyyy") %>.<br /><br />
+                            <%=cont_info.RuleText %>
                         </label>
                     </div>
                 </div>

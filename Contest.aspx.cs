@@ -23,6 +23,8 @@ public partial class Contest : System.Web.UI.Page
             con_price.Text = cont_info.Price.ToString();
             con_rule.Text = Server.HtmlDecode(cont_info.RuleText).Replace("<br />", Environment.NewLine);
             con_valdation.Text = cont_info.ValidMonth.ToString();
+            DateTime dt = DateTime.Parse(cont_info.StartDate);
+            con_startdate.Text = dt.ToString("yyyy/MM/dd");
         }
     }
 
@@ -64,7 +66,7 @@ public partial class Contest : System.Web.UI.Page
         DateTime dt;
         DateTime.TryParse(con_startdate.Text,out dt);
         ContestHelper.addContest(name, text, price, validmonth, ruletext, dt.ToString());
-        Response.Write(name+text+ price+ validmonth+ ruletext+ dt.ToString());
+       // Response.Write(name+text+ price+ validmonth+ ruletext+ dt.ToString());
         cont_info = ContestHelper.getCotestInfo();
     }
 }
