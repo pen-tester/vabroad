@@ -166,7 +166,7 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                             </li>
                               <li>
                                 <div class="glenn ">
-                                    <div class="shareico member-glennn">
+                                    <div class="shareicon member-glennn">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                     </div>
                                 </div>
