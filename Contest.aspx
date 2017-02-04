@@ -235,9 +235,11 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
                             <% DateTime dt = DateTime.Parse(cont_info.StartDate);
                                 DateTime dtend = dt.AddMonths(cont_info.ValidMonth);
                                  %>
-                            Coupon is valid for <%=cont_info.ValidMonth %> months from <%=dt.ToString("MMMM dd, yyyy") %> - <%=dtend.ToString("MMMM dd, yyyy") %>.<br /><br />
+                            Coupon is valid for <%=cont_info.ValidMonth %> months from <%=dt.ToString("MMMM dd, yyyy") %> - <%=dtend.ToString("MMMM dd, yyyy") %>.<br />
                             <%=Server.HtmlDecode(cont_info.RuleText) %>
                         </label>
+                        <br />
+                        <br />
                     </div>
                 </div>
                  </div>
