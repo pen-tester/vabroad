@@ -70,7 +70,7 @@
                 width: 100%; padding-top:10px;padding-bottom:10px; text-transform: uppercase;   color: #fff;    cursor:pointer;   }
 
             .contestfooter{background-color:#cdbfac;font-size:16px; text-align:center;width:100%;color:#000; }
-            .contest_footer_title{font-weight:300; color:#fff; font-size:1.25em;margin-bottom:10px;margin-top:30px;display:block;}
+            .contest_footer_title{font-weight:300;font-size:1.25em;margin-bottom:10px;margin-top:30px;display:block;}
             .contest_copyright{font-weight:300;font-size:10pt;}.contest_footer_text{font-size:10pt;}
             .contestfooter ul{list-style:none; list-style-type:none; width:100%;margin:0px;}.contestfooter ul li{display:inline-block;padding:10px;} 
             .contest_result{color: #39200d;font-weight: 700;text-align: center;font-family: inherit;font-size: 2em;padding:20px;}
