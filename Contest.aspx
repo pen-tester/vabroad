@@ -64,15 +64,10 @@ background-repeat: repeat;margin:0px;border:solid 1px #fc8c40;}
             }
 
             .contestbtn{
+                border-radius:3px;background-color:#ff7d26;border:2px solid #cdbfac;font-size:13px;font-family:Verdana;text-align:center;
                 width: 100%;
-                font-size: 1.5em;
                 text-transform: uppercase;
                 color: #fff;
-                padding-top: .5em;
-                padding-right: 2em;
-                padding-bottom: .5em;
-                padding-left: 2em;
-                background-color: #ff7d26;
             }
 
  
