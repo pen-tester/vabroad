@@ -179,34 +179,34 @@
                    <div class="srow center">
                         <ul class="contest_footer_share">
                               <li>
-                                <div class="glenn "><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.vacations-abroad.com/contest.aspx" target="_blank">
-                                    <div class="shareicon member-glenn">
+                                <div class="glenn " data-target="0">
+                                    <div class="shareicon member-glenn" >
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </div></a>
+                                    </div>
                                 </div>
                                 
                             </li>
                             <li>
-                                <div class="glenn">
-                                     <a href="https://twitter.com/home?status=https%3A//www.vacations-abroad.com/contest.aspx" target="_blank"><div class="shareicon member-glenn"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+                                <div class="glenn" data-target="1">
+                                     <div class="shareicon member-glenn"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
                             <li>
-                                <div class="glenn">
-                                   <a href="https://pinterest.com/pin/create/button/?url=&media=https%3A//www.vacations-abroad.com/contest.aspx&description=" target="_blank"><div class="shareicon member-glenn"> <i class="fa fa-pinterest-p" aria-hidden="true"></i></div></a>
+                                <div class="glenn" data-target="2">
+                                   <div class="shareicon member-glenn"> <i class="fa fa-pinterest-p" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
                             <li>
-                                <div class="glenn">
-                                   <a href="https://plus.google.com/share?url=https%3A//www.vacations-abroad.com/contest.aspx" target="_blank"><div class="shareicon member-glenn"> <i class="fa fa-google-plus" aria-hidden="true"></i></div></a>
+                                <div class="glenn" data-target="3">
+                                  <div class="shareicon member-glenn"> <i class="fa fa-google-plus" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
                             <li>
-                                <div class="glenn">
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.vacations-abroad.com/contest.aspx&title=Contest%20for%20vacations%20abroad&summary=&source=" target="_blank"><div class="shareicon member-glenn"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a>
+                                <div class="glenn" data-target="4">
+                                    <div class="shareicon member-glenn"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                                 </div>
                                 
                             </li>
