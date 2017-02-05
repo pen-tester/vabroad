@@ -182,7 +182,7 @@ public class ContestHelper
         return contest_info;
     }
 
-    public static bool SendEmail(string toEmail, string msg)
+    public static bool SendEmail(string toEmail,string subject, string msg)
     {
         Regex regex = new Regex("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 
@@ -202,7 +202,7 @@ public class ContestHelper
         //   EmailAddress.Text : "admin@" + CommonFunctions.GetDomainName(), ConfigurationManager.AppSettings["NewOwnerEmail"]);
         // MailMessage message = new MailMessage(new MailAddress("noreply@vacations-abroad.com"), new MailAddress( owneremail));
         MailMessage message = new MailMessage("noreply@vacations-abroad.com", toEmail);
-        message.Subject = "You've sent the inquiry on vacation abroad";
+        message.Subject = subject;
         message.Body = emailbody;
         message.IsBodyHtml = true;
 

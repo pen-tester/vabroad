@@ -49,7 +49,7 @@ public partial class Contest : System.Web.UI.Page
            "Deatiled Info:<br>"
            + "UserName:{1} {2}<br> UserEmail:{3} <br> User Phone:{4} ",cont_info.Text, firstname.Text, lastname.Text, email.Text, phonenumber.Text);
 
-                ContestHelper.SendEmail("andrew.li1987@yandex.com", msg);
+                ContestHelper.SendEmail("linda@vacations-abroad.com","Notification:Someone has signed up in the Contest", msg);
 
 
                 txt_result.Text = "Thank you for your submission";

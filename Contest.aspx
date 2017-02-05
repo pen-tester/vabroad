@@ -139,7 +139,7 @@
                     <asp:TextBox ID="email" runat="server" placeholder="Email" CssClass="contestinputfield"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="emailvalid" runat="server" ForeColor="Red" ErrorMessage="Email Required" ControlToValidate="email" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="emailregular" runat="server" ForeColor="Red" ErrorMessage="Email format wrong" ControlToValidate="email" Display="Dynamic" ValidationExpression="\w+@\w{1,4}\.\w{1,4}"></asp:RegularExpressionValidator>
-                    <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber with country code" CssClass="contestinputfield"></asp:TextBox>
+                    <asp:TextBox ID="phonenumber" runat="server" placeholder="PhoneNumber with country code(ex +11231231234)" CssClass="contestinputfield"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="phonenumberregular" runat="server" ForeColor="Red" ErrorMessage="Phone Number format wrong" ControlToValidate="phonenumber" ValidationExpression="\+\d{9,}" Display="Dynamic"></asp:RegularExpressionValidator>
                     <div class="contestbox" >
                         <div>
