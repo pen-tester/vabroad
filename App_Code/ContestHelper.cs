@@ -4,7 +4,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Web;
 
 /// <summary>
@@ -180,4 +182,45 @@ public class ContestHelper
         return contest_info;
     }
 
+    public static bool SendEmail(string toEmail, string msg)
+    {
+        Regex regex = new Regex("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
+
+        // SmtpClient smtpclient = new SmtpClient(ConfigurationManager.AppSettings["SMTPServer"],
+        //   int.Parse(ConfigurationManager.AppSettings["SMTPPort"]));
+        SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
+
+        //MailMessage message = new MailMessage (IfShowContactInfo () ?
+        //    ContactEmail.Text : "ar@" + CommonFunctions.GetDomainName (), (string)PropertiesFullSet.Tables["Properties"].Rows[0]["Email"]);
+        // MailMessage message = new MailMessage("prop@vacations-abroad.com", (string)PropertiesFullSet.Tables["Properties"].Rows[0]["Email"]);
+
+        //string mailbody = msg;
+
+        string emailbody = msg;
+
+        // MailMessage message = new MailMessage(regex.Match(EmailAddress.Text).Success ?
+        //   EmailAddress.Text : "admin@" + CommonFunctions.GetDomainName(), ConfigurationManager.AppSettings["NewOwnerEmail"]);
+        // MailMessage message = new MailMessage(new MailAddress("noreply@vacations-abroad.com"), new MailAddress( owneremail));
+        MailMessage message = new MailMessage("noreply@vacations-abroad.com", toEmail);
+        message.Subject = "You've sent the inquiry on vacation abroad";
+        message.Body = emailbody;
+        message.IsBodyHtml = true;
+
+        message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
+        //message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
+
+        smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString());
+        //smtpclient.UseDefaultCredentials = false;
+
+        try
+        {
+            smtpclient.Send(message);
+        }
+        catch (Exception ex)
+        {
+            //  throw ex;
+            return false;
+        }
+         return true;
+    }
 }

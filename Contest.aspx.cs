@@ -45,6 +45,13 @@ public partial class Contest : System.Web.UI.Page
             int ret= ContestHelper.addContestEmail(Server.HtmlEncode(firstname.Text), Server.HtmlEncode(lastname.Text), Server.HtmlEncode(email.Text), Server.HtmlEncode(phonenumber.Text));
             if (ret != 0)
             {
+                string msg = String.Format("Dear Linda! <br>Someone has signed up in the contest \"{0} \"<br> Following is his information.<br>" +
+           "Deatiled Info:<br>"
+           + "UserName:{1} {2}<br> UserEmail:{3} <br> User Phone:{4} ",cont_info.Text, firstname.Text, lastname.Text, email.Text, phonenumber.Text);
+
+                ContestHelper.SendEmail("andrew.li1987@yandex.com", msg);
+
+
                 txt_result.Text = "Thank you for your submission";
                 txt_result.Visible = true;
                 firstname.Text = ""; lastname.Text = "";email.Text = ""; phonenumber.Text = "";
