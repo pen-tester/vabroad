@@ -13,7 +13,7 @@
         .contestinputfield{padding-left:10px;   display:block; margin-top:10px;margin-left:10%;width:80%;height: 2.5em;line-height: 1.42857;box-shadow: none;border:1px solid #c4ae9c;border-radius: 2px;transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;color: #39200d;font-weight: 700;}
         .contestinputfield:focus{outline: none;border-color: #ff7d26;}
 
-        .contestbox{margin:10px auto;width:80%;text-align:left;}
+        .contestbox{margin:10px auto;width:80%;text-align:left;}.contestfooter a{text-decoration:none;}
 
           .checkbox-custom, .radio-custom {
                 opacity: 0;
@@ -178,43 +178,35 @@
                 </div>
                    <div class="srow center">
                         <ul class="contest_footer_share">
-                            <li>
-                                <div class="glenn">
-                                    <div class="shareicon member-glenn">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                     </div>
-                                </div>
-                                
-                            </li>
                               <li>
                                 <div class="glenn ">
-                                    <div class="shareicon member-glenn">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    <div class="shareicon member-glenn"><a href="http://www.facebook.com/sharer.php?u=https://www.vacations-abroad.com/contest.aspx" target="_blank">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                                 
                             </li>
                             <li>
                                 <div class="glenn">
-                                    <div class="shareicon member-glenn"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                    <div class="shareicon member-glenn"> <a href="https://twitter.com/home?status=https%3A//www.vacations-abroad.com/contest.aspx"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
                                 </div>
                                 
                             </li>
                             <li>
                                 <div class="glenn">
-                                   <div class="shareicon member-glenn"> <i class="fa fa-pinterest-p" aria-hidden="true"></i></div>
+                                   <div class="shareicon member-glenn"><a href="https://pinterest.com/pin/create/button/?url=&media=https%3A//www.vacations-abroad.com/contest.aspx&description="> <i class="fa fa-pinterest-p" aria-hidden="true"></i></a></div>
                                 </div>
                                 
                             </li>
                             <li>
                                 <div class="glenn">
-                                   <div class="shareicon member-glenn"> <i class="fa fa-google-plus" aria-hidden="true"></i></div>
+                                   <div class="shareicon member-glenn"> <a href="https://plus.google.com/share?url=https%3A//www.vacations-abroad.com/contest.aspx"><i class="fa fa-google-plus" aria-hidden="true"></i></a></div>
                                 </div>
                                 
                             </li>
                             <li>
                                 <div class="glenn">
-                                    <div class="shareicon member-glenn"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                    <div class="shareicon member-glenn"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.vacations-abroad.com/contest.aspx&title=Contest%20for%20vacations%20abroad&summary=&source="><i class="fa fa-linkedin" aria-hidden="true"></i></a></div>
                                 </div>
                                 
                             </li>
