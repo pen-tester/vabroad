@@ -16,7 +16,7 @@
       .commentimgrow{margin-top:20px;} .commentrow{margin-top:10px;}.topborder{border-top:2px solid #c4d9e3; }.bottombordder{border-bottom:2px solid #c4d9e3;}
       .btnwritereview,.btnwritereview:hover{padding:5px 20px;border-radius:1em;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890;text-decoration:none;}
       .viewTitle {font-size: 16px; font-family: Verdana;    color: #1d2d33;  }
-      .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{font-size:16px;font-weight:bold;color:cornflowerblue;}.amenitybackground{background-color:#f3ede3;} .amenitybackground li{display:inline;  color:black;list-style-type:disc;list-style:disc;  padding:4px 5px;} .amenitybackground ul{color:#154890;list-style-type:disc;list-style:disc}
+      .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{font-size:16px;font-weight:bold;color:cornflowerblue;}.amenitybackground{background-color:#f3ede3;} ul.bullet li{  color:black;list-style-type:disc;list-style:disc;  padding:4px 5px;}  ul.bullet{color:#154890;list-style-type:disc;list-style:disc}
   </style>
 </asp:Content>
 
@@ -427,7 +427,7 @@
 
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br />
                     <div class="textfont amenitybackground">
-                        <ul>
+                        <ul class="bullet">
                          <li><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
                         TVs </li>
                           <% int rows = AmenitiesSet.Tables[0].Rows.Count;
