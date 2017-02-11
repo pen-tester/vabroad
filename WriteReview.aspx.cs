@@ -70,12 +70,11 @@ public partial class PropertyReview : CommonPage
                             string url = "/" + dt.Rows[0]["country"].ToString() + "/" +
                                 dt.Rows[0]["stateprovince"].ToString() + "/" + dt.Rows[0]["city"].ToString() + "/" +
                                 Request.QueryString["propID"].ToString() + "/default.aspx";
-                            Session["commentsRedirect"] = url;
-
-                            hyplnkCountryBackLink.NavigateUrl = String.Format("/{0}/default.aspx", country);
-                            hyplnkStateBackLink.NavigateUrl = String.Format("/{0}/{1}/default.aspx", country, state);
-                            hyplnkCityBack.NavigateUrl = String.Format("/{0}/{1}/{2}/default.aspx", country, state, city);
-                            hyplnkPropBack.NavigateUrl = url;         
+ 
+                            hyplnkCountryBackLink.NavigateUrl = String.Format("/{0}/default.aspx", country).ToLower().Replace(" ","_");
+                            hyplnkStateBackLink.NavigateUrl = String.Format("/{0}/{1}/default.aspx", country, state).ToLower().Replace(" ", "_");
+                            hyplnkCityBack.NavigateUrl = String.Format("/{0}/{1}/{2}/default.aspx", country, state, city).ToLower().Replace(" ", "_");
+                            hyplnkPropBack.NavigateUrl = url.ToLower().Replace(" ", "_");         
 
                             DataBind();
                         }
