@@ -15,6 +15,7 @@
   <style>
       .commentimgrow{margin-top:20px;} .commentrow{margin-top:10px;}.topborder{border-top:2px solid #c4d9e3; }.bottombordder{border-bottom:2px solid #c4d9e3;}
       .btnwritereview,.btnwritereview:hover{padding:5px 20px;border-radius:1em;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890;text-decoration:none;}
+      .viewTitle {font-size: 16px; font-family: Verdana;    color: #1d2d33;  }
   </style>
 </asp:Content>
 
@@ -395,14 +396,18 @@
     <div class="srow">
 
         <div class="TitleFont">
-            <h2 class="ViewPropertyPageFonts">
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %> is a
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %>, Rates: <%# PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>-<%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %> 
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom
-                , Sleeps <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"] %>, Minimum nightly rental - <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinimumNightlyRental"] %>.
-                <br />
-                <%# ((int)PropertiesFullSet.Tables["Properties"].Rows[0]["IfPaid"] == 1) && (bool)PropertiesFullSet.Tables["Properties"].Rows[0]["IfShowAddress"] ? "Address: " + PropertiesFullSet.Tables["Properties"].Rows[0]["Address"] : "" %>
-            </h2>
+            <div class="srow center">
+                <h2 class="viewTitle">
+                    <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %>
+                </h2><br />
+                <h2 class="ViewPropertyPageFonts">
+                    <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> Sleeps <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"] %>
+                    <br />
+                    Rates: <%# PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>-<%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %> per night. Minimum Rental - <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinimumNightlyRental"] %>. <br />
+                    <%# ((int)PropertiesFullSet.Tables["Properties"].Rows[0]["IfPaid"] == 1) && (bool)PropertiesFullSet.Tables["Properties"].Rows[0]["IfShowAddress"] ? "Address: " + PropertiesFullSet.Tables["Properties"].Rows[0]["Address"] : "" %>
+                </h2>
+
+            </div>
             <div class="textfont">
                 <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
                 TVs,
