@@ -399,7 +399,7 @@
             <div class="srow center">
                 <h2 class="viewTitle">
                     <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %>
-                </h2><br />
+                </h2>
                 <h2 class="ViewPropertyPageFonts">
                     <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> Sleeps <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"] %>
                     <br />
