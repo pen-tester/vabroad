@@ -482,6 +482,7 @@
                             </tr>
                         </table>
            </div>
+                <br />
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Amenities"] %>
   
             </div>
