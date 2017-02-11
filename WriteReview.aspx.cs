@@ -72,23 +72,10 @@ public partial class PropertyReview : CommonPage
                                 Request.QueryString["propID"].ToString() + "/default.aspx";
                             Session["commentsRedirect"] = url;
 
-                            hlkPropNum.Text = "Return to Property #" + Request.QueryString["propID"].ToString();
-                            hlkPropNum.NavigateUrl = url.Replace(' ', '_').ToLower();
-
-                            url = CommonFunctions.GetSiteAddress() + "/" + dt.Rows[0]["country"].ToString() + "/" +
-                                dt.Rows[0]["stateprovince"].ToString() + "/" + dt.Rows[0]["city"].ToString() +
-                                "/default.aspx";
-                            //hlkCity.NavigateUrl = url.Replace(' ', '_').ToLower();
-
-                            url = CommonFunctions.GetSiteAddress() + "/" + dt.Rows[0]["country"].ToString() + "/" +
-                                dt.Rows[0]["stateprovince"].ToString() +
-                                "/default.aspx";
-                            //hlkState.NavigateUrl = url.Replace(' ', '_').ToLower();
-
-                            url = CommonFunctions.GetSiteAddress() + "/" + dt.Rows[0]["country"].ToString() +
-                                "/default.aspx";
-                            //hlkCountry.NavigateUrl = url.Replace(' ', '_').ToLower();
-                            //Page.Header.Controls.Add(new LiteralControl("<link href='/css/StyleSheetBig4.css' rel='stylesheet' type='text/css'></script>"));
+                            hyplnkCountryBackLink.NavigateUrl = String.Format("/{0}/default.aspx", country);
+                            hyplnkStateBackLink.NavigateUrl = String.Format("/{0}/{1}/default.aspx", country, state);
+                            hyplnkCityBack.NavigateUrl = String.Format("/{0}/{1}/{2}/default.aspx", country, state, city);
+                            hyplnkPropBack.NavigateUrl = url;         
 
                             DataBind();
                         }

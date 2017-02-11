@@ -103,25 +103,17 @@
                   </div>
             </div>
 
+                    <div class="srow" >
+                        <asp:HyperLink ID="hyplnkCountryBackLink" CssClass="backitem" runat="server"><%=country %><<</asp:HyperLink>
+                        <asp:HyperLink ID="hyplnkStateBackLink" CssClass="backitem" runat="server"><%=state %><<</asp:HyperLink>
+                        <asp:HyperLink ID="hyplnkCityBack" CssClass="backitem" runat="server"><%=city %><<</asp:HyperLink>
+                        <asp:HyperLink ID="hyplnkPropBack" CssClass="backitem" runat="server">Property <%=propNum %></asp:HyperLink>
+                        <div class="clear"></div>
+                    </div>
        <div class="srow">
            <h1 class="ReviewTitle">Write a Review for <%=propName %> in <%=city %></h1>
        </div>
-            <div class="srow">
-               <div class="col-4">
-                <div style="float: left; text-align: left;">
-                                      
-                    <asp:Label ID="lblAddress" runat="server"></asp:Label>
-                </div>
-               </div>
-               <div class="col-8">
-                <div style="float: right;">
-                    <%-- <asp:HyperLink ID="hlkCountry" runat="server"></asp:HyperLink>,
-                    <asp:HyperLink ID="hlkState" runat="server"></asp:HyperLink>,
-                    <asp:HyperLink ID="hlkCity" runat="server"></asp:HyperLink>,--%>
-                    <asp:HyperLink ID="hlkPropNum" runat="server"></asp:HyperLink>
-                </div>
-               </div>
-           </div>
+
            <div class="clear"></div>
         <div class="newline">
             <div style="width: 100%; min-height: 400px; float: left;">

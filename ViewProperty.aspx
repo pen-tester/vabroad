@@ -717,10 +717,10 @@
                         </div>
                         </div>
                         <div class="col-12">
-                            <div class="centered topborder bottombordder">
+                            <div class="centered">
                             <% string st="";
                                 if (AuthenticationManager.IfAdmin) st = "?propid=" + propertyid; %>
-                             <a href='writereview.aspx<%=st %>'>Write a Review</a>
+                             <a href='writereview.aspx' class="btnsigns">Write a Review</a>
                             </div>
                         </div>
                     </div>
