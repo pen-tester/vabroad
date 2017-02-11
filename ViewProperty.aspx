@@ -425,7 +425,7 @@
             </ul>
             <div id="tabs-1"  class="tab-content current textfont">
 
-                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br />
+                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br /><br />
                     <div class="textfont amenitybackground">
                        
                         <span class="dotstyle">&#9679;</span> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
