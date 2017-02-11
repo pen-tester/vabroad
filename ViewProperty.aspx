@@ -16,7 +16,7 @@
       .commentimgrow{margin-top:20px;} .commentrow{margin-top:10px;}.topborder{border-top:2px solid #c4d9e3; }.bottombordder{border-bottom:2px solid #c4d9e3;}
       .btnwritereview,.btnwritereview:hover{padding:5px 20px;border-radius:1em;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890;text-decoration:none;}
       .viewTitle {font-size: 16px; font-family: Verdana;    color: #1d2d33;  }
-      .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{font-size:16px;font-weight:bold;color:cornflowerblue;}.amenitybackground{background-color:#f3ede3;} .amenitybackground li{display:inline;  color:black;list-style-type:circle; padding:4px 5px;} .amenitybackground ul{color:#154890;list-style-type:circle;}
+      .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{font-size:16px;font-weight:bold;color:cornflowerblue;}.amenitybackground{background-color:#f3ede3;} .amenitybackground li{display:inline;  color:black;list-style-type:circle;list-style:circle;  padding:4px 5px;} .amenitybackground ul{color:#154890;list-style:circle;list-style-type:circle;}
   </style>
 </asp:Content>
 
