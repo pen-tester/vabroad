@@ -408,23 +408,7 @@
                 </h2>
 
             </div>
-            <div class="textfont">
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
-                TVs,
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumVCRs"] %>
-                VCRs,
-                <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumCDPlayers"] %>
-                CD Players<%# (AmenitiesSet.Tables["Amenities"].Rows.Count > 0) ? "," : "." %>
-                <asp:Repeater ID="Repeater9" runat="server" DataMember="Amenities" DataSource="<%# AmenitiesSet %>">
-                    <HeaderTemplate>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <%# DataBinder.Eval(Container.DataItem, "Amenity", "{0}") %><%# !CommonFunctions.IfLastRow ((System.Data.DataRowView)Container.DataItem) ? "," : "." %>
-                    </ItemTemplate>
-                    <FooterTemplate>
-                    </FooterTemplate>
-                </asp:Repeater>
-            </div>
+
         </div>
          <div class="clear"></div>
         <div class="srow">
@@ -441,8 +425,24 @@
             <div id="tabs-1"  class="tab-content current textfont">
 
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br />
-                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Amenities"] %>
-           <div class ="center" style="margin-top:30px;">
+                    <div class="textfont">
+                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
+                        TVs,
+                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumVCRs"] %>
+                        VCRs,
+                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumCDPlayers"] %>
+                        CD Players<%# (AmenitiesSet.Tables["Amenities"].Rows.Count > 0) ? "," : "." %>
+                        <asp:Repeater ID="Repeater9" runat="server" DataMember="Amenities" DataSource="<%# AmenitiesSet %>">
+                            <HeaderTemplate>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# DataBinder.Eval(Container.DataItem, "Amenity", "{0}") %><%# !CommonFunctions.IfLastRow ((System.Data.DataRowView)Container.DataItem) ? "," : "." %>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                    </div>
+                <div class ="center" style="margin-top:30px;">
                         <table class="PropTable10">
                             <tr>
                                 <asp:Repeater ID="Repeater5" runat="server" DataMember="RoomInfo" DataSource="<%# RoomsFurnitureSet %>">
@@ -480,6 +480,8 @@
                             </tr>
                         </table>
            </div>
+                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Amenities"] %>
+  
             </div>
 
             <div id="tabs-2"  class="tab-content">
