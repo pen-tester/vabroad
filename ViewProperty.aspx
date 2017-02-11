@@ -427,9 +427,9 @@
 
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br />
                     <div class="textfont amenitybackground">
-                        <ul class="bullet">
-                         <li><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
-                        TVs </li>
+                     
+                        <span class="dotstyle">&#9679;</span> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
+                        TVs 
                           <% int rows = AmenitiesSet.Tables[0].Rows.Count;
                             for (int rind = 0; rind < rows; rind++)
                             {
@@ -437,11 +437,11 @@
                                 if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Coffee Pot" && ame_pro != "Alarm Clock")
                                 {
                                %>
-                              <li><%=ame_pro %></li>
+                              <span class="dotstyle">&#9679;</span> <%=ame_pro %>
                             <%}
                               }%>
 
-                        </ul>    
+      
                     </div>
                 <div class ="center" style="margin-top:30px;">
                         <table class="PropTable10">
