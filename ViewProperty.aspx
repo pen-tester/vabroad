@@ -430,15 +430,17 @@
                         <ul>
                          <li><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
                         TVs </li>
-                        <asp:Repeater ID="Repeater9" runat="server" DataMember="Amenities" DataSource="<%# AmenitiesSet %>">
-                            <HeaderTemplate>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <li><%# DataBinder.Eval(Container.DataItem, "Amenity", "{0}") %> </li>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                            </FooterTemplate>
-                        </asp:Repeater>
+                          <% int rows = AmenitiesSet.Tables[0].Rows.Count;
+                            for (int rind = 0; rind < rows; rind++)
+                            {
+                                string ame_pro = AmenitiesSet.Tables[0].Rows[rind][1].ToString();
+                                if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Coffee Pot" && ame_pro != "Alarm Clock")
+                                {
+                               %>
+                              <li><%=ame_pro %></li>
+                            <%}
+                              }%>
+
                         </ul>    
                     </div>
                 <div class ="center" style="margin-top:30px;">
