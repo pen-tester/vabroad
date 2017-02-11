@@ -17,7 +17,7 @@
       .btnwritereview,.btnwritereview:hover{padding:5px 20px;border-radius:1em;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890;text-decoration:none;}
       .viewTitle {font-size: 16px; font-family: Verdana;    color: #1d2d33;  }
       .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{font-size:16px;font-weight:bold;color:#154890;}.amenitybackground{background-color:#f3ede3;} 
-      .PropTable10 td{text-align:center;width:250px;color:#000;border:1px solid #cdbfac}
+      .PropTable10 td{text-align:center;width:250px;color:#000;border:1px solid #cdbfac}.bulletwrap{display:inline;padding:4px 5px;}
   </style>
 </asp:Content>
 
@@ -428,17 +428,17 @@
 
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br /><br />
                     <div class="textfont amenitybackground">
-                       
+                       <div class="bulletwrap">
                         <span class="dotstyle">&#9679;</span> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
-                        TVs 
+                        TVs </div>
                           <% int rows = AmenitiesSet.Tables[0].Rows.Count;
                             for (int rind = 0; rind < rows; rind++)
                             {
                                 string ame_pro = AmenitiesSet.Tables[0].Rows[rind][1].ToString();
-                                if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Coffee Pot" && ame_pro != "Alarm Clock")
+                                if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Alarm Clock")
                                 {
                                %>
-                              <span class="dotstyle">&#9679;</span> <%=ame_pro %>
+                             <div class="bulletwrap"> <span class="dotstyle">&#9679;</span> <%=ame_pro %></div>
                             <%}
                               }%>
 
