@@ -720,8 +720,8 @@
                         <div class="col-12">
                             <div class="centered">
                             <% string st="";
-                                if (AuthenticationManager.IfAdmin) st = "?propid=" + propertyid; %>
-                             <a href='writereview.aspx' class="btnwritereview">Write a Review</a>
+                                if (AuthenticationManager.IfAdmin && Request.QueryString["simple"]=="true") st = "?propid=" + propertyid; %>
+                             <a href='writereview.aspx<%=st %>' class="btnwritereview">Write a Review</a>
                             </div>
                         </div>
                     </div>

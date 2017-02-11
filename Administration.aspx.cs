@@ -202,7 +202,7 @@ public partial class Administration : AdminPage
             return;
         }
 
-        Response.Redirect(CommonFunctions.PrepareURL("ViewProperty.aspx?UserID=" + AuthenticationManager.UserID.ToString() + "&PropertyID=" + propertyid.ToString(), "Administration"), true);
+        Response.Redirect(CommonFunctions.PrepareURL("ViewProperty.aspx?Simple=true&UserID=" + AuthenticationManager.UserID.ToString() + "&PropertyID=" + propertyid.ToString(), "Administration"), true);
     }
 
     protected void EditTextButton_Click(object sender, System.EventArgs e)
