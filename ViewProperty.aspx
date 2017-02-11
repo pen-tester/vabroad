@@ -16,7 +16,7 @@
       .commentimgrow{margin-top:20px;} .commentrow{margin-top:10px;}.topborder{border-top:2px solid #c4d9e3; }.bottombordder{border-bottom:2px solid #c4d9e3;}
       .btnwritereview,.btnwritereview:hover{padding:5px 20px;border-radius:1em;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890;text-decoration:none;}
       .viewTitle {font-size: 16px; font-family: Verdana;    color: #1d2d33;  }
-      .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{color:#154890;}.amenitybackground{background-color:#f3ede3;}
+      .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{color:cornflowerblue;}.amenitybackground{background-color:#f3ede3;}
   </style>
 </asp:Content>
 
@@ -428,16 +428,16 @@
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br />
                     <div class="textfont amenitybackground">
                         <span class="dotstyle">.</span><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
-                        TVs,
+                        TVs 
                         <span class="dotstyle">.</span><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumVCRs"] %>
-                        VCRs,
+                        VCRs 
                         <span class="dotstyle">.</span><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumCDPlayers"] %>
-                        CD Players<%# (AmenitiesSet.Tables["Amenities"].Rows.Count > 0) ? "," : "." %>
+                        CD Players 
                         <asp:Repeater ID="Repeater9" runat="server" DataMember="Amenities" DataSource="<%# AmenitiesSet %>">
                             <HeaderTemplate>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <span class="dotstyle">.</span><%# DataBinder.Eval(Container.DataItem, "Amenity", "{0}") %><%# !CommonFunctions.IfLastRow ((System.Data.DataRowView)Container.DataItem) ? "," : "." %>
+                                <span class="dotstyle">.</span><%# DataBinder.Eval(Container.DataItem, "Amenity", "{0}") %> 
                             </ItemTemplate>
                             <FooterTemplate>
                             </FooterTemplate>
