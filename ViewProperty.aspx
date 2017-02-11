@@ -435,7 +435,7 @@
                             for (int rind = 0; rind < rows; rind++)
                             {
                                 string ame_pro = AmenitiesSet.Tables[0].Rows[rind][1].ToString();
-                                if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Alarm Clock")
+                                if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Alarm Clock" && ame_pro !="Coffee Pot")
                                 {
                                %>
                              <div class="bulletwrap"> <span class="dotstyle">&#9679;</span> <%=ame_pro %></div>
