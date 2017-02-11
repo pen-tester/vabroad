@@ -427,21 +427,19 @@
 
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br />
                     <div class="textfont amenitybackground">
-                        <span class="dotstyle">.</span><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
-                        TVs 
-                        <span class="dotstyle">.</span><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumVCRs"] %>
-                        VCRs 
-                        <span class="dotstyle">.</span><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumCDPlayers"] %>
-                        CD Players 
+                        <ul>
+                         <li><%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
+                        TVs </li>
                         <asp:Repeater ID="Repeater9" runat="server" DataMember="Amenities" DataSource="<%# AmenitiesSet %>">
                             <HeaderTemplate>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <span class="dotstyle">.</span><%# DataBinder.Eval(Container.DataItem, "Amenity", "{0}") %> 
+                                <li><%# DataBinder.Eval(Container.DataItem, "Amenity", "{0}") %> </li>
                             </ItemTemplate>
                             <FooterTemplate>
                             </FooterTemplate>
                         </asp:Repeater>
+                        </ul>    
                     </div>
                 <div class ="center" style="margin-top:30px;">
                         <table class="PropTable10">
