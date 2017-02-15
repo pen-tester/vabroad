@@ -338,16 +338,19 @@ public partial class ViewProperty : CommonPage
         ContactEmail.Enabled = true;
         //PropertyInform pinfo = BookDBProvider.getPropertyInfo(propertyid);
         userinfo = BookDBProvider.getDetailedUserInfo(pinfo.UserID);
-        if (AuthenticationManager.IfAuthenticated && User.Identity.IsAuthenticated)
+        if (!IsPostBack)
         {
-            //userinfo = BookDBProvider.getDetailedUserInfo(AuthenticationManager.UserID);
-            duserinfo = BookDBProvider.getUserInfo(AuthenticationManager.UserID);
+            if (AuthenticationManager.IfAuthenticated && User.Identity.IsAuthenticated)
+            {
+                //userinfo = BookDBProvider.getDetailedUserInfo(AuthenticationManager.UserID);
+                duserinfo = BookDBProvider.getUserInfo(AuthenticationManager.UserID);
 
-            //ContactName.Text = duserinfo.FirstName + " " + duserinfo.LastName;
-            ContactName.Text = duserinfo.firstname + " " + duserinfo.lastname;
-            //ContactEmail.Text = userinfo.Email;
-            ContactEmail.Text = duserinfo.email;
-            ContactEmail.Enabled = false;
+                //ContactName.Text = duserinfo.FirstName + " " + duserinfo.LastName;
+                ContactName.Text = duserinfo.firstname + " " + duserinfo.lastname;
+                //ContactEmail.Text = userinfo.Email;
+                ContactEmail.Text = duserinfo.email;
+                ContactEmail.Enabled = false;
+            }
         }
         
 
