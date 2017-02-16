@@ -891,9 +891,9 @@ You have received an inquiry through the vacations-abroad.com website for proper
           message.IsBodyHtml = true;
 
           message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
-          //message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
-
-          smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString());
+        //message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
+        smtpclient.UseDefaultCredentials = false;
+        smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString());
          //smtpclient.UseDefaultCredentials = false;
 
          try
