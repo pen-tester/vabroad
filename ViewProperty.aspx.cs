@@ -1206,7 +1206,7 @@ Contact telephone:{8} <br>";
 
 
                 BookDBProvider.SendEmail(ownerinfo.email, "You've received an inquiry for " + url, msg);
-                BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0}'ve received an inquiry for {1}",ownerinfo.name,url), admin_msg);
+                BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}",ownerinfo.name,url), admin_msg);
                 BookDBProvider.sendEmailToTraveler(contactname, contactemail,
                                contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
 
