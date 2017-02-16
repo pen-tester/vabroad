@@ -739,7 +739,43 @@ public class BookDBProvider
          return par;
      }
 
-     public static bool sendEmailToOwner(string ownername,string owneremail, string name, string email, string arrive,int nights, int adults, int child, string comment, string telephone, string propname)
+
+    public static bool SendEmail(string toEmail, string subject, string msg)
+    {
+        //SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
+
+        string emailbody = msg;
+
+        MailMessage message = new MailMessage("noreply@vacations-abroad.com", toEmail);
+        message.Subject = subject;
+        message.Body = emailbody;
+        message.IsBodyHtml = true;
+
+        message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
+
+        SmtpClient smtpclient = new SmtpClient("smtp.vacations-abroad.com", 25);
+
+        string crediental = System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString();
+        smtpclient.UseDefaultCredentials = false;
+
+        smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", crediental);
+
+        //smtpclient.UseDefaultCredentials = false;
+
+        try
+        {
+            smtpclient.Send(message);
+        }
+        catch (Exception ex)
+        {
+           
+            throw ex;
+            // return false;
+        }
+        return true;
+    }
+
+    public static bool sendEmailToOwner(string ownername,string owneremail, string name, string email, string arrive,int nights, int adults, int child, string comment, string telephone, string propname)
      {
          Regex regex = new Regex("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 
@@ -751,9 +787,8 @@ public class BookDBProvider
          //    ContactEmail.Text : "ar@" + CommonFunctions.GetDomainName (), (string)PropertiesFullSet.Tables["Properties"].Rows[0]["Email"]);
          // MailMessage message = new MailMessage("prop@vacations-abroad.com", (string)PropertiesFullSet.Tables["Properties"].Rows[0]["Email"]);
 
-         string mailbody = "Dear {0}!<br> This is an inquiry for your property {1} on vacation-abroad.com.<br>" +
-             "Deatiled inquiry:<br>"
-             + "UserName:{2}<br> UserEmail:{3} <br> ArrivalDate:{4} <br> Nights:{5}<br> Adults:{6} Children:{7}<br>Telephone:{8} Comment:{9}<br>";
+         string mailbody = @"Dear {0}!<br> To respond to this inquiry click here:{1}<br>
+You have received an inquiry through the vacations-abroad.com website for property";
 
          string emailbody = String.Format(mailbody, ownername, propname, name,email, arrive, nights,adults, child,telephone,comment);
 
@@ -777,8 +812,8 @@ public class BookDBProvider
          }
          catch (Exception ex)
          {
-             //throw ex;
-             return false;
+             throw ex;
+            // return false;
          }
          return true;
 

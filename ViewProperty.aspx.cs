@@ -1131,7 +1131,7 @@ public partial class ViewProperty : CommonPage
         if (!Page.IsValid) return;
 
         
-
+        /*
         if (!User.Identity.IsAuthenticated || !AuthenticationManager.IfAuthenticated)
         {
             FormsAuthentication.SignOut();
@@ -1144,7 +1144,7 @@ public partial class ViewProperty : CommonPage
                 Response.Redirect("/accounts/login.aspx?type=0&Name="+ContactName.Text+"&Em="+ContactEmail.Text+"&ReturnUrl=" + Request.RawUrl);
             }
         }
-
+        */
         
         if (Page.IsValid)
         {
@@ -1163,26 +1163,52 @@ public partial class ViewProperty : CommonPage
             UserInfo ownerinfo = BookDBProvider.getUserInfo(ownerid);
             UserInfo userinfo = BookDBProvider.getUserInfo(userid);
 
-            PropertyInform propinfo = BookDBProvider.getPropertyInfo(propertyid);
+            //PropertyInform propinfo = BookDBProvider.getPropertyInfo(propertyid);
+            PropertyDetailInfo propinfo = AjaxProvider.getPropertyDetailInfo(propertyid);
 
-        //   Response.Write(String.Format("{0}   {1} {2} {3}", ownerinfo.id, ownerinfo.name, ownerinfo.email, ownerinfo.lastname));
-         //  Response.Write(String.Format("{0}   {1} {2} {3}", userinfo.id, userinfo.name, userinfo.email, userinfo.lastname));
-          //  return;
+            //   Response.Write(String.Format("{0}   {1} {2} {3}", ownerinfo.id, ownerinfo.name, ownerinfo.email, ownerinfo.lastname));
+            //  Response.Write(String.Format("{0}   {1} {2} {3}", userinfo.id, userinfo.name, userinfo.email, userinfo.lastname));
+            //  return;
+            /*
+                        BookDBProvider.sendEmailToAdmin(ownerinfo.name, ownerinfo.email,
+                            contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.name);
 
-            BookDBProvider.sendEmailToAdmin(ownerinfo.name, ownerinfo.email,
+                        BookDBProvider.sendEmailToOwner(ownerinfo.name, ownerinfo.email,
+                            contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.name);
+
+                        BookDBProvider.sendEmailToTraveler(userinfo.name, userinfo.email,
+                            contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.name);
+
+                        BookDBProvider.sendEmailToTraveler(contactname, contactemail,
                 contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.name);
-
-            BookDBProvider.sendEmailToOwner(ownerinfo.name, ownerinfo.email,
-                contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.name);
-
-            BookDBProvider.sendEmailToTraveler(userinfo.name, userinfo.email,
-                contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.name);
-
-            BookDBProvider.sendEmailToTraveler(contactname, contactemail,
-    contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.name);
+                */
 
             //adding sending email to emailquote table.
-            BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment,phone,userid,  propertyid, ownerid,nights);
+            if(BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment,phone,userid,  propertyid, ownerid, nights))
+            {
+                //Send Email to owner
+                string ownermsg_format = @"Dear {0} <br><br>
+To respond to this inquiry click here:<a href='https://www.vacations-abroad.com/userowner/listings.aspx'>{1}</a> <br>
+You have received an inquiry through the vacations-abroad.com website for property '{2}' ({3}). <br.
+This is the URL: <br>
+<a href='{4}'>{4}</a> <br>
+Has been inquired about by IP Address:{5} <br>
+{6} ({7}, contact telephone: {8}). <br>
+Inquiry data: <br>
+Arrival date:{9} <br>
+Length of Stay:{10} <br>
+Number of adults:{11} <br>
+Number of children:{12} <br>
+Contact telephone:{8} <br>";
+                string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID);
+                string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
+
+                BookDBProvider.SendEmail(ownerinfo.email, "You've received an inquiry for " + url, msg);
+                BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0}'ve received an inquiry for {1}",ownerinfo.name,url), msg);
+                BookDBProvider.sendEmailToTraveler(contactname, contactemail,
+                               contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
+
+            }
 
         }
     }
