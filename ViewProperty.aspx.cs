@@ -1202,9 +1202,11 @@ Number of children:{12} <br>
 Contact telephone:{8} <br>";
                 string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID);
                 string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
+                string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br> {0}", msg);
+
 
                 BookDBProvider.SendEmail(ownerinfo.email, "You've received an inquiry for " + url, msg);
-                BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0}'ve received an inquiry for {1}",ownerinfo.name,url), msg);
+                BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0}'ve received an inquiry for {1}",ownerinfo.name,url), admin_msg);
                 BookDBProvider.sendEmailToTraveler(contactname, contactemail,
                                contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
 
