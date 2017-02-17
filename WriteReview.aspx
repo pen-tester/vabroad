@@ -116,8 +116,8 @@
 
            <div class="clear"></div>
         <div class="newline">
-            <div style="width: 100%; min-height: 400px; float: left;">
-                <div id="divLftContent" style="width: 45%; float: left; text-align: left;">
+            <div class="srow">
+                <div id="divLftContent" class="col-5 col-x-4">
                     <div style="float: left;">
                         <img src="<%=imgurl %>" alt="<%=String.Format("Review of {0} in {1} {2}",propName, city,state) %>"  title="<%=String.Format("Review of {0} in {1} {2}",propName, city,state) %>" />
                         <br />
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="divRightContent" style="width: 55%; float: right;">
+                <div id="divRightContent" class="col-7 col-x-4">
                     <div style="width: 98%; text-align: right;">
                         <table width="100%">
                             <tr>

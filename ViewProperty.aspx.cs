@@ -1187,7 +1187,7 @@ public partial class ViewProperty : CommonPage
             if(BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment,phone,userid,  propertyid, ownerid, nights))
             {
                 //Send Email to owner
-                string ownermsg_format = @"Dear {0} <br><br>
+                /*string ownermsg_format = @"Dear {0} <br><br>
 To respond to this inquiry click here:<a href='https://www.vacations-abroad.com/userowner/listings.aspx'>{1}</a> <br>
 You have received an inquiry through the vacations-abroad.com website for property '{2}' ({3}). <br.
 This is the URL: <br>
@@ -1199,16 +1199,28 @@ Arrival date:{9} <br>
 Length of Stay:{10} <br>
 Number of adults:{11} <br>
 Number of children:{12} <br>
-Contact telephone:{8} <br>";
-                string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID);
-                string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
+Contact telephone:{8} <br>";*/
+                string ownermsg_format= @"Dear {0} <br><br>
+{10} has received the following inqury. <br>
+This is the URL: <br>
+<a href='{2}'>{2}</a> <br>
+Has been inquired about by IP Address:{3} <br>
+Name: {4}  <br>
+Arrival date:{5} <br>
+Length of Stay:{6} <br>
+Number of adults:{7} <br>
+Number of children:{8} <br>
+Contact telephone:{9} <br>
+<b>To respond to this inquiry, just reply with your response and it will be sent to person making the quiry.";
+                string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID).ToLower().Replace(" ","_");
+                //string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
+                string msg = String.Format(ownermsg_format, ownerinfo.name, contactemail, url, Request.UserHostAddress, contactname, arrivedate, nights, adults, children,phone,propinfo.Name2);
                 string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br> {0}", msg);
 
 
-                BookDBProvider.SendEmail(ownerinfo.email, "You've received an inquiry for " + url, msg);
+                BookDBProvider.SendEmail(ownerinfo.email, url, msg);
                 BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}",ownerinfo.name,url), admin_msg);
-                BookDBProvider.sendEmailToTraveler(contactname, contactemail,
-                               contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
+                BookDBProvider.sendEmailToTraveler(contactname, contactemail,contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
 
             }
 
