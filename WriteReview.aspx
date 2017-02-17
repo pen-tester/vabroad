@@ -118,7 +118,8 @@
         <div class="newline">
             <div class="srow">
                 <div id="divLftContent" class="col-5 col-x-4">
-                    <div style="float: left;">
+                    <div class="center">
+                        <div style="float: left;margin:auto;">
                         <img src="<%=imgurl %>" alt="<%=String.Format("Review of {0} in {1} {2}",propName, city,state) %>"  title="<%=String.Format("Review of {0} in {1} {2}",propName, city,state) %>" />
                         <br />
                         <br />
@@ -153,6 +154,7 @@
                                 <input type="button" class="btnsigns" id="uploadbutton" value="Upload" onclick="UploadFile()" />
                              </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <div id="divRightContent" class="col-7 col-x-4">
