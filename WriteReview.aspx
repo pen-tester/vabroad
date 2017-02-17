@@ -118,7 +118,7 @@
         <div class="newline">
             <div class="srow">
                 <div id="divLftContent" class="col-5 col-x-4 center">
-                        <div style="margin:auto;text-align:left">
+                      <div style="margin:auto;text-align:left">
                         <img src="<%=imgurl %>" alt="<%=String.Format("Review of {0} in {1} {2}",propName, city,state) %>"  title="<%=String.Format("Review of {0} in {1} {2}",propName, city,state) %>" />
                         <br />
                         <br />
@@ -142,6 +142,7 @@
                         </span>                        <br />
                         Rate your overall stay!
                         <br />
+                        </div>
                         <%--star section--%>
                         <div class="clearfix"></div>
                         <div class="srow uploadimg">
@@ -153,7 +154,7 @@
                                 <input type="button" class="btnsigns" id="uploadbutton" value="Upload" onclick="UploadFile()" />
                              </div>
                         </div>
-                    </div>
+          
                 </div>
                 <div id="divRightContent" class="col-7 col-x-4">
                     <div style="width: 98%; text-align: right;">
