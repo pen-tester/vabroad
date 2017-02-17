@@ -142,7 +142,6 @@
                         </span>                        <br />
                         Rate your overall stay!
                         <br />
-                        </div>
                         <%--star section--%>
                         <div class="clearfix"></div>
                         <div class="srow uploadimg">
@@ -154,7 +153,7 @@
                                 <input type="button" class="btnsigns" id="uploadbutton" value="Upload" onclick="UploadFile()" />
                              </div>
                         </div>
-          
+                    </div>
                 </div>
                 <div id="divRightContent" class="col-7 col-x-4">
                     <div style="width: 98%; text-align: right;">
