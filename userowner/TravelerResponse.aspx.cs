@@ -118,7 +118,7 @@ public partial class userowner_TravelerResponse : CommonPage
         Total Due to Reserve:{13} (Nightly Rate:{14})<br>
         Cleaning Fee:{15}<br>
         Security Deposit:{16}<br>
-        Loading Tax:{17}%<br>
+        Lodging Tax:{17}%<br>
 		Comments:{18}
     </div>
   </td>

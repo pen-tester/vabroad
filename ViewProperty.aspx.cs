@@ -1232,7 +1232,7 @@ Contact telephone:{8} <br>";*/
 		Date of Arrival: {7} <br>
 		{8} of nights <br>
 		# of Guests:  {9} Adults, {10} children <br>
-		Renter¡¯s Name: {11}<br><br><br>
+		Renter's Name: {11}<br><br><br>
 		Comments:{12}
     </div>
   </td>
