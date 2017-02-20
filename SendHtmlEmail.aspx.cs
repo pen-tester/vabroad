@@ -26,10 +26,12 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     <td colspan='2' style='text-align: center;width:600px'>
         <div>
        	  <img src='https://www.vacations-abroad.com/images/AfricaBeachVacations.jpg' title='' alt=''></img></div>
-       </div>       
-      <p style='text-align:center;'>
+       </div> 
+      <div>      
+      <p style='text-align:center;width:600px;'>
        	  Name of property:(From DB) Type of property:From DB
-       </p>       
+       </p>
+      </div>
     </td>
   </tr>
   <tr>
