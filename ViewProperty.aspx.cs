@@ -1200,25 +1200,69 @@ Length of Stay:{10} <br>
 Number of adults:{11} <br>
 Number of children:{12} <br>
 Contact telephone:{8} <br>";*/
-                string ownermsg_format= @"Dear {0} <br><br>
-{10} has received the following inqury. <br>
-This is the URL: <br>
-<a href='{2}'>{2}</a> <br>
-Has been inquired about by IP Address:{3} <br>
-Name: {4}  <br>
-Arrival date:{5} <br>
-Length of Stay:{6} <br>
-Number of adults:{7} <br>
-Number of children:{8} <br>
-Contact telephone:{9} <br>
-<b>To respond to this inquiry, just reply with your response and it will be sent to person making the quiry.</b>";
+                string ownermsg_format = @"<body>
+<table width='600px'>
+  <tr>
+    <td width='300px'><h3>Vacations Abroad</h3></td>
+    <td style='text-align: right;'>Date of Inquiry:{0}</td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+	    <div style='padding:10px 0px;text-align: center;width: 100%;background-color: #6699ff;border:1px solid #154890;'>
+	      <b>Dear {1}: You have an inquiry!</b>
+	    </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2' style='text-align: center;width:600px'>
+        <div>
+       	  <img src='https://www.vacations-abroad.com/images/{2}' title='' alt=''></img></div>
+       </div> 
+      <div>      
+      <p style='text-align:center;width:600px;'>
+       	  Name of property:{3} Type of property:{4}
+       </p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+  <td colspan='2' width='600px'>
+    <div style='width: 100%; border:1px dashed #000;padding: 15px;'>
+		<a href='{5}'>Property {6}</a> <br>
+		Date of Arrival: {7} <br>
+		{8} of nights <br>
+		# of Guests:  {9} Adults, {10} children <br>
+		Renter¡¯s Name: {11}<br><br><br>
+		Comments:{12}
+    </div>
+  </td>
+  </tr>
+  <tr>
+     <td colspan='2' width='600px'>
+       <div style='padding: 10px; width: 100% ;text-align: center;'>
+	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:10px 50px;border:1px solid #154890;cursor: pointer;color: #f86308;text-decoration: none;'>
+	      Login to Your Account to provide a response / quote.
+	    </a> 
+	    </div>    
+     </td>
+  </tr>
+  <tr>
+     <td colspan='2' width='600px'>
+       <div style='width: 100%;text-align: center;'>
+         <img alt='Vacation Abroad' title='Vacation Abroad' src='https://www.vacations-abroad.com/images/logo.png'>
+       </div>
+     </td>
+  </tr>
+</table>
+</body>
+ ";
                 string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID).ToLower().Replace(" ","_");
                 //string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
-                string msg = String.Format(ownermsg_format, ownerinfo.name, contactemail, url, Request.UserHostAddress, contactname, arrivedate, nights, adults, children,phone,propinfo.Name2);
-                string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br> {0}", msg);
+                string msg = String.Format(ownermsg_format, DateTime.Now.ToString("MM dd yyyy"), ownerinfo.firstname, propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children,  contactname, comment);
+                string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
 
 
-                BookDBProvider.SendEmail(ownerinfo.email, url, msg);
+                BookDBProvider.SendEmail(ownerinfo.email,String.Format("{0} {1},Reservation for {2}",  ownerinfo.firstname,ownerinfo.lastname, arrivedate) , msg);
                 BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}",ownerinfo.name,url), admin_msg);
                 BookDBProvider.sendEmailToTraveler(contactname, contactemail,contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
 

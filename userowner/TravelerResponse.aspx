@@ -46,9 +46,15 @@
                           <div class="form-group">
                             <label for="currency" class="normaltxt">Select Currency </label>
                              <asp:DropDownList ID="currency" runat="server" CssClass="form-control" ClientIDMode="Static">
-                                 <asp:ListItem Text="dollar" Value="0" Selected="True">
+                                 <asp:ListItem Text="USD" Value="0" Selected="True">
                                   </asp:ListItem>
-                                 <asp:ListItem Text="euro" Value="1">
+                                 <asp:ListItem Text="Euro" Value="1">
+                                  </asp:ListItem>
+                                 <asp:ListItem Text="CAD" Value="2">
+                                  </asp:ListItem>
+                                 <asp:ListItem Text="GPB" Value="3">
+                                  </asp:ListItem>
+                                 <asp:ListItem Text="AUD" Value="4">
                                   </asp:ListItem>
                              </asp:DropDownList>
                           </div>
@@ -93,7 +99,7 @@
                             <label class="normaltxt">Lodging Tax</label>
                         </div>
                         <div class="col-md-4">
-                            <asp:TextBox ID="loadingtax" runat="server" CssClass="form-control" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
+                            <asp:TextBox ID="loadingtax" runat="server" CssClass="form-control" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>%
                              <asp:RequiredFieldValidator ID="req_load" ControlToValidate="loadingtax" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_load" runat="server" ControlToValidate="loadingtax" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -118,7 +124,7 @@
 
                     <div class="row">
                         <div class="col-md-3"><label class="normaltxt">90 days prior to arrival</label></div>
-                        <div class="col-md-3"> <asp:TextBox ID="cancel90" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>
+                        <div class="col-md-3"> <asp:TextBox ID="cancel90" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>%
                              <asp:RequiredFieldValidator ID="req_90" ControlToValidate="cancel90" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_90" runat="server" ControlToValidate="cancel90" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -126,13 +132,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3"><label class="normaltxt">60 days prior to arrival</label></div>
-                        <div class="col-md-3"> <asp:TextBox ID="cancel60" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>
+                        <div class="col-md-3"> <asp:TextBox ID="cancel60" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>%
                             <asp:RequiredFieldValidator ID="req_60" ControlToValidate="cancel60" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_60" runat="server" ControlToValidate="cancel60" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3"><label class="normaltxt">30 days prior to arrival</label></div>
+                        <div class="col-md-3"><label class="normaltxt">30 days prior to arrival</label></div>%
                         <div class="col-md-3"> <asp:TextBox ID="cancel30" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="req_30" ControlToValidate="cancel30" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_30" runat="server" ControlToValidate="cancel30" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
