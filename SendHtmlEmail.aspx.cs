@@ -27,9 +27,9 @@ public partial class SendHtmlEmail : System.Web.UI.Page
         <div>
        	  <img src='https://www.vacations-abroad.com/images/AfricaBeachVacations.jpg' title='' alt=''></img></div>
        </div>       
-      <div>
+      <p style='text-align:center;'>
        	  Name of property:(From DB) Type of property:From DB
-       </div>       
+       </p>       
     </td>
   </tr>
   <tr>
