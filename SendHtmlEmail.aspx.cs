@@ -9,8 +9,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string msg = @"<html>
-<body>
+        string msg = @"
 <table width='600px'>
   < tr >
     < td width = '300px' >< h3 > Vacations Abroad </ h3 ></ td >
@@ -67,9 +66,8 @@ public partial class SendHtmlEmail : System.Web.UI.Page
                  </ td >
               </ tr >
             </ table >
-            </ body >
-            </ html > ";
-        string totraveler = @"<html>
+            ";
+        string totraveler = @"
 <body>
 <table width='600px'>
   <tr>
@@ -136,7 +134,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
   </tr>
 </table>
 </body>
-</html>";
+";
         BookDBProvider.SendEmail("andrew.li1987@yandex.com", "HtmlEmail", msg);
         BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Traveler", totraveler);
     }
