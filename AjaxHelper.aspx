@@ -18,20 +18,29 @@
     [WebMethod]
     // Get session state value.AjaxPropListSet
     public static AjaxPropListSet GetPropertyListKeyword(string keyword, int proptype, int amenitytype, int roomnum, int sorttype, int pagenum ) {
-         return SearchProvider.getAjaxPropListSet(keyword, proptype, amenitytype, roomnum,sorttype,pagenum);
+        return SearchProvider.getAjaxPropListSet(keyword, proptype, amenitytype, roomnum,sorttype,pagenum);
         // AjaxPropListSet ajx=SearchProvider.getAjaxPropListSet(keyword, proptype, amenitytype, roomnum,sorttype,pagenum);
-       // return keyword + proptype + amenitytype + roomnum+sorttype+pagenum;
-       // return keyword +ajx.allnums;
+        // return keyword + proptype + amenitytype + roomnum+sorttype+pagenum;
+        // return keyword +ajx.allnums;
 
     }
 
-   [WebMethod]
+    [WebMethod]
     // Get session state value.AjaxPropListSet
     public static AjaxPropListSet GetPropertyListCityID(int cityid, int proptype, int amenitytype, int roomnum, int sorttype, int pagenum) {
-         return SearchProvider.getAjaxPropListSetWithCityID(cityid, proptype, amenitytype, roomnum,sorttype,pagenum);
+        return SearchProvider.getAjaxPropListSetWithCityID(cityid, proptype, amenitytype, roomnum,sorttype,pagenum);
         // AjaxPropListSet ajx=SearchProvider.getAjaxPropListSet(keyword, proptype, amenitytype, roomnum,sorttype,pagenum);
-       // return keyword + proptype + amenitytype + roomnum+sorttype+pagenum;
-       // return keyword +ajx.allnums;
+        // return keyword + proptype + amenitytype + roomnum+sorttype+pagenum;
+        // return keyword +ajx.allnums;
+
+    }
+    [WebMethod]
+    // Get session state value.AjaxPropListSet
+    public static PropertyDetailInfo GetPropertyDetailInfo(int propid) {
+        return AjaxProvider.getPropertyDetailInfo(propid);
+        // AjaxPropListSet ajx=SearchProvider.getAjaxPropListSet(keyword, proptype, amenitytype, roomnum,sorttype,pagenum);
+        // return keyword + proptype + amenitytype + roomnum+sorttype+pagenum;
+        // return keyword +ajx.allnums;
 
     }
 
