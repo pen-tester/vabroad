@@ -23,7 +23,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     </td>
   </tr>
   <tr>
-    <td colspan='2' style='text-align: center;'>
+    <td colspan='2' style='text-align: center;width:600px'>
         <div>
        	  <img src='https://www.vacations-abroad.com/images/AfricaBeachVacations.jpg' title='' alt=''></img></div>
        </div>       
@@ -33,7 +33,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     </td>
   </tr>
   <tr>
-  <td colspan='2'>
+  <td colspan='2' width='600px'>
     <div style='width: 100%; border:1px dashed #000;padding: 15px;'>
 		Property # (with link to property) <br>
 		Date of Arrival: Month Date Year (input from inquiry form) <br>
@@ -49,7 +49,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
   </td>
   </tr>
   <tr>
-     <td colspan='2'>
+     <td colspan='2' width='600px'>
        <div style='padding: 10px; width: 100% ;text-align: center;'>
 	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:10px 50px;border:1px solid #154890;cursor: pointer;color: #f86308;text-decoration: none;'>
 	      Login to Your Account to provide a response / quote.
@@ -58,7 +58,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
      </td>
   </tr>
   <tr>
-     <td colspan='2'>
+     <td colspan='2' width='600px'>
        <div style='width: 100%;text-align: center;'>
          <img alt='Vacation Abroad' title='Vacation Abroad' src='https://www.vacations-abroad.com/images/logo.png'>
        </div>
@@ -135,7 +135,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
 </table>
 </body>
 ";
-        BookDBProvider.SendEmail("andrew.li1987@yandex.com", "HtmlEmail", msg);
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Traveler", totraveler);
+        BookDBProvider.SendEmail("andrew.li1987@yandex.com", "HtmlEmail", totraveler);
+        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Traveler", msg);
     }
 }
