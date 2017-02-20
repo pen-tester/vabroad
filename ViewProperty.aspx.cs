@@ -1262,7 +1262,7 @@ Contact telephone:{8} <br>";*/
                 string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
 
 
-                BookDBProvider.SendEmail(ownerinfo.email,String.Format("{0} {1},Reservation for {2}",  ownerinfo.firstname,ownerinfo.lastname, arrivedate) , msg);
+                BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com",String.Format("{0} {1},Reservation for {2} {3}",  ownerinfo.firstname,ownerinfo.lastname, arrivedate,propinfo.FileName) , msg);
                 BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}",ownerinfo.name,url), admin_msg);
                 BookDBProvider.sendEmailToTraveler(contactname, contactemail,contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
 
