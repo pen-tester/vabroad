@@ -48,7 +48,13 @@ public class AjaxProvider
                     PropertyInfo[] props = detail.GetType().GetProperties();
                     foreach (PropertyInfo prop_info in props)
                     {
-                        prop_info.SetValue(detail, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
+                        try {
+                            prop_info.SetValue(detail, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
+                        }
+                        catch(Exception ex)
+                        {
+
+                        }
 
                     }
                     
@@ -61,7 +67,7 @@ public class AjaxProvider
         }
         catch (Exception ex)
         {
-
+            
         }
         return detail;
     }
