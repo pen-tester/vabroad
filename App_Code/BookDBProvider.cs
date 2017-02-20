@@ -751,7 +751,7 @@ public class BookDBProvider
         message.Body = emailbody;
         message.IsBodyHtml = true;
 
-        message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
+        message.Body = message.Body.Replace("\r", "").Replace("\n", "");
 
         SmtpClient smtpclient = new SmtpClient("smtp.vacations-abroad.com", 25);
 
