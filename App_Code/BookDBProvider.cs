@@ -551,6 +551,7 @@ public class BookDBProvider
                                 propinfo.ContactorName = reader["ContactorName"].ToString();
                                 propinfo.ContactorEmail = reader["ContactorEmail"].ToString();
                                 propinfo.Adults = Convert.ToInt32(reader["Adults"]);
+                                propinfo.Children= Convert.ToInt32(reader["Children"]);
                                 propinfo.UserID = Convert.ToInt32(reader["UserID"]);
                                 propinfo.PropertyID = Convert.ToInt32(reader["PropertyID"]);
                                 propinfo.Nights = Convert.ToInt32(reader["Nights"]);
