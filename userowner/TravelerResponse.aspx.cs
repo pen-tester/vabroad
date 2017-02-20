@@ -47,6 +47,7 @@ public partial class userowner_TravelerResponse : CommonPage
     
     protected void SendQuote_Click(object sender, EventArgs e)
     {
+        if (!Page.IsValid) return;
        if( BookDBProvider.addEmailResponse(userid, inquiryinfo.UserID, quoteid, Convert.ToDecimal(rates.Text),
             Convert.ToDecimal(totalsum.InnerText), Convert.ToDecimal(cleaningfee.Text), Convert.ToDecimal(secdeposit.Text),
             Convert.ToDecimal(loadingtaxval.InnerText), Convert.ToDecimal(balance.Text), Convert.ToDecimal(cancel30.Text),

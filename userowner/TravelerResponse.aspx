@@ -5,7 +5,219 @@
 </asp:Content>
 
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-        <link href="/Assets/css/response.css" rel="stylesheet" />
+    <style>
+#headertitle{
+    color:#154890;
+    font-family:Verdana;
+    font-size:16px;
+}
+
+#headerlast{
+    color:black;
+    font-family:Verdana;
+    font-size:16px;
+}
+
+.normaltxt{
+    color:black;
+    font-family:Verdana;
+    font-size:12px;
+}
+
+.normalval{
+    color:#154890;
+    font-family:Verdana;
+    font-size:12px;
+}
+
+#validnumber{
+    width:40px;
+}
+
+.formborder{
+    margin-top:15px;
+    border:3px solid #e1d4c0;
+    border-radius:3px;
+    background-color:#fff;
+     padding:50px;
+}
+
+.listingpadding{
+    margin-top:50px;
+    text-align:center;
+    border:3px solid black;
+    border-radius:3px;
+    background-color:#f3ede3;
+    padding-top:10px;
+    padding-bottom:10px;    
+    margin-bottom:10px;
+}
+
+.borderpane{
+    text-align:center;
+    border:3px solid black;
+    border-radius:3px;
+    background-color:#f3ede3;
+    padding-top:10px;
+    padding-bottom:10px;    
+}
+
+.textcenter{
+    text-align:center;
+}
+
+
+.formmargin{
+    margin-bottom:200px;
+}
+
+.tablepanel{
+    padding:10px;
+    margin-left:3px;
+    margin-right:3px;
+    border:1px solid #e1d4c0;
+}
+
+.formpadding{
+    padding:20px;
+}
+
+.formcontrolmargin{
+    margin-top:10px;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.formcommadbt{
+    font-size:10px;
+    font-family:Verdana;
+    margin-left:1px;
+    margin-right:1px;
+    float:left;
+}
+
+.buttongroup{
+    margin-left:4px;
+}
+.btgroupcontainer{
+    width:400px;
+    background-color:white;
+    border:none;
+    margin-right:0px;
+    padding:0px;
+}
+
+.pagewidth{
+    width:80%;
+    margin-left:10%;
+}
+
+.smallwidth{ width:60px;}
+
+.formtable{
+    background-color:#fff;
+}
+
+.top_formrow { margin-top:20px; }
+
+.tab-pane {
+    background: white;
+    box-shadow: 0 0 4px rgba(0,0,0,.4);
+    border-radius: 0;
+    padding: 10px;
+}
+
+.tabback{
+    background-color:white;
+    padding-top:10px;
+
+}
+
+.normalmargin{
+    margin-left:20px;
+    margin-right:20px;
+}
+
+#exTab3{
+    background-color:white;
+    padding:5px 5px 5px;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.tablerow{
+    background-color:#154890;
+}
+
+.titletxt{
+    font-family:Verdana;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.normalbackground{
+    padding:10px;
+    background-color:#f3ede3;
+}
+
+.headerbartxt{
+    color:orangered;
+    font-size:16px;
+    font-weight:bold;
+    padding-left:20px;
+}
+
+.companyname{
+    margin-top:30px;
+    font-size:80px;
+}
+
+.companyname a:hover {
+    text-decoration: none !important;
+    color:dimgray;
+}
+
+.footermargin{
+
+}
+
+.dropdown-menu .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+}
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navigation{
+    border-top:1px solid #e1d4c0;
+    color:#323e4f;
+}
+
+.bottommargin{
+    margin-bottom:200px;
+}
+
+.navigation ul li:hover{
+    color:azure;
+}
+.formtxtbox{
+    display:inline-block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+    </style>
 </asp:Content>
 
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
@@ -45,7 +257,7 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="currency" class="normaltxt">Select Currency </label>
-                             <asp:DropDownList ID="currency" runat="server" CssClass="form-control" ClientIDMode="Static">
+                             <asp:DropDownList ID="currency" runat="server" CssClass="formtxtbox" ClientIDMode="Static">
                                  <asp:ListItem Text="USD" Value="0" Selected="True">
                                   </asp:ListItem>
                                  <asp:ListItem Text="Euro" Value="1">
@@ -75,7 +287,7 @@
                             <label class="normaltxt">Cleaning Fee</label>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
-                            <asp:TextBox ID="cleaningfee" runat="server" CssClass="form-control" ClientIDMode="Static"  AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
+                            <asp:TextBox ID="cleaningfee" runat="server" CssClass="formtxtbox" ClientIDMode="Static"  AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="req_cleanfee" ControlToValidate="cleaningfee" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_cleanfee" runat="server" ControlToValidate="cleaningfee" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -87,7 +299,7 @@
                             <label class="normaltxt">Security Deposit</label>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
-                            <asp:TextBox ID="secdeposit" runat="server" CssClass="form-control" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
+                            <asp:TextBox ID="secdeposit" runat="server" CssClass="formtxtbox" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="req_secd" ControlToValidate="secdeposit" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_secd" runat="server" ControlToValidate="secdeposit" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -99,7 +311,7 @@
                             <label class="normaltxt">Lodging Tax</label>
                         </div>
                         <div class="col-md-4">
-                            <asp:TextBox ID="loadingtax" runat="server" CssClass="form-control" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>%
+                            <asp:TextBox ID="loadingtax" runat="server" CssClass="formtxtbox" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>%
                              <asp:RequiredFieldValidator ID="req_load" ControlToValidate="loadingtax" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_load" runat="server" ControlToValidate="loadingtax" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -138,8 +350,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3"><label class="normaltxt">30 days prior to arrival</label></div>%
-                        <div class="col-md-3"> <asp:TextBox ID="cancel30" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>
+                        <div class="col-md-3"><label class="normaltxt">30 days prior to arrival</label></div>
+                        <div class="col-md-3"> <asp:TextBox ID="cancel30" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>>%
                             <asp:RequiredFieldValidator ID="req_30" ControlToValidate="cancel30" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_30" runat="server" ControlToValidate="cancel30" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
