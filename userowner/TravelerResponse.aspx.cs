@@ -88,7 +88,7 @@ public partial class userowner_TravelerResponse : CommonPage
   <tr>
     <td colspan='2' style='text-align: center;width:600px;'>
         <div>
-          <img src='https://www.vacations-abroad.com/images/{2}' title='' alt=''></div>
+          <img src='https://www.vacations-abroad.com/images/{2}' title='' alt=''></img></div>
        </div>       
       <div>      
       <p style='text-align:center;width:600px;'>
@@ -148,6 +148,6 @@ public partial class userowner_TravelerResponse : CommonPage
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), String.Format("Dear Linda, The respond is following.<br> {0}", msg));
 
-        Response.Redirect("/userowner/listings.aspx");
+        Response.Redirect("/userowner/listings.aspx?userid="+userid);
     }
 }
