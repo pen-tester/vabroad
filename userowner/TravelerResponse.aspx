@@ -287,7 +287,7 @@ ul {
                             <label class="normaltxt">Cleaning Fee</label>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
-                            <asp:TextBox ID="cleaningfee" runat="server" CssClass="formtxtbox" ClientIDMode="Static"  AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
+                            <asp:TextBox ID="cleaningfee" runat="server" ClientIDMode="Static"  AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="req_cleanfee" ControlToValidate="cleaningfee" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_cleanfee" runat="server" ControlToValidate="cleaningfee" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -299,7 +299,7 @@ ul {
                             <label class="normaltxt">Security Deposit</label>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
-                            <asp:TextBox ID="secdeposit" runat="server" CssClass="formtxtbox" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
+                            <asp:TextBox ID="secdeposit" runat="server" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="req_secd" ControlToValidate="secdeposit" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_secd" runat="server" ControlToValidate="secdeposit" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -311,7 +311,7 @@ ul {
                             <label class="normaltxt">Lodging Tax</label>
                         </div>
                         <div class="col-md-4">
-                            <asp:TextBox ID="loadingtax" runat="server" CssClass="formtxtbox" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>%
+                            <asp:TextBox ID="loadingtax" runat="server" Width="90px" ClientIDMode="Static" AutoPostBack="true" OnTextChanged="rates_TextChanged"></asp:TextBox>%
                              <asp:RequiredFieldValidator ID="req_load" ControlToValidate="loadingtax" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_load" runat="server" ControlToValidate="loadingtax" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -336,7 +336,7 @@ ul {
 
                     <div class="row">
                         <div class="col-md-3"><label class="normaltxt">90 days prior to arrival</label></div>
-                        <div class="col-md-3"> <asp:TextBox ID="cancel90" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>%
+                        <div class="col-md-3"> <asp:TextBox ID="cancel90" Width="90px"  CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>%
                              <asp:RequiredFieldValidator ID="req_90" ControlToValidate="cancel90" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_90" runat="server" ControlToValidate="cancel90" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
@@ -344,14 +344,14 @@ ul {
                     </div>
                     <div class="row">
                         <div class="col-md-3"><label class="normaltxt">60 days prior to arrival</label></div>
-                        <div class="col-md-3"> <asp:TextBox ID="cancel60" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>%
+                        <div class="col-md-3"> <asp:TextBox ID="cancel60" Width="90px" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>%
                             <asp:RequiredFieldValidator ID="req_60" ControlToValidate="cancel60" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_60" runat="server" ControlToValidate="cancel60" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3"><label class="normaltxt">30 days prior to arrival</label></div>
-                        <div class="col-md-3"> <asp:TextBox ID="cancel30" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>>%
+                        <div class="col-md-3"> <asp:TextBox ID="cancel30" Width="90px" CssClass="normalval" ClientIDMode="Static" runat="server"></asp:TextBox>%
                             <asp:RequiredFieldValidator ID="req_30" ControlToValidate="cancel30" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reg_30" runat="server" ControlToValidate="cancel30" Display="Dynamic" ValidationExpression="\d+(\.\d+)?" ErrorMessage="Only Number allowed"></asp:RegularExpressionValidator>
 
