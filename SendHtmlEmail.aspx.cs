@@ -9,6 +9,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        return;
         string msg = @"<body>
 <table width='600px'>
   <tr>

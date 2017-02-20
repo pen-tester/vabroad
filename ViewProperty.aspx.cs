@@ -1249,7 +1249,7 @@ Contact telephone:{8} <br>";*/
   <tr>
      <td colspan='2' width='600px'>
        <div style='width: 100%;text-align: center;'>
-         <img alt='Vacation Abroad' title='Vacation Abroad' src='https://www.vacations-abroad.com/images/logo.png'>
+         <img alt='Vacation Abroad' title='Vacation Abroad' src='https://www.vacations-abroad.com/images/elogo.jpg'>
        </div>
      </td>
   </tr>
