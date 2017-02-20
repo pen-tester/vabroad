@@ -135,7 +135,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
 </table>
 </body>
 ";
-        BookDBProvider.SendEmail("andrew.li1987@yandex.com", "HtmlEmail", totraveler);
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Traveler", msg);
+        BookDBProvider.SendEmail("andrew.li1987@yandex.com", "HtmlEmail", msg);
+        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Traveler", totraveler);
     }
 }
