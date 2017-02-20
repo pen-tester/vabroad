@@ -1216,7 +1216,7 @@ Contact telephone:{8} <br>";*/
   <tr>
     <td colspan='2' style='text-align: center;width:600px'>
         <div>
-       	  <img src='https://www.vacations-abroad.com/images/{2}' title='Vacations Abroad' alt='Vacations Abroad'></div>
+       	  <img src='{2}' title='Vacations Abroad' alt='Vacations Abroad'></div>
        </div> 
       <div>      
       <p style='text-align:center;width:600px;'>
@@ -1258,7 +1258,7 @@ Contact telephone:{8} <br>";*/
  ";
                 string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID).ToLower().Replace(" ","_");
                 //string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
-                string msg = String.Format(ownermsg_format, DateTime.Now.ToString("MM dd yyyy"), ownerinfo.firstname, propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children,  contactname, comment);
+                string msg = String.Format(ownermsg_format, DateTime.Now.ToString("MM dd yyyy"), ownerinfo.firstname,"https://www.vacations-abroad.com/images/"+ propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children,  contactname, comment);
                 string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
 
 

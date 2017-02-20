@@ -88,7 +88,7 @@ public partial class userowner_TravelerResponse : CommonPage
   <tr>
     <td colspan='2' style='text-align: center;width:600px;'>
         <div>
-          <img src='https://www.vacations-abroad.com/images/{2}' title='Vacations Abroad' alt='Vacations Abroad'></div>
+          <img src='{2}' title='Vacations Abroad' alt='Vacations Abroad'></div>
        </div>       
       <div>      
       <p style='text-align:center;width:600px;'>
@@ -143,7 +143,7 @@ public partial class userowner_TravelerResponse : CommonPage
 </body>
 ";
         Decimal total = Decimal.Parse(totalsum.InnerText) + Decimal.Parse(balance.Text);
-        string msg = String.Format(toTraveler, DateTime.Now.ToString("MM dd yyyy"), inquiryinfo.ContactorName, propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, total,totalsum.InnerText, rates.Text,cleaningfee.Text,secdeposit.Text,loadingtax.Text,"");
+        string msg = String.Format(toTraveler, DateTime.Now.ToString("MM dd yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, total,totalsum.InnerText, rates.Text,cleaningfee.Text,secdeposit.Text,loadingtax.Text,"");
         //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), String.Format("Dear Linda, The respond is following.<br> {0}", msg));
