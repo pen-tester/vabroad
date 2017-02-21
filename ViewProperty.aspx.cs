@@ -1200,7 +1200,7 @@ Length of Stay:{10} <br>
 Number of adults:{11} <br>
 Number of children:{12} <br>
 Contact telephone:{8} <br>";*/
-                string ownermsg_format = @"<body>
+                string ownermsg_format = @"<body style='font-family: Verdana;'>
 <table width='600px'>
   <tr>
     <td width='300px'><h3>Vacations Abroad</h3></td>
@@ -1216,8 +1216,8 @@ Contact telephone:{8} <br>";*/
   <tr>
     <td colspan='2' style='text-align: center;width:600px'>
         <div>
-       	  <img src='{2}' title='Vacations Abroad' alt='Vacations Abroad'></div>
-       </div> 
+       	  <a download='vacationsimage.jpg' href='{2}' title='Vacations Abroad'><img src='{2}' title='Vacations Abroad' alt='Vacations Abroad'></a></div>
+               </div> 
       <div>      
       <p style='text-align:center;width:600px;'>
        	  Name of property:{3} Type of property:{4}

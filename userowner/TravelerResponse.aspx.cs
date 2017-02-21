@@ -72,7 +72,7 @@ public partial class userowner_TravelerResponse : CommonPage
         //To traveler
         // UserInfo traveler = BookDBProvider.getUserInfo(inquiryinfo.UserID);
         string toTraveler = @"
-<body>
+<body style='font-family: Verdana; '>
 <table width='600px'>
   <tr>
     <td width='300px'><h3>Vacations Abroad</h3></td>
@@ -88,7 +88,7 @@ public partial class userowner_TravelerResponse : CommonPage
   <tr>
     <td colspan='2' style='text-align: center;width:600px;'>
         <div>
-          <img src='{2}' title='Vacations Abroad' alt='Vacations Abroad'></div>
+         <a download='vacationsimage.jpg' href='{2}' title='Vacations Abroad'> <img src='{2}' title='Vacations Abroad' alt='Vacations Abroad'></a></div>
        </div>       
       <div>      
       <p style='text-align:center;width:600px;'>
