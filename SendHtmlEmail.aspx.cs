@@ -140,7 +140,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     </tr>
     <tr>
       <td>
-        <img src='https://www.vacations-abroad.com/images/elogo.jpg'  width='240px' height='100px' />
+        <img src='https://www.vacations-abroad.com/images/elogo.jpg'  width='240' height='100' />
       </td>
     </tr>
   </table>
