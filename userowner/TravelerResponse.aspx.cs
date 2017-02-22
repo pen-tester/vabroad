@@ -59,7 +59,7 @@ public partial class userowner_TravelerResponse : CommonPage
 
 
 
-        UserInfo userinfo = BookDBProvider.getUserInfo(userid);
+        UserInfo userinfo = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
         //  BookResponseEmail  /for owner
         string toOwner = String.Format("Hi, {0}!<br> You have replied the inquiry for the property {1} in {2},{3},{4}.<br> Thanks.",
             userinfo.firstname+" "+userinfo.lastname, inquiryinfo.PropertyID, countryinfo.city, countryinfo.state, countryinfo.country);
