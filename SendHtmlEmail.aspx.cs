@@ -10,16 +10,8 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
      //   return;
-        string msg = @"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
-<html xmlns='http://www.w3.org/1999/xhtml'>
- <head>
-  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-  <title>Vacations Abroad</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
-</head>
+        string msg = @"
 <body>
-  <style>
-  </style>
   <table border='0px' width='600px' style='font-family: Verdana;'>
     <tr>
       <td>
@@ -80,7 +72,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     </tr>
   </table>
 </body>
-</html>";
+";
         string totraveler = @"
 <body>
 <table width='600px'>
