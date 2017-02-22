@@ -71,79 +71,74 @@ public partial class userowner_TravelerResponse : CommonPage
 
         //To traveler
         // UserInfo traveler = BookDBProvider.getUserInfo(inquiryinfo.UserID);
-        string toTraveler = @"
-<body style='font-family: Verdana; '>
-<table width='600px'>
-  <tr>
-    <td width='300px'><h3>Vacations Abroad</h3></td>
-    <td style='text-align: right;'>Date of Inquiry:{0}</td>
-  </tr>
-  <tr>
-    <td colspan='2'>
-      <div style='padding:10px 0px;text-align: center;width: 100%;background-color: #6699ff;border:1px solid #154890;'>
-        <b>Dear {1}: Thanks for your enquiry!</b>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2' style='text-align: center;width:600px;'>
-        <div>
-         <a download='vacationsimage.jpg' href='{2}' title='Vacations Abroad'> <img src='{2}' title='Vacations Abroad' alt='Vacations Abroad'></a></div>
-       </div>       
-      <div>      
-      <p style='text-align:center;width:600px;'>
-       	  Name of property:{3} Type of property:{4}
-       </p>
-      </div>     
-    </td>
-  </tr>
-  <tr>
-     <td colspan='2' width='600px'>
-       <div style='padding: 10px; width: 100% ;text-align: center;'>
-      <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:10px 150px;border:1px solid #154890;cursor: pointer;background-color: rgb(49, 83, 143);text-decoration: none;font-size:16px;color: #000;'>
-       <b> Book Now!</b>
-      </a> 
-      </div>    
+        string toTraveler = @"<body>
+  <table border='0px' width='600px' style='font-family: Verdana;'>
+    <tr>
+      <td>
+         <table  style='width:600px;'>
+         	<tr>
+         	  <td style='color:#000;font-size:16pt;width:300px;'>
+         	  	<b>Vacations Abroad</b>
+         	  </td>
+         	  <td style='color:#000;font-size:10pt;width:300px;text-align: right;'>
+         	    {0}
+         	  </td>
+         	</tr>
+         </table>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;'>
+         <b>Book Now!<b>
+      </td>
+    </tr>
+    <tr>
+      <td style='text-align: center;padding: 10px 0px;'>
+        <a href='{2}' download='vacations.jpg'><img src='{2}' style='width:350px;height: 220px;' width='350px' height='220px' /></a>
+      </td>
+    </tr>
+    <tr>
+    	<td style='text-align: center;font-size:10pt;'>
+    	   Name of property:{3} &nbsp;&nbsp; Type of property:{4}
+    	</td>
+    </tr>
+    <tr>
+      <td style='padding: 10px;'>
+        <table style='border:1px dashed #000;width:600px;font-size:12pt;'>
+        	<tr>
+        		<td style='padding:10px;'>
+              <a href='{5}'>Property {6}</a> <br/>
+              Date of Arrival: {7} <br/>
+              {8} of nights <br/>
+              # of Guests:  {9} Adults, {10} children <br/>
+              Owner's Name: {11}<br/><br/>
+                  Amount:{12} {19}<br/>
+                  Total Due to Reserve:{13} {19} (Nightly Rate:{14} {19})<br/>
+                  Cleaning Fee:{15} {19}<br/>
+                  Security Deposit:{16} {19}<br/>
+                  Lodging Tax:{17}%<br/>
+              Comments:{18}      		
+        		</td>
+        	</tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+     <td style='padding: 15px; text-align: center;'>
+   	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;'>
+	      <b>Book Now</b>
+	    </a> 
      </td>
-  </tr>  
-  <tr>
-  <td colspan='2'  width='600px'>
-    <div style='width: 100%; border:1px dashed #000;padding: 15px;'>
-		<a href='{5}'>Property {6}</a> <br>
-		Date of Arrival: {7} <br>
-		{8} of nights <br>
-		# of Guests:  {9} Adults, {10} children <br>
-		Owner’s Name: {11}<br><br><br>
-        Amount:{12}<br>
-        Total Due to Reserve:{13} (Nightly Rate:{14})<br>
-        Cleaning Fee:{15}<br>
-        Security Deposit:{16}<br>
-        Lodging Tax:{17}%<br>
-		Comments:{18}
-    </div>
-  </td>
-  </tr>
-  <tr>
-     <td colspan='2'  width='600px'>
-       <div style='padding: 10px; width: 100% ;text-align: center;'>
-      <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:10px 50px;border:1px solid #154890;cursor: pointer;color: #f86308;text-decoration: none;'>
-        Book Now!
-      </a> 
-      </div>    
-     </td>
-  </tr>
-  <tr>
-     <td colspan='2'  width='600px'>
-       <div style='width: 100%;text-align: center;'>
-         <img alt='Vacation Abroad' width='300px' height='180px' title='Vacation Abroad' src='https://www.vacations-abroad.com/images/elogo.jpg'>
-       </div>
-     </td>
-  </tr>
-</table>
-</body>
-";
+    </tr>
+    <tr>
+      <td style='text-align: center;'>
+        <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' width='240px' height='100px' /></a>      
+      </td>
+    </tr>
+  </table>
+</body>";
         Decimal total = Decimal.Parse(totalsum.InnerText) + Decimal.Parse(balance.Text);
-        string msg = String.Format(toTraveler, DateTime.Now.ToString("MM dd yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, total,totalsum.InnerText, rates.Text,cleaningfee.Text,secdeposit.Text,loadingtax.Text,"");
+        string msg = String.Format(toTraveler, DateTime.Now.ToString("MM dd yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, total,totalsum.InnerText, rates.Text,cleaningfee.Text,secdeposit.Text,loadingtax.Text,"", currency.SelectedItem.Text);
         //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), String.Format("Dear Linda, The respond is following.<br> {0}", msg));
