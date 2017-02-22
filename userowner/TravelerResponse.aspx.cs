@@ -6,7 +6,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class userowner_TravelerResponse : CommonPage
+public partial class userowner_TravelerResponse : ClosedPage
 {
     public InquiryInfo inquiryinfo;
     public CountryInfo countryinfo;
