@@ -9,7 +9,7 @@ public partial class SendHtmlEmail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        return;
+     //   return;
         string msg = @"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml'>
  <head>
@@ -152,9 +152,9 @@ public partial class SendHtmlEmail : System.Web.UI.Page
 </body>
 ";
         BookDBProvider.SendEmail("andrew.li1987@yandex.com", "Notifications", msg);
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail", "Notifications", msg);
+       BookDBProvider.SendEmail("devalbum.andrew1987@gmail", "Notifications", msg);
         BookDBProvider.SendEmail("andrew.lidev@hotmail.com", "Notifications", msg);
         BookDBProvider.SendEmail("talent.anddev@yandex.com", "Notifications", msg);
-        //   BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Traveler", msg);
+        
     }
 }
