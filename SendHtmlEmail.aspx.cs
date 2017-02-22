@@ -140,11 +140,11 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     </tr>
   </table>
 </body>";
-    //    BookDBProvider.SendEmail("andrew.li1987@yandex.com", "Notifications", totraveler);
-     //   BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notifications", msg);
-      //  BookDBProvider.SendEmail("andrew.lidev@hotmail.com", "Notifications", msg);
-        BookDBProvider.SendEmail("talent.anddev@yandex.com", "Notifications", totraveler);
-        BookDBProvider.SendEmail("talent.anddev@yandex.com", "Notifications", msg);
+        BookDBProvider.SendEmail("andrew.li1987@yandex.com", "Notifications", totraveler);
+        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notifications", msg);
+        BookDBProvider.SendEmail("andrew.lidev@hotmail.com", "Notifications", msg);
+     //   BookDBProvider.SendEmail("talent.anddev@yandex.com", "Notifications", totraveler);
+      //  BookDBProvider.SendEmail("talent.anddev@yandex.com", "Notifications", msg);
 
     }
 }
