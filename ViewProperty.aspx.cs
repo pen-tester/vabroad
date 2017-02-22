@@ -1203,15 +1203,15 @@ Contact telephone:{8} <br>";*/
                 string ownermsg_format = @"<body>
   <style>
   </style>
-  <table border='0px' width='600px' style='font-family: Verdana;'>
+  <table border='0px' width='600px'>
     <tr>
       <td>
          <table  style='width:600px;'>
          	<tr>
-         	  <td style='color:#000;font-size:16pt;width:300px;'>
+         	  <td style='color:#000;font-size:16pt;width:300px;font-family: Verdana;'>
          	  	<b>Vacations Abroad</b>
          	  </td>
-         	  <td style='color:#000;font-size:10pt;width:300px;text-align: right;'>
+         	  <td style='color:#000;font-size:10pt;width:300px;text-align: right;font-family: Verdana;'>
          	    {0}
          	  </td>
          	</tr>
@@ -1219,7 +1219,7 @@ Contact telephone:{8} <br>";*/
       </td>
     </tr>
     <tr>
-      <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;'>
+      <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;font-family: Verdana;'>
          <b>Dear {1}: You have an inquiry!<b>
       </td>
     </tr>
@@ -1229,7 +1229,7 @@ Contact telephone:{8} <br>";*/
       </td>
     </tr>
     <tr>
-    	<td style='text-align: center;font-size:10pt;'>
+    	<td style='text-align: center;font-size:10pt;font-family: Verdana;'>
     	   Name of property:{3} &nbsp;&nbsp; Type of property:{4}
     	</td>
     </tr>
@@ -1237,7 +1237,7 @@ Contact telephone:{8} <br>";*/
       <td style='padding: 10px;'>
         <table style='border:1px dashed #000;width:600px;font-size:12pt;'>
         	<tr>
-        		<td style='padding:10px;'>
+        		<td style='padding:10px;font-family: Verdana;'>
 					<a href='{5}' style='text-decoration: none;'>Property {6}</a> <br/>
 					Date of Arrival: {7} <br/>
 					{8} of nights <br/>
@@ -1250,7 +1250,7 @@ Contact telephone:{8} <br>";*/
       </td>
     </tr>
     <tr>
-     <td style='padding: 15px; text-align: center;'>
+     <td style='padding: 15px; text-align: center;font-family: Verdana;'>
    	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;'>
 	      <b>Login to Your Account to provide a response / quote.</b>
 	    </a> 
@@ -1266,7 +1266,7 @@ Contact telephone:{8} <br>";*/
  ";
                 string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID).ToLower().Replace(" ","_");
                 //string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
-                string msg = String.Format(ownermsg_format, DateTime.Now.ToString("MM dd yyyy"), ownerinfo.firstname,"https://www.vacations-abroad.com/images/"+ propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children,  contactname, comment);
+                string msg = String.Format(ownermsg_format, DateTime.Now.ToString("MMM d, yyyy"), ownerinfo.firstname,"https://www.vacations-abroad.com/images/"+ propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children,  contactname, comment);
                 string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
 
 

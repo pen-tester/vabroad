@@ -72,15 +72,15 @@ public partial class userowner_TravelerResponse : CommonPage
         //To traveler
         // UserInfo traveler = BookDBProvider.getUserInfo(inquiryinfo.UserID);
         string toTraveler = @"<body>
-  <table border='0px' width='600px' style='font-family: Verdana;'>
+  <table border='0px' width='600px' >
     <tr>
       <td>
          <table  style='width:600px;'>
          	<tr>
-         	  <td style='color:#000;font-size:16pt;width:300px;'>
+         	  <td style='color:#000;font-size:16pt;width:300px;font-family: Verdana;'>
          	  	<b>Vacations Abroad</b>
          	  </td>
-         	  <td style='color:#000;font-size:10pt;width:300px;text-align: right;'>
+         	  <td style='color:#000;font-size:10pt;width:300px;text-align: right;font-family: Verdana;'>
          	    {0}
          	  </td>
          	</tr>
@@ -88,7 +88,7 @@ public partial class userowner_TravelerResponse : CommonPage
       </td>
     </tr>
     <tr>
-      <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;'>
+      <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;font-family: Verdana;'>
          <b>Book Now!<b>
       </td>
     </tr>
@@ -98,7 +98,7 @@ public partial class userowner_TravelerResponse : CommonPage
       </td>
     </tr>
     <tr>
-    	<td style='text-align: center;font-size:10pt;'>
+    	<td style='text-align: center;font-size:10pt;font-family: Verdana;'>
     	   Name of property:{3} &nbsp;&nbsp; Type of property:{4}
     	</td>
     </tr>
@@ -106,7 +106,7 @@ public partial class userowner_TravelerResponse : CommonPage
       <td style='padding: 10px;'>
         <table style='border:1px dashed #000;width:600px;font-size:12pt;'>
         	<tr>
-        		<td style='padding:10px;'>
+        		<td style='padding:10px;font-family: Verdana;'>
               <a href='{5}'>Property {6}</a> <br/>
               Date of Arrival: {7} <br/>
               {8} of nights <br/>
@@ -125,7 +125,7 @@ public partial class userowner_TravelerResponse : CommonPage
     </tr>
     <tr>
      <td style='padding: 15px; text-align: center;'>
-   	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;'>
+   	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;font-family: Verdana;'>
 	      <b>Book Now</b>
 	    </a> 
      </td>
@@ -138,11 +138,11 @@ public partial class userowner_TravelerResponse : CommonPage
   </table>
 </body>";
         Decimal total = Decimal.Parse(totalsum.InnerText) + Decimal.Parse(balance.Text);
-        string msg = String.Format(toTraveler, DateTime.Now.ToString("MM dd yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, total,totalsum.InnerText, rates.Text,cleaningfee.Text,secdeposit.Text,loadingtax.Text,"", currency.SelectedItem.Text);
+        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, total,totalsum.InnerText, rates.Text,cleaningfee.Text,secdeposit.Text,loadingtax.Text,"", currency.SelectedItem.Text);
         //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), String.Format("Dear Linda, The respond is following.<br> {0}", msg));
 
-        Response.Redirect("/userowner/listings.aspx?userid="+userinfo.id);
+        Response.Redirect("/userowner/listings.aspx?userid="+inquiryinfo.PropertyOwnerID);
     }
 }
