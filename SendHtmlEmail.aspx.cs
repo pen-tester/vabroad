@@ -138,6 +138,11 @@ public partial class SendHtmlEmail : System.Web.UI.Page
         <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg'  width='240px' height='100px' /></a>      
       </td>
     </tr>
+    <tr>
+      <td>
+        <img src='https://www.vacations-abroad.com/images/elogo.jpg'  width='240px' height='100px' />
+      </td>
+    </tr>
   </table>
 </body>";
     //    BookDBProvider.SendEmail("andrew.li1987@yandex.com", "Notifications", totraveler);
