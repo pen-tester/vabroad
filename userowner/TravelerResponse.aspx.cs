@@ -143,6 +143,6 @@ public partial class userowner_TravelerResponse : CommonPage
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), String.Format("Dear Linda, The respond is following.<br> {0}", msg));
 
-        Response.Redirect("/userowner/listings.aspx?userid="+userid);
+        Response.Redirect("/userowner/listings.aspx?userid="+userinfo.id);
     }
 }
