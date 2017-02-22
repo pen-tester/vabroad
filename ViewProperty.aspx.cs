@@ -1225,7 +1225,7 @@ Contact telephone:{8} <br>";*/
     </tr>
     <tr>
       <td style='text-align: center;padding: 10px 0px;'>
-        <a href='{2}' download='vacations.jpg'><img src='{2}' style='width:350px;height: 220px;' /></a>
+        <a href='{2}' download='vacations.jpg'><img src='{2}' style='width:350px;height: 220px;' width='350' height='220' /></a>
       </td>
     </tr>
     <tr>
@@ -1258,7 +1258,7 @@ Contact telephone:{8} <br>";*/
     </tr>
     <tr>
       <td style='text-align: center;'>
-        <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' /></a>      
+        <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' width='240' height='100'/></a>      
       </td>
     </tr>
   </table>
