@@ -135,14 +135,14 @@ public partial class SendHtmlEmail : System.Web.UI.Page
     </tr>
     <tr>
       <td style='text-align: center;'>
-        <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' width='240px' height='100px' /></a>      
+        <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg'  width='240px' height='100px' /></a>      
       </td>
     </tr>
   </table>
 </body>";
-        BookDBProvider.SendEmail("andrew.li1987@yandex.com", "Notifications", totraveler);
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notifications", msg);
-        BookDBProvider.SendEmail("andrew.lidev@hotmail.com", "Notifications", msg);
+    //    BookDBProvider.SendEmail("andrew.li1987@yandex.com", "Notifications", totraveler);
+     //   BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notifications", msg);
+      //  BookDBProvider.SendEmail("andrew.lidev@hotmail.com", "Notifications", msg);
         BookDBProvider.SendEmail("talent.anddev@yandex.com", "Notifications", totraveler);
         
     }
