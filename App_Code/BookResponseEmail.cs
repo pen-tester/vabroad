@@ -153,8 +153,8 @@ public class BookResponseEmail
                 {
                     con.Open();
                     string sql;
-                    if (type == 0) sql = "select em.*,EmailQuote.PropertyID from EmailQuote join   (select * from EmailResponse where UserID=@id) em on EmailQuote.ID=em.QuoteID";
-                    else sql = "select em.*,EmailQuote.PropertyID from EmailQuote join   (select * from EmailResponse where TravelerID=@id) em on EmailQuote.ID=em.QuoteID";
+                    if (type == 0) sql = "select em.*,EmailQuote.PropertyID from EmailQuote join   (select * from EmailResponse where UserID=@id) em on EmailQuote.ID=em.QuoteID order by em.ID desc";
+                    else sql = "select em.*,EmailQuote.PropertyID from EmailQuote join   (select * from EmailResponse where TravelerID=@id) em on EmailQuote.ID=em.QuoteID order by em.ID desc";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = user_id;
 

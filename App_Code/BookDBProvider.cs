@@ -500,8 +500,8 @@ public class BookDBProvider
                 {
                     con.Open();
                     string sql = "";
-                    if (type == 0) sql = "select * from EmailQuote em where PropertyOwnerID=@id";
-                    else if (type == 1) sql = "select * from EmailQuote em where UserID=@id";
+                    if (type == 0) sql = "select * from EmailQuote em where PropertyOwnerID=@id order by id desc";
+                    else if (type == 1) sql = "select * from EmailQuote em where UserID=@id order by id desc";
 
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = userid;

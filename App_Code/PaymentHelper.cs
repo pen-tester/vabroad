@@ -86,8 +86,8 @@ public class PaymentHelper
                 {
                     con.Open();
                     string sql = "";
-                    if (type == 0) sql = "select * from PaymentHistory em where ownerid=@id";
-                    else if (type == 1) sql = "select * from PaymentHistory em where travelerid=@id";
+                    if (type == 0) sql = "select * from PaymentHistory em where ownerid=@id order by id desc";
+                    else if (type == 1) sql = "select * from PaymentHistory em where travelerid=@id order by id desc";
 
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = userid;
