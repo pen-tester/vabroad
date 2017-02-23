@@ -5,6 +5,9 @@ $(document).ready(function () {
    // showdlg("Arrive<br>Error:this is test. ");
     $('.mclose').click(function () {
         $('#msgdlg').hide();
+        if (_txtboxid != "") {
+            $('#' + _txtboxid).focus();
+        }
     });
   /*  $(window).click(function (e) {
         if (e.target.id != 'modal_dialog')
@@ -30,13 +33,14 @@ $(document).ready(function () {
         var pattern= new RegExp( "^[0-9]+$");
         if (!pattern.test($('#' + e.target.id).val())) {
             $('#' + e.target.id).val("");
+            _txtboxid = e.target.id;
             showdlg("The only number is allowed.");
         }
         calculateValue();
     });
 });
 
-
+var _txtboxid = "";
 
 function paramcheck() {
     var str = "";
