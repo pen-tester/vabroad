@@ -18,11 +18,9 @@ public class EmailResponseInfo
     public int TravelerID { get; set; }
     public int QuoteID { get; set; }
     public decimal NightRate { get; set; }
-    public decimal Sum { get; set; }
     public decimal CleaningFee { get; set; }
     public decimal SecurityDeposit { get; set; }
     public decimal LoadingTax { get; set; }
-    public decimal Balance { get; set; }
     public decimal Cancel30 { get; set; }
     public decimal Cancel60 { get; set; }
     public decimal Cancel90 { get; set; }
@@ -30,7 +28,6 @@ public class EmailResponseInfo
 
     public int IsValid { get; set; }
     public int CurrencyType { get; set; }
-    public decimal LoadingTaxRate { get; set; }
     public EmailResponseInfo()
     {
         ID = 0;
@@ -112,7 +109,13 @@ public class BookResponseEmail
                                 PropertyInfo[] propertys = prop_info.GetType().GetProperties();
                                 foreach(PropertyInfo info in propertys)
                                 {
-                                    info.SetValue(prop_info, Convert.ChangeType(reader[info.Name], info.PropertyType), null);
+                                    try
+                                    {
+                                        info.SetValue(prop_info, Convert.ChangeType(reader[info.Name], info.PropertyType), null);
+                                    }catch(Exception e)
+                                    {
+
+                                    }
                                         //propertyInfo.SetValue(ship, Convert.ChangeType(value, propertyInfo.PropertyType), null);
                                 }
                             }

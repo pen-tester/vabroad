@@ -13,11 +13,12 @@ public partial class userowner_TravelerResponse : ClosedPage
     public int quoteid = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!AuthenticationManager.IfAuthenticated || !User.Identity.IsAuthenticated)
+        
+        if (!AuthenticationManager.IfAuthenticated || !User.Identity.IsAuthenticated)
         {
             FormsAuthentication.SignOut();
         }
-        
+
         Int32.TryParse(Request.QueryString["quoteid"], out quoteid);
 
         inquiryinfo = BookDBProvider.getQuoteInfo(quoteid);
@@ -26,40 +27,41 @@ public partial class userowner_TravelerResponse : ClosedPage
         if((inquiryinfo.PropertyOwnerID!=userid)&& !AuthenticationManager.IfAdmin) Response.Redirect("/Error.aspx?error=You try to see the other info");
 
         countryinfo = BookDBProvider.getCountryInfo(inquiryinfo.PropertyID);
-
+        
     }
 
-    protected void rates_TextChanged(object sender, EventArgs e)
-    {
-        //Response.Write("rate changed");
-              
-        decimal rate_val = 0; Decimal.TryParse(rates.Text, out rate_val);
-        decimal tax_val = 0; Decimal.TryParse(loadingtax.Text, out tax_val);
-        decimal clean_val = 0; Decimal.TryParse(cleaningfee.Text, out clean_val);
-        decimal sec_val = 0; Decimal.TryParse(secdeposit.Text, out sec_val);
-        decimal total_sum = rate_val * inquiryinfo.Nights;
-        decimal loading_val = total_sum * tax_val/100;
-
-        totalsum.InnerText = total_sum.ToString();
-        loadingtaxval.InnerText = loading_val.ToString();
-
-        balance.Text = (clean_val + sec_val + loading_val).ToString();
-    }
-    
     protected void SendQuote_Click(object sender, EventArgs e)
     {
+    
         if (!Page.IsValid) return;
-       if( BookDBProvider.addEmailResponse(userid, inquiryinfo.UserID, quoteid, Convert.ToDecimal(rates.Text),
-            Convert.ToDecimal(totalsum.InnerText), Convert.ToDecimal(cleaningfee.Text), Convert.ToDecimal(secdeposit.Text),
-            Convert.ToDecimal(loadingtaxval.InnerText), Convert.ToDecimal(balance.Text), Convert.ToDecimal(cancel30.Text),
-            Convert.ToDecimal(cancel60.Text), Convert.ToDecimal(cancel90.Text),DateTime.Now, Convert.ToInt32(validnumber.Value), Convert.ToInt32(currency.SelectedValue),
-            Convert.ToDecimal(loadingtax.Text)))
+
+        if (rates.Value == "" || cleaningfee.Value == "" || secdeposit.Value == "" || loadingtax.Value == "") return;
+        decimal _rates, _cleanfee, _secfee, _lodgingtax, _cancel90, _cancel60, _cancel30,_total_sum,_lodgingvalue,_balance;
+        int _validnumber;
+        if(!Decimal.TryParse(rates.Value,out  _rates))_rates=0;
+        if(!Decimal.TryParse(cleaningfee.Value, out _cleanfee))_cleanfee=0;
+        if(!Decimal.TryParse(secdeposit.Value, out _secfee))_secfee=0;
+        if(!Decimal.TryParse(loadingtax.Value, out _lodgingtax))_lodgingtax=0;
+        if(!Decimal.TryParse(cancel90.Value, out _cancel90))_cancel90=0;
+        if(!Decimal.TryParse(cancel60.Value, out _cancel60))_cancel60=0;
+        if(!Decimal.TryParse(cancel30.Value, out _cancel30))_cancel30=0;
+        if(!Int32.TryParse(validnumber.Value, out _validnumber))_validnumber=0;
+
+        _total_sum = _rates * inquiryinfo.Nights;
+        _lodgingvalue = _total_sum * _lodgingtax / 100;
+        _balance = _lodgingvalue + _secfee + _cleanfee;
+
+        int newrespid = 0;
+        int _currency = Convert.ToInt32(currency.SelectedValue);
+
+        if ((newrespid =BookDBProvider.addEmailResponse(userid, inquiryinfo.UserID, quoteid, _rates, _cleanfee, _secfee, _lodgingtax, _cancel30, _cancel60, _cancel90, DateTime.Now, _validnumber,_currency)) >0)
         {
+
             BookDBProvider.updateEmailQuoteState(quoteid);
         }
 
 
-
+       
         UserInfo userinfo = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
         //  BookResponseEmail  /for owner
         string toOwner = String.Format("Hi, {0}!<br> You have replied the inquiry for the property {1} in {2},{3},{4}.<br> Thanks.",
@@ -117,8 +119,9 @@ public partial class userowner_TravelerResponse : ClosedPage
                   Total Due to Reserve:{13} {19} (Nightly Rate:{14} {19})<br/>
                   Cleaning Fee:{15} {19}<br/>
                   Security Deposit:{16} {19}<br/>
-                  Lodging Tax:{17}%<br/>
-              Comments:{18}      		
+                  Lodging Tax:{17}% {20}{19}<br/>
+                  Balance Due Upon Arrival:{18}    
+              
         		</td>
         	</tr>
         </table>
@@ -126,7 +129,7 @@ public partial class userowner_TravelerResponse : ClosedPage
     </tr>
     <tr>
      <td style='padding: 15px; text-align: center;'>
-   	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;font-family: Verdana;'>
+   	    <a href='https://www.vacations-abroad.com/quoteresponse.aspx?respid={21}' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;font-family: Verdana;'>
 	      <b>Book Now</b>
 	    </a> 
      </td>
@@ -138,12 +141,13 @@ public partial class userowner_TravelerResponse : ClosedPage
     </tr>
   </table>
 </body>";
-        Decimal total = Decimal.Parse(totalsum.InnerText) + Decimal.Parse(balance.Text);
-        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, total,totalsum.InnerText, rates.Text,cleaningfee.Text,secdeposit.Text,loadingtax.Text,"", currency.SelectedItem.Text);
+        decimal _total = _total_sum + _balance;
+        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, _total, _total_sum, _rates,_cleanfee,_secfee,loadingtax,_balance, currency.SelectedItem.Text,_lodgingvalue,AjaxProvider.Base64Encode(newrespid.ToString()));
         //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), String.Format("Dear Linda, The respond is following.<br> {0}", msg));
 
-        Response.Redirect("/userowner/listings.aspx?userid="+inquiryinfo.PropertyOwnerID);
+
+        Response.Redirect("/userowner/listings.aspx?userid=" + inquiryinfo.PropertyOwnerID);
     }
 }

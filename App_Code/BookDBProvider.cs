@@ -994,11 +994,12 @@ You have received an inquiry through the vacations-abroad.com website for proper
     }
 
 
-    public static bool addEmailResponse(int userid, int travelerid, int quoteid, decimal nightrate, decimal sum, decimal cleanfee, decimal securitydep,
-        decimal loadingtax, decimal balance, decimal can30, decimal can60, decimal can90, DateTime datereplied, int validdays, int currencytype, decimal taxrate)
+    public static int addEmailResponse(int userid, int travelerid, int quoteid, decimal nightrate,  decimal cleanfee, decimal securitydep,
+        decimal loadingtax, decimal can30, decimal can60, decimal can90, DateTime datereplied, int validdays, int currencytype)
     {
         //@UserID, @TravelerID, @QuoteID, @NightRate, @Sum, @CleaningFee, @SecurityDeposit
-	//,@LoadingTax, @Balance, @Cancel30,@Cancel60, @Cancel90, @DateReplied,@IsValid
+        //,@LoadingTax, @Balance, @Cancel30,@Cancel60, @Cancel90, @DateReplied,@IsValid
+        int newid = 0;
         try
         {
             using (SqlConnection con = new SqlConnection(connString))
@@ -1011,19 +1012,22 @@ You have received an inquiry through the vacations-abroad.com website for proper
                     cmd.Parameters.Add("@TravelerID", SqlDbType.BigInt).Value = travelerid;
                     cmd.Parameters.Add("@QuoteID", SqlDbType.BigInt).Value = getValue(quoteid);
                     cmd.Parameters.Add("@NightRate", SqlDbType.Decimal).Value = getValue(nightrate);
-                    cmd.Parameters.Add("@Sum", SqlDbType.Decimal).Value = getValue(sum);
                     cmd.Parameters.Add("@CleaningFee", SqlDbType.Decimal).Value = getValue(cleanfee);
                     cmd.Parameters.Add("@SecurityDeposit", SqlDbType.Decimal).Value = getValue(securitydep);
                     cmd.Parameters.Add("@LoadingTax", SqlDbType.Decimal).Value = getValue(loadingtax);
-                    cmd.Parameters.Add("@Balance", SqlDbType.Decimal).Value = getValue(balance);
                     cmd.Parameters.Add("@Cancel30", SqlDbType.Decimal).Value = getValue(can30);
                     cmd.Parameters.Add("@Cancel60", SqlDbType.Decimal).Value = getValue(can60);
                     cmd.Parameters.Add("@Cancel90", SqlDbType.Decimal).Value = getValue(can90);
                     cmd.Parameters.Add("@DateReplied", SqlDbType.DateTime).Value = getValue(datereplied);
                     cmd.Parameters.Add("@IsValid", SqlDbType.Int).Value = getValue(validdays);
                     cmd.Parameters.Add("@CurrencyType", SqlDbType.Int).Value = getValue(currencytype);
-                    cmd.Parameters.Add("@LoadingTaxRate", SqlDbType.Int).Value = getValue(taxrate);
-                    int rows = cmd.ExecuteNonQuery();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    //int rows = cmd.ExecuteNonQuery();
+                    if (reader.Read())
+                    {
+                        newid = Int32.Parse(reader[0].ToString());
+                    }
 
                     con.Close();
                 }
@@ -1032,12 +1036,12 @@ You have received an inquiry through the vacations-abroad.com website for proper
         }
         catch (Exception ex)
         {
-            // throw ex;
-            return false;
+             throw ex;
+            
         }
 
 
-        return true;
+        return newid;
     }
 
     public static bool addEmailQuote(string name, string email, string arrive, int adults, int child, string comment, string telephone, int userid, int propid, int ownerid, int nights)
