@@ -331,7 +331,7 @@
                                                     Int32.TryParse(traveler_response_set.Tables[0].Rows[index]["IsQuoted"].ToString(), out replied);
                                                     Int32.TryParse(traveler_response_set.Tables[0].Rows[index]["IsValid"].ToString(), out validdays);
                                                     if (replied != 1 && validdays > 0)
-                                                    {%><a href="/userowner/QuoteResponse.aspx?respid=<%=traveler_response_set.Tables[0].Rows[index]["ID"] %>">Quote</a>
+                                                    {%><a href="/QuoteResponse.aspx?respid=<%=AjaxProvider.Base64Encode(traveler_response_set.Tables[0].Rows[index]["ID"].ToString()) %>">Quote</a>
                                                   <%}
                                                     else if (replied != 1 && validdays == 0)
                                                     { %>
