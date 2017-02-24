@@ -135,20 +135,20 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             }
             content += (prop.Name + "::" + prop.GetValue(transitem, null) + ">>>>>");
         }
-            System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
+       /*     System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
             file.Write(content);
             file.Close();
-       
+       */
         PaymentHelper.addPaymentLog(transitem);
 
-      /*  email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
+        email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
        // if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
 
         inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
         owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
        // traveler_info = BookDBProvider.getUserInfo(inquiryinfo.UserID);
         prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
-        */
+       
 
     }
 }
