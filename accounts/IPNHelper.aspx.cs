@@ -117,6 +117,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
        // BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Transaction tst");
 
         transitem = new Transaction_Item();
+        string content = "";
 
         PropertyInfo[] props = transitem.GetType().GetProperties();
 
@@ -124,14 +125,19 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         {
             try
             {
+                content += (context.Request[prop.Name] + " " + prop.PropertyType + "\n");
                 prop.SetValue(transitem, Convert.ChangeType(context.Request[prop.Name], prop.PropertyType), null);
+                
             }
             catch(Exception e)
             {
 
             }
         }
-
+            System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
+            file.Write(content);
+            file.Close();
+       
         PaymentHelper.addPaymentLog(transitem);
 
       /*  email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
