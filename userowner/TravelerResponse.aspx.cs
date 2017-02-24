@@ -113,14 +113,14 @@ public partial class userowner_TravelerResponse : ClosedPage
               <a href='{5}'>Property {6}</a> <br/>
               Date of Arrival: {7} <br/>
               {8} of nights <br/>
-              # of Guests:  {9} Adults, {10} children <br/>
-              Owner's Name: {11}<br/><br/>
-                  Amount:{12} {19}<br/>
-                  Total Due to Reserve:{13} {19} (Nightly Rate:{14} {19})<br/>
+              # of Guests:  {9} Adults, {10} children <br/><br/>
+             
+                  Total Amount Due:{12} {19}<br/>
+                  Amount Due to Reserve:{13} {19} (Nightly Rate:{14} {19})<br/>
                   Cleaning Fee:{15} {19}<br/>
                   Security Deposit:{16} {19}<br/>
                   Lodging Tax:{17}% {20}{19}<br/>
-                  Balance Due Upon Arrival:{18}    
+                  Amount Due Upon Arrival:{18}    
               
         		</td>
         	</tr>
@@ -145,7 +145,7 @@ public partial class userowner_TravelerResponse : ClosedPage
         string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, _total, _total_sum, _rates,_cleanfee,_secfee,_lodgingtax,_balance, currency.SelectedItem.Text,_lodgingvalue,AjaxProvider.Base64Encode(newrespid.ToString()));
         //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
-        BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), String.Format("Dear Linda, The respond is following.<br> {0}", msg));
+        BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), msg);
 
         if (AuthenticationManager.IfAdmin) 
             Response.Redirect("/userowner/listings.aspx?userid=" + inquiryinfo.PropertyOwnerID);
