@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 public partial class userowner_Payment : CommonPage
 {
     public InquiryInfo inquiryinfo;
-    public CountryInfo countryinfo;
+    //public CountryInfo countryinfo;
     public EmailResponseInfo email_resp;
     public UserInfo owner_info;
     public PropertyDetailInfo prop_info;
