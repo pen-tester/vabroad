@@ -1267,11 +1267,14 @@ Contact telephone:{8} <br>";*/
                 string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City,propinfo.ID).ToLower().Replace(" ","_");
                 //string msg = String.Format(ownermsg_format, ownerinfo.name,contactemail,propinfo.Name ,String.Format("{0} Bedroom {1} in {2} {3} {4}",propinfo.NumBedrooms,propinfo.CategoryTypes,propinfo.City,propinfo.StateProvince, propinfo.Country),url,Request.UserHostAddress,contactname,contactemail,phone,arrivedate,nights,adults,children);
                 string msg = String.Format(ownermsg_format, DateTime.Now.ToString("MMM d, yyyy"), ownerinfo.firstname,"https://www.vacations-abroad.com/images/"+ propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children,  contactname, comment);
-                string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
+                //   string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
+                //string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
 
 
                 BookDBProvider.SendEmail(ownerinfo.email,String.Format("{0} {1},Reservation for {2}",  ownerinfo.firstname,ownerinfo.lastname, arrivedate) , msg);
-                BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}",ownerinfo.name,url), admin_msg);
+                // BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}",ownerinfo.name,url), admin_msg);
+                BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}", ownerinfo.name, url), msg);
+
                 BookDBProvider.sendEmailToTraveler(contactname, contactemail,contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
 
             }

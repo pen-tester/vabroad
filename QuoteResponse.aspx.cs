@@ -16,6 +16,7 @@ public partial class userowner_TravelerResponse : Page
     public string[] currency_type = { "USD", "Euro","CAD", "GPB", "AUD" };
 
     public int respid = 0;
+    public decimal _total_sum, _total, _lodgingval, _balance;
     protected void Page_Load(object sender, EventArgs e)
     {
         /*
@@ -38,6 +39,9 @@ public partial class userowner_TravelerResponse : Page
 
         countryinfo = BookDBProvider.getCountryInfo(inquiryinfo.PropertyID);
 
+        _total_sum = email_resp.NightRate * inquiryinfo.Nights;
+        _lodgingval = _total_sum * email_resp.LoadingTax / 100;
+        _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
     }
 
  

@@ -45,7 +45,7 @@
                             <label class="normaltxt">Total Due to Reserve</label>
                         </div>
                         <div class="col-md-4">
-                            <label class="normalval" id="totalsum" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Sum) %></label>
+                            <label class="normalval" id="totalsum" runat="server"> <%=BookDBProvider.DoFormat(_total_sum) %></label>
                         </div>
                     </div>
 
@@ -73,10 +73,10 @@
                             <label class="normaltxt">Lodging Tax</label>
                         </div>
                         <div class="col-md-4">
-                               <label class="normalval" id="Label3" runat="server"> <%=BookDBProvider.DoFormat(email_resp.LoadingTaxRate) %>%</label>
+                               <label class="normalval" id="Label3" runat="server"> <%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>%</label>
                         </div>
                         <div class="col-md-4">
-                            <label class="normaltxt" id="loadingtaxval" runat="server"><%=BookDBProvider.DoFormat(email_resp.LoadingTax) %></label>
+                            <label class="normaltxt" id="loadingtaxval" runat="server"><%=BookDBProvider.DoFormat(_lodgingval) %></label>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                             <label class="normaltxt">Balance Due Upon Arrival</label>
                         </div>
                         <div class="col-md-4">
-                            <label class="normalval" id="Label4" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Balance) %></label>
+                            <label class="normalval" id="Label4" runat="server"> <%=BookDBProvider.DoFormat(_balance) %></label>
                         </div>
                     </div>
 
