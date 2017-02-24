@@ -25,12 +25,12 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     {
 
         // Write the string to a file.
-
-        if (!IsPostBack)
+        if (HttpContext.Current.Request.HttpMethod != "POST")
         {
             Response.Write("Wrong request");
             return;
         }
+
         using (StreamReader sreader = new StreamReader(Request.InputStream))
         {
             string content = sreader.ReadToEnd();
