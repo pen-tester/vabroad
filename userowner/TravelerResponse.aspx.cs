@@ -93,7 +93,9 @@ public partial class userowner_TravelerResponse : ClosedPage
     </tr>
     <tr>
       <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;font-family: Verdana;'>
-         <b>Book Now!<b>
+            <a href='https://www.vacations-abroad.com/quoteresponse.aspx?respid={21}' style='cursor: pointer;color: #fff;text-decoration: none;font-size:12pt;font-family: Verdana;'>
+                <b>Book Now!<b>
+            </a>
       </td>
     </tr>
     <tr>
