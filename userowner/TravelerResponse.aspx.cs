@@ -75,6 +75,7 @@ public partial class userowner_TravelerResponse : ClosedPage
         //To traveler
         // UserInfo traveler = BookDBProvider.getUserInfo(inquiryinfo.UserID);
         string toTraveler = @"<body>
+  <style>a:hover{color:#8bbdeb;} </style>
   <table border='0px' width='600px' >
     <tr>
       <td>
@@ -97,7 +98,7 @@ public partial class userowner_TravelerResponse : ClosedPage
     </tr>
     <tr>
       <td style='text-align: center;padding: 10px 0px;'>
-        <a href='{2}' download='vacations.jpg'><img src='{2}' style='width:350px;height: 220px;'  width='350' height='220' /></a>
+        <img src='{2}' style='width:350px;height: 220px;'  width='350' height='220' />
       </td>
     </tr>
     <tr>
@@ -136,7 +137,7 @@ public partial class userowner_TravelerResponse : ClosedPage
     </tr>
     <tr>
       <td style='text-align: center;'>
-        <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' width='240' height='100' /></a>      
+        <img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' width='240' height='100' />     
       </td>
     </tr>
   </table>

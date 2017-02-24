@@ -582,7 +582,8 @@ public class BookDBProvider
     public static string DoFormat(decimal myNumber)
     {
         var s = string.Format("{0:0.00}", myNumber);
-
+        return s;
+/*
         if (s.EndsWith("00"))
         {
             return ((int)myNumber).ToString();
@@ -590,7 +591,7 @@ public class BookDBProvider
         else
         {
             return s;
-        }
+        }*/
     }
 
     public static PropertyInform getPropertyInfo(int propid)
