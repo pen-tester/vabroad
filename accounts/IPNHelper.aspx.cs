@@ -21,6 +21,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     public Transaction_Item transitem;
     public decimal _total_sum, _balance, _lodgingval, _total;
     public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
+    public HttpContext context;
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -31,13 +32,16 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             return;
         }
 
-        using (StreamReader sreader = new StreamReader(Request.InputStream))
+
+        context = HttpContext.Current;
+
+/*        using (StreamReader sreader = new StreamReader(Request.InputStream))
         {
             string content = sreader.ReadToEnd();
             System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
             file.Write(content);
             file.Close();
-        }
+        }*/
         saveLog();
         string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
@@ -120,9 +124,9 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         {
             try
             {
-                prop.SetValue(transitem, Convert.ChangeType(Request[prop.Name], prop.PropertyType), null);
+                prop.SetValue(transitem, Convert.ChangeType(context.Request[prop.Name], prop.PropertyType), null);
             }
-            catch
+            catch(Exception e)
             {
 
             }
