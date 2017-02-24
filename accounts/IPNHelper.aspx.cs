@@ -101,6 +101,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     }
     protected void saveLog()
     {
+        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Transaction "+Request["txn_id"]);
+
         transitem = new Transaction_Item();
 
         PropertyInfo[] props = transitem.GetType().GetProperties();
@@ -135,7 +137,6 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
             */
 
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Test");
         PaymentHelper.addPaymentLog(transitem);
 
         email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid

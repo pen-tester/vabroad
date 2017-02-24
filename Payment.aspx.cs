@@ -17,7 +17,7 @@ public partial class userowner_Payment : CommonPage
     public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
 
     public int respid = 0;
-    public decimal _total_sum, _lodgingval, _balance,_total;
+    public decimal _total_sum, _lodgingval, _balance,_total=0;
     protected void Page_Load(object sender, EventArgs e)
     {
         NameValueCollection nvc = Request.Form;
