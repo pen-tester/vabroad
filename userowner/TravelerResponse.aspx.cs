@@ -123,8 +123,8 @@ public partial class userowner_TravelerResponse : ClosedPage
         		</td>
         	</tr>
             <tr>
-            <td style='background: none; border: dotted 1px #999999; border-width:1px 0 0 0; height:1px;'>&nbsp;</td>
-            </ tr >
+            <td style='background: none; border: dotted 1px #999999; border-width:1px 0 0 0; height:1px;'></td>
+            </tr>
             <tr>
                 <td style='padding:3px;font-family: Verdana;'>
                   Cleaning Fee:{15} {19}<br/>
