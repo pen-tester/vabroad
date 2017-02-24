@@ -75,7 +75,7 @@ public partial class userowner_TravelerResponse : ClosedPage
         //To traveler
         // UserInfo traveler = BookDBProvider.getUserInfo(inquiryinfo.UserID);
         string toTraveler = @"<body>
-  <style>a:hover{color:#8bbdeb;} </style>
+  {22}
   <table border='0px' width='600px' >
     <tr>
       <td>
@@ -143,7 +143,7 @@ public partial class userowner_TravelerResponse : ClosedPage
   </table>
 </body>";
         decimal _total = _total_sum + _balance;
-        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, _total, _total_sum, _rates,_cleanfee,_secfee,_lodgingtax,_balance, currency.SelectedItem.Text,_lodgingvalue,AjaxProvider.Base64Encode(newrespid.ToString()));
+        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name, _total, _total_sum, _rates,_cleanfee,_secfee,_lodgingtax,_balance, currency.SelectedItem.Text,_lodgingvalue,AjaxProvider.Base64Encode(newrespid.ToString()), "<style>a:hover{color:#8bbdeb;} </style>");
         //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), msg);
