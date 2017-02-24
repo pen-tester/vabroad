@@ -14,11 +14,13 @@ using System.Web.UI.WebControls;
 public partial class accounts_IPNHelper : System.Web.UI.Page
 {
     public InquiryInfo inquiryinfo;
-    public CountryInfo countryinfo;
+   // public CountryInfo countryinfo;
     public EmailResponseInfo email_resp;
-    public UserInfo owner_info,traveler_info;
-    public PropertyInform prop_info;
+    public UserInfo owner_info;
+    public PropertyDetailInfo prop_info;
     public Transaction_Item transitem;
+    public decimal _total_sum, _balance, _lodgingval, _total;
+    public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -28,7 +30,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         }
 
 
-        string requestUriString = "https://www.paypal.com/cgi-bin/webscr";
+        string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
         HttpWebRequest request =
                (HttpWebRequest)WebRequest.Create(requestUriString);
@@ -58,26 +60,36 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         saveLog();
 
-        if(resp== "VERIFIED")
+        _total_sum = email_resp.NightRate * inquiryinfo.Nights;
+        _lodgingval = _total_sum * email_resp.LoadingTax / 100;
+        _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
+        _total = _total_sum + _balance;
+
+        if (resp== "VERIFIED")
         {
-            if(transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type!= "reversal")
+            //if(transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type!= "reversal")
+            if (transitem.business == "devalbum.andrew1987@gmail.com" && transitem.txn_type != "reversal")
             {
-                if ((transitem.mc_gross == (email_resp.Balance + email_resp.Sum)) && transitem.payment_status == "Completed" && transitem.mc_currency =="USD")
+                if ((transitem.mc_gross == (_total)) && transitem.payment_status == "Completed" && transitem.mc_currency == currency_type[email_resp.CurrencyType])
                 {
                     PaymentHelper.addPaymentHistory(transitem, inquiryinfo);
 
 
                     BookResponseEmail.updateEmailResponseState(transitem.item_number);
 
-                    string msg = "The traveler has paied for the property" + inquiryinfo.PropertyID;
 
-                    BookResponseEmail.sendEmail(owner_info.email, msg, "Transaction Notification");
+                    string msg_format = @"Dear {0} <br/>
+                        The traveler {1} has paid for the property {2}. <br/>
+                        The detailed info is following. <br/>
+                        Property:{3} <br/>
+                        Payer Email:{4} <br/>
+                        Amount:{5} <br/>
+                    ";
+                    string msg = String.Format(msg_format, owner_info.firstname, inquiryinfo.ContactorName, inquiryinfo.PropertyID, transitem.item_name, transitem.payer_email, transitem.mc_gross);
 
-                    msg = "You have paied for the property" + inquiryinfo.PropertyID;
-                    BookResponseEmail.sendEmail(traveler_info.email, msg, "Transaction Notification");
-
-                    msg = "The traveler has paid for the Property" + inquiryinfo.PropertyID;
-                    BookResponseEmail.sendEmail("prop@vacations-abroad.com", msg, "Transaction Notification");
+                    //BookDBProvider.SendEmail(owner_info.email, "Notification: Transaction:" + transitem.txn_id, msg);
+                    BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has paid for property {1} Transaction:{2}",inquiryinfo.ContactorName,transitem.item_number, transitem.txn_id), msg);
+                    BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification: Transaction:" + transitem.txn_id, msg);
 
                 }
 
@@ -97,7 +109,14 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         foreach(PropertyInfo prop in props)
         {
-            prop.SetValue(transitem, Convert.ChangeType(Request[prop.Name], prop.PropertyType), null);
+            try
+            {
+                prop.SetValue(transitem, Convert.ChangeType(Request[prop.Name], prop.PropertyType), null);
+            }
+            catch
+            {
+
+            }
         }
         
 /*
@@ -122,10 +141,9 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
        // if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
 
         inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
-        countryinfo = BookDBProvider.getCountryInfo(inquiryinfo.PropertyID);
         owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
-        traveler_info = BookDBProvider.getUserInfo(inquiryinfo.UserID);
-        prop_info = BookDBProvider.getPropertyInfo(inquiryinfo.PropertyID);
+       // traveler_info = BookDBProvider.getUserInfo(inquiryinfo.UserID);
+        prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
 
         PaymentHelper.addPaymentLog(transitem);
 

@@ -13,10 +13,11 @@ public partial class userowner_TravelerResponse : Page
     public InquiryInfo inquiryinfo;
     public CountryInfo countryinfo;
     public EmailResponseInfo email_resp;
-    public string[] currency_type = { "USD", "Euro","CAD", "GPB", "AUD" };
+    public string[] currency_type = { "USD", "EUR","CAD", "GPB", "YEN" };
 
     public int respid = 0;
     public decimal _total_sum, _total, _lodgingval, _balance;
+    public string url = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         /*
@@ -28,12 +29,12 @@ public partial class userowner_TravelerResponse : Page
         string param = AjaxProvider.Base64Decode(Request.QueryString["respid"]);
 
         if(!Int32.TryParse(param, out respid))respid=0;
-        if (respid == 0) respid = Convert.ToInt32(resp_number.Value);
+       // if (respid == 0) respid = Convert.ToInt32(resp_number.Value);
 
         email_resp = BookResponseEmail.getResponseInfo(respid);
         if (email_resp.ID == 0  || email_resp.IsValid<1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
 
-        resp_number.Value = respid.ToString();
+       // resp_number.Value = respid.ToString();
 
         inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
 
@@ -42,17 +43,15 @@ public partial class userowner_TravelerResponse : Page
         _total_sum = email_resp.NightRate * inquiryinfo.Nights;
         _lodgingval = _total_sum * email_resp.LoadingTax / 100;
         _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
+
+        url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", countryinfo.country, countryinfo.state, countryinfo.city, inquiryinfo.PropertyID);
     }
 
  
     protected void SendQuote_Click(object sender, EventArgs e)
     {
         errormsg.Text = "";
-        if (!chk_agree.Checked)
-        {
-            errormsg.Text = "You have to agree the above all terms.";
-            return;
-        }
+
 
         /* string URI = "/payment.aspx";
          string myParameters = "respid="+respid;
@@ -68,7 +67,7 @@ public partial class userowner_TravelerResponse : Page
         StringBuilder sb = new StringBuilder();
         sb.Append("<html>");
         sb.AppendFormat(@"<body onload='document.forms[""form""].submit()'>");
-        sb.AppendFormat("<form name='form' action='{0}' method='post'>", "/userowner/Payment.aspx");
+        sb.AppendFormat("<form name='form' action='{0}' method='post'>", "/payment.aspx");
         sb.AppendFormat("<input type='hidden' name='respid' value='{0}'>", respid);
         // Other params go here
         sb.Append("</form>");

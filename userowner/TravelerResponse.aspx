@@ -287,13 +287,13 @@ ul {
                              <asp:DropDownList ID="currency" runat="server" ClientIDMode="Static" Width="150px">
                                  <asp:ListItem Text="USD" Value="0" Selected="True">
                                   </asp:ListItem>
-                                 <asp:ListItem Text="Euro" Value="1">
+                                 <asp:ListItem Text="EUR" Value="1">
                                   </asp:ListItem>
                                  <asp:ListItem Text="CAD" Value="2">
                                   </asp:ListItem>
                                  <asp:ListItem Text="GPB" Value="3">
                                   </asp:ListItem>
-                                 <asp:ListItem Text="AUD" Value="4">
+                                 <asp:ListItem Text="YEN" Value="4">
                                   </asp:ListItem>
                              </asp:DropDownList>
                           </div>

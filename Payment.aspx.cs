@@ -13,17 +13,18 @@ public partial class userowner_Payment : CommonPage
     public CountryInfo countryinfo;
     public EmailResponseInfo email_resp;
     public UserInfo owner_info;
-    public PropertyInform prop_info;
-    public string[] currency_type = { "USD", "EUR", "GBP", "YEN", "CAD" };
+    public PropertyDetailInfo prop_info;
+    public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
 
     public int respid = 0;
+    public decimal _total_sum, _lodgingval, _balance,_total;
     protected void Page_Load(object sender, EventArgs e)
     {
         NameValueCollection nvc = Request.Form;
         // string userName, password;
-        if (!string.IsNullOrEmpty(nvc["respid"]))
+        if (!string.IsNullOrEmpty(nvc["resp_number"]))
         {
-            respid = Convert.ToInt32(nvc["respid"]);
+            respid = Convert.ToInt32(nvc["resp_number"]);
             resp_id.Value = respid.ToString();
         }
         else if (resp_id.Value != null && resp_id.Value!="")
@@ -36,9 +37,12 @@ public partial class userowner_Payment : CommonPage
         if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
 
         inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
-        countryinfo = BookDBProvider.getCountryInfo(inquiryinfo.PropertyID);
         owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
-        prop_info = BookDBProvider.getPropertyInfo(inquiryinfo.PropertyID);
+        prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
+        _total_sum = email_resp.NightRate * inquiryinfo.Nights;
+        _lodgingval = _total_sum * email_resp.LoadingTax / 100;
+        _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
+        _total = _total_sum + _balance;
     }
 
     protected void payment_Click(object sender, EventArgs e)
@@ -73,33 +77,34 @@ public partial class userowner_Payment : CommonPage
         string redirecturl = "";
 
         //Mention URL to redirect content to paypal site
-        redirecturl += "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" +
-                       ConfigurationManager.AppSettings["PaypalEmail"].ToString();
+        redirecturl += "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" +
+                       ConfigurationManager.AppSettings["tstPaypalEmail"].ToString();
 
         //Product Name
-        redirecturl += String.Format("&item_name=Property{0} in {1},{2},{3}", inquiryinfo.PropertyID, countryinfo.city, countryinfo.state, countryinfo.country);
+        redirecturl += String.Format("&item_name=Property{0} in {1},{2},{3}", inquiryinfo.PropertyID,prop_info.City, prop_info.StateProvince, prop_info.Country);
         //item_number
         redirecturl += "&item_number=" + inquiryinfo.id;
         //Product Name
-        redirecturl += "&amount=" + (email_resp.Balance + email_resp.Sum);
+        redirecturl += "&amount=" + _total;
 
         //Shipping charges if any
         redirecturl += "&no_shipping=1";
 
         redirecturl += "&rm=2";
         //Currency code 
-        redirecturl += "&currency_code=" + "USD";
+      //   redirecturl += "&currency_code=" + "USD";
+        redirecturl += ("&currency_code=" + currency_type[email_resp.CurrencyType]);
 
         //Success return page url
-        redirecturl += "&return=" +
-          ConfigurationManager.AppSettings["SuccessURL"].ToString();
+        //redirecturl += "&return=" +      ConfigurationManager.AppSettings["SuccessURL"].ToString();
+        redirecturl += "&return=https://www.vacations-abroad.com/paysuccess.aspx";
 
         //Failed return page url
-        redirecturl += "&cancel_return=" +
-          ConfigurationManager.AppSettings["FailedURL"].ToString();
+        //redirecturl += "&cancel_return=" +    ConfigurationManager.AppSettings["FailedURL"].ToString();
+        redirecturl += "&cancel_return=https://www.vacations-abroad.com/payfail.aspx";
 
-        redirecturl += "&notify_url=" +
-          ConfigurationManager.AppSettings["IPNURL"].ToString();
+        //redirecturl += "&notify_url=" +       ConfigurationManager.AppSettings["IPNURL"].ToString();
+        redirecturl += "&notify_url=https://www.vacations-abroad.com/acounts/IPNHelper.aspx";
 
         Response.Redirect(redirecturl);
     }

@@ -29,7 +29,8 @@ public class Transaction_Item
     public  string payment_status { get; set; }
     public string payment_type  { get; set; }
     public string pending_reason { get; set; }
-    public string item_name { get; set; }   
+    public string item_name { get; set; }  
+    public string verify_sign { get; set; } 
 }
 public class Book_Item
 {
