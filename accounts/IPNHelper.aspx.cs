@@ -23,7 +23,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request["txn_id"]!="" || Request["txn_id"]==null)
+        if (!IsPostBack)
         {
             Response.Write("Wrong request");
             return;
@@ -101,7 +101,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     }
     protected void saveLog()
     {
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Transaction "+Request["txn_id"]);
+       // BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Transaction tst");
 
         transitem = new Transaction_Item();
 
