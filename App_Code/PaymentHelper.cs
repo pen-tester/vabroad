@@ -15,6 +15,7 @@ public class Transaction_Item
     public Transaction_Item()
     {
         item_number = 0; mc_gross = 0; mc_fee = 0;
+        txn_id = ""; txn_type = "";
     }
     public int item_number { get; set; }
     public decimal mc_gross { get; set; }

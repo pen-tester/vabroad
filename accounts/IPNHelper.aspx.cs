@@ -125,7 +125,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         {
             try
             {
-                content += (context.Request[prop.Name] + " " + prop.PropertyType + "\n");
+                
                 prop.SetValue(transitem, Convert.ChangeType(context.Request[prop.Name], prop.PropertyType), null);
                 
             }
@@ -133,6 +133,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             {
 
             }
+            content += (prop.Name + "::" + prop.GetValue(transitem, null) + ">>>>>");
         }
             System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
             file.Write(content);
