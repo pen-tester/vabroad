@@ -23,7 +23,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Request["txn_id"]!="" || Request["txn_id"]==null)
         {
             Response.Write("Wrong request");
             return;
