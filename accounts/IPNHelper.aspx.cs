@@ -23,12 +23,12 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+       /* if (!IsPostBack)
         {
             Response.Write("Wrong request");
             return;
         }
-
+        */
         saveLog();
         string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
@@ -116,24 +116,26 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
             }
         }
-        
-/*
-        int item_number = Convert.ToInt32(Request["item_number"]);
-        decimal mc_gross = Convert.ToDecimal(Request["mc_gross"]);
-        decimal mc_fee = Convert.ToDecimal(Request["mc_fee"]);
-        string txn_id = Request["txn_id"];
-        string paydate = Request["payment_date"];
-        string business = Request["business"];
-        string payer_email = Request["payer_email"];
-        string payer_id = Request["payer_id"];
-        string mc_currency = Request["mc_currency"];
-        string txn_type = Request["txn_type"];
-        string payment_status = Request["payment_status"];
-        string payment_type = Request["payment_type"];
-        string pending_reason = Request["pending_reason"];
-        string item_name = Request["item_name"];
 
-    */
+        /*
+                int item_number = Convert.ToInt32(Request["item_number"]);
+                decimal mc_gross = Convert.ToDecimal(Request["mc_gross"]);
+                decimal mc_fee = Convert.ToDecimal(Request["mc_fee"]);
+                string txn_id = Request["txn_id"];
+                string paydate = Request["payment_date"];
+                string business = Request["business"];
+                string payer_email = Request["payer_email"];
+                string payer_id = Request["payer_id"];
+                string mc_currency = Request["mc_currency"];
+                string txn_type = Request["txn_type"];
+                string payment_status = Request["payment_status"];
+                string payment_type = Request["payment_type"];
+                string pending_reason = Request["pending_reason"];
+                string item_name = Request["item_name"];
+
+            */
+
+        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Test");
 
         email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
        // if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
