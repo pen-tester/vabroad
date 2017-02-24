@@ -132,9 +132,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             }
         }
 
-                System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
-                    file.Write(transitem.item_name + " " + transitem.txn_id);
-                    file.Close();
+    
                 
 
 
