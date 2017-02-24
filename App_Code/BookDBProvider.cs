@@ -43,7 +43,12 @@ public class InquiryInfo
     public int Nights { get; set; }
 
     public int PropertyOwnerID { get; set; }
-       //,[DepartDate]
+    public int IfReplied { get; set; }
+    //,[DepartDate]
+    public InquiryInfo()
+    {
+        IfReplied = 0;
+    }
 
 }
 
@@ -547,7 +552,7 @@ public class BookDBProvider
                             if (reader.Read())
                             {
                                 //SentTime,ContactorName,ContactorEmail,ArrivalDate,DepartDate,Adults,Children,Telephone,UserID,PropertyID,PropertyOwnerID,Nights,IfReplied
-                                propinfo.id = quoteid;
+/*                                propinfo.id = quoteid;
                                 propinfo.ContactorName = reader["ContactorName"].ToString();
                                 propinfo.ContactorEmail = reader["ContactorEmail"].ToString();
                                 propinfo.Adults = Convert.ToInt32(reader["Adults"]);
@@ -557,6 +562,20 @@ public class BookDBProvider
                                 propinfo.Nights = Convert.ToInt32(reader["Nights"]);
                                 propinfo.ArrivalDate = Convert.ToDateTime(reader["ArrivalDate"]).ToString("yyyy-MM-dd");
                                 propinfo.PropertyOwnerID= Convert.ToInt32(reader["PropertyOwnerID"]);
+                                */
+
+                                PropertyInfo[] propertys = propinfo.GetType().GetProperties();
+                                foreach(PropertyInfo info in propertys)
+                                {
+                                    try
+                                    {
+                                        info.SetValue(propinfo, Convert.ChangeType(reader[info.Name], info.PropertyType), null);
+                                    }catch(Exception e)
+                                    {
+
+                                    }
+                                        //propertyInfo.SetValue(ship, Convert.ChangeType(value, propertyInfo.PropertyType), null);
+                                }
                             }
                         }
 
@@ -592,7 +611,7 @@ public class BookDBProvider
         {
             return s;
         }*/
-    }
+                            }
 
     public static PropertyInform getPropertyInfo(int propid)
      {
