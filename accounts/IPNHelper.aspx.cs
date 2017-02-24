@@ -23,6 +23,14 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
     protected void Page_Load(object sender, EventArgs e)
     {
+        using (StreamReader sreader = new StreamReader(Request.InputStream)) {
+            string content = sreader.ReadToEnd();
+            System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
+            file.Write(content);
+
+        }
+        // Write the string to a file.
+
         if (!IsPostBack)
         {
             Response.Write("Wrong request");
