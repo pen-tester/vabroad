@@ -118,14 +118,22 @@ public partial class userowner_TravelerResponse : ClosedPage
              
                   Total Amount Due:{12} {19}<br/>
                   Amount Due to Reserve:{13} {19} (Nightly Rate:{14} {19})<br/>
+
+              
+        		</td>
+        	</tr>
+            <tr>
+            <td style='background: none; border: dotted 1px #999999; border-width:1px 0 0 0; height:1px;'>&nbsp;</td>
+            </ tr >
+            <tr>
+                <td style='padding:10px;font-family: Verdana;'>
                   Cleaning Fee:{15} {19}<br/>
                   Security Deposit:{16} {19}<br/>
                   Lodging Tax:{17}% {20}{19}<br/>
                   Amount Due Upon Arrival:{18}    
-              
-        		</td>
-        	</tr>
-        </table>
+        		</td>            
+            </tr>
+          </table>
       </td>
     </tr>
     <tr>
