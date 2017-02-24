@@ -125,7 +125,7 @@ public class PaymentHelper
                     cmd.Parameters.Add("@mc_gross", SqlDbType.Decimal).Value = item.mc_gross;
                     cmd.Parameters.Add("@mc_fee", SqlDbType.Decimal).Value = item.mc_fee;
                     cmd.Parameters.Add("@txn_id", SqlDbType.NVarChar,1000).Value = item.txn_id;
-                    cmd.Parameters.Add("@payment_date", SqlDbType.DateTime).Value = item.payment_date;
+                    cmd.Parameters.Add("@payment_date", SqlDbType.NVarChar,200).Value = item.payment_date;
                     cmd.Parameters.Add("@business", SqlDbType.NVarChar,1000).Value = item.business;
                     cmd.Parameters.Add("@payer_email", SqlDbType.NVarChar,300).Value = item.payer_email;
                     cmd.Parameters.Add("@payer_id", SqlDbType.NVarChar,200).Value = item.payer_id;
