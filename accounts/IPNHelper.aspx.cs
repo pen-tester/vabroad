@@ -29,7 +29,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             return;
         }
 
-
+        saveLog();
         string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
         HttpWebRequest request =
@@ -57,8 +57,6 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         Encoding encoding = Encoding.GetEncoding("utf-8");
         StreamReader reader = new StreamReader(responseStream, encoding);
         string resp = reader.ReadToEnd();
-
-        saveLog();
 
         _total_sum = email_resp.NightRate * inquiryinfo.Nights;
         _lodgingval = _total_sum * email_resp.LoadingTax / 100;
