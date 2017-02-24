@@ -85,7 +85,7 @@ public partial class userowner_Payment : CommonPage
         //item_number
         redirecturl += "&item_number=" + inquiryinfo.id;
         //Product Name
-        redirecturl += "&amount=" + _total;
+        redirecturl += "&amount=" + BookDBProvider.DoFormat(_total);
 
         //Shipping charges if any
         redirecturl += "&no_shipping=1";

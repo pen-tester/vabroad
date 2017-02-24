@@ -33,7 +33,7 @@
     <div class="internalpagewidth">
         <div class="srow normalMargintop">
             <div class="col-6">
-                <label class="siteName">Vocation Abroad</label>
+                <label class="siteName">Vacation-Abroad.com</label>
             </div>
             <div class="col-6">
                 <div class="srow location_right">
@@ -50,16 +50,32 @@
                 You have agreed the following terms.
             </div>
             <div class="srow normalMargintop">
-                <div class="borderpane col-6">
+                <div class="col-6">
+                    <div class="borderpane srow">
+                        <div class="col-2 centered">
+                            Owner:
+                        </div>
+                        <div class="col-10 text-left">
+                            <ul>
+                                <li><%=owner_info.firstname+" "+owner_info.lastname %></li>
+                                <li>Email:<%=owner_info.email %></li>
+                                <li>Phone Number:<%=owner_info.PrimaryTelephone %></li>
+                            </ul>
+                        </div>
+                     </div>
+                </div>
+                <div class="col-6">
+                    <div class="borderpane srow">
                     <div class="col-2 centered">
-                        To:
+                        Renter:
                     </div>
                     <div class="col-10 text-left">
                         <ul>
-                            <li><%=owner_info.firstname+" "+owner_info.lastname %></li>
-                            <li>Email:<%=owner_info.email %></li>
-                            <li>Phone Number:<%=owner_info.PrimaryTelephone %></li>
+                            <li><%=inquiryinfo.ContactorName %></li>
+                            <li>Email:<%=inquiryinfo.ContactorEmail %></li>
+                            <li>Phone Number:<%=inquiryinfo.Telephone %></li>
                         </ul>
+                    </div>
                     </div>
                 </div>
             </div>
