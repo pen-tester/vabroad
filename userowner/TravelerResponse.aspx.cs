@@ -23,7 +23,7 @@ public partial class userowner_TravelerResponse : ClosedPage
 
         inquiryinfo = BookDBProvider.getQuoteInfo(quoteid);
 
-        if (inquiryinfo.IfReplied == 0)
+        if (inquiryinfo.IfReplied == 1)
         {
             Response.Redirect("/Error.aspx?error=You've already responded.");
         }
