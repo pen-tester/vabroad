@@ -132,7 +132,7 @@ public class BookResponseEmail
         }
         catch (Exception ex)
         {
-            // throw ex;
+             throw ex;
             // return 0;
         }
         return prop_info;
