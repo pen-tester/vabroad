@@ -172,7 +172,7 @@ public class BookResponseEmail
         }
         catch (Exception ex)
         {
-
+            throw ex;
         }
 
         return inquiry_set;
