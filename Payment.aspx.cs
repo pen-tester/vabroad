@@ -104,7 +104,7 @@ public partial class userowner_Payment : CommonPage
         redirecturl += "&cancel_return=https://www.vacations-abroad.com/payfail.aspx";
 
         //redirecturl += "&notify_url=" +       ConfigurationManager.AppSettings["IPNURL"].ToString();
-        redirecturl += "&notify_url=https://www.vacations-abroad.com/acounts/IPNHelper.aspx";
+        redirecturl += "&notify_url=https://www.vacations-abroad.com/acounts/ipnhelper.aspx";
 
         Response.Redirect(redirecturl);
     }
