@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/userowner/MasterPage.master" AutoEventWireup="true" CodeFile="QuoteResponse.aspx.cs" Inherits="userowner_TravelerResponse" %>
+﻿<%@ Page Language="C#"  MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="QuoteResponse.aspx.cs" Inherits="userowner_TravelerResponse" %>
 
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
     <div class="container">
