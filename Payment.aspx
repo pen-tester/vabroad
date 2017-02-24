@@ -137,7 +137,7 @@
                     Cleaning Fee:<%=BookDBProvider.DoFormat(email_resp.CleaningFee) %>
                 </div>
                 <div class="srow">
-                    Amount Due to Owner upon Arrival:<%=BookDBProvider.DoFormat(_balance) %>
+                   Security Deposit + Lodging Tax + Cleaning Fee = Amount Due to Owner upon Arrival:<%=BookDBProvider.DoFormat(_balance) %>
                 </div>
                 <div class="srow top_formrow">
                     Total Rental Price:<%=BookDBProvider.DoFormat(_total) %>
