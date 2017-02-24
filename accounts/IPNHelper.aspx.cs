@@ -27,7 +27,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             string content = sreader.ReadToEnd();
             System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
             file.Write(content);
-
+            file.Close();
         }
         // Write the string to a file.
 
