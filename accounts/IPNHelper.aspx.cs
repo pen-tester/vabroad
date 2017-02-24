@@ -23,12 +23,12 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     public string[] currency_type = { "USD", "EUR", "CAD", "GPB", "YEN" };
     protected void Page_Load(object sender, EventArgs e)
     {
-       /* if (!IsPostBack)
+        if (!IsPostBack)
         {
             Response.Write("Wrong request");
             return;
         }
-        */
+        
         saveLog();
         string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
@@ -66,7 +66,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         if (resp== "VERIFIED")
         {
             //if(transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type!= "reversal")
-            if (transitem.business == "devalbum.andrew1987@gmail.com" && transitem.txn_type != "reversal")
+            if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
             {
                 if ((transitem.mc_gross == (_total)) && transitem.payment_status == "Completed" && transitem.mc_currency == currency_type[email_resp.CurrencyType])
                 {

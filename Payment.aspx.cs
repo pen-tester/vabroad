@@ -78,7 +78,7 @@ public partial class userowner_Payment : CommonPage
 
         //Mention URL to redirect content to paypal site
         //redirecturl += "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" +                  ConfigurationManager.AppSettings["PaypalEmail"].ToString();
-        redirecturl += "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=devalbum.andrew1987@gmail.com";
+        redirecturl += "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=talent.anddev@yandex.com";
 
         //Product Name
         redirecturl += String.Format("&item_name=Property{0} in {1},{2},{3}", inquiryinfo.PropertyID,prop_info.City, prop_info.StateProvince, prop_info.Country);
