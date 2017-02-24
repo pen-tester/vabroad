@@ -49,14 +49,16 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
                (HttpWebRequest)WebRequest.Create(requestUriString);
 
         string strFormValues = Encoding.ASCII.GetString(
-    this.Request.BinaryRead(this.Request.ContentLength));
+    context.Request.BinaryRead(context.Request.ContentLength));
         // Set values for the request back
         request.Method = "POST";
         request.ContentType = "application/x-www-form-urlencoded";
         string obj2 = strFormValues + "&cmd=_notify-validate";
         request.ContentLength = obj2.Length;
 
-       
+        System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/logwrite.txt"));
+          file.Write(obj2);
+        file.Close();
 
         // Write the request back IPN strings
         StreamWriter writer =
@@ -75,6 +77,10 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         _lodgingval = _total_sum * email_resp.LoadingTax / 100;
         _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
         _total = _total_sum + _balance;
+
+        System.IO.StreamWriter sfile = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
+        sfile.Write(resp);
+        sfile.Close();
 
         if (resp== "VERIFIED")
         {
