@@ -47,10 +47,8 @@ public partial class userowner_Payment : CommonPage
 
     protected void payment_Click(object sender, EventArgs e)
     {
-        if (Convert.ToInt32(paytype.SelectedValue) == 0)
-        {
             PaywithPaypal();
-        }
+        
     }
 
     protected void PaywithPaypal()

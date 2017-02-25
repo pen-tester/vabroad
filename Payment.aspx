@@ -149,13 +149,7 @@
         <div class="srow">
             <div class="col-4">
                 <div id="pay_form">
-                    <div class="srow">
-                        <asp:Label ID="Label1" runat="server" Text="Payment Method"></asp:Label>
-                       <asp:DropDownList ID="paytype" runat="server">
-                           <asp:ListItem Text="PayPal" Value="0" Selected="True"></asp:ListItem>
-                           <asp:ListItem Text="Credit" Value="1"></asp:ListItem>
-                       </asp:DropDownList>
-                    </div>
+
                     <div class="srow normalMargintop">
                         <asp:Button ID="payment" OnClick="payment_Click" CssClass="btnsendquote" runat="server" Text="Pay To Reserve" />
                     </div>
