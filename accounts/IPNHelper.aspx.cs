@@ -24,6 +24,9 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
     public HttpContext context;
     protected void Page_Load(object sender, EventArgs e)
     {
+        System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/logwritex.txt"));
+        file.Write("executeda");
+        file.Close();
 
         // Write the string to a file.
         if (HttpContext.Current.Request.HttpMethod != "POST")
@@ -34,7 +37,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         context = HttpContext.Current;
 
-        parseTransaction();
+       // parseTransaction();
         //PaymentHelper.addPaymentLog(transitem);
         /*
         email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
