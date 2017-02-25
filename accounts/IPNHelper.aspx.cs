@@ -34,7 +34,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         context = HttpContext.Current;
 
-        parseTransaction();
+       // parseTransaction();
         //PaymentHelper.addPaymentLog(transitem);
         /*
         email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
@@ -46,7 +46,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
         */
 
-
+/*
         ServicePointManager.Expect100Continue = true;
         ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
       
@@ -86,7 +86,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         _total = _total_sum + _balance;
 
   */
-        System.IO.StreamWriter sfile = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
+      /*  System.IO.StreamWriter sfile = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
         sfile.Write(resp);
         sfile.Close();
 
@@ -121,12 +121,12 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
                  }
 
-             }*/
+             }
         }
         else
         {
 
-        }
+        }*/
 
     }
 
