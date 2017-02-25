@@ -32,6 +32,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             return;
         }
 
+        ServicePointManager.Expect100Continue = true;
+        ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
         context = HttpContext.Current;
 
@@ -139,7 +141,6 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             {
 
             }
-            content += (prop.Name + "::" + prop.GetValue(transitem, null) + ">>>>>");
         }
        /*     System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
             file.Write(content);
