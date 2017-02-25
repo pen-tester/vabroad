@@ -34,7 +34,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         context = HttpContext.Current;
 
-       // parseTransaction();
+        parseTransaction();
         //PaymentHelper.addPaymentLog(transitem);
         /*
         email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
