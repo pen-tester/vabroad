@@ -28,7 +28,7 @@ public partial class userowner_PaySuccess : System.Web.UI.Page
             Response.Write("Wrong request");
             return;
         }
-
+        /*
         context = HttpContext.Current;
 
          parseTransaction();
@@ -125,7 +125,7 @@ public partial class userowner_PaySuccess : System.Web.UI.Page
           {
 
           }
-
+          */
     }
 
     protected void parseTransaction()
