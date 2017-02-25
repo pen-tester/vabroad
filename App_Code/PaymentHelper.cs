@@ -15,7 +15,8 @@ public class Transaction_Item
     public Transaction_Item()
     {
         item_number = 0; mc_gross = 0; mc_fee = 0;
-        txn_id = ""; txn_type = "";
+        txn_id = ""; txn_type = ""; payment_date = ""; business = ""; payer_email = ""; payer_id = ""; mc_currency = "";
+        txn_type = "";payment_status = ""; payment_type = ""; pending_reason = "";item_name = "";verify_sign = "";
     }
     public int item_number { get; set; }
     public decimal mc_gross { get; set; }

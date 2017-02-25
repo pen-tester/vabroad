@@ -37,13 +37,14 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         context = HttpContext.Current;
 
-/*        using (StreamReader sreader = new StreamReader(Request.InputStream))
-        {
-            string content = sreader.ReadToEnd();
-            System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
-            file.Write(content);
-            file.Close();
-        }*/
+        /*        using (StreamReader sreader = new StreamReader(Request.InputStream))
+                {
+                    string content = sreader.ReadToEnd();
+                    System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
+                    file.Write(content);
+                    file.Close();
+                }*/
+        parseTransaction();
         saveLog();
         string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
@@ -120,41 +121,54 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         }
 
     }
-    protected void saveLog()
-    {
-       // BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Transaction tst");
 
+    protected void parseTransaction()
+    {
         transitem = new Transaction_Item();
+
         string content = "";
 
         PropertyInfo[] props = transitem.GetType().GetProperties();
 
-        foreach(PropertyInfo prop in props)
+        foreach (PropertyInfo prop in props)
         {
             try
             {
-                
+
                 prop.SetValue(transitem, Convert.ChangeType(context.Request[prop.Name], prop.PropertyType), null);
                 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
+            content += prop.GetValue(transitem, null);
         }
+        email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
+                                                                               // if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
+
+        inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
+        owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
+        // traveler_info = BookDBProvider.getUserInfo(inquiryinfo.UserID);
+        prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
+
+        System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/logwritex.txt"));
+        file.Write(content);
+        file.Close();
+    }
+
+    protected void saveLog()
+    {
+       // BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Transaction tst");
+
+   
        /*     System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
             file.Write(content);
             file.Close();
        */
         PaymentHelper.addPaymentLog(transitem);
 
-        email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
-       // if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
-
-        inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
-        owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
-       // traveler_info = BookDBProvider.getUserInfo(inquiryinfo.UserID);
-        prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
+   
        
 
     }

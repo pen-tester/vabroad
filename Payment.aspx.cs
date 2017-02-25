@@ -83,7 +83,7 @@ public partial class userowner_Payment : CommonPage
         //Product Name
         redirecturl += String.Format("&item_name=Property{0} in {1},{2},{3}", inquiryinfo.PropertyID,prop_info.City, prop_info.StateProvince, prop_info.Country);
         //item_number
-        redirecturl += "&item_number=" + inquiryinfo.id;
+        redirecturl += "&item_number=" +respid;
         //Product Name
         redirecturl += "&amount=" + BookDBProvider.DoFormat(_total);
 
