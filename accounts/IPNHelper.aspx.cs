@@ -32,6 +32,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             return;
         }
 
+        context = HttpContext.Current;
+
         parseTransaction();
         //PaymentHelper.addPaymentLog(transitem);
         /*
@@ -47,9 +49,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         ServicePointManager.Expect100Continue = true;
         ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-
-        context = HttpContext.Current;
-       
+      
         string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
         HttpWebRequest request =
@@ -79,12 +79,13 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         Encoding encoding = Encoding.GetEncoding("utf-8");
         StreamReader reader = new StreamReader(responseStream, encoding);
         string resp = reader.ReadToEnd();
-
+/*
         _total_sum = email_resp.NightRate * inquiryinfo.Nights;
         _lodgingval = _total_sum * email_resp.LoadingTax / 100;
         _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
         _total = _total_sum + _balance;
 
+  */
         System.IO.StreamWriter sfile = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
         sfile.Write(resp);
         sfile.Close();
@@ -143,13 +144,13 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             {
 
                 prop.SetValue(transitem, Convert.ChangeType(context.Request[prop.Name], prop.PropertyType), null);
-                
+                content += String.Format("Name:{0} =>Value:{1} ******", prop.Name, prop.GetValue(transitem, null));
             }
             catch (Exception e)
             {
 
             }
-            content += String.Format("Name:{0} =>Value:{1} ******", prop.Name,prop.GetValue(transitem, null));
+           
         }
  
         System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/logwritex.txt"));
