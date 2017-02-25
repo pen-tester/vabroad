@@ -32,20 +32,24 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             return;
         }
 
+        parseTransaction();
+        //PaymentHelper.addPaymentLog(transitem);
+        /*
+        email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
+                                                                               // if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
+
+        inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
+        owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
+        // traveler_info = BookDBProvider.getUserInfo(inquiryinfo.UserID);
+        prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
+        */
+
+
         ServicePointManager.Expect100Continue = true;
         ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
         context = HttpContext.Current;
-
-        /*        using (StreamReader sreader = new StreamReader(Request.InputStream))
-                {
-                    string content = sreader.ReadToEnd();
-                    System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
-                    file.Write(content);
-                    file.Close();
-                }*/
-        parseTransaction();
-        saveLog();
+       
         string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
         HttpWebRequest request =
@@ -88,32 +92,35 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         if (resp== "VERIFIED")
         {
             //if(transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type!= "reversal")
-            if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
-            {
-                if ((transitem.mc_gross == (_total)) && transitem.payment_status == "Completed" && transitem.mc_currency == currency_type[email_resp.CurrencyType])
-                {
-                    PaymentHelper.addPaymentHistory(transitem, inquiryinfo);
+            System.IO.StreamWriter ssfile = new System.IO.StreamWriter(Server.MapPath("/logt.txt"));
+            ssfile.Write(resp);
+            ssfile.Close();
+            /* if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
+             {
+                 if ((transitem.mc_gross == (_total)) && transitem.payment_status == "Completed" && transitem.mc_currency == currency_type[email_resp.CurrencyType])
+                 {
+                     PaymentHelper.addPaymentHistory(transitem, inquiryinfo);
 
 
-                    BookResponseEmail.updateEmailResponseState(transitem.item_number);
+                     BookResponseEmail.updateEmailResponseState(transitem.item_number);
 
 
-                    string msg_format = @"Dear {0} <br/>
-                        The traveler {1} has paid for the property {2}. <br/>
-                        The detailed info is following. <br/>
-                        Property:{3} <br/>
-                        Payer Email:{4} <br/>
-                        Amount:{5} <br/>
-                    ";
-                    string msg = String.Format(msg_format, owner_info.firstname, inquiryinfo.ContactorName, inquiryinfo.PropertyID, transitem.item_name, transitem.payer_email, transitem.mc_gross);
+                     string msg_format = @"Dear {0} <br/>
+                         The traveler {1} has paid for the property {2}. <br/>
+                         The detailed info is following. <br/>
+                         Property:{3} <br/>
+                         Payer Email:{4} <br/>
+                         Amount:{5} <br/>
+                     ";
+                     string msg = String.Format(msg_format, owner_info.firstname, inquiryinfo.ContactorName, inquiryinfo.PropertyID, transitem.item_name, transitem.payer_email, transitem.mc_gross);
 
-                    //BookDBProvider.SendEmail(owner_info.email, "Notification: Transaction:" + transitem.txn_id, msg);
-                    BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has paid for property {1} Transaction:{2}",inquiryinfo.ContactorName,transitem.item_number, transitem.txn_id), msg);
-                    BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification: Transaction:" + transitem.txn_id, msg);
+                     //BookDBProvider.SendEmail(owner_info.email, "Notification: Transaction:" + transitem.txn_id, msg);
+                     BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has paid for property {1} Transaction:{2}",inquiryinfo.ContactorName,transitem.item_number, transitem.txn_id), msg);
+                     BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification: Transaction:" + transitem.txn_id, msg);
 
-                }
+                 }
 
-            }
+             }*/
         }
         else
         {
@@ -142,34 +149,13 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             {
 
             }
-            content += prop.GetValue(transitem, null);
+            content += String.Format("Name:{0} =>Value:{1} ******", prop.Name,prop.GetValue(transitem, null));
         }
-        email_resp = BookResponseEmail.getResponseInfo(transitem.item_number); //respid
-                                                                               // if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
-
-        inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
-        owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
-        // traveler_info = BookDBProvider.getUserInfo(inquiryinfo.UserID);
-        prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
-
+ 
         System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/logwritex.txt"));
         file.Write(content);
         file.Close();
     }
 
-    protected void saveLog()
-    {
-       // BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification", "Transaction tst");
 
-   
-       /*     System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
-            file.Write(content);
-            file.Close();
-       */
-        PaymentHelper.addPaymentLog(transitem);
-
-   
-       
-
-    }
 }
