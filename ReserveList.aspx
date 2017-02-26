@@ -53,6 +53,9 @@
             <th>
                 Commission
             </th>
+            <th>
+                Currency
+            </th>
         </tr>
                 <% int counts = ds_payment.Tables[0].Rows.Count;
 
@@ -62,6 +65,7 @@
                         decimal amt = Decimal.Parse(row["mc_gross"].ToString());
                         decimal fee = Decimal.Parse(row["mc_fee"].ToString());
                         int propertyid = Int32.Parse(row["PropertyID"].ToString());
+                        
                         PropertyDetailInfo propinfo = AjaxProvider.getPropertyDetailInfo(propertyid);
                         string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City, propinfo.ID).ToLower().Replace(" ","_");
                      %>
@@ -91,6 +95,9 @@
                         </td>
                         <td>
                             <%=BookDBProvider.DoFormat((amt-fee)*0.15m) %>
+                        </td>
+                        <td>
+                            <%=row["mc_currency"] %>
                         </td>
                     </tr>
 
