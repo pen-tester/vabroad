@@ -63,7 +63,7 @@
                         decimal fee = Decimal.Parse(row["mc_fee"].ToString());
                         int propertyid = Int32.Parse(row["PropertyID"].ToString());
                         PropertyDetailInfo propinfo = AjaxProvider.getPropertyDetailInfo(propertyid);
-                        string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City, propinfo.ID);
+                        string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City, propinfo.ID).ToLower().Replace(" ","_");
                      %>
                     <tr>
                         <td>
