@@ -73,7 +73,40 @@ public class PaymentHelper
         // TODO: Add constructor logic here
         //
     }
+    public static DataSet getAllPaymentList()//type:0 ownerid 1:travelerid
+    {
+        //  SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection);
 
+        DataSet inquiry_set = new DataSet();
+        //  adapter.Fill(customers, "Customers");
+        try
+        {
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+                    con.Open();
+                    string sql = "uspGetPaymentList";
+
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    adapter.SelectCommand = cmd;
+
+                    adapter.Fill(inquiry_set, "paymentlist");
+
+                    con.Close();
+
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+        return inquiry_set;
+    }
 
     public static DataSet getBookInfoSet(int userid, int type)//type:0 ownerid 1:travelerid
     {
