@@ -81,7 +81,7 @@
                              </a>
                         </td>
                         <td>
-                            <%=DateTime.Parse(row["payment_date"].ToString()).ToString("MMM d, yyyy") %>
+                            <%=row["payment_date"] %>
                         </td>
                         <td>
                             <%=BookDBProvider.DoFormat(amt-fee) %>

@@ -48,8 +48,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         ServicePointManager.Expect100Continue = true;
         ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
-        string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-       // string requestUriString = "https://www.paypal.com/cgi-bin/webscr";
+      //  string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+        string requestUriString = "https://www.paypal.com/cgi-bin/webscr";
 
         HttpWebRequest request =
                        (HttpWebRequest)WebRequest.Create(requestUriString);
