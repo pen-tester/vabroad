@@ -13,16 +13,16 @@
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
 <div class="internalpagewidth">
           <div class="apphead">
-    <h1>Get More Bookings with Vacations Abroad!</h1>
+    <h1>List your Property</h1>
         </div>
    <div class="advertise-con">
         <ol>
 <span>
-We have two options for listing your property.<br><br>
+    Our booking fee is 15% of the reservation amount.<br />
+    The booking fee is not calculated on the cleaning fees, taxes or security deposits.
+    </span>
 
-            <span>1) Annual Fee of $50 per property </span><br>
-OR<br>
-<span>2) 7% commission on the Gross Sales. <br><br>We can wire direct to you bank in the following countries: Argentina
+<br><br>We can wire direct to you bank in the following countries: Argentina
 Australia, Austria, Bangladesh, Belgium, Bolivia, Brazil, Canada, Chile, China, Colombia, Costa Rica, Dominican Republic, Ecuador, El Salvador, France
 Germany, Greece, Guatemala, Honduras, Hong Kong, India, Ireland, Italy, Jamaica, Mexico, Netherlands, Nicaragua, Pakistan, Panama, Peru
 Philippines, Poland, Portugal, Singapore, Spain, Sri Lanka, United Kingdom, Uruguay & Vietnam</span><br><br>
