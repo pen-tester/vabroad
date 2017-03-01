@@ -74,16 +74,16 @@
 
     function paramcheck() {
         var resp = "";
-        if ($('#bodycontent_ContactName').val() == "") { resp += "Your name is Required! <br/>"; return resp; }
-        if ($('#bodycontent_ContactEmail').val() == ""){ resp += "Your email is Required! <br/>"; return resp;}
+        if ($('#bodycontent_ContactName').val() == "") { resp = "Your name is Required! <br/>"; return resp; }
+        if ($('#bodycontent_ContactEmail').val() == ""){ resp = "Your email is Required! <br/>"; return resp;}
         var pattern = new RegExp("^[a-zA-Z0-9 \.\-]+$");
         if (!pattern.test($('#bodycontent_ContactName').val())) {
-            resp += "Name Format is not correct";
+            resp = "Name Format is not correct";
             return resp;
         }
         pattern = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
         if (!pattern.test($('#bodycontent_ContactEmail').val())) {
-            resp += "Email Format is not correct";
+            resp = "Email Format is not correct";
             return resp;
         }
         /*
