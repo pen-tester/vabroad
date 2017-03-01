@@ -39,7 +39,8 @@ public partial class userowner_Payment : CommonPage
         inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
         owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
         prop_info = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
-        _total_sum = email_resp.NightRate * inquiryinfo.Nights;
+        // _total_sum = email_resp.NightRate * inquiryinfo.Nights;
+        _total_sum = email_resp.NightRate;
         _lodgingval = _total_sum * email_resp.LoadingTax / 100;
         _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
         _total = _total_sum + _balance;

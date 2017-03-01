@@ -114,7 +114,32 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
                        ";
                     string msg = String.Format(msg_format, owner_info.firstname, inquiryinfo.ContactorName, inquiryinfo.PropertyID, transitem.item_name, transitem.payer_email, transitem.mc_gross);
 
-                    BookDBProvider.SendEmail(owner_info.email, "Notification: Transaction:" + transitem.txn_id, msg);
+                    string format_traveler = @"This is your receipt for your reservation with Vacations-Abroad.com <br/>
+This email confirms that {0} has booked a reservation with {1}. <br/>
+Your Arrival Date is: {2}
+You paid: xxxx.xx “Currency Symbol” on “Date Paid”
+
+The owner’s cancellation policy is (take off of form)
+
+Owner Contact Details
+Owner Name:
+Owner Email:
+Owner Telephone:
+Name of Property:
+Owner Website: 
+Please contact the owner to obtain the actual property address.
+
+If you do not cancel, the funds will be transferred to the owner on (7 days prior to your “Arrival Date”)
+
+When you return, please write a review of the property and add photos.";
+
+                    string msg_traveler = String.Format(format_traveler,inquiryinfo.ContactorName, prop_info.PropertyName,DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMM d, yyyy"));
+
+                    string trv_subject = String.Format("Subject: Reservation Confirmation for {0}",DateTime.Now.ToString("MMM d, yyyy"));
+
+
+                    BookDBProvider.SendEmail(owner_info.email, trv_subject, msg_traveler);
+                    BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, "Notification: Transaction:" + transitem.txn_id, msg);
                     BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has paid for property {1} Transaction:{2}", inquiryinfo.ContactorName, transitem.item_number, transitem.txn_id), msg);
                     BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification: Transaction:" + transitem.txn_id, msg);
 

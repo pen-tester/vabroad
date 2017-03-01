@@ -67,7 +67,8 @@ function calculateValue() {
     var secdeposit = (tmp == "") ? 0 : parseFloat(tmp);
     tmp = $('#bodycontent_loadingtax').val();
     var loadingtax = (tmp == "") ? 0 : parseFloat(tmp);
-    var total_sum = rates * ($('#nights').text());
+    //var total_sum = rates * ($('#nights').text());
+    var total_sum = rates;
     var lodging = total_sum * loadingtax / 100;
     $('#totalsum').text(total_sum);
     $('#loadingtaxval').text(lodging);

@@ -280,7 +280,7 @@ ul {
                         </div>
                         <div class="col-4">
                           <div class="form-group">
-                            <label for="rates" class="normaltxt">Price Quote Nightly Rates</label>
+                            <label for="rates" class="normaltxt">Price Quote</label>
                               <input id="rates" name="rates" runat="server" class="normalval"/>
                           </div>
                         </div>

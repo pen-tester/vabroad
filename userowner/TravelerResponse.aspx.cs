@@ -52,7 +52,8 @@ public partial class userowner_TravelerResponse : ClosedPage
         if(!Decimal.TryParse(cancel30.Value, out _cancel30))_cancel30=0;
         if(!Int32.TryParse(validnumber.Value, out _validnumber))_validnumber=0;
 
-        _total_sum = _rates * inquiryinfo.Nights;
+        //_total_sum = _rates * inquiryinfo.Nights;
+        _total_sum = _rates;
         _lodgingvalue = _total_sum * _lodgingtax / 100;
         _balance = _lodgingvalue + _secfee + _cleanfee;
 
@@ -124,7 +125,7 @@ public partial class userowner_TravelerResponse : ClosedPage
               # of Guests:  {9} Adults, {10} children <br/><br/>
              
                   Total Amount Due:{12} {19}<br/>
-                  Amount Due to Reserve:{13} {19} (Nightly Rate:{14} {19})<br/>
+                  Amount Due to Reserve:{13} {19} <br/>
 
               
         		</td>
