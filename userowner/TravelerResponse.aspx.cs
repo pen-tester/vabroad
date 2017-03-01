@@ -137,7 +137,8 @@ public partial class userowner_TravelerResponse : ClosedPage
                   Cleaning Fee:{15} {19}<br/>
                   Security Deposit:{16} {19}<br/>
                   Lodging Tax:{17}% {20}{19}<br/>
-                  Amount Due Upon Arrival:{18}    
+                  Amount Due Upon Arrival:{18}  <br/>
+                  Comment:{22}<br/>
         		</td>            
             </tr>
           </table>
@@ -158,7 +159,7 @@ public partial class userowner_TravelerResponse : ClosedPage
   </table>
 </body>";
         decimal _total = _total_sum + _balance;
-        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name,BookDBProvider.DoFormat(_total), BookDBProvider.DoFormat(_total_sum), BookDBProvider.DoFormat(_rates), BookDBProvider.DoFormat(_cleanfee), BookDBProvider.DoFormat(_secfee),_lodgingtax, BookDBProvider.DoFormat(_balance), currency.SelectedItem.Text, BookDBProvider.DoFormat(_lodgingvalue),AjaxProvider.Base64Encode(newrespid.ToString()), "<style>a:hover{color:#8bbdeb;} </style>");
+        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"), inquiryinfo.ContactorName, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, userinfo.name,BookDBProvider.DoFormat(_total), BookDBProvider.DoFormat(_total_sum), BookDBProvider.DoFormat(_rates), BookDBProvider.DoFormat(_cleanfee), BookDBProvider.DoFormat(_secfee),_lodgingtax, BookDBProvider.DoFormat(_balance), currency.SelectedItem.Text, BookDBProvider.DoFormat(_lodgingvalue),AjaxProvider.Base64Encode(newrespid.ToString()), "<style>a:hover{color:#8bbdeb;} </style>",comment.InnerText);
         //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
         BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}",inquiryinfo.ContactorName, inquiryinfo.ArrivalDate) ,msg);
         BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), msg);
