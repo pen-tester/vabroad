@@ -86,16 +86,17 @@
             resp += "Email Format is not correct";
             return resp;
         }
-        pattern = new RegExp("^[0-9]*$");
-        if (!pattern.test($('#bodycontent_HowManyNights').val())) {
+        pattern = new RegExp("^[0-9]+$");
+        
+        if ($('#bodycontent_HowManyNights').val()!="" &&  !pattern.test($('#bodycontent_HowManyNights').val())) {
             resp += "#Nights has to be number";
             return resp;
         }
-        if (!pattern.test($('#bodycontent_HowManyAdults').val())) {
+        if ($('#bodycontent_HowManyAdults').val() != "" && !pattern.test($('#bodycontent_HowManyAdults').val())) {
             resp += "#Adults has to be number";
             return resp;
         }
-        if (!pattern.test($('#bodycontent_HowManyChildren').val())) {
+        if ($('#bodycontent_HowManyChildren').val() != "" && !pattern.test($('#bodycontent_HowManyChildren').val())) {
             resp += "#Children has to be number";
             return resp;
         }
