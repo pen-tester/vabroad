@@ -79,7 +79,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         StreamReader reader = new StreamReader(responseStream, encoding);
         string resp = reader.ReadToEnd();
 
-        _total_sum = email_resp.NightRate * inquiryinfo.Nights;
+        //_total_sum = email_resp.NightRate * inquiryinfo.Nights;
+        _total_sum = email_resp.NightRate;
         _lodgingval = _total_sum * email_resp.LoadingTax / 100;
         _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
         _total = _total_sum + _balance;
