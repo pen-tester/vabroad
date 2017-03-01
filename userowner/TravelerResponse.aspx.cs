@@ -138,7 +138,7 @@ public partial class userowner_TravelerResponse : ClosedPage
                   Security Deposit:{16} {19}<br/>
                   Lodging Tax:{17}% {20}{19}<br/>
                   Amount Due Upon Arrival:{18}  <br/>
-                  Comment:{22}<br/>
+                  Comment:{23}<br/>
         		</td>            
             </tr>
           </table>
