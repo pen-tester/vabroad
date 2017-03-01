@@ -118,10 +118,10 @@ Owner Contact Details <br/>
 Owner Name:{9} <br/>
 Owner Email:{10} <br/>
 Owner Telephone:{11} <br/>
-Name of Property:{12} <br/>
-Owner Website: {13} <br/>
+Name of Property:{1} <br/>
+Owner Website: {12} <br/>
 Please contact the owner to obtain the actual property address. <br/>
-If you do not cancel, the funds will be transferred to the owner on (7 days prior to your {14}) <br/>
+If you do not cancel, the funds will be transferred to the owner on (7 days prior to your {13}) <br/>
 When you return, please write a review of the property and add photos. <br/>";
 
                     string msg_traveler = String.Format(format_traveler,inquiryinfo.ContactorName, prop_info.PropertyName,DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMM d, yyyy"),
