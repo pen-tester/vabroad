@@ -59,7 +59,7 @@ public partial class userowner_TravelerResponse : ClosedPage
         int newrespid = 0;
         int _currency = Convert.ToInt32(currency.SelectedValue);
 
-        if ((newrespid =BookDBProvider.addEmailResponse(inquiryinfo.PropertyOwnerID, inquiryinfo.UserID, quoteid, _rates, _cleanfee, _secfee, _lodgingtax, _cancel30, _cancel60, _cancel90, DateTime.Now, _validnumber,_currency)) >0)
+        if ((newrespid =BookDBProvider.addEmailResponse(inquiryinfo.PropertyOwnerID, inquiryinfo.UserID, quoteid, _rates, _cleanfee, _secfee, _lodgingtax, _cancel30, _cancel60, _cancel90, DateTime.Now, _validnumber,_currency, comment.InnerText)) >0)
         {
 
             BookDBProvider.updateEmailQuoteState(quoteid);

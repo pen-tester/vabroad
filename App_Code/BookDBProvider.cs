@@ -1015,7 +1015,7 @@ You have received an inquiry through the vacations-abroad.com website for proper
 
 
     public static int addEmailResponse(int userid, int travelerid, int quoteid, decimal nightrate,  decimal cleanfee, decimal securitydep,
-        decimal loadingtax, decimal can30, decimal can60, decimal can90, DateTime datereplied, int validdays, int currencytype)
+        decimal loadingtax, decimal can30, decimal can60, decimal can90, DateTime datereplied, int validdays, int currencytype,string comment)
     {
         //@UserID, @TravelerID, @QuoteID, @NightRate, @Sum, @CleaningFee, @SecurityDeposit
         //,@LoadingTax, @Balance, @Cancel30,@Cancel60, @Cancel90, @DateReplied,@IsValid
@@ -1041,6 +1041,7 @@ You have received an inquiry through the vacations-abroad.com website for proper
                     cmd.Parameters.Add("@DateReplied", SqlDbType.DateTime).Value = getValue(datereplied);
                     cmd.Parameters.Add("@IsValid", SqlDbType.Int).Value = getValue(validdays);
                     cmd.Parameters.Add("@CurrencyType", SqlDbType.Int).Value = getValue(currencytype);
+                    cmd.Parameters.Add("@Comment", SqlDbType.NVarChar,1000).Value = getValue(comment);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     //int rows = cmd.ExecuteNonQuery();

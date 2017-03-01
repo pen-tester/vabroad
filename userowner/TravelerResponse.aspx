@@ -384,6 +384,10 @@ ul {
                         30 days prior to renter’s arrival; the funds are transferred to the property owner.
 
                     </div>
+                    <div class="srow top_formrow">
+                        <div class="col-3"><label class="normaltxt">Message</label></div>
+                        <div class="col-9"><textarea id="comment" name="comment" runat="server" class="normalval"></textarea></div>
+                    </div>
                     <br />
                     <input type="button" id="btnsend" class="btnsendquote" value="Send Quote to Traveler"  />
                     <asp:button ID="sendquote" ClientIDMode="Static" CssClass="page_hid" runat="server" OnClick="SendQuote_Click" />
