@@ -159,7 +159,8 @@ Linda Jenkins <br/>
                         ,DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMM d, yyyy"),transitem.mc_gross, transitem.mc_currency,
                         DateTime.Now.ToString("MMM d, yyyy"), email_resp.Cancel90, email_resp.Cancel60, email_resp.Cancel30,
                         inquiryinfo.ContactorName, inquiryinfo.ContactorEmail, inquiryinfo.Telephone,
-                        BookDBProvider.DoFormat(email_resp.CleaningFee), BookDBProvider.DoFormat(email_resp.SecurityDeposit),BookDBProvider.DoFormat(_lodgingval)); 
+                        BookDBProvider.DoFormat(email_resp.CleaningFee), BookDBProvider.DoFormat(email_resp.SecurityDeposit),BookDBProvider.DoFormat(_lodgingval));
+                    BookDBProvider.SendEmail(owner_info.Email,owner_subject, msg_owner);
                     BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has paid for property {1} Transaction:{2}", inquiryinfo.ContactorName, transitem.item_number, transitem.txn_id), msg_owner);
                     BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", "Notification: Transaction:" + transitem.txn_id, msg_owner);
 
