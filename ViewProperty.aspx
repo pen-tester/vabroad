@@ -18,6 +18,24 @@
       .viewTitle {font-size: 16px; font-family: Verdana;    color: #1d2d33;  }
       .textfont{color:#3c3c3c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.dotstyle{font-size:16px;font-weight:bold;color:#154890;}.amenitybackground{background-color:#f3ede3;} 
       .PropTable10 td{text-align:center;width:250px;color:#000;border:1px solid #cdbfac}.bulletwrap{display:inline-block;padding:4px 5px;}
+   .modalLoading{
+        margin-top:270px;
+    }
+    .dlgMsg{
+        background-color:#fafbfc;
+        border:5px solid #f0b892;
+        border-radius:55px;
+        color:#767271;
+        width:300px;
+        position:relative;
+        margin:auto;
+        margin-top:300px;
+        padding:40px;
+    }
+     .modalhead{
+        position:absolute;right:15px; top:10px;
+    }
+    .hidden{display:none;}
   </style>
 </asp:Content>
 
@@ -43,14 +61,14 @@
         </div>
     </div>--%>
 <!-- The Modal -->
-
+ 
 
     <div id="inqureform" class="modalform">
 
       <!-- Modal content -->
       <div id="modal_contents" class="modal_contents">
           <div class="dlghead">
-                <span class="mclose">x</span>
+                <span id="closeform" class="mclose">x</span>
           </div>
         
             <div class="center">
@@ -70,10 +88,6 @@
                                     </td>
                                     <td style="width: 175px;" align="right">
                                         <asp:TextBox ID="ContactName" runat="server" Width="170px" MaxLength="300" />
-                                        <asp:RequiredFieldValidator ID="EnterName" runat="server" ErrorMessage="Please enter contact name"
-                                            ControlToValidate="ContactName" Display="Dynamic" />
-                                        <asp:RegularExpressionValidator ID="CheckName" runat="server" ValidationExpression="^[a-zA-Z0-9 \.\-\(\)]{1,300}$"
-                                            ErrorMessage="Invalid contact name entered" ControlToValidate="ContactName" Display="Dynamic" />
                                     </td>
                                 </tr>
                                 <tr align="center">
@@ -85,14 +99,6 @@
                                     </td>
                                     <td align="right" style="width: 175px; margin-left: -5px">
                                         <asp:TextBox ID="ContactEmail" runat="server" Width="170px" MaxLength="175" />
-                                        <asp:RequiredFieldValidator ID="EnterEmail" runat="server" ErrorMessage="Please enter email"
-                                            ControlToValidate="ContactEmail" Display="Dynamic" />
-                                        <asp:RegularExpressionValidator ID="CheckEmailLength" runat="server" ValidationExpression="^[\s\S]{1,80}$"
-                                            ErrorMessage="Too long email address entered" ControlToValidate="ContactEmail"
-                                            Display="Dynamic" />
-                                        <asp:RegularExpressionValidator ID="CheckEmail" runat="server" ValidationExpression="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
-                                            ErrorMessage="Invalid email" ControlToValidate="ContactEmail"
-                                            Display="Dynamic" />
                                     </td>
                                 </tr>
                                 <tr align="center">
@@ -102,9 +108,6 @@
                                     <td></td>
                                     <td colspan="2" align="right" style="width: 175px">
                                         <asp:TextBox ID="ContactTelephone" runat="server" Width="170px" MaxLength="300" />
-                                        <asp:RegularExpressionValidator ID="CheckTelephone" runat="server" ValidationExpression="^[a-zA-Z0-9 \.\-\(\)]{1,50}$"
-                                            ErrorMessage="Invalid telephone entered" ControlToValidate="ContactTelephone"
-                                            Display="Dynamic" />
                                     </td>
                                 </tr>
                                 <tr align="center">
@@ -181,8 +184,6 @@
                                     <td></td>
                                     <td align="right" style="width: 175px">
                                         <asp:TextBox ID="HowManyNights" runat="server" Width="170px" MaxLength="200" />
-                                        <asp:RegularExpressionValidator ID="Regularexpressionvalidator1" runat="server" ValidationExpression="^[0-9 \.\-\(\)]{1,300}$"
-                                            ErrorMessage="Invalid number entered" ControlToValidate="HowManyNights" Display="Dynamic" />
                                     </td>
                                 </tr>
                                 <tr align="center">
@@ -194,8 +195,6 @@
                                         <div class="srow">
                                             <div class="col-x-1">
                                                 <asp:TextBox ID="HowManyAdults" runat="server" Width="46px" MaxLength="300" />
-                                                <asp:RegularExpressionValidator ID="Regularexpressionvalidator2" runat="server" ValidationExpression="^[0-9 \.\-\(\)]{1,300}$"
-                                            ErrorMessage="Invalid number entered" ControlToValidate="HowManyAdults" Display="Dynamic" />
                                             </div>
                                             <div class="col-x-2">
                                                                &nbsp;#Children:&nbsp;
@@ -203,8 +202,6 @@
                                            <div class="col-x-1">
                          
                                             <asp:TextBox ID="HowManyChildren"  runat="server" Width="40px" MaxLength="300" />
-                                        <asp:RegularExpressionValidator ID="Regularexpressionvalidator3" runat="server" ValidationExpression="^[0-9 \.\-\(\)]{1,300}$"
-                                            ErrorMessage="Invalid number entered" ControlToValidate="HowManyChildren" Display="Dynamic" />
                                            </div>
                                         </div>
                                     </td>
@@ -234,8 +231,8 @@
                                 </tr>
                                 <tr align="center">
                                     <td style="height: 30px;" colspan="3" align="center">
-                                        <asp:Button ID="SubmitButton" runat="server" Width="90%" Height="30px" BackColor="#6699ff" class="btnBookNow" Text="Request a Quote"
-                                            OnClick="SubmitButton_Click" />
+                                        <input type="button" id="btnsend" class="btnBookNow" style="width:90%;" value="Request a Quote" />
+                                        <asp:Button ID="SubmitButton" runat="server" CssClass="hidden"  OnClick="SubmitButton_Click" ClientIDMode="Static" />
                                         <asp:Label ID="lblMsg" Style="color: Red; font-weight: bold;" runat="server"></asp:Label>
                                     </td>
                                 </tr>
@@ -265,6 +262,20 @@
 
     </div>
 
+         <div id="msgdlg" class="modalform">
+                  <div id="modal_loading" class="modalLoading">
+                        <div class="loader"> </div>
+                  </div>
+                  <div id="modal_dialog" class="dlgMsg" >
+                      <div class="modalhead">
+                            <span id="msgclose" class="mclose">x</span>
+                      </div>
+                      <div class="srow">
+                          <div class="col-4">Message:</div>
+                          <div class="col-8" id="modalmsg"></div>
+                      </div>
+                  </div>
+            </div>
      <asp:Label ID="lblTest" runat="server" Style="display: none"></asp:Label>
     <div class="srow">
                     <div class="listingPagesH1Container">   

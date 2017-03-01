@@ -1148,14 +1148,15 @@ public partial class ViewProperty : CommonPage
         
         if (Page.IsValid)
         {
-            string contactname = ContactName.Text;
-            string contactemail = ContactEmail.Text;
+            string contactname =Server.HtmlEncode(ContactName.Text);
+            string contactemail = Server.HtmlEncode( ContactEmail.Text);
+            if (contactname == "" || contactemail == "") return;
             string arrivedate = String.Format("{0}-{1}-{2}",ArrivalYear.Text, ArrivalMonth.Text, ArrivalDay.Text);
             string phone = ContactTelephone.Text;
             int adults, children , nights, ownerid=0;
-            Int32.TryParse(  HowManyAdults.Text, out adults);
-            Int32.TryParse(HowManyChildren.Text, out children);
-            Int32.TryParse(HowManyNights.Text, out nights);
+            if(!Int32.TryParse(  HowManyAdults.Text, out adults))adults=0;
+            if(!Int32.TryParse(HowManyChildren.Text, out children))children=0;
+            if(!Int32.TryParse(HowManyNights.Text, out nights)) nights=0;
             ownerid = BookDBProvider.getUsrIDbyProperty(propertyid);
 
             string comment = Comments.Text;
