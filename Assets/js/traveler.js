@@ -45,10 +45,10 @@ var _txtboxid = "";
 function paramcheck() {
     var str = "";
     if ($('#bodycontent_rates').val() == "") str += "Price Quote Nightly Rates is required!<br/>";
-    if ($('#bodycontent_cleaningfee').val() == "") str += "Cleaning Fee is required!<br/>";
-    if ($('#bodycontent_secdeposit').val() == "") str += "Security Deposit is required!<br/>";
-    if ($('#bodycontent_loadingtax').val() == "") str += "Lodging Tax is required!<br/>";
-    if ($('#bodycontent_validnumber').val() == "") str += "The number of valid days is required!<br/>";
+   // if ($('#bodycontent_cleaningfee').val() == "") str += "Cleaning Fee is required!<br/>";
+  //  if ($('#bodycontent_secdeposit').val() == "") str += "Security Deposit is required!<br/>";
+  //  if ($('#bodycontent_loadingtax').val() == "") str += "Lodging Tax is required!<br/>";
+   // if ($('#bodycontent_validnumber').val() == "") str += "The number of valid days is required!<br/>";
     return str;
 }
 
