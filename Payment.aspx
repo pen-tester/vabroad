@@ -109,7 +109,7 @@
                     <tr class="tablerow">
                       <th># of Nights</th>
                       <th>Description</th>
-                      <th>Nightly Rate</th>
+                      <th>Price Quote</th>
                       <th>Total Rental</th>
                     </tr>
                   </thead>

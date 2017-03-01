@@ -261,7 +261,7 @@ ul {
                         </div>
                         <div class="col-4">
                           <div class="form-group">
-                            <label for="rates" class="normaltxt">Price Quote Nightly Rates</label><br />
+                            <label for="rates" class="normaltxt">Price Quote</label><br />
                               <label id="rates" class="normalval"><%=BookDBProvider.DoFormat(email_resp.NightRate) %></label>
                           </div>
                         </div>
