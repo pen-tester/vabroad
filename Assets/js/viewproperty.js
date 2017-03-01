@@ -86,7 +86,7 @@
             resp += "Email Format is not correct";
             return resp;
         }
-        pattern = new RegExp("^[0-9]+$");
+        pattern = new RegExp("^[0-9]*$");
         if (!pattern.test($('#bodycontent_HowManyNights').val())) {
             resp += "#Nights has to be number";
             return resp;
