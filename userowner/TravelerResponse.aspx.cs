@@ -40,7 +40,7 @@ public partial class userowner_TravelerResponse : ClosedPage
     
         if (!Page.IsValid) return;
 
-        if (rates.Value == "" || cleaningfee.Value == "" || secdeposit.Value == "" || loadingtax.Value == "") return;
+        if (rates.Value == "" ) return;
         decimal _rates, _cleanfee, _secfee, _lodgingtax, _cancel90, _cancel60, _cancel30,_total_sum,_lodgingvalue,_balance;
         int _validnumber;
         if(!Decimal.TryParse(rates.Value,out  _rates))_rates=0;

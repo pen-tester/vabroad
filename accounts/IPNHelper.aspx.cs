@@ -117,8 +117,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
                     string format_traveler = @"This is your receipt for your reservation with Vacations-Abroad.com <br/>
 This email confirms that {0} has booked a reservation with {1}. <br/>
-Your Arrival Date is: {2}
-You paid: xxxx.xx “Currency Symbol” on “Date Paid”
+Your Arrival Date is: {2} <br/>
+You paid: {3} {4} on {5} <br/>
 
 The owner’s cancellation policy is (take off of form)
 
@@ -134,7 +134,8 @@ If you do not cancel, the funds will be transferred to the owner on (7 days prio
 
 When you return, please write a review of the property and add photos.";
 
-                    string msg_traveler = String.Format(format_traveler,inquiryinfo.ContactorName, prop_info.PropertyName,DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMM d, yyyy"));
+                    string msg_traveler = String.Format(format_traveler,inquiryinfo.ContactorName, prop_info.PropertyName,DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMM d, yyyy"),
+                        transitem.mc_gross,transitem.mc_currency, DateTime.Now.ToString("MMM d, yyyy"));
 
                     string trv_subject = String.Format("Subject: Reservation Confirmation for {0}",DateTime.Now.ToString("MMM d, yyyy"));
 
