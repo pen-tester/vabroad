@@ -232,6 +232,9 @@ ul {
     }
     .form-group{margin-top:10px;} .btnsendquote{padding:5px; border-radius:5px;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890}
                                   .btnsendquote:active{padding-top:4px;}
+    .commentbox{
+        width:90%; height:140px;
+    }
     </style>
 </asp:Content>
 
@@ -386,7 +389,7 @@ ul {
                     </div>
                     <div class="srow top_formrow">
                         <div class="col-3"><label class="normaltxt">Message</label></div>
-                        <div class="col-9"><textarea id="comment" name="comment" runat="server" class="normalval"></textarea></div>
+                        <div class="col-9"><textarea id="comment" name="comment" runat="server" class="normalval commentbox"></textarea></div>
                     </div>
                     <br />
                     <input type="button" id="btnsend" class="btnsendquote" value="Send Quote to Traveler"  />
