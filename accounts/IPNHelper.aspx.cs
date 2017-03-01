@@ -96,7 +96,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             System.IO.StreamWriter ssfile = new System.IO.StreamWriter(Server.MapPath("/logt.txt"));
             ssfile.Write(resp);
             ssfile.Close();
-            if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
+            //if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
+            if (transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type != "reversal")
             {
                 if ((transitem.mc_gross == (_total)) && transitem.payment_status == "Completed" && transitem.mc_currency == currency_type[email_resp.CurrencyType])
                 {
