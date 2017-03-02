@@ -58,40 +58,16 @@
 			<td colspan="100" align="center">
 				<table width="100%" border="0">
 					<tr>
-						<td colspan="3" align="left">
+						<td colspan="2" align="left">
 							<a href='<%= CommonFunctions.PrepareURL ("commissionpayable.aspx", "Administration") %>'>
 								Commission Payable
 							</a>
 						</td>
-						<td colspan="3" align="right">
-							<a href='<%= CommonFunctions.PrepareURL ("invoiceregister.aspx?Year=2004", "Administration") %>'>
-								Invoice Register 2004
-							</a>
-							&nbsp;&nbsp;
-							<a href='<%= CommonFunctions.PrepareURL ("invoiceregister.aspx?Year=2005", "Administration") %>'>
-								Invoice Register 2005
-							</a>
-							&nbsp;&nbsp;
-							<a href='<%= CommonFunctions.PrepareURL ("invoiceregister.aspx?Year=2006", "Administration") %>'>
-								Invoice Register 2006
-							</a>
-							&nbsp;&nbsp;<a href='<%= CommonFunctions.PrepareURL ("invoiceregister.aspx?Year=2007", "Administration") %>'>
-
-                                                                                              Invoice Register 2007
-
-                                                                                  </a>
-&nbsp;&nbsp;<a href='<%= CommonFunctions.PrepareURL ("invoiceregister.aspx?Year=2008", "Administration") %>'>
-
-                                                                                              Invoice Register 2008
-
-                                                                                  </a>
-&nbsp;&nbsp;
-							<a href='<%= CommonFunctions.PrepareURL ("invoiceregister.aspx?Year=2009", "Administration") %>'>
-								Invoice Register 2009
-							</a>
-<a href='<%= CommonFunctions.PrepareURL ("invoiceregister.aspx?Year=2010", "Administration") %>'>
-								Invoice Register 2010
-							</a>
+						<td colspan="2" align="right">
+						   <a href="/ReserveList.aspx">Reserve List</a>
+						</td>
+                       <td colspan="2" align="right">
+						   <a href="/inquiryresponses.aspx">Inquiry Responses</a>
 						</td>
 					</tr>
 					<tr><td align="left"><a href="currency.aspx">Currencies</a></td>

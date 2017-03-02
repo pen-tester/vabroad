@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="Payment.aspx.cs" Inherits="userowner_Payment" %>
-
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    Payment
+</asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
         .siteName{font-size:16pt; font-weight:bold; font-family:Verdana;}
