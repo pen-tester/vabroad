@@ -232,7 +232,7 @@
                                 <tr align="center">
                                     <td style="height: 30px;" colspan="3" align="center">
                                         <input type="button" id="btnsend" class="btnBookNow" style="width:90%;" value="Request a Quote" />
-                                        <asp:Button ID="SubmitButton" runat="server" CssClass="hidden"  OnClick="SubmitButton_Click" ClientIDMode="Static" />
+                                        <input type="submit" id="SubmitButton" name="SubmitButton" runat="server" class="hidden" onserverclick="SubmitButton_Click"  />
                                         <asp:Label ID="lblMsg" Style="color: Red; font-weight: bold;" runat="server"></asp:Label>
                                     </td>
                                 </tr>
