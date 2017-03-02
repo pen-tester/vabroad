@@ -131,7 +131,7 @@
                     Security Deposit:<%=BookDBProvider.DoFormat(email_resp.SecurityDeposit) %>
                 </div>
                 <div class="srow">
-                    Lodaing Tax: <input type="text" readonly="true" class="smallwidth" value="<%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>%" />  <input type="text" readonly="true" class="smallwidth" value="<%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>" />
+                    Lodging Tax: <input type="text" readonly="true" class="smallwidth" value="<%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>%" />  <input type="text" readonly="true" class="smallwidth" value="<%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>" />
                 </div>
                 <div class="srow">
                     Cleaning Fee:<%=BookDBProvider.DoFormat(email_resp.CleaningFee) %>

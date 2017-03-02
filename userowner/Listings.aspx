@@ -112,7 +112,6 @@
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th>Date Submitted Quote</th>
                                             <th>Link To Quote</th>
                                         </tr>
                                      </thead>
@@ -125,20 +124,15 @@
                                             { %>
                                               <tr>
                                                 <td>Property<%=owner_response_set.Tables[0].Rows[index]["PropertyID"] %></td>
-                                                <td><%=owner_response_set.Tables[0].Rows[index]["DateReplied"] %></td>
                                                 <td>
                                                 <%   int replied=0;
                                                     int validdays = 0;
                                                     Int32.TryParse(owner_response_set.Tables[0].Rows[index]["IsQuoted"].ToString(), out replied);
                                                     Int32.TryParse(owner_response_set.Tables[0].Rows[index]["IsValid"].ToString(), out validdays);
                                                     if (replied == 1)
-                                                    {%><a>Quoted</a> 
+                                                    {%><a>Reserved</a> 
                                                   <%}
-                                                    else if (validdays == 0)
-                                                    { %>
-                                                     Not Valid
-                                                    <%}
-                                                    else
+                                                     else
                                                     { %>
                                                     Not Reserved
                                                     <%} %>
