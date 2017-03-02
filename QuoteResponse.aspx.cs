@@ -32,7 +32,7 @@ public partial class userowner_TravelerResponse : Page
        // if (respid == 0) respid = Convert.ToInt32(resp_number.Value);
 
         email_resp = BookResponseEmail.getResponseInfo(respid);
-        if (email_resp.ID == 0  || email_resp.IsValid<1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
+        if (email_resp.ID == 0  ) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
 
        // resp_number.Value = respid.ToString();
 
