@@ -63,10 +63,10 @@
 								Commission Payable
 							</a>
 						</td>
-						<td colspan="2" align="right">
+						<td align="right">
 						   <a href="/ReserveList.aspx">Reserve List</a>
 						</td>
-                       <td colspan="2" align="right">
+                       <td  align="right">
 						   <a href="/inquiryresponses.aspx">Inquiry Responses</a>
 						</td>
 					</tr>
