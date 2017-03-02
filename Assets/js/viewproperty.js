@@ -40,7 +40,7 @@
         $('#btnsend').click(function (e) {
             var resp = paramcheck();
             if (resp == "") {
-                $('#SubmitButton').click();
+                $('#bodycontent_SubmitButton').click();
                 console.log("pass the content.");
             }
             else {
