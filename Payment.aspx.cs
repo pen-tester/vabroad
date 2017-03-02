@@ -34,7 +34,7 @@ public partial class userowner_Payment : CommonPage
         else Response.Redirect("/Error.aspx?error=Wrong Request for payment"); ;  //Not post or Wrong respid
         //Get the inquiry info.
         email_resp = BookResponseEmail.getResponseInfo(respid);
-        if (email_resp.ID == 0 || email_resp.IsValid < 1) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
+        if (email_resp.ID == 0 ) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
 
         inquiryinfo = BookDBProvider.getQuoteInfo(email_resp.QuoteID);
         owner_info = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
