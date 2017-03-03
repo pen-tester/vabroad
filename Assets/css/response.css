@@ -205,3 +205,5 @@ ul {
 .navigation ul li:hover{
     color:azure;
 }
+
+.td{min-height:60px;}
