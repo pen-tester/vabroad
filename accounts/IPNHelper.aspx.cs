@@ -180,7 +180,7 @@ Linda Jenkins <br/>
     {
         transitem = new Transaction_Item();
 
-        string content = "";
+     //   string content = "";
 
         PropertyInfo[] props = transitem.GetType().GetProperties();
 
@@ -190,7 +190,7 @@ Linda Jenkins <br/>
             {
 
                 prop.SetValue(transitem, Convert.ChangeType(context.Request[prop.Name], prop.PropertyType), null);
-                content += String.Format("Name:{0} =>Value:{1} ******", prop.Name, prop.GetValue(transitem, null));
+               // content += String.Format("Name:{0} =>Value:{1} ******", prop.Name, prop.GetValue(transitem, null));
             }
             catch (Exception e)
             {
@@ -198,10 +198,11 @@ Linda Jenkins <br/>
             }
 
         }
-
+/*
         System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/logwritex.txt"));
         file.Write(content);
         file.Close();
+        */
     }
 
 }

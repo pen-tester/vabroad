@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -10,11 +11,11 @@ using System.Web.UI.WebControls;
 public partial class userowner_Listing : ClosedPage
 {
     public UserInfo userinfo;
-    public DataSet inquiry_set, traveler_inquery_set;
+   // public DataSet inquiry_set, traveler_inquery_set;
     public DataSet property_set;
-    public DataSet owner_response_set, traveler_response_set;
-    public DataSet owner_book_set, traveler_book_set;
-
+    // public DataSet owner_response_set, traveler_response_set;
+    // public DataSet owner_book_set, traveler_book_set;
+    public DataSet owner_ds, traveler_ds;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!AuthenticationManager.IfAuthenticated) FormsAuthentication.SignOut();
@@ -23,17 +24,24 @@ public partial class userowner_Listing : ClosedPage
 
         userinfo = BookDBProvider.getUserInfo(userid);
 
-        inquiry_set = BookDBProvider.getInquiryInfoSet(userid,0);
-        traveler_inquery_set = BookDBProvider.getInquiryInfoSet(userid, 1);
+
+         
+        List<SqlParameter> param = new List<SqlParameter>();
+        SqlParameter puserid = new SqlParameter("@userid", SqlDbType.Int);
+        puserid.Value = userid;
+        param.Add(puserid);
+
+        owner_ds = BookDBProvider.getDataSet("uspGetOwnerResponseList", param);
+        //For Traveller
+        param.Clear();
+        SqlParameter pemail = new SqlParameter("@email", SqlDbType.NVarChar, 500);
+        pemail.Value = userinfo.email;
+        param.Add(pemail);
+
+        traveler_ds = BookDBProvider.getDataSet("uspGetTravelerResponseList", param);
+
 
         property_set = BookDBProvider.getPropertySet(userid);
-        
-        owner_response_set = BookResponseEmail.getResponseInfoSet(userid, 0); //0:User=> owner
-        traveler_response_set = BookResponseEmail.getResponseInfoSet(userid, 1);
-
-        owner_book_set = PaymentHelper.getBookInfoSet(userid, 0);
-        traveler_book_set = PaymentHelper.getBookInfoSet(userid, 1);
-
         propertylist.DataSource = property_set;
         propertylist.DataBind();
     }

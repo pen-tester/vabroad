@@ -76,28 +76,25 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-                                        <% if (inquiry_set.Tables.Count > 0)
-                                                
-                                            { %>
-                                        <%  int count = inquiry_set.Tables[0].Rows.Count;
-                                            for (int index =0;index<count; index++  )
-                                            {
-                                                string arive_date = Convert.ToDateTime(inquiry_set.Tables[0].Rows[index]["ArrivalDate"]).ToString("yyyy-MM-dd");
-                                                 %>
-                                              <tr>
-                                                <td>Property<%=inquiry_set.Tables[0].Rows[index]["PropertyID"] %></td>
-                                                <td><%=arive_date %></td>
-                                                <td>
-                                                <%   int replied=0;
-                                                     Int32.TryParse(inquiry_set.Tables[0].Rows[index]["IfReplied"].ToString(), out replied);
-                                                    if ( replied != 1)
-                                                    {%><a href="/userowner/TravelerResponse.aspx?quoteid=<%=inquiry_set.Tables[0].Rows[index]["ID"] %>">Respond</a>
-                                                  <%}else { %>
-                                                     Responded
-                                                    <%} %>
-                                                </td>
-                                              </tr>
-                                        <%} %>
+                                        <% int count = owner_ds.Tables[0].Rows.Count;
+                                            for(int o_ind=0; o_ind<count; o_ind++) {
+                                                var row = owner_ds.Tables[0].Rows[o_ind];
+                                                int resp = 0;
+                                                if (!Int32.TryParse(row["IfReplied"].ToString(), out resp))resp = 0;    %>
+                                         <tr>
+                                            <td>Property <%=row["PropertyID"] %></td>
+                                             <td><%=row["ArrivalDate"] %></td>
+                                             <% if (resp == 1)
+                                                 { %>
+                                                <td>Responded</td>
+                                             <%} else { 
+                                                    
+                                                     %>
+                                                <td><a href="travelerresponse.aspx?quoteid=<%=row["ID"] %>"></a></td>
+
+                                             <%} %>
+
+                                         </tr>
                                         <%} %>
                                     </tbody>
                                 </table>
@@ -116,29 +113,32 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-                                       <% if (owner_response_set.Tables.Count > 0)
-                                                
-                                            { %>
-                                        <%  int count = owner_response_set.Tables[0].Rows.Count;
-                                            for (int index =0;index<count; index++  )
-                                            { %>
-                                              <tr>
-                                                <td>Property<%=owner_response_set.Tables[0].Rows[index]["PropertyID"] %></td>
-                                                <td>
-                                                <%   int replied=0;
-                                                    int validdays = 0;
-                                                    Int32.TryParse(owner_response_set.Tables[0].Rows[index]["IsQuoted"].ToString(), out replied);
-                                                    Int32.TryParse(owner_response_set.Tables[0].Rows[index]["IsValid"].ToString(), out validdays);
-                                                    if (replied == 1)
-                                                    {%><a>Reserved</a> 
-                                                  <%}
+                                        <% 
+                                            for(int o_ind=0; o_ind<count; o_ind++) {
+                                                var row = owner_ds.Tables[0].Rows[o_ind];
+                                                int quote = 0,resp=0;
+                                                if (!Int32.TryParse(row["IsQuoted"].ToString(), out quote))quote = 0; 
+                                                if (!Int32.TryParse(row["IfReplied"].ToString(), out resp))resp = 0;   %>
+                                         <tr>
+                                            <% if (resp == 1)
+                                                     { %>
+                                             <td><%=DateTime.Parse(row["SentTime"].ToString()).ToString("MMM d, yyyy") %></td>
+                                             <% if (quote == 1)
+                                                     { %>
+                                                <td><a>Reserved</a></td>
+                                             <%}
                                                      else
-                                                    { %>
-                                                    Not Reserved
-                                                    <%} %>
-                                                </td>
-                                              </tr>
-                                        <%} %>
+                                                     {
+
+                                                     %>
+                                                <td>Not Reserved</td>
+
+                                             <%}
+                                                 } else {  %>
+                                                <td></td><td></td>
+                                             <%} %>
+
+                                         </tr>
                                         <%} %>
                                     </tbody>
                                 </table>
@@ -158,29 +158,6 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-                                        <% if (owner_book_set.Tables.Count > 0)
-                                                
-                                            { %>
-                                        <%  int count = owner_book_set.Tables[0].Rows.Count;
-                                            for (int index =0;index<count; index++  )
-                                            { %>
-                                              <tr>
-                                                <td>Property<%=owner_book_set.Tables[0].Rows[index]["propertyid"] %></td>
-                                                <td><%=Convert.ToDateTime(owner_book_set.Tables[0].Rows[index]["arrivedate"]).ToString("yyyy-MM-dd") %></td>
-                                                <td>
-                                                <%   int replied=0;
-                                                    Int32.TryParse(owner_book_set.Tables[0].Rows[index]["isconfirmed"].ToString(), out replied);
-                                                   
-                                                    if (replied == 1)
-                                                    {%><a>Booked</a> 
-                                                  <%}else {%>
-                                                    
-                                                     <a>Booking</a>
-                                                    <%} %>
-                                                </td>
-                                              </tr>
-                                        <%} %>
-                                        <%} %>
                                     </tbody>
                                 </table>
                             </div>
@@ -212,7 +189,7 @@
                                                     <%  
                                                         if (property_set.Tables.Count > 0)
                                                         {
-                                                            int count = property_set.Tables[0].Rows.Count;
+                                                            count = property_set.Tables[0].Rows.Count;
 
                                                              %>
                                                     <asp:Repeater runat="server" id="propertylist">
@@ -270,28 +247,7 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-                                       <% if (traveler_inquery_set.Tables.Count > 0)
-                                                
-                                            { %>
-                                        <%  int count = traveler_inquery_set.Tables[0].Rows.Count;
-                                            for (int index =0;index<count; index++  )
-                                            {  string arive_date = Convert.ToDateTime(traveler_inquery_set.Tables[0].Rows[index]["ArrivalDate"]).ToString("yyyy-MM-dd");
-                                                %>
-                                              <tr>
-                                                <td>Property<%=traveler_inquery_set.Tables[0].Rows[index]["PropertyID"] %></td>
-                                                <td><%=arive_date %></td>
-                                                <td>
-                                                <%   int replied=0;
-                                                     Int32.TryParse(traveler_inquery_set.Tables[0].Rows[index]["IfReplied"].ToString(), out replied);
-                                                    if ( replied != 1)
-                                                    {%>Not Responded
-                                                  <%}else { %>
-                                                     Responded
-                                                    <%} %>
-                                                </td>
-                                              </tr>
-                                        <%} %>
-                                        <%} %>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -310,35 +266,7 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-                                       <% if (traveler_response_set.Tables.Count > 0)
-                                                
-                                            { %>
-                                        <%  int count = traveler_response_set.Tables[0].Rows.Count;
-                                            for (int index =0;index<count; index++  )
-                                            { %>
-                                              <tr>
-                                                <td>Property<%=traveler_response_set.Tables[0].Rows[index]["PropertyID"] %></td>
-                                                <td><%=traveler_response_set.Tables[0].Rows[index]["DateReplied"] %></td>
-                                                <td>
-                                                <%   int replied=0;
-                                                    int validdays = 0;
-                                                    Int32.TryParse(traveler_response_set.Tables[0].Rows[index]["IsQuoted"].ToString(), out replied);
-                                                    Int32.TryParse(traveler_response_set.Tables[0].Rows[index]["IsValid"].ToString(), out validdays);
-                                                    if (replied != 1 && validdays > 0)
-                                                    {%><a href="/QuoteResponse.aspx?respid=<%=AjaxProvider.Base64Encode(traveler_response_set.Tables[0].Rows[index]["ID"].ToString()) %>">Quote</a>
-                                                  <%}
-                                                    else if (replied != 1 && validdays == 0)
-                                                    { %>
-                                                     Not Valid
-                                                    <%}
-                                                        else
-                                                        { %>
-                                                    Quoted
-                                                    <%} %>
-                                                </td>
-                                              </tr>
-                                        <%} %>
-                                        <%} %>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -357,29 +285,7 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-                                      <% if (traveler_book_set.Tables.Count > 0)
-                                                
-                                            { %>
-                                        <%  int count = traveler_book_set.Tables[0].Rows.Count;
-                                            for (int index =0;index<count; index++  )
-                                            { %>
-                                              <tr>
-                                                <td>Property<%=traveler_book_set.Tables[0].Rows[index]["propertyid"] %></td>
-                                                <td><%=Convert.ToDateTime(traveler_book_set.Tables[0].Rows[index]["arrivedate"]).ToString("yyyy-MM-dd") %></td>
-                                                <td>
-                                                <%   int replied=0;
-                                                    Int32.TryParse(traveler_book_set.Tables[0].Rows[index]["isconfirmed"].ToString(), out replied);
-                                                   
-                                                    if (replied == 1)
-                                                    {%><a>Booked</a> 
-                                                  <%}else {%>
-                                                    
-                                                     Not confirmed
-                                                    <%} %>
-                                                </td>
-                                              </tr>
-                                        <%} %>
-                                        <%} %>
+
                                     </tbody>
                                 </table>
                             </div>

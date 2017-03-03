@@ -141,42 +141,6 @@ public class PaymentHelper
 
         return inquiry_set;
     }
-    public static DataSet getBookInfoSet(int userid, int type)//type:0 ownerid 1:travelerid
-    {
-              //  SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection);
-
-        DataSet inquiry_set = new DataSet();
-        //  adapter.Fill(customers, "Customers");
-        try
-        {
-            using (SqlConnection con = new SqlConnection(connString))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter())
-                {
-                    con.Open();
-                    string sql = "";
-                    if (type == 0) sql = "select * from PaymentHistory em where ownerid=@id order by id desc";
-                    else if (type == 1) sql = "select * from PaymentHistory em where travelerid=@id order by id desc";
-
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = userid;
-
-                    adapter.SelectCommand = cmd;
-
-                    adapter.Fill(inquiry_set, "BookList");
-
-                    con.Close();
-
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-
-        }
-
-        return inquiry_set;
-    }
 
     public static bool addPaymentLog(Transaction_Item item)
     {

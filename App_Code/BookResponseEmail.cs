@@ -141,40 +141,5 @@ public class BookResponseEmail
     }
 
 
-    public static DataSet getResponseInfoSet(int user_id, int type)
-    {//0:owner  1://traveler
-         //  SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection);
-         //UserID, TravelerID, QuoteID, NightRate, [Sum], CleaningFee, SecurityDeposit
-	//,LoadingTax, Balance, Cancel30,Cancel60, Cancel90, DateReplied,IsValid, CurrencyType
-        DataSet inquiry_set = new DataSet();
-        //  adapter.Fill(customers, "Customers");
-        try
-        {
-            using (SqlConnection con = new SqlConnection(connString))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter())
-                {
-                    con.Open();
-                    string sql;
-                    if (type == 0) sql = "select em.*,EmailQuote.PropertyID from EmailQuote join   (select * from EmailResponse where UserID=@id) em on EmailQuote.ID=em.QuoteID order by em.ID desc";
-                    else sql = "select em.*,EmailQuote.PropertyID from EmailQuote join   (select * from EmailResponse where TravelerID=@id) em on EmailQuote.ID=em.QuoteID order by em.ID desc";
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = user_id;
-
-                    adapter.SelectCommand = cmd;
-
-                    adapter.Fill(inquiry_set, "InquiryList");
-
-                    con.Close();
-
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-
-        return inquiry_set;
-    }
+  
 }

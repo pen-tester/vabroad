@@ -471,32 +471,13 @@ public class BookDBProvider
 
         return inquiry_set;
     }
-
-
-    public static DataSet getInquiryInfoSet(int userid, int type)
+    public static DataSet getDataSet(string proc_name, List<SqlParameter> proc_param)
     {
-        /*
-  * [ID]
-       ,[SentTime]
-       ,[ContactorName]
-       ,[ContactorEmail]
-       ,[ArrivalDate]
-       ,[DepartDate]
-       ,[Adults]
-       ,[Children]
-       ,[Comment]
-       ,[Telephone]
-       ,[UserID]
-       ,[PropertyID]
-       ,[PropertyOwnerID]
-       ,[Nights]
-       IfReplied
-  */
 
-        //  SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection);
+       //  SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection);
 
         DataSet inquiry_set = new DataSet();
-      //  adapter.Fill(customers, "Customers");
+        //  adapter.Fill(customers, "Customers");
         try
         {
             using (SqlConnection con = new SqlConnection(connString))
@@ -504,29 +485,36 @@ public class BookDBProvider
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
                 {
                     con.Open();
-                    string sql = "";
-                    if (type == 0) sql = "select * from EmailQuote em where PropertyOwnerID=@id order by id desc";
-                    else if (type == 1) sql = "select * from EmailQuote em where UserID=@id order by id desc";
+                    string sql = proc_name;
 
                     SqlCommand cmd = new SqlCommand(sql, con);
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = userid;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    foreach(SqlParameter proc_par in proc_param)
+                    {
+                        cmd.Parameters.Add(proc_par);
+                    }
+
 
                     adapter.SelectCommand = cmd;
 
-                    adapter.Fill(inquiry_set, "InquiryList");
+                    adapter.Fill(inquiry_set, "Result");
 
                     con.Close();
 
                 }
             }
-         }
+        }
         catch (Exception ex)
         {
-
+            throw ex;
         }
 
         return inquiry_set;
-     }
+    }
+
+
+
 
 
     // PHas to add the parameter PropertyOwnerID=userid
