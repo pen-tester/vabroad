@@ -206,4 +206,4 @@ ul {
     color:azure;
 }
 
-td{min-height:60px;}
+td,th{height:60px;}
