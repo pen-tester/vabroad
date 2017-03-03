@@ -293,7 +293,7 @@
                                                 <tr>
                                                     <% if (resp == 1)
                                                              { %>
-                                                         <td><%=row[""] %></td>
+                                                         <td><%=DateTime.Parse(row["SentTime"].ToString()).ToString("MMM d, yyyy") %></td>
                                                          <% if (quote == 1)
                                                                  { %>
                                                            <td>Paid</td>
