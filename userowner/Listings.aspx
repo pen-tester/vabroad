@@ -255,6 +255,7 @@
                                                 if (!Int32.TryParse(row["IfReplied"].ToString(), out resp)) resp = 0;
                                                 %>
                                                 <tr>
+                                                    <td>Property <%=row["PropertyID"] %></td>
                                                      <td><%=row["ArrivalDate"] %></td>
                                                      <% if (resp == 1)
                                                          { %>
@@ -276,7 +277,6 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th></th>
                                             <th>Date Submitted Quote</th>
                                             <th>Link To Quote</th>
                                         </tr>
