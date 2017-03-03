@@ -247,7 +247,23 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-
+                                        <% count = traveler_ds.Tables[0].Rows.Count;
+                                            for (int o_ind = 0; o_ind < count; o_ind++)
+                                            {
+                                                var row = traveler_ds.Tables[0].Rows[o_ind];
+                                                int resp = 0;
+                                                if (!Int32.TryParse(row["IfReplied"].ToString(), out resp)) resp = 0;
+                                                %>
+                                                <tr>
+                                                     <td><%=row["ArrivalDate"] %></td>
+                                                     <% if (resp == 1)
+                                                         { %>
+                                                       <td>Responded</td>
+                                                    <%}else { %>
+                                                        <td>Not Responded</td>
+                                                    <%} %>
+                                                </tr>
+                                        <%} %>
                                     </tbody>
                                 </table>
                             </div>
@@ -266,6 +282,31 @@
                                         </tr>
                                      </thead>
                                     <tbody>
+                                        <%  
+                                            for (int o_ind = 0; o_ind < count; o_ind++)
+                                            {
+                                                var row = traveler_ds.Tables[0].Rows[o_ind];
+                                                int resp = 0,quote=0;
+                                                if (!Int32.TryParse(row["IfReplied"].ToString(), out resp)) resp = 0;
+                                                if (!Int32.TryParse(row["IsQuoted"].ToString(), out quote)) quote = 0;
+                                                %>
+                                                <tr>
+                                                    <% if (resp == 1)
+                                                             { %>
+                                                         <td><%=row[""] %></td>
+                                                         <% if (quote == 1)
+                                                                 { %>
+                                                           <td>Paid</td>
+                                                        <%}
+                                                                 else
+                                                                 { %>
+                                                            <td><a href="ownerresponse.aspx?respid=<%=AjaxProvider.Base64Encode(row["MID"].ToString()) %>">Book Now</a></td>
+                                                        <%} %>
+                                                    <%}else { %>
+                                                        <td></td><td></td>
+                                                    <%} %>
+                                                </tr>
+                                        <%} %>                                   
 
                                     </tbody>
                                 </table>
