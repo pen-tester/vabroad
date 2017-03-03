@@ -300,7 +300,7 @@
                                                         <%}
                                                                  else
                                                                  { %>
-                                                            <td><a href="ownerresponse.aspx?respid=<%=AjaxProvider.Base64Encode(row["MID"].ToString()) %>">Book Now</a></td>
+                                                            <td><a href="/quoteresponse.aspx?respid=<%=AjaxProvider.Base64Encode(row["MID"].ToString()) %>">Book Now</a></td>
                                                         <%} %>
                                                     <%}else { %>
                                                         <td></td><td></td>

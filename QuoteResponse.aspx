@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#"  MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="QuoteResponse.aspx.cs" Inherits="userowner_TravelerResponse" %>
-
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    Booking for Property <%=inquiryinfo.PropertyID %> in <%=countryinfo.city %>, <%=countryinfo.state %>,<%=countryinfo.country %>
+</asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
     .headertitle{
