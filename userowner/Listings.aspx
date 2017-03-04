@@ -152,7 +152,6 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th></th>
                                             <th>Date of Arrival</th>
                                             <th>Link To Booking</th>
                                         </tr>
