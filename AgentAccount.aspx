@@ -53,21 +53,15 @@
 			<td width="92%">
                 <div id="id_2">
 <p class="p9 ft7">Our Commission Percentage</p>
-<p class="p10 ft9"><span class="ft8"> </span>7% charged to the property owner / manager on gross sales</p><br />
+<p class="p10 ft9"><span class="ft8"> </span>10% charged to the property owner / manager on gross sales</p><br />
 <p class="p9 ft7">Our Cancellation Policy</p>
-<p class="p12 ft12"><span class="ft10"></span><span class="ft11">60 or more days prior to </span><nobr>arrival—100%</nobr> refunded</p>
-<p class="p13 ft12"><span class="ft10"></span><nobr><span class="ft11">50-60</span></nobr> days prior to arrival— 90% refunded</p>
-<p class="p14 ft12"><span class="ft10"></span><nobr><span class="ft11">40-50</span></nobr> days prior to <nobr>arrival—80%</nobr> refunded</p>
-<p class="p14 ft12"><span class="ft8"></span><nobr><span class="ft11">30-40</span></nobr> days prior to arrival— 70% refunded</p>
-<p class="p14 ft12"><span class="ft8"></span><nobr><span class="ft11">20-30</span></nobr> days prior to arrival— 60% refunded</p>
-<p class="p13 ft12"><span class="ft8"></span><nobr><span class="ft11">14-20</span></nobr> days prior to arrival— 50% refunded</p>
-<p class="p15 ft14"><span class="ft10"></span><nobr><span class="ft13">0-14</span></nobr> days prior to <nobr>arrival—No</nobr> refund unless property can rebook</p><br />
+<p class="p12 ft12"><span class="ft10"></span><span class="ft11">Defined by Owner</span></p>
 <p class="p9 ft7">What Is Not Included</p>
 <p class="p12 ft12"><span class="ft10"></span><span class="ft11">We do not collect security deposits</span></p>
 <p class="p13 ft12"><span class="ft10"></span><span class="ft11">We do not collect local sales tax</span></p><br />
 <p class="p9 ft7">When You Receive Your Funds</p>
 <p class="p18 ft14"><span class="ft10"></span><span class="ft13">Your funds will be displayed immediately in your online account</span></p>
-<p class="p19 ft14"><span class="ft10"></span><span class="ft13">The funds will be transferred to your bank </span><nobr>1-2</nobr> days after the arrival of the guest.</p>
+<p class="p19 ft14"><span class="ft10"></span><span class="ft13">The funds will be transferred to your bank </span><nobr>7-10</nobr> days prior to arrival of the guest.</p>
 </div>
 
                 <%--<h2>Our Commission Percentage</h2>
