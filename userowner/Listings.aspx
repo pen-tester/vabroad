@@ -83,10 +83,10 @@
                                                 if (!Int32.TryParse(row["IfReplied"].ToString(), out resp))resp = 0;    %>
                                          <tr>
                                             <td>Property <%=row["PropertyID"] %></td>
-                                             <td class="bookinglink" ><%=DateTime.Parse(row["ArrivalDate"].ToString()).ToString("MMM d, yyyy") %></td>
+                                             <td  ><%=DateTime.Parse(row["ArrivalDate"].ToString()).ToString("MMM d, yyyy") %></td>
                                              <% if (resp == 1)
                                                  { %>
-                                                <td>Responded</td>
+                                                <td class="bookinglink">Responded</td>
                                              <%} else { 
                                                     
                                                      %>
