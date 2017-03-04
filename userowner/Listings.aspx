@@ -83,7 +83,7 @@
                                                 if (!Int32.TryParse(row["IfReplied"].ToString(), out resp))resp = 0;    %>
                                          <tr>
                                             <td>Property <%=row["PropertyID"] %></td>
-                                             <td><%=row["ArrivalDate"] %></td>
+                                             <td><%=DateTime.Parse(row["ArrivalDate"].ToString()).ToString("MMM d, yyyy") %></td>
                                              <% if (resp == 1)
                                                  { %>
                                                 <td>Responded</td>
@@ -108,7 +108,7 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th>Replied Date</th>
                                             <th>Link To Quote</th>
                                         </tr>
                                      </thead>
@@ -158,6 +158,22 @@
                                         </tr>
                                      </thead>
                                     <tbody>
+                                        <% for (int o_ind = 0; o_ind < count; o_ind++)
+                                            {
+                                                var row = owner_ds.Tables[0].Rows[o_ind];
+                                                int quote;
+                                                if (!Int32.TryParse(row["IsQuoted"].ToString(), out quote)) quote = 0;
+                                                if (quote == 1)
+                                                {
+                                                %>
+                                                <tr>
+                                                     <td><%=DateTime.Parse(row["ArrivalDate"].ToString()).ToString("MMM d, yyyy") %></td>
+                                                    <td><a href="/userowner/booking.aspx?resp_number=<%=int.Parse(row["RID"].ToString()) %>">Booking</a></td>
+                                                </tr>
+                                              <%}else { %>
+                                                    <tr><td></td><td></td></tr>
+                                                <%} %>
+                                        <%} %>
                                     </tbody>
                                 </table>
                             </div>
