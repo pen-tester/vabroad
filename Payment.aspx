@@ -87,16 +87,14 @@
                     <tr class="tablerow">
                       <th>Property Location</th>
                       <th>Property #</th>
-                      <th>Our Commission(%)</th>
-                      <th>Our Commission</th>
+                      <th>Property Name</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><%=prop_info.City %> <%=prop_info.StateProvince %> <%=prop_info.Country %></td>
                       <td><%=inquiryinfo.PropertyID %></td>
-                      <td>10</td>
-                      <td><%=BookDBProvider.DoFormat(_total_sum*Convert.ToDecimal(0.1)) %></td>
+                      <td><%=prop_info.Name2 %></td>
                     </tr>
                    </tbody>
                 </table>
@@ -130,16 +128,7 @@
                     Amount Due to Reserve Property: <%=BookDBProvider.DoFormat(_total_sum) %>
                 </div>
                 <div class="srow">
-                    Security Deposit:<%=BookDBProvider.DoFormat(email_resp.SecurityDeposit) %>
-                </div>
-                <div class="srow">
-                    Lodging Tax: <input type="text" readonly="true" class="smallwidth" value="<%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>%" />  <input type="text" readonly="true" class="smallwidth" value="<%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>" />
-                </div>
-                <div class="srow">
-                    Cleaning Fee:<%=BookDBProvider.DoFormat(email_resp.CleaningFee) %>
-                </div>
-                <div class="srow">
-                   Security Deposit + Lodging Tax + Cleaning Fee = Amount Due to Owner upon Arrival:<%=BookDBProvider.DoFormat(_balance) %>
+                    Amount Due to Owner upon Arrival:<%=BookDBProvider.DoFormat(_balance) %>
                 </div>
                 <div class="srow top_formrow">
                     Total Rental Price:<%=BookDBProvider.DoFormat(_total) %>
