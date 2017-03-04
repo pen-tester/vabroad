@@ -8,16 +8,21 @@
         .normalMargintop{margin-top:10px;}
         .location_right{text-align:right;}
         .borderpane{
-            border:3px solid black;
+            border:3px solid #ff6600;
             border-radius:3px;
             background-color:#f3ede3;
-            padding:10px; 
+            padding:10px; margin:20px;
         }
         .table-bordered{
             border:1px solid #ddd;
             width:100%;
             background-color:#154890;
             color:#fff;
+        }
+        .normalTable{
+            border:1px solid #ddd;
+            width:100%;
+            background-color:#fff;color:#000;
         }
         .tablerow{
             border:1px solid #fff;
@@ -104,11 +109,10 @@
                 Currency:<%=currency_type[email_resp.CurrencyType] %> 
             </div>
             <div class="srow normalMargintop">
-                <table class="table-bordered">
+                <table class="normalTable">
                   <thead>
                     <tr class="tablerow">
                       <th># of Nights</th>
-                      <th>Description</th>
                       <th>Price Quote</th>
                       <th>Total Rental</th>
                     </tr>
@@ -116,7 +120,6 @@
                   <tbody>
                     <tr>
                       <td><%=inquiryinfo.Nights %></td>
-                      <td><%=prop_info.Name2 %></td>
                       <td><%=BookDBProvider.DoFormat(email_resp.NightRate) %></td>
                       <td><%=BookDBProvider.DoFormat(_total_sum) %></td>
                     </tr>
