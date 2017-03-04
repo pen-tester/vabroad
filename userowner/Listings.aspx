@@ -125,7 +125,7 @@
                                              <td><%=DateTime.Parse(row["SentTime"].ToString()).ToString("MMM d, yyyy") %></td>
                                              <% if (quote == 1)
                                                      { %>
-                                                <td><a>Reserved</a></td>
+                                                <td style="color:#ff6600">Reserved</></td>
                                              <%}
                                                      else
                                                      {
