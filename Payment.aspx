@@ -100,7 +100,7 @@
                 </table>
             </div>
             <div class="srow normalMargintop">
-                Arrival Date:<%=DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMM d, yyyy") %><br />
+                Arrival Date:<%=DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMM d, yyyy") %>
                 Currency:<%=currency_type[email_resp.CurrencyType] %> 
             </div>
             <div class="srow normalMargintop">
