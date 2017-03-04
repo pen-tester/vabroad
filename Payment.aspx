@@ -8,7 +8,7 @@
         .normalMargintop{margin-top:10px;}
         .location_right{text-align:right;}
         .borderpane{
-            border:3px solid #ff6600;
+            border:1px solid #ff6600;
             border-radius:3px;
             background-color:#f3ede3;
             padding:10px; margin:20px;
