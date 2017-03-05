@@ -3,7 +3,8 @@
 
 <%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="~/viewproperty.aspx.cs" Inherits="ViewProperty" Title="<%# GetTitle () %>" EnableEventValidation="false" %>
 
-<%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
+<%@ Register Assembly="GoogleReCaptcha" Namespace="GoogleReCaptcha" TagPrefix="ccl" %>
+<%---@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" ---%>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> in <%=stateprovince %> <%=country %> | Vacations Abroad
@@ -48,7 +49,8 @@
 
     <script type="text/javascript" defer="defer" src="/js/jquery.jcarousel.min.js"></script>
     <script type="text/javascript" defer="defer" src="/js/jcarousel.basic.js"></script>
-
+    <script defer="defer" src='https://www.google.com/recaptcha/api.js'></script>
+    
     <asp:Label ID="Title" runat="server" Visible="false" Text="%city% %bedroom% Bedroom %type% # %propid% | Vacations Abroad"></asp:Label>
     <asp:Label ID="Keywords" runat="server" Visible="false" Text="%city% %bedroom% Bedroom %type%, %city% %stateprovince% %type% rental, %city% %country% %type% "></asp:Label>
     <asp:Label ID="Description" runat="server" Visible="false" Text="Kickback and relax in this %city% %type% in %stateprovince% %country% from Vacations-Abroad"></asp:Label>
@@ -218,15 +220,9 @@
                                             ErrorMessage="Invalid comments entered" ControlToValidate="Comments" Display="Dynamic" />
                                     </td>
                                 </tr>
-                                <tr align="center">
-                                    <td></td>
-
-                                    <td>
-                                        <asp:Label ID="lblmsg2" runat="server" Font-Bold="True" ForeColor="Red" Text=""></asp:Label>
-                                        <%--                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  ControlToValidate="txtimgcode" runat="server" ErrorMessage="Image Code Cannot be Empty !"></asp:RequiredFieldValidator>
-                                        --%>
-                                            
-
+                                <tr>
+                                    <td colspan="3">
+                                       <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LeiuBcUAAAAABl8pqeeYVr_M7DwF_b-CPzKo1eJ"></div>
                                     </td>
                                 </tr>
                                 <tr align="center">

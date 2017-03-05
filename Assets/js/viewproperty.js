@@ -40,6 +40,7 @@
         $('#btnsend').click(function (e) {
             var resp = paramcheck();
             if (resp == "") {
+                robot = 0;
                 $('#bodycontent_SubmitButton').click();
                 console.log("pass the content.");
             }
@@ -67,6 +68,10 @@
 
     function paramcheck() {
         var resp = "";
+        if (robot == 0) {
+            resp = "You have to validate that you are not robot.";
+            return resp;
+        }
         if ($('#bodycontent_ContactName').val() == "") { resp = "Your name is Required! <br/>"; return resp; }
         if ($('#bodycontent_ContactEmail').val() == ""){ resp = "Your email is Required! <br/>"; return resp;}
         var pattern = new RegExp("^[a-zA-Z0-9 \.\-]+$");
@@ -95,4 +100,9 @@
             return resp;
         }
         return resp;
+    }
+
+    var robot = 0;
+    function recaptchaCallback() {
+        robot = 1;
     }
