@@ -13,6 +13,9 @@
         <div>
             <ccl:GoogleReCaptcha ID="ctlCaptcha" runat="server" PublicKey="6LeiuBcUAAAAABl8pqeeYVr_M7DwF_b-CPzKo1eJ" PrivateKey="6LeiuBcUAAAAAPEGRRVqTcLsdO83GSnGetOwOfMM" />
         </div>
+        <div>
+            <asp:Button runat="server" ID="full" Text="Submit" OnClick="full_Click"/>
+        </div>
     </form>
 </body>
 </html>

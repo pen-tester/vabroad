@@ -11,4 +11,9 @@ public partial class Tst : System.Web.UI.Page
     {
 
     }
+
+    protected void full_Click(object sender, EventArgs e)
+    {
+        Response.Write("TSTSTTST");
+    }
 }
