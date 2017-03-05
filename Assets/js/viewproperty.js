@@ -22,7 +22,7 @@
             if (tab_id == "tabs-3") {
                 console.log("tst");
 
-
+                robot = 0;
 
                 $element.css('webkitAnimationName', 'animatetop');
                 // you'll probably want to preventDefault here.
