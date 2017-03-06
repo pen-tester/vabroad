@@ -50,16 +50,17 @@ public class CommonFunctions
 
         // MailMessage message = new MailMessage(regex.Match(EmailAddress.Text).Success ?
         //   EmailAddress.Text : "admin@" + CommonFunctions.GetDomainName(), ConfigurationManager.AppSettings["NewOwnerEmail"]);
-        MailMessage message = new MailMessage("prop@vacations-abroad.com", ConfigurationManager.AppSettings["NewOwnerEmail"]);
-        message.Subject = "New owner registered in the system";
+        MailMessage message = new MailMessage("noreply@vacations-abroad.com", ConfigurationManager.AppSettings["NewOwnerEmail"]);
+        message.Subject = "New owner registered at Vacations-abroad.com";
         message.Body = emailbody;
         message.IsBodyHtml = false;
 
         message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
         message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
 
-        smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString());
         smtpclient.UseDefaultCredentials = false;
+        smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString());
+        
 
 
         if (regex.Match(message.To.ToString()).Success)
