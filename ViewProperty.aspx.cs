@@ -72,9 +72,11 @@ public partial class ViewProperty : CommonPage
     protected Vacations.EmailsDataset EmailsSet;
     public DataSet comment_set;
     public List<DataSet> commentimgset_list= new List<DataSet>();
+    public bool pass_recaptcha = false;
 
     protected void Page_Load(object sender, System.EventArgs e)
     {
+        pass_recaptcha = false;
         if (IsPostBack)
         {
             string sec_key = "6LeiuBcUAAAAAPEGRRVqTcLsdO83GSnGetOwOfMM";
@@ -95,6 +97,7 @@ public partial class ViewProperty : CommonPage
                    // Response.Write(String.Format("{0} <<<<  {1}<<<< {2}", Request["g-recaptcha-response"], json["success"].ToString(), json["hostname"].ToString()));
                     return;
                 }
+                pass_recaptcha = true;
             }
         }
 
@@ -1156,7 +1159,7 @@ public partial class ViewProperty : CommonPage
         //}
 
         if (!Page.IsValid) return;
-
+        if (!pass_recaptcha) return;
         
         /*
         if (!User.Identity.IsAuthenticated || !AuthenticationManager.IfAuthenticated)
