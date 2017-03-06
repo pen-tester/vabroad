@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 public partial class userowner_Listing : ClosedPage
 {
-    public UserInfo userinfo;
+    public DetailedUserInfo userinfo;
    // public DataSet inquiry_set, traveler_inquery_set;
     public DataSet property_set;
     // public DataSet owner_response_set, traveler_response_set;
@@ -22,8 +22,9 @@ public partial class userowner_Listing : ClosedPage
 
        // Response.Write("Uid" + userid);
 
-        userinfo = BookDBProvider.getUserInfo(userid);
+        userinfo = BookDBProvider.getDetailedUserInfo(userid);
 
+        if (userinfo.Zip == "") Response.Redirect("/ownerinformation.aspx");
 
          
         List<SqlParameter> param = new List<SqlParameter>();
@@ -35,7 +36,7 @@ public partial class userowner_Listing : ClosedPage
         //For Traveller
         param.Clear();
         SqlParameter pemail = new SqlParameter("@email", SqlDbType.NVarChar, 500);
-        pemail.Value = userinfo.email;
+        pemail.Value = userinfo.Email;
         param.Add(pemail);
 
         traveler_ds = BookDBProvider.getDataSet("uspGetTravelerResponseList", param);
