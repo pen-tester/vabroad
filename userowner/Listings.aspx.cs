@@ -24,7 +24,7 @@ public partial class userowner_Listing : ClosedPage
 
         userinfo = BookDBProvider.getDetailedUserInfo(userid);
 
-        if (userinfo.Zip == "") Response.Redirect("/ownerinformation.aspx?userid="+userinfo.UserID);
+        if (userinfo.Zip == "") Response.Redirect("/ownerinformation.aspx?userid="+userinfo.ID);
 
          
         List<SqlParameter> param = new List<SqlParameter>();
