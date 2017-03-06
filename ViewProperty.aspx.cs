@@ -90,8 +90,9 @@ public partial class ViewProperty : CommonPage
 
                 string result = System.Text.Encoding.UTF8.GetString(response);
                 JObject json = JObject.Parse(result);
-                if(json["success"].ToString()!="success" || json["hostname"].ToString() != "www.vacations-abroad.com"){
-                    Response.Write(String.Format("{0} <<<<  {1}<<<< {2}", Request["g-recaptcha-response"], json["success"].ToString(), json["hostname"].ToString()));
+                if(json["success"].ToString()!="True" || json["hostname"].ToString() != "www.vacations-abroad.com")
+                {
+                   // Response.Write(String.Format("{0} <<<<  {1}<<<< {2}", Request["g-recaptcha-response"], json["success"].ToString(), json["hostname"].ToString()));
                     return;
                 }
             }
