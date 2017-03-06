@@ -305,7 +305,7 @@ public partial class ViewProperty : CommonPage
                 }
             }
             reader3.Close();
-            rtLow3.InnerHtml = rtLow3.InnerHtml.Remove(rtLow3.InnerHtml.Length - 2, 2);
+            if( rtLow3.InnerHtml.Length>2)  rtLow3.InnerHtml = rtLow3.InnerHtml.Remove(rtLow3.InnerHtml.Length - 2, 2);
             rtHd3.InnerHtml = vState + " Cities";
             SqlDataAdapter StateProvincesAdapter = CommonFunctions.PrepareAdapter(CommonFunctions.GetConnection(),
                 "SELECT StateProvinces.* " +
