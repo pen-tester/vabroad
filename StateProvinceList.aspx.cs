@@ -383,7 +383,7 @@ public partial class StateProvinceList : CommonPage
             str_cities += dr["City"].ToString() + ", ";
         }
 
-        str_cities = str_cities.Substring(0, str_cities.Length - 2);
+        if(str_cities.Length>1)str_cities = str_cities.Substring(0, str_cities.Length - 2);
 
         ulManiGrid.InnerHtml = citiesNew;
 
