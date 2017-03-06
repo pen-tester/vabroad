@@ -667,13 +667,7 @@ public class BookDBProvider
                                 PropertyInfo[] propertys = userinfo.GetType().GetProperties();
                                 foreach (PropertyInfo info in propertys)
                                 {
-                                    try
-                                    {
-                                        info.SetValue(userinfo, Convert.ChangeType(reader[info.Name], info.PropertyType), null);
-                                    }catch(Exception e)
-                                    {
-
-                                    }
+                                    info.SetValue(userinfo, Convert.ChangeType(reader[info.Name], info.PropertyType), null);
                                     //propertyInfo.SetValue(ship, Convert.ChangeType(value, propertyInfo.PropertyType), null);
                                 }
                             }
@@ -697,6 +691,54 @@ public class BookDBProvider
 
 
     }
+    public static UserInfo getUserInfo(int user_id) {
+         UserInfo userinfo = new UserInfo();
+         try
+         {
+             using (SqlConnection con = new SqlConnection(connString))
+             {
+                 using (SqlCommand cmd = new SqlCommand("select Username,Email,LastName,FirstName,PrimaryTelephone from Users  where ID=@id", con))
+                 {
+                     con.Open();
+                     cmd.CommandType = CommandType.Text;
+                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = user_id;
+
+
+
+                     using (SqlDataReader reader = cmd.ExecuteReader())
+                     {
+                         if (reader.HasRows)
+                         {
+                             if (reader.Read())
+                             {
+                                 //more code
+                                 userinfo.id = user_id;
+                                 userinfo.name = reader[0].ToString();
+                                 userinfo.email = reader[1].ToString();
+                                 userinfo.lastname = reader[2].ToString();
+                                 userinfo.firstname = reader[3].ToString();
+                                 userinfo.PrimaryTelephone = reader[4].ToString();
+                             }
+                         }
+
+                     }
+
+
+                     con.Close();
+
+                 }
+             }
+
+         }
+         catch (Exception ex)
+         {
+             // throw ex;
+             // return 0;
+         }
+         return userinfo;
+
+
+     }
      public static object getValue(object par)
      {
          if(par == null)
