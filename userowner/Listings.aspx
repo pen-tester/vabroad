@@ -45,7 +45,7 @@
             
         </div>
         <div class="row textcenter">
-            Welcome <%=(userinfo.firstname+ " "+userinfo.lastname) %> !
+            Welcome <%=(userinfo.FirstName+ " "+userinfo.LastName) %> !
         </div>
 
         <div class="newline top_formrow">
