@@ -13,6 +13,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Security;
 using System.Reflection;
+using System.Net;
+using System.Collections.Specialized;
+using Newtonsoft.Json.Linq;
 
 public partial class ViewProperty : CommonPage
 {
@@ -72,6 +75,28 @@ public partial class ViewProperty : CommonPage
 
     protected void Page_Load(object sender, System.EventArgs e)
     {
+        if (IsPostBack)
+        {
+            string sec_key = "6LeiuBcUAAAAAPEGRRVqTcLsdO83GSnGetOwOfMM";
+            string g_url = "https://www.google.com/recaptcha/api/siteverify";
+            using (WebClient wc = new WebClient())
+            {
+                byte[] response =
+                wc.UploadValues(g_url, new NameValueCollection()
+                {
+                   { "secret", sec_key },
+                   { "response", Request["g-recaptcha-response"] }
+                });
+
+                string result = System.Text.Encoding.UTF8.GetString(response);
+                JObject json = JObject.Parse(result);
+                if(json["success"].ToString()!="success" || json["hostname"].ToString() != "www.vacations-abroad.com"){
+                    return;
+                }
+            }
+        }
+
+
         if (propertyid == -1)
             Response.Redirect(CommonFunctions.PrepareURL("InternalError.aspx"), true);
 
