@@ -11,8 +11,9 @@
 
     protected void Application_PreSendRequestHeaders (object sender, EventArgs e)
     {
-        foreach (string cookiename in Response.Cookies)
+      /*  foreach (string cookiename in Response.Cookies)
             Response.Cookies[cookiename].Path = "/; HttpOnly";
+            */
     }
 
     protected void Application_Error (object sender, EventArgs e)
