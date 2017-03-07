@@ -50,8 +50,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         ServicePointManager.Expect100Continue = true;
         ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
-        string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-     //   string requestUriString = "https://www.paypal.com/cgi-bin/webscr";
+      //  string requestUriString = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+        string requestUriString = "https://www.paypal.com/cgi-bin/webscr";
 
         HttpWebRequest request =
                        (HttpWebRequest)WebRequest.Create(requestUriString);
@@ -118,8 +118,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             ssfile.Write(resp);
             ssfile.Close();
             */
-            if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
-            //if (transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type != "reversal")
+           // if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
+            if (transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type != "reversal")
             {
                 if ((transitem.mc_gross == (_total)) && transitem.payment_status == "Completed" && transitem.mc_currency == currency_type[email_resp.CurrencyType])
                 {

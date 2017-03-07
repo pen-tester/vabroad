@@ -172,9 +172,9 @@
                                     <td><%=row["payment_date"] %></td>
                                     <td><%=row["PropertyID"] %></td>
                                     <td><%=discount %></td>
-                                    <td><%=mc_gross %></td>
-                                    <td><%=owner_amt %></td>
-                                    <td><%=my_cost %></td>
+                                    <td><%=BookDBProvider.DoFormat(mc_gross) %></td>
+                                    <td><%=BookDBProvider.DoFormat(owner_amt) %></td>
+                                    <td><%=BookDBProvider.DoFormat(my_cost) %></td>
                                 </tr>
 
                             <%} %>
