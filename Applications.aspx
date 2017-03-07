@@ -18,7 +18,7 @@
    <div class="advertise-con">
         <ol>
 <span>
-    Our booking fee is 13% of the reservation amount.<br />
+    Our booking fee is 10% of the reservation amount.<br />
     The booking fee is not calculated on the cleaning fees, taxes or security deposits.
     </span>
 
@@ -26,7 +26,8 @@
 Australia, Austria,, Belgium, Bolivia, Brazil, Canada, Chile, China, Colombia, Costa Rica, Dominican Republic, Ecuador, El Salvador, France
 Germany, Greece, Guatemala, Honduras, Hong Kong, India, Ireland, Italy, Jamaica, Mexico, Netherlands, Nicaragua, Pakistan, Panama, Peru
 Philippines, Poland, Portugal, Singapore, Spain, Sri Lanka, United Kingdom, Uruguay & Vietnam</span><br><br>
-Or we can send your funds direct to you via paypal.<br><br><br>
+Or we can send your funds direct to you via paypal.<br />
+ We will wire the funds into your account 7-10 days prior to the arrival of the guests<br><br><br>
 <span> ALL LISTINGS INCLUDE THE FOLLOWING:</span>
             <li><span>7 Photos per listing<br></span>
             <li><span>Link for virtual tours</span></li>
