@@ -63,11 +63,11 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         request.ContentType = "application/x-www-form-urlencoded";
         string obj2 = strFormValues + "&cmd=_notify-validate";
         request.ContentLength = obj2.Length;
-
+/*
         System.IO.StreamWriter file = new System.IO.StreamWriter(Server.MapPath("/logwrite.txt"));
         file.Write(obj2);
         file.Close();
-
+        */
         // Write the request back IPN strings
         StreamWriter writer =
             new StreamWriter(request.GetRequestStream(), Encoding.ASCII);
@@ -110,6 +110,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
 
         _total = Decimal.Parse(BookDBProvider.DoFormat(_total));
 
+
         if (resp == "VERIFIED")
         {
             //if(transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type!= "reversal")
@@ -117,8 +118,8 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             ssfile.Write(resp);
             ssfile.Close();
             */
-            //if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
-            if (transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type != "reversal")
+            if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
+            //if (transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type != "reversal")
             {
                 if ((transitem.mc_gross == (_total)) && transitem.payment_status == "Completed" && transitem.mc_currency == currency_type[email_resp.CurrencyType])
                 {
