@@ -167,6 +167,7 @@ public class PaymentHelper
                     cmd.Parameters.Add("@payment_type", SqlDbType.NVarChar,30).Value = item.payment_type;
                     cmd.Parameters.Add("@pending_reason", SqlDbType.NVarChar,30).Value = item.pending_reason;
                     cmd.Parameters.Add("@item_name", SqlDbType.NVarChar,100).Value = item.item_name;
+                    cmd.Parameters.Add("@custom", SqlDbType.NVarChar, 50).Value = item.custom;
 
                     int rows = cmd.ExecuteNonQuery();
 
