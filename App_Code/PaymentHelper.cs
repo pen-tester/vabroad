@@ -33,6 +33,7 @@ public class Transaction_Item
     public string pending_reason { get; set; }
     public string item_name { get; set; }  
     public string verify_sign { get; set; } 
+    public string custom { get; set; }
 }
 public class Book_Item
 {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +20,7 @@ public partial class userowner_Payment : CommonPage
 
     public int respid = 0;
     public decimal _total_sum, _lodgingval, _balance,_total=0;
+    public string custom = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         NameValueCollection nvc = Request.Form;
@@ -48,6 +51,38 @@ public partial class userowner_Payment : CommonPage
 
     protected void payment_Click(object sender, EventArgs e)
     {
+
+        string coupon = Request["coupon"];
+
+        if (coupon.Length == 13)
+        {
+            string start_date, end_date;
+            int discount,id;
+
+            List<SqlParameter> param = new List<SqlParameter>();
+            param.Add(new SqlParameter("@coupon", coupon));
+
+            DataSet ds_coupon = BookDBProvider.getDataSet("uspGetCouponItem", param);
+            if (ds_coupon.Tables[0].Rows.Count > 0)
+            {
+                start_date = ds_coupon.Tables[0].Rows[0]["Start_date"].ToString();
+                end_date= ds_coupon.Tables[0].Rows[0]["End_date"].ToString();
+                if (!int.TryParse(ds_coupon.Tables[0].Rows[0]["Discount"].ToString(), out discount)) discount = 0;
+                id = int.Parse(ds_coupon.Tables[0].Rows[0]["CID"].ToString());
+
+                DateTime s_date = DateTime.Parse(start_date);
+                DateTime e_date = DateTime.Parse(end_date);
+                DateTime now = DateTime.Now;
+                if (DateTime.Compare(s_date, now) <= 0 && DateTime.Compare(now, e_date) <= 0)
+                {
+                    _total = _total * (100 - discount) / 100;
+                    custom = coupon;
+                }
+
+            }
+
+        }
+
             PaywithPaypal();
         
     }
@@ -90,8 +125,9 @@ public partial class userowner_Payment : CommonPage
         redirecturl += "&no_shipping=1";
 
         redirecturl += "&rm=2";
+        redirecturl += "&custom="+custom;
         //Currency code 
-      //   redirecturl += "&currency_code=" + "USD";
+        //   redirecturl += "&currency_code=" + "USD";
         redirecturl += ("&currency_code=" + currency_type[email_resp.CurrencyType]);
 
         //Success return page url

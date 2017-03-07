@@ -32,6 +32,7 @@
         .smallwidth{width:45px;}
  .btnsendquote{cursor:pointer; padding:5px; border-radius:5px;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890}
                                   .btnsendquote:active{padding-top:4px;}
+        .fullwidth{width:90%;}
     </style>
 </asp:Content>
 
@@ -137,7 +138,14 @@
                     Total Rental Price:<%=BookDBProvider.DoFormat(_total) %>
                 </div>
             </div>
- 
+            <div class="srow normalMargintop">
+                <div class="col-4">
+                    Do you have Coupon?
+                </div>
+                <div class="col-8">
+                    <input type="text" class="fullwidth" id="coupon" name="coupon" />
+                </div>
+            </div>
         </div>
 
         <div class="srow">

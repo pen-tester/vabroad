@@ -11,9 +11,9 @@
 
     protected void Application_PreSendRequestHeaders (object sender, EventArgs e)
     {
-      /*  foreach (string cookiename in Response.Cookies)
-            Response.Cookies[cookiename].Path = "/; HttpOnly";
-            */
+        /*  foreach (string cookiename in Response.Cookies)
+              Response.Cookies[cookiename].Path = "/; HttpOnly";
+              */
     }
 
     protected void Application_Error (object sender, EventArgs e)
@@ -168,7 +168,39 @@
             return;
         }
 
+        HttpContext incoming = HttpContext.Current;
+        string oldpath = Request.Path;
+        string querystring;
 
+
+        if(Request.RawUrl.IndexOf("?") >= 0)
+            querystring = Request.RawUrl.Substring(Request.RawUrl.IndexOf("?") + 1);
+        else
+            querystring = "";
+
+        // Response.Write(oldpath + "   " + querystring);
+        // return;
+        int ind = oldpath.IndexOf(".aspx");
+        if(ind != -1) {
+
+            string aspxfile = oldpath.Substring(0, ind+5);
+            /*
+                            if(File.Exists(Request.PhysicalApplicationPath + aspxfile)) {
+                                //CommonFunctions.Connection.Close ();
+                                incoming.RewritePath(CommonFunctions.PrepareURL(aspxfile +
+                                    ((querystring.Length > 0) ? "?" + querystring : "")));
+                                return;
+                            }
+                            */
+         //   Response.Write(Request.PhysicalApplicationPath + aspxfile);
+            if(File.Exists(Request.PhysicalApplicationPath+aspxfile)) {
+                //CommonFunctions.Connection.Close ();
+                return;
+            }
+        }
+
+
+      //  return;
         using(SqlConnection connection = CommonFunctions.GetConnection()) {
             connection.Open();
             // mod by LMG 6-5-08
@@ -184,22 +216,14 @@
                     Convert.ToInt32(ConfigurationManager.AppSettings["Timeout"]) * 60 * 1000);
             // This is apparently doing what an HttpHandler is meant to do.
             // the gets the current Full URL
-            HttpContext incoming = HttpContext.Current;
-            string oldpath = Request.Path;
-            string querystring;
+
 
             if(Request.RawUrl.IndexOf("WebResource.axd") >= 0)
                 return;
 
 
 
-            if(Request.RawUrl.IndexOf("?") >= 0)
-                querystring = Request.RawUrl.Substring(Request.RawUrl.IndexOf("?") + 1);
-            else
-                querystring = "";
 
-            // Response.Write(oldpath + "   " + querystring);
-            // return;
 
             if(oldpath.ToLower().StartsWith(Request.ApplicationPath.ToLower()))
                 oldpath = oldpath.Substring(Request.ApplicationPath.Length);
@@ -893,25 +917,7 @@
                 }
             }
 
-            int ind = oldpath.IndexOf(".aspx");
-            if(ind != -1) {
 
-                string aspxfile = oldpath.Substring(oldpath.LastIndexOf("/") + 1);
-                /*
-                                if(File.Exists(Request.PhysicalApplicationPath + aspxfile)) {
-                                    //CommonFunctions.Connection.Close ();
-                                    incoming.RewritePath(CommonFunctions.PrepareURL(aspxfile +
-                                        ((querystring.Length > 0) ? "?" + querystring : "")));
-                                    return;
-                                }
-                                */
-                if(File.Exists(Request.PhysicalPath + aspxfile)) {
-                    //CommonFunctions.Connection.Close ();
-                    incoming.RewritePath(CommonFunctions.PrepareURL(aspxfile +
-                        ((querystring.Length > 0) ? "?" + querystring : "")));
-                    return;
-                }
-            }
 
             if(oldpath.IndexOf("?") > 0)
                 oldpath = oldpath.Substring(0, oldpath.IndexOf("?"));

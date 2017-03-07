@@ -30,7 +30,7 @@
                 $('#inqureform').show();
             }
         });
-        msgclose
+
         $('#closeform').click(function () {
             $('#inqureform').hide();
         });

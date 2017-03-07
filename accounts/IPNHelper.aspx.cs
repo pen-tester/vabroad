@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -85,17 +87,36 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
         _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
         _total = _total_sum + _balance;
 
-
+        /*
         System.IO.StreamWriter sfile = new System.IO.StreamWriter(Server.MapPath("/log.txt"));
         sfile.Write(resp);
         sfile.Close();
+        */
+        int discount;
+        if (transitem.custom.Length == 13)
+        {
+            List<SqlParameter> param = new List<SqlParameter>();
+            param.Add(new SqlParameter("@coupon", transitem.custom));
+
+            DataSet ds_coupon = BookDBProvider.getDataSet("uspGetCouponItem", param);
+            if (ds_coupon.Tables[0].Rows.Count > 0)
+            {
+                if (!int.TryParse(ds_coupon.Tables[0].Rows[0]["Discount"].ToString(), out discount)) discount = 0;
+
+                _total = _total * (100 - discount) / 100;
+
+            }
+        }
+
+        _total = Decimal.Parse(BookDBProvider.DoFormat(_total));
 
         if (resp == "VERIFIED")
         {
             //if(transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type!= "reversal")
-            System.IO.StreamWriter ssfile = new System.IO.StreamWriter(Server.MapPath("/logt.txt"));
+/*            System.IO.StreamWriter ssfile = new System.IO.StreamWriter(Server.MapPath("/logt.txt"));
             ssfile.Write(resp);
             ssfile.Close();
+            */
             //if (transitem.business == "talent.anddev@yandex.com" && transitem.txn_type != "reversal")
             if (transitem.business == ConfigurationManager.AppSettings["PaypalEmail"].ToString() && transitem.txn_type != "reversal")
             {
