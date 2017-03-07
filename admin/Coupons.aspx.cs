@@ -47,6 +47,6 @@ public partial class admin_Coupons : AdminPage
         if (cid == 0) return;
         List<SqlParameter> param = new List<SqlParameter>();
         param.Add(new SqlParameter("@id", cid));
-        ds_coupons = BookDBProvider.getDataSet("uspGetCouponItemList", param);
+        ds_coupons = BookDBProvider.getDataSet("uspDelCouponItem", param);
     }
 }
