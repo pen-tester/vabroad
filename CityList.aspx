@@ -147,7 +147,7 @@
                                   PropertyAmenityInfo propamen = proplistset.propertyList[i];
                                   string propname = propamen.detail.PropertyName + " " + propamen.detail.NumBedrooms + " Bedroom " + propamen.detail.NumBaths + " BA Sleeps " + propamen.detail.NumSleeps;
                                   // Rates:  79-169 EUR Per Night 2 nights Minimum 
-                                  string rates = "Rates: " + propamen.detail.MinNightRate + "-" + propamen.detail.HiNightRate + "  " + propamen.detail.MinRateCurrency + " Per Night " + min_rentaltypes[propamen.detail.MinimumNightlyRentalID];
+                                  string rates = "Rates: " + propamen.detail.MinNightRate + "-" + propamen.detail.HiNightRate + "  " + propamen.detail.MinRateCurrency + " Per Night Minium " + min_rentaltypes[propamen.detail.MinimumNightlyRentalID]+" Rental";
                                   string amenity = "Amenity:  ";
                                   int am_count = propamen.amenity.Count;
                                   string href = ("/" + propamen.detail.Country + "/" + propamen.detail.StateProvince + "/" + propamen.detail.City + "/" + propamen.detail.ID + "/default.aspx").ToLower().Replace(" ", "_");
