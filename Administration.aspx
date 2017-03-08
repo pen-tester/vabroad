@@ -58,17 +58,22 @@
 			<td colspan="100" align="center">
 				<table width="100%" border="0">
 					<tr>
-						<td colspan="2" align="left">
+						<td align="left">
 							<a href='<%= CommonFunctions.PrepareURL ("commissionpayable.aspx", "Administration") %>'>
 								Commission Payable
 							</a>
 						</td>
+                       <td  align="right">
+						   <a href="/admin/coupons.aspx">Manage Coupons</a>
+						</td>
+
 						<td align="right">
 						   <a href="/ReserveList.aspx">Reserve List</a>
 						</td>
                        <td  align="right">
 						   <a href="/inquiryresponses.aspx">Inquiry Responses</a>
 						</td>
+
 					</tr>
 					<tr><td align="left"><a href="currency.aspx">Currencies</a></td>
 					<td colspan="3" align="left">
