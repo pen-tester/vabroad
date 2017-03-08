@@ -41,7 +41,7 @@
         .couponinput{width:90%;}
         .hidden{display:none;}
         ul li{list-style:none;display:inline-block;color:#6698ff;cursor:pointer;}
-        .activepage{font-weight:bold;}
+        .activepage{font-weight:bold;text-decoration:underline;}
     </style>
     <link rel="stylesheet" href="/Assets/js/jqueryui112/jquery-ui.min.css" />
 </asp:Content>
