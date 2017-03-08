@@ -139,10 +139,10 @@
                 </div>
             </div>
             <div class="srow normalMargintop">
-                <div class="col-4">
+                <div class="col-3">
                     Do you have Coupon?
                 </div>
-                <div class="col-8">
+                <div class="col-4">
                     <input type="text" class="fullwidth" id="coupon" name="coupon" />
                 </div>
             </div>
