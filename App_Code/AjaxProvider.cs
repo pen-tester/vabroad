@@ -32,6 +32,40 @@ public class AjaxProvider
         return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
     }
 
+    public static CouponItem getCouponItem(string coupon)
+    {
+        CouponItem item = new CouponItem();
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@coupon", coupon));
+
+        DataSet ds_coupon = BookDBProvider.getDataSet("uspGetCouponItem", param);
+        PropertyInfo[] props = item.GetType().GetProperties();
+
+        try
+        {
+            if (ds_coupon.Tables.Count > 0)
+            {
+                DataRow row;
+                row = ds_coupon.Tables[0].Rows[0];
+
+                foreach (PropertyInfo prop_info in props)
+                {
+                    try
+                    {
+                        prop_info.SetValue(item, Convert.ChangeType(row[prop_info.Name], prop_info.PropertyType), null);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                }
+            }
+        }
+        catch { }
+        return item;
+    }
+
     public static PropertyDetailInfo getPropertyDetailInfo(int propid)
     {
 
@@ -41,12 +75,7 @@ public class AjaxProvider
         {
             using (SqlConnection con = new SqlConnection(connString))
             {
-                /*   @keyword nvarchar(200) ='',
-                @proptype int= 0,
-                @roomnum int= 0,
-                @amenityid int= 0
-                */
-                con.Open();
+                  con.Open();
                 SqlCommand cmd = new SqlCommand("uspGetPropertiesDetailIno", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 

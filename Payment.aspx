@@ -137,10 +137,17 @@
                 <div class="srow top_formrow">
                     Total Rental Price:<%=BookDBProvider.DoFormat(_total) %>
                 </div>
+                <div class="srow top_formrow">
+                    Coupon Discount:<label id="cou_discount">0</label>%
+                </div>
+                <div class="srow top_formrow">
+                    Adjusted Rental Price:<label id="cou_rental_price"><%=BookDBProvider.DoFormat(_total) %></label>
+                    <input type="hidden" id="hid_total" value="<%=_total %>" />
+                </div>
             </div>
             <div class="srow normalMargintop">
-                <div class="col-3">
-                    Do you have Coupon?
+                <div class="col-4">
+                    If you have a coupon, enter it here
                 </div>
                 <div class="col-4">
                     <input type="text" class="fullwidth" id="coupon" name="coupon" />
@@ -163,5 +170,6 @@
 
     </div>
     </div>
+    <script src="/Assets/js/payment.js" defer="defer"></script>
 </asp:Content>
 

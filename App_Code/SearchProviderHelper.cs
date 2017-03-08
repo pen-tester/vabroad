@@ -90,6 +90,17 @@ public class CountryInfoWithCityID
     //Regions.Region, co.Country, co.City, co.CityText, co.descriptionoverride, co.titleoverride
 }
 
+
+public class CouponItem
+{
+    public int CID { get; set; }
+    public string Coupon { get; set; }
+    public string Start_date { get; set; }
+    public string End_date { get; set; }
+    public int Discount{ get; set; }
+
+}
+
 public class SearchProviderHelper
 {
     public SearchProviderHelper()

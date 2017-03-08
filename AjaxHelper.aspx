@@ -43,6 +43,13 @@
         // return keyword +ajx.allnums;
 
     }
+    [WebMethod]
+    // Get session state value.AjaxPropListSet
+    public static CouponItem getcouponitem(string coupon) {
+        CouponItem item = AjaxProvider.getCouponItem(coupon);
+        return item;
+    }
+
 
 </script>
 <html xmlns="http://www.w3.org/1999/xhtml">
