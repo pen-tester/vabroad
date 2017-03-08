@@ -20,8 +20,15 @@ $(document).ready(function () {
 function processPropertyData(response) {
   //  console.log(response.d);
     var couponitem = response.d;
-    if (couponitem.CID == 0) return;
-    var total =parseFloat( $('#hid_total').val());
+
+    var total = parseFloat($('#hid_total').val());
+
+    if (couponitem.CID == 0) {
+        $('#cou_discount').text('0');
+        $('#cou_rental_price').text(total);
+        return;
+    }
+
     var discount =parseInt( couponitem.Discount);
     var sdate =new Date( couponitem.Start_date); var edate =new Date(couponitem.End_date);
     var cur_date = new Date();
