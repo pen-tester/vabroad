@@ -161,13 +161,12 @@
             <td width="8">
                 <font color="red">*</font>
             <td>
-                <asp:DropDownList ID="ddlCountries" runat="server" AppendDataBoundItems="True" 
-                    DataTextField="country" DataValueField="country">
-                    <asp:ListItem Selected="True" Value="0">Select your country</asp:ListItem>
-                </asp:DropDownList>
+                <asp:TextBox ID="ddlCountries" TabIndex="17" runat="server" Width="112px" MaxLength="300" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
-                    ControlToValidate="ddlCountries" ErrorMessage="Please enter country" 
-                    InitialValue="0">Please enter country</asp:RequiredFieldValidator>
+                    ControlToValidate="ddlCountries" ErrorMessage="Please enter country" >Please enter country</asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator ID="regCountry" runat="server"
+                    ControlToValidate="ddlCountries" ErrorMessage="Too long Country entered" ValidationExpression="^.{1,300}$"
+                    Display="Dynamic" />
                 <%--<asp:TextBox ID="Country" TabIndex="17" runat="server" Width="224px" MaxLength="300" />
 				<asp:RequiredFieldValidator ID="CountryRequired" runat="server" ControlToValidate="Country"
 					ErrorMessage="Country must be entered by agents" Display="Dynamic" />

@@ -43,27 +43,7 @@ public partial class OwnerInformation : ClosedPage
         //CountryRequired.Enabled = (MainDataSet.Tables["Users"].Rows[0]["IfAgent"] is bool) &&
         //    (bool)MainDataSet.Tables["Users"].Rows[0]["IfAgent"];
             DBConnection obj = new DBConnection();
-            try
-            {
-                if (!IsPostBack)
-                {
-                    DataTable dt = VADBCommander.CountyDistinctSimpleList();
-                    ddlCountries.DataSource = dt;
-                    //ddlCountries.DataTextField = "country";
-                    //ddlCountries.DataValueField = "country";
-
-                    if (ddlCountries.Items.Contains(new ListItem(MainDataSet.Tables["Users"].Rows[0]["country"].ToString(),
-                        MainDataSet.Tables["Users"].Rows[0]["country"].ToString())))
-                    {
-                        ddlCountries.SelectedValue = MainDataSet.Tables["Users"].Rows[0]["country"].ToString();
-                    }
-                    //ddlCountries.DataBind();
-                }
-                
-            }
-            catch (Exception ex) { Response.Write(ex.Message); }
-            finally { obj.CloseConnection(); }
-
+  
 
 		if (!IsPostBack)
 		{
@@ -75,7 +55,7 @@ public partial class OwnerInformation : ClosedPage
 			City.Text = MainDataSet.Tables["Users"].Rows[0]["City"].ToString ();
 			State.Text = MainDataSet.Tables["Users"].Rows[0]["State"].ToString ();
 			Zip.Text = MainDataSet.Tables["Users"].Rows[0]["Zip"].ToString ();
-
+            ddlCountries.Text= MainDataSet.Tables["Users"].Rows[0]["Country"].ToString();
             //foreach (ListItem li in ddlCountries.Items)
             //{
             //    if (li.Value.ToLower() == MainDataSet.Tables["Users"].Rows[0]["Country"].ToString().ToLower())
@@ -83,8 +63,8 @@ public partial class OwnerInformation : ClosedPage
             //        ddlCountries.SelectedValue = MainDataSet.Tables["Users"].Rows[0]["Country"].ToString();                    
             //    }               
             //}                
-            
-			PrimaryTelephone.Text = MainDataSet.Tables["Users"].Rows[0]["PrimaryTelephone"].ToString ();
+
+            PrimaryTelephone.Text = MainDataSet.Tables["Users"].Rows[0]["PrimaryTelephone"].ToString ();
 			EveningTelephone.Text = MainDataSet.Tables["Users"].Rows[0]["EveningTelephone"].ToString ();
 			DaytimeTelephone.Text = MainDataSet.Tables["Users"].Rows[0]["DaytimeTelephone"].ToString ();
 			MobileTelephone.Text = MainDataSet.Tables["Users"].Rows[0]["MobileTelephone"].ToString ();
@@ -213,7 +193,7 @@ public partial class OwnerInformation : ClosedPage
 		MainDataSet.Tables["Users"].Rows[0]["City"] = City.Text;
 		MainDataSet.Tables["Users"].Rows[0]["State"] = State.Text;
 		MainDataSet.Tables["Users"].Rows[0]["Zip"] = Zip.Text;
-        MainDataSet.Tables["Users"].Rows[0]["Country"] = ddlCountries.SelectedItem.Text;
+        MainDataSet.Tables["Users"].Rows[0]["Country"] = ddlCountries.Text;
 		MainDataSet.Tables["Users"].Rows[0]["PrimaryTelephone"] = PrimaryTelephone.Text;
 		MainDataSet.Tables["Users"].Rows[0]["EveningTelephone"] = EveningTelephone.Text;
 		MainDataSet.Tables["Users"].Rows[0]["DaytimeTelephone"] = DaytimeTelephone.Text;
