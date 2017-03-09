@@ -114,8 +114,8 @@
             </asp:ContentPlaceHolder>
     </form>
     <div class="clear"></div>
-    <div >
-    <div class="scontainer footertopline">
+    <div class="footertopline">
+    <div class="scontainer ">
        <div class="srow ">
                 <div class="footerparag">
                     <label class="footertitle">List A Property</label>
