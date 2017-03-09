@@ -8,6 +8,7 @@
 <asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
     <style>
         .imgCenter{margin:auto;}.imgwrapper{margin:auto;width:170px;text-align:left;}.scomments{display:block;}
+        .topMargin{margin-top:20px;}                                                                                     
     </style>
 </asp:Content>
 

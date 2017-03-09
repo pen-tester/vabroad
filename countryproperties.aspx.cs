@@ -575,7 +575,7 @@ public partial class allPropertiesList : CommonPage
                     {
                         propertyHtmlText += "</div>";
                     }
-                    propertyHtmlText += "<div class='srow'>";
+                    propertyHtmlText += "<div class='srow topMargin'>";
                     wasTrClosed = false;
                 }
                 if (metadataPropertyTypes.Count < 3)
