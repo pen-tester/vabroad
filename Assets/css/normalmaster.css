@@ -8,12 +8,7 @@ div#cus_head span { margin-left: 50px; color:#323e4f; font-family:Verdana; font-
 .headerunderline{
     border-bottom:2px solid #e1d4c0;
 }
-.footertopline{
-    border-top:2px solid #e1d4c0;
-    margin-top:10px;
-    margin-bottom:550px;
-}
-
+.footertopline{background-color:#154890;border:1px solid #000; border-top:2px solid #ff6600;margin-top:10px;padding-bottom:20px}
 
 .footerparag{
     width:19%;
@@ -27,7 +22,7 @@ div#cus_head span { margin-left: 50px; color:#323e4f; font-family:Verdana; font-
 .footerparag .footertitle{
     font-size:15px;
     font-weight:500;
-    color:#767171;
+    color:#fff;
     margin-left:40px;
     font-family:Verdana;
     margin-top:10px;
@@ -40,8 +35,8 @@ div#cus_head span { margin-left: 50px; color:#323e4f; font-family:Verdana; font-
 }
 
 .footerparag ul li a{
-    color:#6698ff;
-    font-size:12px;
+    color:#f5ede3;
+    font-size:12pt;
     font-family:Verdana;
     cursor: pointer;
 }
