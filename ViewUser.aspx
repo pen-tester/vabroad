@@ -1,7 +1,13 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="ViewUser.aspx.cs" Inherits="ViewUser" Title="User Page" %>
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    View User
+</asp:Content>
+<asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
+    <style>.marginBody{margin-top:20px;}</style>
+</asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
 <div class="internalpage">
-    <div class="srow">
+    <div class="srow marginBody">
 	<% if (BackLink.Visible) { %>
 	<table cellspacing="0" cellpadding="0" width="250" align="center" bgcolor="#e4e4af" border="2">
 		<tr>
