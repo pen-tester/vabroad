@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="SocialSignup.aspx.cs" Inherits="accounts_SocialSignup" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="SocialSignup.aspx.cs" Inherits="accounts_SocialSignup" %>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
        
-        <div id="">	
+        <div id="" class="internalpagewidth">	
                <div class="row">
                    <div class="col-md-offset-3 col-md-6">
                         <h3 class="formpaddingcont">

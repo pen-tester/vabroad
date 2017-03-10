@@ -1,15 +1,19 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="accounts_Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="accounts_Login" %>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Sign in
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+        <link href="/Assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/Assets/css/customs.css" rel="stylesheet" />
+    <link href="/Assets/css/normalmaster.css" rel="stylesheet" />
+
 </asp:Content>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
-   <div class="row formmargin">
-    <div class="col-sm-6 col-sm-offset-3">	
+    <div class="internalpage">
+         <div class="srow formmargin">
+             <div class="col-sm-6 col-sm-offset-3">	
         <ul  class="nav nav-tabs" role="tablist">
             <% if (logtype == 0)
                 { %>
@@ -130,12 +134,13 @@
       </div>
 
     </div>
-   </div>
-      
+            
+         </div>
+    </div>
 
 
 
 
 
-
+            <script src="/Assets/js/bootstrap.min.js" defer="defer"></script>
 </asp:Content>

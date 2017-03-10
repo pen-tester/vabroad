@@ -1,5 +1,5 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="WatchList.aspx.cs" Inherits="WatchList" Title="Watch List" EnableEventValidation="false" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
+<%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="WatchList.aspx.cs" Inherits="WatchList" Title="Watch List" EnableEventValidation="false" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
 	<% if (BackLink.Visible) { %>
 	<table cellspacing="0" cellpadding="0" width="250" align="center" bgcolor="#e4e4af" border="2">
 		<tr>
