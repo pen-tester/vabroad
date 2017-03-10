@@ -1,6 +1,8 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="SendCustomEmail.aspx.cs" Inherits="SendCustomEmail" Title="Send Email" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
-    <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="SendCustomEmail.aspx.cs" Inherits="SendCustomEmail" Title="Send Email" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+ <div class="internalpage">
+     <div class="srow">
+   <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
         <tr>
             <td colspan="100" align="center">
                 <strong>
@@ -172,5 +174,7 @@
     </table>
     </div>
    
+     </div>
+ </div>
 
 </asp:Content>

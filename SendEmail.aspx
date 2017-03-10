@@ -1,8 +1,9 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="~/SendEmail.aspx.cs" Inherits="SendEmail" Title="<%# GetTitle () %>"
     EnableEventValidation="false" Debug="true" %>
 
-<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="Server">
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+  <div class="internalpage srow">
     <div style="font-family: Arial; font-size: 13px;">
         <% if (BackLink.Visible)
            { %>
@@ -407,4 +408,5 @@
         </noscript>
         <!-- End of StatCounter Code -->
     </div>
+  </div>
 </asp:Content>

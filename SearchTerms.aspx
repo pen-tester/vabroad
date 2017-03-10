@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="SearchTerms.aspx.cs" Inherits="SearchTerms" %>
+﻿<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="SearchTerms.aspx.cs" Inherits="SearchTerms" %>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Search Terms
@@ -9,10 +9,10 @@
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
     <div class="internalpagewidth">
-            <div class="newline centered">
+            <div class="srow center">
                 <h2 style="color:orangered">The results for keyword "<%=strkeyword %>"</h2>
             </div>
-        <div class="newline borerstep">
+        <div class="srow center">
 
             <div class="stepfont">
                 <div class="col-1">
@@ -67,12 +67,12 @@
             </div>
 
         </div>
-        <div class=" newline">
+        <div class=" srow">
             <div class="pcontent">
 
             </div>
         </div>
-        <div class="newline">
+        <div class="srow">
             <div class="pagination" id="paging">
 
             </div>
