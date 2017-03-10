@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" EnableEventValidation="false" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="Listings.aspx.cs" Inherits="userowner_Listing" %>
+﻿<%@ Page Language="C#" EnableEventValidation="false" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="Listings.aspx.cs" Inherits="userowner_Listing" %>
 <asp:Content ID="title" runat="server" ContentPlaceHolderID="head">Listings</asp:Content>
 <asp:Content ID="links" runat="server" ContentPlaceHolderID="links">
     <link href="/Assets/css/listings.css" rel="stylesheet" />
@@ -6,7 +6,8 @@
 </asp:Content>
 
 <asp:Content ID="cont_listing" runat="server" ContentPlaceHolderID="bodycontent">
-       <div class="row">
+    <div class="internalpage">
+      <div class="srow">
 	<% if (BackLink.Visible) { %>
 	<div class="text-center">
 					<strong>
@@ -18,23 +19,24 @@
 	<br />
 	<% } %>
 
-       <div class="row">
-            <div class ="col-sm-2 col-sm-offset-5 listingpadding">
-                <div class ="row">
+       <div class="srow">
+           <div class="col-5"></div>
+            <div class ="col-2 listingpadding">
+                <div class ="srow">
                     <strong>
                     <a href='<%= CommonFunctions.PrepareURL ("OwnerInformation.aspx?UserID=" + userid.ToString ()) %>'>
 							Contact Details
 					</a>
                     </strong>
                 </div>
-                <div class ="row">
+                <div class ="srow">
                     <strong>
 						<a href='<%= CommonFunctions.PrepareURL ("AccountInformation.aspx?UserID=" + userid.ToString ()) %>'>
 							Email / Password
 						</a>
 					</strong>
                 </div>
-                <div class ="row">
+                <div class ="srow">
 					<strong>
 						<a href='<%= CommonFunctions.PrepareURL ("ViewInvoices.aspx?UserID=" + userid.ToString ()) %>'>
 							View Invoices
@@ -44,11 +46,11 @@
             </div>
             
         </div>
-        <div class="row textcenter">
+        <div class="srow center">
             Welcome <%=(userinfo.FirstName+ " "+userinfo.LastName) %> !
         </div>
 
-        <div class="newline top_formrow">
+        <div class="newline">
             <div id="exTab3">	
                     <ul  class="nav nav-tabs" role="tablist">
 		                <li class="active lblFor">
@@ -61,7 +63,7 @@
 
                     <div class="tab-content clearfix">
 			            <div class="tab-pane active tabback" id="1b">
-                            <div class="row">
+                            <div class="srow">
                            <div class="col-md-4 col-sm-6">
                             <div class="newline textcenter">
                                  Current Request for a Quote
@@ -247,7 +249,7 @@
 
 			            </div>
 			            <div class="tab-pane tabback" id="2b">
-                            <div class="row">
+                            <div class="srow">
                           <div class="col-md-4 col-sm-6">
                             <div class="newline textcenter">
                                  Current Request for a Quote
@@ -354,7 +356,7 @@
             </div>
         </div>
         </div>
- 
+    </div> 
 
          
     <script src="/Assets/js/listings.js"></script>
