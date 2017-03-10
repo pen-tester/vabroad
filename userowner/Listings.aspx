@@ -37,17 +37,19 @@
             font-size:10pt;
             margin-top:20px;
         }
-        td, th {
+        td {
             border: 0;
             text-align: left;
             padding:3px 0px;
         }
+        th{text-align:center; padding:3px 0px;border: 0;}
 
         tr:nth-child(even) {
             background-color: #dddddd;
         }
         .btnBlue{color:#fff;border-radius:3px;background-color:#154890;border:2px solid #cdbfac;font-size:13px;font-family:Verdana;margin-top:10px;text-align:center;height:30px;margin:3px;}
         .btnAction{color:#fff;border-radius:3px;background-color:#154890;border:1px solid #cdbfac;font-size:12px;font-family:Verdana;margin:1px;text-align:center;}
+        .table td,th{height:35px;}
    </style>
 </asp:Content>
 
@@ -240,7 +242,7 @@
                                         </div>
 
                                         <div class="srow">
-                                            <table class="table">
+                                            <table>
                                                 <thead>
                                                     <tr>
                                                         <th>Property</th>
