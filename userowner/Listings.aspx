@@ -92,8 +92,8 @@
                     <div class="tabs-content">
 			            <div class="tab-pane active tabback" id="tab1">
                             <div class="srow">
-                           <div class="col-md-4 col-sm-6">
-                            <div class="newline textcenter">
+                           <div class="col-4 ">
+                            <div class="newline center">
                                  Current Request for a Quote
                             </div>
                             <div class="tablepanel">
@@ -130,7 +130,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-4">
                             <div class="newline textcenter">
                                  Current Quote Submitted
                             </div>
@@ -174,8 +174,8 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="newline textcenter">
+                        <div class="col-4">
+                            <div class="newline center">
                                  Quote Accepted
                             </div>
                             <div class="tablepanel">
@@ -209,15 +209,15 @@
                         </div>  
                             </div>
                             <div class="clear"></div>
-                          <div class="newline top_formrow">
-                                    <div class="row textcenter">
+                          <div class="newline">
+                                    <div class="srow center">
                                         MY PROPERTIES
                                     </div>
                                     
-                                        <div class="row text-center normalmargin">
+                                        <div class="row center normalmargin">
                                             <asp:Button ID="Button1" CssClass="formcontrolmargin btn btn-primary" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="formcontrolmargin btn btn-primary" runat="server" Text="List A Tour" />
                                         </div>
-                                        <div class="row text-center">
+                                        <div class="row center">
                                             <asp:Button ID="Button3"  CssClass="formcontrolmargin btn btn-primary" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
                                         </div>
 
@@ -278,7 +278,7 @@
 			            </div>
 			            <div class="tab-pane tabback" id="tab2">
                             <div class="srow">
-                          <div class="col-md-4 col-sm-6">
+                          <div class="col-4">
                             <div class="newline textcenter">
                                  Current Request for a Quote
                             </div>
@@ -314,7 +314,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-4">
                             <div class="newline textcenter">
                                  Current Quote Submitted
                             </div>
@@ -357,7 +357,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-4">
                             <div class="newline textcenter">
                                  Quote Accepted
                             </div>
