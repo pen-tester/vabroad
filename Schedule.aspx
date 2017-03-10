@@ -1,9 +1,9 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="~/Schedule.aspx.cs" Inherits="PropSched" Title="Property Schedule"
     EnableEventValidation="false" %>
 
-<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="Server">
-
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<div class="internalpage srow">
 <table width="100%"><tr>                           
            <td width="25%">             
 <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender" 
@@ -121,5 +121,5 @@
 
 </table>
 
-
+</div>
 </asp:Content>

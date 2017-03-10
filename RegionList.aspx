@@ -1,11 +1,12 @@
 <%--<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="RegionList.aspx.cs" Inherits="RegionList" Title="<%# GetTitle () %>" %>--%>
 
-<%@ Page Language="C#" EnableViewState="false" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="RegionList.aspx.cs" Inherits="RegionList" Title="<%# GetTitle () %>" %>
+<%@ Page Language="C#" EnableViewState="false" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="RegionList.aspx.cs" Inherits="RegionList" Title="<%# GetTitle () %>" %>
 
 <%@ OutputCache Duration="600" VaryByParam="*" %>
 
-<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="Server">
-    <div style="height: 413px;">
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+  <div class="internalpage srow">
+  <div style="height: 413px;">
     </div>
     <asp:Repeater ID="Repeater1" runat="server" DataMember="Countries" DataSource="<%# CountriesStates %>" Visible="false">
         <HeaderTemplate>
@@ -329,10 +330,6 @@
             <!--EOF tabOceania-->
         </div>
     </div>
+  </div>
     <!--EOF tab_container-->
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="DefaultPageFeaturedCitiesContainer"
-    runat="server">
-    <div style="height: 511px;">
-    </div>
 </asp:Content>

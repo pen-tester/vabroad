@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageNoCss.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="PropertyTypes.aspx.cs" Inherits="PropertyTypes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="/masterpage/mastermobile.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="PropertyTypes.aspx.cs" Inherits="PropertyTypes" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
-<div align="center">
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+<div class="internalpage srow">
+    <div align="center">
 <table width="70%">
 <tr>
 <td>
@@ -83,5 +84,6 @@ Edit Primary Type<br />
 </table>
     <asp:Label ID="lblInfo" runat="server" ForeColor="Red" EnableViewState="False"></asp:Label>
     </div>
+</div>
 </asp:Content>
 

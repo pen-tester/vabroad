@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="PropertyPhotos.aspx.cs" Inherits="PropertyPhotos" Title="Property Photos" %>
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PropertyPhotos.aspx.cs" Inherits="PropertyPhotos" Title="Property Photos" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Property Photos
 </asp:Content>
@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
     <div class="internalpagewidth">
-        <div class="newline centered">
+        <div class="srow center">
 	<% if (BackLink.Visible) { %>
     <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="250" align="center"
         border="2">

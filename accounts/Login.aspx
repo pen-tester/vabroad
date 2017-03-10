@@ -1,43 +1,72 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="accounts_Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="accounts_Login" %>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Sign in
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-        <link href="/Assets/css/bootstrap.min.css" rel="stylesheet" />
+
     <link href="/Assets/css/customs.css" rel="stylesheet" />
-  
+   <style>
+       ul.nav li{display:inline-block; } ul.nav{z-index:10}
+       .nav>li>a:focus, .nav>li>a:hover{text-decoration:none; background-color:#eee;}
+       .nav>li>a{cursor:pointer;background-color:#f3ede3;padding:10px 15px; border-radius:0px; box-shadow:inset 0px -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4); color:#767171;}
+       .nav>li.active >a, .nav>li.active>a:hover{background:#fff;border-bottom-color:transparent;box-shadow:inset 0 0 0 0 rgba(0,0,0,.4),-2px -3px 5px -2px rgba(0,0,0,.4); }
+       .tab-pane.active{display:block;} .tab-pane{display:none;}
+       .tabs-content{display:block;background-color:transparent;padding:0;margin-top:-4px;}
+       .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 2px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            box-sizing:border-box;
+       }
+       .form-group{margin:3px 0px;}
+   </style>
 </asp:Content>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
     <div class="internalpage">
          <div class="srow formmargin">
-             <div class="col-sm-6 col-sm-offset-3">	
-        <ul  class="nav nav-tabs" role="tablist">
+             <div class="col-3"></div>
+             <div class="col-6 col-x-4">	
+        <ul  class="nav">
             <% if (logtype == 0)
                 { %>
 		    <li class="active lblFor">
-                <a  href="#2b" role="tab" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i> Register</a>
+                <a class="btntab" data-target="tab1"><i class="fa fa-user" aria-hidden="true"></i> Register</a>
 		    </li>
-		    <li class="lblFor"><a href="#1b" role="tab" data-toggle="tab"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
+		    <li class="lblFor"><a class="btntab" data-target="tab2"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
 		    </li>
             <%}
             else
             { %>
 		    <li class="lblFor">
-                <a  href="#2b" role="tab" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i> Register</a>
+                <a class="btntab" data-target="tab1"><i class="fa fa-user" aria-hidden="true"></i> Register</a>
 		    </li>
-		    <li class="active lblFor"><a href="#1b" role="tab" data-toggle="tab"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
+		      <li class="active lblFor"><a class="btntab" data-target="tab2"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
 		    </li>
             <%} %>
 	     </ul>
 
-        <div class="tab-content clearfix">
-			<div class="tab-pane  <%=(logtype!=0)?"active":"" %> tabback" id="1b">
-                <div class="row">
+        <div class="clearfix"></div>
+        <div class="tabs-content">
+			<div class="tab-pane  <%=(logtype!=0)?"active":"" %> tabback" id="tab2">
+                <div class="srow">
                    <div class="col-sm-offset-1 col-sm-10 ">
 
-                    <div class="row">
+                    <div class="srow">
                         <div class ="col-sm-12">
                              <button type="button" class="btnLogins" runat="server" onServerClick="btn_signinfacebook_Click" validationgroup="facebook"> <i class="fa fa-facebook-f socialchar"></i>  &nbsp;Login with Facebook</button>
                         </div>
@@ -45,7 +74,7 @@
                     </div>
    
 
-                    <div class="row" >
+                    <div class="srow" >
                         <div class="col-sm-12">
                             <button type="button" class="btnLogins" runat="server" onServerClick="btn_signintwitter_Click" validationgroup="twitter"> <i class="fa fa-twitter socialchar"></i>   &nbsp;Login with Twitter</button>
                         </div>
@@ -72,16 +101,16 @@
  
 
 			</div>
-			<div class="tab-pane <%=(logtype==0)?"active":"" %> tabback" id="2b">
-               <div class="row">
+			<div class="tab-pane <%=(logtype==0)?"active":"" %> tabback" id="tab1">
+               <div class="srow">
                    <div class="col-sm-offset-1 col-sm-10 ">
-                       <div class="row">
+                       <div class="srow">
                         <div class="col-sm-12">
                                 <button type="button" class="btnLogins" runat="server" validationgroup="facebookup" onserverclick="btn_signupfacebook_Click"> <i class="fa fa-facebook-f socialchar"></i>  &nbsp;Register with Facebook</button>
                         </div>
                        </div>
 
-                        <div class="row">
+                        <div class="srow">
                         <div class="col-sm-12" >
                             <button type="button" class="btnLogins" runat="server" validationgroup="twitterup" onserverclick="btn_signuptwitter_Click"> <i class="fa fa-twitter socialchar"></i>  &nbsp;Register with Twitter</button>
                         </div>
@@ -93,22 +122,23 @@
                         <h3 class="formpaddingcont lblOr">
                             Or---
                         </h3>
-                        <div class ="row">
-                            <div class="form-group formpaddingcont col-sm-6">
-                                <label for="usrname" class="lblFor">Last Name</label>
-                                <asp:TextBox ID="reg_lastname" runat="server" class="form-control"></asp:TextBox><asp:RegularExpressionValidator ID="LastNameValid" runat="server" ControlToValidate="reg_lastname" ValidationExpression="[a-zA-Z]+" display="Dynamic" ForeColor="Red" ErrorMessage="Only English letters are allowed"></asp:RegularExpressionValidator><asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="reg_lastname" runat="server" ForeColor="Red" display="Dynamic" ErrorMessage="Last Name Required"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="form-group formpaddingcont col-sm-6">
+                        <div class ="srow">
+                            <div class="form-group col-6 col-x-2">
                                 <label for="usrname"  class="lblFor">First Name</label>
                                 <asp:TextBox ID="reg_firstname" runat="server" class="form-control"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="reg_firstname" ForeColor="Red" Display="Dynamic"  ErrorMessage="Required"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only English letters are allowed" Display="Dynamic" ControlToValidate="reg_firstname" ForeColor="Red" ValidationExpression="[a-zA-Z]+"></asp:RegularExpressionValidator>
                             </div>
+                            <div class="form-group  col-6 col-x-2">
+                                <label for="usrname" class="lblFor">Last Name</label>
+                                <asp:TextBox ID="reg_lastname" runat="server" class="form-control"></asp:TextBox><asp:RegularExpressionValidator ID="LastNameValid" runat="server" ControlToValidate="reg_lastname" ValidationExpression="[a-zA-Z]+" display="Dynamic" ForeColor="Red" ErrorMessage="Only English letters are allowed"></asp:RegularExpressionValidator><asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="reg_lastname" runat="server" ForeColor="Red" display="Dynamic" ErrorMessage="Last Name Required"></asp:RequiredFieldValidator>
+                            </div>
+
                         </div>
-                        <div class="row">
-                                                        <div class="form-group formpaddingcont col-sm-9">
+                        <div class="srow">
+                                <div class="form-group  col-sm-9">
                                 <label for="Email"  class="lblFor">Email</label>
                                 <asp:TextBox ID="Email" runat="server" class="form-control"></asp:TextBox><asp:CustomValidator ID="CustomValidator1" OnServerValidate="EmailValidate" Display="Dynamic" runat="server" ForeColor="Red" ErrorMessage="The user used this email is existed" ControlToValidate="Email"></asp:CustomValidator><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Email Format Error"></asp:RegularExpressionValidator><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ForeColor="Red" ControlToValidate="Email" ErrorMessage="Required"></asp:RequiredFieldValidator>
                             </div>
-                            <div class="form-group formpaddingcont col-sm-9">
+                            <div class="form-group  col-sm-9">
                                 <label for="Password"  class="lblFor">Password</label>
                                 <asp:TextBox ID="Password" runat="server" class="form-control" TextMode="Password"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator4" Display="Dynamic" ForeColor="Red" ControlToValidate="Password" runat="server" ErrorMessage="Password Required"></asp:RequiredFieldValidator>
                             </div>
@@ -137,9 +167,5 @@
          </div>
     </div>
 
-
-
-
-
-            <script src="/Assets/js/bootstrap.min.js" defer="defer"></script>
+  <script src="/assets/js/login.js" defer="defer"></script>       
 </asp:Content>

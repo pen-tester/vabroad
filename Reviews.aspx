@@ -1,8 +1,9 @@
-﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true"
+﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="Reviews.aspx.cs" Inherits="PropertyReviewRead" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="Server">
-    <br />
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+<div class="internalpage srow">
+        <br />
     <center>
         <div style="width: 98%; min-height: 400px">
             <div style="float: left; text-align: left;">
@@ -71,4 +72,5 @@
             <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
         </div>
     </center>
+</div>
 </asp:Content>

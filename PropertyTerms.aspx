@@ -1,7 +1,8 @@
-﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="PropertyTerms.aspx.cs" Inherits="TourTerms" %>
+﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PropertyTerms.aspx.cs" Inherits="TourTerms" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
-    <asp:Label ID="Description" runat="server" Visible="false" Text="Advertise a %city% vacation property or %city% holiday property."></asp:Label>
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+  <div class="internalpage srow">
+   <asp:Label ID="Description" runat="server" Visible="false" Text="Advertise a %city% vacation property or %city% holiday property."></asp:Label>
     <br /><br />
 <div style="text-align:left; width:75%; a">
   <table style="width: 100%" cellspacing="0">
@@ -158,18 +159,8 @@ Australia 5%
                         </td>
                     </tr>
 <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label><!-- Start of StatCounter Code for Default Guide -->
-<script type="text/javascript">
-    var sc_project = 7164674;
-    var sc_invisible = 1;
-    var sc_security = "7447e973"; 
-</script>
-<script type="text/javascript"
-src="http://www.statcounter.com/counter/counter.js"></script>
-<noscript><div class="statcounter"><a title="joomla
-visitors" href="http://statcounter.com/joomla/"
-target="_blank"><img class="statcounter"
-src="http://c.statcounter.com/7164674/0/7447e973/1/"
-alt="joomla visitors"></a></div></noscript>
+
+  </div>
 <!-- End of StatCounter Code for Default Guide -->
 </asp:Content>
 

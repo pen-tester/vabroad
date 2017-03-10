@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="PropertyCalendar.aspx.cs" Inherits="Default3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PropertyCalendar.aspx.cs" Inherits="Default3" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
-    <div align="center" style="font-family:Arial; font-size:14px;">
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+  <div class="internalpage srow">
+  <div align="center" style="font-family:Arial; font-size:14px;">
 <%--<input onclick="window.location.href=&quot;<%# CommonFunctions.PrepareURL ("Listings.aspx?UserID=" + Request.QueryString["UserID"].ToString()) %>&quot;;"" 
 style="width: 100px" type="button" value="Previous Page"/>--%>
 
@@ -56,5 +57,6 @@ style="width: 100px" type="button" value="Previous Page"/>--%>
         <br />
         <br />
 </div>
+  </div>
 </asp:Content>
 

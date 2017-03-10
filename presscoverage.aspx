@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Vacations-Abroad.com Our Mentions in the Press" Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true"
+﻿<%@ Page Title="Vacations-Abroad.com Our Mentions in the Press" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="rentalguarantee.aspx.cs" Inherits="rentalguarantee" %>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">

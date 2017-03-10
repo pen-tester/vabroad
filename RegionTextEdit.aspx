@@ -1,6 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="RegionTextEdit.aspx.cs" Inherits="RegionTextEdit" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
-    <style type="text/css">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="RegionTextEdit.aspx.cs" Inherits="RegionTextEdit" %>
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+
+</asp:Content>
+
+<asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+  <style type="text/css">
 
     #ctl00_Content_gv td input {
         width: 400px;
@@ -27,7 +31,12 @@ height: 114px;
     }
 
 </style>
-    <asp:ScriptManager runat="server" ID="smMain"></asp:ScriptManager>
+</asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+  
+<div class="internalpage srow">
+        <asp:ScriptManager runat="server" ID="smMain"></asp:ScriptManager>
     <asp:UpdatePanel runat="server">
      <ContentTemplate>
          <h2 style="font-weight: bold;font-size: 22px;padding-top: 10px;padding-bottom: 5px;">Edit Front Page Region Text</h2>
@@ -61,5 +70,6 @@ height: 114px;
          </asp:UpdatePanel>
     <br/><br/>
     <div align="right"><a href="Administration.aspx">Back to main administrative area</a></div>
+</div>
 </asp:Content>
 

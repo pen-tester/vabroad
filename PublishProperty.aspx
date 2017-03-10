@@ -1,5 +1,6 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="PublishProperty.aspx.cs" Inherits="PublishProperty" Title="Publish Property" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PublishProperty.aspx.cs" Inherits="PublishProperty" Title="Publish Property" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+<div class="internalpage srow">
 	<% if (BackLink.Visible) { %>
     <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="250" align="center"
         border="2">
@@ -40,12 +41,5 @@
         OnClick="CancelButton_Click" />
         <br />
     <asp:Label ID="lblInfo" runat="server"></asp:Label>
-    <noscript>
-        <img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all"
-            width="1" height="1">
-    </noscript>
-
-    <script language="javascript">
-        document.write('<img src="http://www.watchwise.net/cgi-watchwise/monitorwise.cgi?URL=<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all&LINK=',escape(document.referrer),'" height=1 width=1>')
-    </script>
+</div>
 </asp:Content>
