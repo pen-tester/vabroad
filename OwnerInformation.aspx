@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="~/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="OwnerInformation.aspx.cs" Inherits="OwnerInformation" Title="Owner Personal Information" %>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <link href="/Assets/css/ownerinfo.css" rel="stylesheet" />
@@ -6,6 +6,7 @@
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
     <div class="internalpagewidth">
+    <div class="srow">
 <div class="left">
     <% if (BackLink.Visible)
        { %>
@@ -407,6 +408,7 @@
 
 
 </div>
+    </div>
     </div>
 
     <script src="/Assets/js/ownerinfo.js"></script>
