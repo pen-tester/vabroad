@@ -29,7 +29,23 @@
             transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
             box-sizing:border-box;
        }
-       .form-group{margin:3px 0px;}
+       .form-group{margin:3px 0px;}.groupMargin{margin-top:10px;}
+        table {
+            width: 100%;
+            font-family: Verdana;
+            border-collapse: collapse;
+            font-size:10pt;
+            margin-top:20px;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
    </style>
 </asp:Content>
 
@@ -131,7 +147,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="newline textcenter">
+                            <div class="newline center">
                                  Current Quote Submitted
                             </div>
                             <div class="tablepanel">
@@ -214,14 +230,14 @@
                                         MY PROPERTIES
                                     </div>
                                     
-                                        <div class="row center normalmargin">
-                                            <asp:Button ID="Button1" CssClass="formcontrolmargin btn btn-primary" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="formcontrolmargin btn btn-primary" runat="server" Text="List A Tour" />
+                                        <div class="srow center groupMargin">
+                                            <asp:Button ID="Button1" CssClass="btnsign" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="btnsign" runat="server" Text="List A Tour" />
                                         </div>
-                                        <div class="row center">
-                                            <asp:Button ID="Button3"  CssClass="formcontrolmargin btn btn-primary" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
+                                        <div class="srow center">
+                                            <asp:Button ID="Button3"  CssClass="btnsign" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
                                         </div>
 
-                                        <div class="row formcontrolmargin">
+                                        <div class="srow formcontrolmargin">
                                             <table class="table formtable">
                                                 <thead>
                                                     <tr>
@@ -279,7 +295,7 @@
 			            <div class="tab-pane tabback" id="tab2">
                             <div class="srow">
                           <div class="col-4">
-                            <div class="newline textcenter">
+                            <div class="newline center">
                                  Current Request for a Quote
                             </div>
                             <div class="newline tablepanel">
@@ -315,7 +331,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="newline textcenter">
+                            <div class="newline center">
                                  Current Quote Submitted
                             </div>
                             <div class="row tablepanel">
@@ -358,7 +374,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="newline textcenter">
+                            <div class="newline center">
                                  Quote Accepted
                             </div>
                             <div class="newline tablepanel">
