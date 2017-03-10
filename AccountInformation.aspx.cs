@@ -26,12 +26,12 @@ public partial class AccountInformation : CommonPage
         {
             if (!AuthenticationManager.IfAuthenticated)
             {
-                Response.Redirect(CommonFunctions.PrepareURL("Login.aspx?BackLink=" + HttpUtility.UrlEncode(Request.Url.ToString())), true);
+                Response.Redirect(CommonFunctions.PrepareURL("/accounts/login.aspx?BackLink=" + HttpUtility.UrlEncode(Request.Url.ToString())), true);
             }
 
             if ((userid != AuthenticationManager.UserID) && !AuthenticationManager.IfAdmin)
             {
-                Response.Redirect(CommonFunctions.PrepareURL("Login.aspx?BackLink=" + HttpUtility.UrlEncode(Request.Url.ToString())), true);
+                Response.Redirect(CommonFunctions.PrepareURL("/accounts/login.aspx?BackLink=" + HttpUtility.UrlEncode(Request.Url.ToString())), true);
             }
         }
 
