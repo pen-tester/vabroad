@@ -1,4 +1,4 @@
-<%@ Page Language="C#" Debug="true" MasterPageFile="/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="AccountInformation.aspx.cs" Inherits="AccountInformation" Title="Account Information" %>
+<%@ Page Language="C#" Debug="true" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="AccountInformation.aspx.cs" Inherits="AccountInformation" Title="Account Information" %>
 
 <asp:Content ID="title" ContentPlaceHolderID="head" runat="server">
     Account Information
