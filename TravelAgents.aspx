@@ -1,6 +1,8 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="True" Inherits="TravelAgents" Title="Travel Agent - Vacation rentals that pay a travel agent commission" EnableEventValidation="False" CodeFile="TravelAgents.aspx.cs" %>
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="True" Inherits="TravelAgents" Title="Travel Agent - Vacation rentals that pay a travel agent commission" EnableEventValidation="False" CodeFile="TravelAgents.aspx.cs" %>
 
-<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="Server">
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+    <div class="internalpage">
+        <div class="srow">
     <div align="center">
     <div class="apphead">
     <h1 class="listingPagesH1Color H1CityText">Travel Agents 
@@ -77,29 +79,10 @@
             </table>
         </FooterTemplate>
     </asp:Repeater>
+        </div>
+    </div>
 
     <!-- Start of StatCounter Code -->
-    <script type="text/javascript">
-        sc_project = 3650571;
-        sc_invisible = 1;
-        sc_partition = 43;
-        sc_security = "16687e98";
-    </script>
-
-    <script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script>
-    <noscript>
-        <div class="statcounter">
-            <a href="http://www.statcounter.com/" target="_blank">
-                <img class="statcounter" src="http://c44.statcounter.com/3650571/0/16687e98/1/" alt="free web tracker"></a>
-        </div>
-    </noscript>
-    <!-- End of StatCounter Code -->
-    <!-- Start Quantcast tag -->
-    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
-    <script type="text/javascript">_qacct = "p-a9k_t7603DATw"; quantserve();</script>
-    <noscript>
-        <a href="http://www.quantcast.com/p-a9k_t7603DATw" target="_blank">
-            <img src="http://pixel.quantserve.com/pixel/p-a9k_t7603DATw.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast" /></a>
-    </noscript>
+ 
     <!-- End Quantcast tag -->
 </asp:Content>

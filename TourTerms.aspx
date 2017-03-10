@@ -1,6 +1,8 @@
-﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="TourTerms.aspx.cs" Inherits="TourTerms" %>
+﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="TourTerms.aspx.cs" Inherits="TourTerms" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+ <div class="internalpage">
+     <div class="srow">
     <asp:Label ID="Description" runat="server" Visible="false" Text="Add a %city% tour to our %city% tour directory. Vacations-Abroad.com a vacation rental directory"></asp:Label>
 <br /><br />
 <div style="text-align:left; width:75%;">
@@ -57,5 +59,7 @@
 
 </td></tr></table></div>
 <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
+     </div>
+ </div>
 </asp:Content>
 

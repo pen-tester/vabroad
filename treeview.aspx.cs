@@ -83,7 +83,7 @@ public partial class treeview : System.Web.UI.Page
                                 "http://www.vacations-abroad.com/" + vCountry + "/" + vState + "/" + vCity + "/default.aspx", ""));
                         
                     }
-                    Response.Write(TreeView1.SelectedNode.Text + TreeView1.SelectedNode.ChildNodes.Count.ToString());
+                   // Response.Write(TreeView1.SelectedNode.Text + TreeView1.SelectedNode.ChildNodes.Count.ToString());
                 }
             if (TreeView1.SelectedNode.Expanded == false)
                 TreeView1.SelectedNode.Expand();
