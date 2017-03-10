@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="~/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="Applications.aspx.cs" Inherits="Applications" Title="" %>
 
 <%@ OutputCache Duration="70" VaryByParam="*" %>
