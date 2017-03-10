@@ -38,14 +38,16 @@
             margin-top:20px;
         }
         td, th {
-            border: 1px solid #dddddd;
+            border: 0;
             text-align: left;
-            padding: 8px;
+            padding:3px 0px;
         }
 
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+        .btnBlue{color:#fff;border-radius:3px;background-color:#154890;border:2px solid #cdbfac;font-size:13px;font-family:Verdana;margin-top:10px;text-align:center;height:30px;margin:3px;}
+        .btnAction{color:#fff;border-radius:3px;background-color:#154890;border:1px solid #cdbfac;font-size:12px;font-family:Verdana;margin:1px;text-align:center;}
    </style>
 </asp:Content>
 
@@ -231,14 +233,14 @@
                                     </div>
                                     
                                         <div class="srow center groupMargin">
-                                            <asp:Button ID="Button1" CssClass="btnsign" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="btnsign" runat="server" Text="List A Tour" />
+                                            <asp:Button ID="Button1" CssClass="btnBlue" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="btnBlue" runat="server" Text="List A Tour" />
                                         </div>
                                         <div class="srow center">
-                                            <asp:Button ID="Button3"  CssClass="btnsign" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
+                                            <asp:Button ID="Button3"  CssClass="btnBlue" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
                                         </div>
 
-                                        <div class="srow formcontrolmargin">
-                                            <table class="table formtable">
+                                        <div class="srow">
+                                            <table class="table">
                                                 <thead>
                                                     <tr>
                                                         <th>Property</th>
@@ -260,11 +262,11 @@
                                                     <td><%#Eval("Name") %></td>
                                                     <td class="btgroupcontainer">
                                                         <div class="buttongroup">
-                                                            <asp:Button ID="Button8" OnCommand="bt_delete_Command" CssClass="formcommadbt" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument='<%#Eval("ID") %>'/>
-                                                            <asp:Button ID="Button5" OnCommand="bt_edittxt_Command" CssClass="formcommadbt" runat="server" Text="Edit Text" CommandArgument='<%#Eval("ID") %>'/>
-                                                            <asp:Button ID="Button6" OnCommand="bt_editphoto_Command" CssClass="formcommadbt" runat="server" Text="Edit Photo" CommandArgument='<%#Eval("ID") %>' />
-                                                            <asp:Button ID="Button7" OnCommand="bt_calendar_Command" CssClass="formcommadbt" runat="server" Text="Calendar" CommandArgument='<%#Eval("ID") %>' />
-                                                            <asp:Button ID="Button4" OnCommand="bt_payment_Command" CssClass="formcommadbt" runat="server" Text="Payment" CommandArgument='<%#Eval("ID") %>' />
+                                                            <asp:Button ID="Button8" OnCommand="bt_delete_Command" CssClass="btnAction" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument='<%#Eval("ID") %>'/>
+                                                            <asp:Button ID="Button5" OnCommand="bt_edittxt_Command" CssClass="btnAction" runat="server" Text="Edit Text" CommandArgument='<%#Eval("ID") %>'/>
+                                                            <asp:Button ID="Button6" OnCommand="bt_editphoto_Command" CssClass="btnAction" runat="server" Text="Edit Photo" CommandArgument='<%#Eval("ID") %>' />
+                                                            <asp:Button ID="Button7" OnCommand="bt_calendar_Command" CssClass="btnAction" runat="server" Text="Calendar" CommandArgument='<%#Eval("ID") %>' />
+                                                            <asp:Button ID="Button4" OnCommand="bt_payment_Command" CssClass="btnAction" runat="server" Text="Payment" CommandArgument='<%#Eval("ID") %>' />
 
 
 
@@ -334,7 +336,7 @@
                             <div class="newline center">
                                  Current Quote Submitted
                             </div>
-                            <div class="row tablepanel">
+                            <div class="srow tablepanel">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
