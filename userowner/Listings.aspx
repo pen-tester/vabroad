@@ -47,8 +47,8 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-        .btnBlue{color:#fff;border-radius:3px;background-color:#154890;border:2px solid #cdbfac;font-size:13px;font-family:Verdana;margin-top:10px;text-align:center;height:30px;margin:3px;}
-        .btnAction{color:#fff;border-radius:3px;background-color:#154890;border:1px solid #cdbfac;font-size:12px;font-family:Verdana;margin:1px;text-align:center;}
+        .btnBlue{cursor:pointer;color:#fff;border-radius:3px;background-color:#154890;border:2px solid #cdbfac;font-size:13px;font-family:Verdana;margin-top:10px;text-align:center;height:30px;margin:3px;}
+        .btnAction{cursor:pointer;color:#fff;border-radius:3px;background-color:#154890;border:1px solid #cdbfac;font-size:12px;font-family:Verdana;margin:1px;text-align:center;}
         .table td,th{height:35px;}
    </style>
 </asp:Content>

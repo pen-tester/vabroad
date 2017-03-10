@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="MakePayment.aspx.cs" Inherits="MakePayment" Title="Make Payment" %>
+<%@ Page Language="C#" MasterPageFile="~/masterpage/mobilemaster.master" AutoEventWireup="true" CodeFile="MakePayment.aspx.cs" Inherits="MakePayment" Title="Make Payment" %>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Make Payment
