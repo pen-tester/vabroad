@@ -6,8 +6,7 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
         <link href="/Assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/Assets/css/customs.css" rel="stylesheet" />
-    <link href="/Assets/css/normalmaster.css" rel="stylesheet" />
-
+  
 </asp:Content>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
