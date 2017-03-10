@@ -1,5 +1,5 @@
-<%@ page language="C#" masterpagefile="~/MasterPageNoCss.master" autoeventwireup="true" CodeFile="~/allproperties.aspx.cs" inherits="AllProperties" title="Vacation Cottages Chalets Condos Hotels Homes Apartments Villas Lodges Resorts" enableEventValidation="false" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
+<%@ page language="C#" masterpagefile="/masterpage/MasterMobile.master" autoeventwireup="true" CodeFile="~/allproperties.aspx.cs" inherits="AllProperties" title="Vacation Cottages Chalets Condos Hotels Homes Apartments Villas Lodges Resorts" enableEventValidation="false" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
 <%--	<% if (Request.Params["HomeExchanges"] != null) { %>
 		<table align="center" borderColor=#e7dbf2 bgColor="#336699" width="100%">
 			<tr align="center">
@@ -11,7 +11,10 @@
 			</tr>
 		</table>
 	<% } %>
---%>	<table width="100%" border="0">
+--%>	
+    <div class="internalpage">
+        <div class="srow">
+<table width="100%" border="0">
 		<tr>
 			<td width="50%" vAlign=top>
 				<asp:repeater id=Repeater1 runat="server" DataMember="Regions" DataSource="<%# LocationsSet1 %>">
@@ -105,6 +108,8 @@
 			</td>
 		</tr>
 	</table>
+        </div>
+    </div>
 	
     <noscript>
         <img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all"

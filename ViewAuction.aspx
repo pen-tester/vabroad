@@ -1,6 +1,8 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="ViewAuction.aspx.cs" Inherits="ViewAuction" Title="<%# GetTitle () %>" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
-	<table border="0" width="100%">
+<%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="ViewAuction.aspx.cs" Inherits="ViewAuction" Title="<%# GetTitle () %>" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+  <div class="internalpage">
+      <div class="srow">
+    	<table border="0" width="100%">
 		<tr>
 			<td width="4%">
 			</td>
@@ -272,6 +274,8 @@
 			</td>
 		</tr>
 	</table>
+      </div>
+  </div>
 	
 	<noscript>
 		<img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all" width="1" height="1">

@@ -1,8 +1,7 @@
-<%@ Page language="c#" Inherits="Vacations.UploadPhoto" CodeFile="UploadPhoto.aspx.cs" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<html>
-	<head>
-		<title>UploadPhoto</title>
+<%@ Page language="c#" MasterPageFile="/masterpage/mastermobile.master" Inherits="Vacations.UploadPhoto" CodeFile="UploadPhoto.aspx.cs" %>
+
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    UploadPhoto
 		<meta name="GENERATOR" Content="Microsoft Visual Studio .NET 7.1">
 		<meta name="CODE_LANGUAGE" Content="C#">
 		<meta name="vs_defaultClientScript" content="JavaScript">
@@ -11,9 +10,8 @@
 		<meta name="revisit-after" content="7 days">
 		<meta name="robots" content="index, follow">
 		<meta http-equiv="cache-control" content="no-cache">
-	</head>
-	<body>
-		<form id="Form1" method="post" runat="server">
-		</form>
-	</body>
-</html>
+</asp:Content>
+<asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+
+</asp:Content>
+

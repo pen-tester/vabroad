@@ -1,8 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true"
     CodeFile="viewCalendar.aspx.cs" Inherits="viewCalendar" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="Server">
-<div style="height:300px">
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+<div class="internalpage">
+    <div class="srow">
+        <div style="height:300px">
 <center>
     <asp:Calendar ID="Calendar1" runat="server" SelectionMode="Day" OnDayRender="Calendar1_DayRender"
         EnableViewState="False" SelectedDayStyle-ForeColor="Black"
@@ -18,4 +20,6 @@
     </center>
     <asp:Label ID="lblInfo" runat="server"></asp:Label>
     </div>
+    </div>
+</div>
 </asp:Content>

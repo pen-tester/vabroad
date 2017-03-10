@@ -1,5 +1,7 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="UserProperties.aspx.cs" Inherits="UserProperties" Title="User Properties" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="UserProperties.aspx.cs" Inherits="UserProperties" Title="User Properties" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+    <div class="internalpage">
+        <div class="srow">
 	<% if (BackLink.Visible) { %>
 	<table cellspacing="0" cellpadding="0" width="250" align="center" bgcolor="#e4e4af" border="2">
 		<tr>
@@ -93,4 +95,6 @@
 			</table>
 		</FooterTemplate>
 	</asp:Repeater>
+        </div>
+    </div>
 </asp:Content>

@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMaster.master" AutoEventWireup="true" CodeFile="ViewEmails.aspx.cs" Inherits="ViewEmails" Title="Vacations-Abroad.com: Vacation Rentals Holiday Rentals Vacations Holidays Cottages Cabins Homes Condos USA Mexico Caribbean Bahamas Canada France Italy Greece Spain England Brazil Costa Rica Scotland Portugal" %>
+<%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="ViewEmails.aspx.cs" Inherits="ViewEmails" Title="Vacations-Abroad.com: Vacation Rentals Holiday Rentals Vacations Holidays Cottages Cabins Homes Condos USA Mexico Caribbean Bahamas Canada France Italy Greece Spain England Brazil Costa Rica Scotland Portugal" %>
 
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">

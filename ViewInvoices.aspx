@@ -1,4 +1,10 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="ViewInvoices.aspx.cs" Inherits="ViewInvoices" Title="View Invoices" %>
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    View Invoices
+</asp:Content>
+<asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+
+</asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
     <div class="internalpage">
         <div class="srow">
