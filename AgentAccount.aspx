@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="AgentAccount.aspx.cs" Inherits="AgentAccount" Title="Agent Account" %>
+﻿<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="AgentAccount.aspx.cs" Inherits="AgentAccount" Title="Agent Account" %>
 
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+    <div class="internalpage srow">
 	<% if (BackLink.Visible) { %>
 	<table cellspacing="0" cellpadding="0" width="250" align="center" bgcolor="#e4e4af" border="2">
 		<tr>
@@ -149,6 +150,8 @@
 		</tr>
 	</table>
   
+    </div>
+
 	<script language=javascript type=text/javascript>
 	<!--
 
