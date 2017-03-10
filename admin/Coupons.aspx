@@ -40,7 +40,7 @@
         }
         .couponinput{width:90%;}
         .hidden{display:none;}
-        ul li{list-style:none;display:inline-block;color:#6698ff;cursor:pointer;}
+        ul.wwpages li{list-style:none;display:inline-block;color:#6698ff;cursor:pointer;}
         .activepage{font-weight:bold;}
     </style>
     <link rel="stylesheet" href="/Assets/js/jqueryui112/jquery-ui.min.css" />
@@ -121,7 +121,7 @@
                 <asp:Button ID="DelCom" ClientIDMode="Static" CssClass="hidden" OnClick="DelCom_Click" runat="server" />
             </div>
             <div class="srow">
-                <ul>
+                <ul class="wwpages">
                     <li id="cprev">&lt; |</li>
                     <% for (int p_ind = 0; p_ind < pages; p_ind++)
                         { %>
@@ -183,7 +183,7 @@
                 </table>
             </div>
             <div class="srow">
-                <ul>
+                <ul class="wwpages">
                     <li id="cuprev">&lt; |</li>
                     <% for (int p_ind = 0; p_ind < pages; p_ind++)
                         { %>
