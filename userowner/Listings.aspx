@@ -3,13 +3,41 @@
 <asp:Content ID="links" runat="server" ContentPlaceHolderID="links">
     <link href="/Assets/css/listings.css" rel="stylesheet" />
     <link href="/Assets/css/response.css" rel="stylesheet" />
+     <style>
+       ul.nav li{display:inline-block; } ul.nav{z-index:10}
+       .nav>li>a:focus, .nav>li>a:hover{text-decoration:none; background-color:#eee;}
+       .nav>li>a{cursor:pointer;background-color:#f3ede3;padding:10px 15px; border-radius:0px; box-shadow:inset 0px -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4); color:#767171;}
+       .nav>li.active >a, .nav>li.active>a:hover{background:#fff;border-bottom-color:transparent;box-shadow:inset 0 0 0 0 rgba(0,0,0,.4),-2px -3px 5px -2px rgba(0,0,0,.4); }
+       .tab-pane.active{display:block;} .tab-pane{display:none;}
+       .tabs-content{display:block;background-color:transparent;padding:0;margin-top:-4px;}
+       .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 2px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            box-sizing:border-box;
+       }
+       .form-group{margin:3px 0px;}
+   </style>
 </asp:Content>
 
 <asp:Content ID="cont_listing" runat="server" ContentPlaceHolderID="bodycontent">
     <div class="internalpage">
       <div class="srow">
 	<% if (BackLink.Visible) { %>
-	<div class="text-center">
+	<div class="center">
 					<strong>
 						<asp:HyperLink ID="BackLink" runat="server" NavigateUrl="OwnersList.aspx">
 							Return to Owners list
@@ -52,17 +80,17 @@
 
         <div class="newline">
             <div id="exTab3">	
-                    <ul  class="nav nav-tabs" role="tablist">
+                    <ul  class="nav">
 		                <li class="active lblFor">
-                            <a  href="#1b" role="tab" data-toggle="tab">Property Owner</a>
+                            <a  class="btntab" data-target="tab1">Property Owner</a>
 		                </li>
 		                <li class="lblFor">
-                            <a href="#2b" role="tab" data-toggle="tab">Traveler</a>
+                            <a class="btntab" data-target="tab2">Traveler</a>
 		                </li>
 	                 </ul>
-
-                    <div class="tab-content clearfix">
-			            <div class="tab-pane active tabback" id="1b">
+                    <div class="clearfix"></div>
+                    <div class="tabs-content">
+			            <div class="tab-pane active tabback" id="tab1">
                             <div class="srow">
                            <div class="col-md-4 col-sm-6">
                             <div class="newline textcenter">
@@ -248,7 +276,7 @@
             
 
 			            </div>
-			            <div class="tab-pane tabback" id="2b">
+			            <div class="tab-pane tabback" id="tab2">
                             <div class="srow">
                           <div class="col-md-4 col-sm-6">
                             <div class="newline textcenter">
@@ -359,5 +387,5 @@
     </div> 
 
          
-    <script src="/Assets/js/listings.js"></script>
+    <script src="/Assets/js/listings.js" defer="defer"></script>
 </asp:Content>
