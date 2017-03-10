@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/NormalMobile.master" AutoEventWireup="true" CodeFile="Contest.aspx.cs" Inherits="Contest" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="Contest.aspx.cs" Inherits="Contest" %>
 
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">

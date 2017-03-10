@@ -1,6 +1,8 @@
-<%@ page language="C#" masterpagefile="~/MasterPageNoCss.master" autoeventwireup="true" CodeFile="~/Administration.aspx.cs" inherits="Administration" title="Administration" enableeventvalidation="false" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
-    <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
+<%@ page language="C#" masterpagefile="/masterpage/mastermobile.master" autoeventwireup="true" CodeFile="~/Administration.aspx.cs" inherits="Administration" title="Administration" enableeventvalidation="false" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+    <div class="internalpagewidth">
+<div class="srow">
+        <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
         <tr>
             <td colspan="100" align="center">
                 <strong>
@@ -346,6 +348,10 @@
     </asp:Repeater>
     
     <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
+
+</div>
+    </div>
+
 
     <script language="javascript" type="text/javascript">
     <!--
