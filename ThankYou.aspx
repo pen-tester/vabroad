@@ -1,8 +1,9 @@
-<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPageNoCss.master"
+<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="/masterpage/mastermobile.master"
     CodeFile="ThankYou.aspx.cs" Inherits="ThankYou" %>
 
 <%@ OutputCache Duration="600" VaryByParam="*" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="Server">
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+    <div class="internalpage srow">
     <div class="advertise-con" style="min-height:560px;">
         
         <blockquote>
@@ -40,5 +41,6 @@
         <div align="center" class="prop-con">
             <strong><a href="MyAccount.aspx">Your Account </a></strong>
         </div>
+    </div>
     </div>
 </asp:Content>

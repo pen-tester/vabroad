@@ -1,5 +1,7 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="ThankYouPayment.aspx.cs" Inherits="ThankYouPayment" Title="Thank you" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="Content" Runat="Server">
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="ThankYouPayment.aspx.cs" Inherits="ThankYouPayment" Title="Thank you" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+<div class="internalpage">
+    <div class="srow">
 	<div align="center">
 		<blockquote>
 			<p>
@@ -26,4 +28,6 @@
 			</td>
 		</tr>
 	</table>
+    </div>
+</div>
 </asp:Content>

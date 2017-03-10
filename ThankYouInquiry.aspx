@@ -1,6 +1,8 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="~/ThankYouInquiry.aspx.cs" Inherits="ThankYouInquiry" Title="Thank You!" EnableEventValidation="false" %>
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="~/ThankYouInquiry.aspx.cs" Inherits="ThankYouInquiry" Title="Thank You!" EnableEventValidation="false" %>
 
-<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="Server">
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<div class="internalpage">
+    <div class="srow">
     <div id="thank-you-inquiry" style="max-height:555px;min-height:555px;">
         <div class="message" style="min-height:450px!important;">
             <span style="">Thank you! Your email is on its way to the owner.</span>
@@ -40,6 +42,8 @@
         </noscript>
         <asp:HiddenField ID="hdnRTC" runat="server" />
     </div>
+    </div>
+</div>
     <script type="text/javascript">
         $(document).ready(function () {
             // if the query string value is available, just do a redirect after specified number of seconds.
