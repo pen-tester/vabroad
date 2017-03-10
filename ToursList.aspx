@@ -1,8 +1,10 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="~/ToursList.aspx.cs" Inherits="StateProvinceList" Title="<%# GetTitle () %>"
     EnableEventValidation="false" %>
 
-<asp:Content ID="Content" ContentPlaceHolderID="Content" runat="Server">
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+    <div class="internalpage">
+        <div class="srow">
     <asp:Label ID="Title" runat="server" Visible="false" Text="%city% Tours, %city% Sightseeing Tours, Private and Escorted Tours in %city% %stateprovince% - %city% Vacation Rentals"></asp:Label>
     <asp:Label ID="Keywords" runat="server" Visible="false" Text="%city% tours, %city% sightseeing tours, %city% private tours, %city% escorted tours, %city% group tours "></asp:Label>
     <asp:Label ID="Description" runat="server" Visible="false" Text="Enjoy %city% and go sightseeing in %city% tour. Our directory of %city% tours include private tours, escorted group or individual tours. Let us provide you with the opportunity to enjoy %city% with a tour. "></asp:Label>
@@ -227,6 +229,8 @@ Advertise your <%# city %> sightseeing tour, <%# city %> escorted tour, <%# city
                 pageTracker._trackPageview();
             } catch (err) { }</script>
 
+    </div>
+        </div>
     </div>
     
     <script type="text/javascript">
