@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Vacations-Abroad.com - Who We Are" Language="C#" MasterPageFile="~/masterpage/NormalMaster.master"
+﻿<%@ Page Title="Vacations-Abroad.com - Who We Are" Language="C#" MasterPageFile="~/masterpage/mastermobile.master"
     AutoEventWireup="true" CodeFile="Contacts.aspx.cs" Inherits="Contacts" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Vacations-Abroad.com - Who We Are
