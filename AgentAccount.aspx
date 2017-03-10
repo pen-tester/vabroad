@@ -54,16 +54,16 @@
 			<td width="92%">
                 <div id="id_2">
 <p class="p9 ft7">Our Commission Percentage</p>
-<p class="p10 ft9"><span class="ft8"> </span>10% charged to the property owner / manager on gross sales</p><br />
+<p class="p10 ft9"><span class="ft8">=></span>10% charged to the property owner / manager on gross sales</p><br />
 <p class="p9 ft7">Our Cancellation Policy</p>
-<p class="p12 ft12"><span class="ft10"></span><span class="ft11">Defined by Owner</span></p>
+<p class="p12 ft12"><span class="ft10">=></span><span class="ft11">Defined by Owner</span></p>
 <p class="p9 ft7">What Is Not Included</p>
-<p class="p12 ft12"><span class="ft10"></span><span class="ft11">We do not collect security deposits</span></p>
-<p class="p13 ft12"><span class="ft10"></span><span class="ft11">We do not collect local sales tax</span></p>
-<p class="p13 ft12"><span class="ft10"></span><span class="ft11">We do not collect cleaning fees</span></p><br />
+<p class="p12 ft12"><span class="ft10">=></span><span class="ft11">We do not collect security deposits</span></p>
+<p class="p13 ft12"><span class="ft10">=></span><span class="ft11">We do not collect local sales tax</span></p>
+<p class="p13 ft12"><span class="ft10">=></span><span class="ft11">We do not collect cleaning fees</span></p><br />
 <p class="p9 ft7">When You Receive Your Funds</p>
-<p class="p18 ft14"><span class="ft10"></span><span class="ft13">Your funds will be displayed immediately in your online account</span></p>
-<p class="p19 ft14"><span class="ft10"></span><span class="ft13">The funds will be transferred to your bank </span><nobr>7-10</nobr> days prior to arrival of the guest.</p>
+<p class="p18 ft14"><span class="ft10">=></span><span class="ft13">Your funds will be displayed immediately in your online account</span></p>
+<p class="p19 ft14"><span class="ft10">=></span><span class="ft13">The funds will be transferred to your bank </span><nobr>7-10</nobr> days prior to arrival of the guest.</p>
 </div>
 
                 <%--<h2>Our Commission Percentage</h2>
