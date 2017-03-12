@@ -26,12 +26,10 @@
             <div class="srow formgroup righttext" >
                 <div class="footeritem">
                       <span class="itemtile">Founder</span>
-                    <span class="itemtext">Linda Jenkins, CEO</span>
+                    <span class="itemtext">Linda Jenkins</span>
                  </div>
                   <div class="footeritem">
                       <span class="itemtile">Established 2000</span>
-                    <span class="itemtext">We are a member of the Johns Creek Chamber of Commerce</span>
-                      <span class="itemtext"> We do our banking with Compass Bank in St Augustine, Florida</span>
                     <span class="itemtext">Vacations-Abroad.com is a registered Delaware LLC (Limited Liability Company) </span>
                     <span class="itemtext">Vacations-Abroad.com is a registered trademark with United States Patent and Trademark Office</span>
                     <span class="itemtext">The Management at Vacations-Abroad.Com</span>
