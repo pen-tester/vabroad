@@ -10,7 +10,7 @@
     <link href="/Assets/css/staticspage.css" rel="stylesheet" />
     <style>
      .background{position:relative;} .back_img{width:100%;}.backitem{position:absolute;margin:0;padding:0;left:0;top:0;width:100%;}
-      .alist{ color:#000;padding:3px 0px; font-family:Verdana; font-size:22pt; background-color:#f5ede3;cursor:pointer;margin:auto;}
+      .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
       .formgroup{margin-top:100px;} .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin-left:170px;text-align:left;}
     .itemtile{font-variant: small-caps;font-size:14pt;display:inline-block;padding:4px;}.itemtext{font-variant:small-caps; font-size:12pt;display:block;padding:4px;}
     .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 30px;border:2px solid #ff6600;width:400px;margin:auto;}
@@ -40,7 +40,7 @@
                    <span class="itemtext"> d.	Upon The Booking Of A Reservation, You Will Receive The Contact Details Of The Person Making The Reservation.</span>
                         </div>
 
-                     <div class="center">          <a>      >Click Here to List Your Property<</a></div>
+                     <div class="center">          <a href="/accounts/login.aspx">      >Click Here to List Your Property<</a></div>
                    <span class="itemtext">The Management AT Vacations-Abroad.Com</span>
 
                  </div>
