@@ -11,57 +11,38 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
-<div class="internalpagewidth">
-          <div class="apphead">
-    <h1>List your Property</h1>
-        </div>
-   <div class="advertise-con">
-        <ol>
-<span>
-    Our booking fee is 10% of the reservation amount.<br />
-    The booking fee is not calculated on the cleaning fees, taxes or security deposits.
-    </span>
-
-<br><br>We can wire direct to you bank in the following countries: Argentina
-Australia, Austria,, Belgium, Bolivia, Brazil, Canada, Chile, China, Colombia, Costa Rica, Dominican Republic, Ecuador, El Salvador, France
-Germany, Greece, Guatemala, Honduras, Hong Kong, India, Ireland, Italy, Jamaica, Mexico, Netherlands, Nicaragua, Pakistan, Panama, Peru
-Philippines, Poland, Portugal, Singapore, Spain, Sri Lanka, United Kingdom, Uruguay & Vietnam</span><br><br>
-Or we can send your funds direct to you via paypal.<br />
- We will wire the funds into your account 7-10 days prior to the arrival of the guests<br><br><br>
-<span> ALL LISTINGS INCLUDE THE FOLLOWING:</span>
-            <li><span>7 Photos per listing<br></span>
-            <li><span>Link for virtual tours</span></li>
-            <li><span>Email storage - You can view all the emails you have received.</span></li>
-            <li><span>Page Views Statistics</span></li>
-            <li><span>You will receive emails which state all pertinent details concerning the inquiry. </span></li></ol> 
-             <div class="text-center">
-                        <div class="prop-con">
-                            <strong><a href="FindOwner.aspx">Click here to List Your Property</a>
-                            </strong>
-                        </div>
+    <div class="background">
+          <img class="back_img" src="/Assets/img/footerimg.jpg" />
+        <div class="backitem">
+            <div class="srow center formgroup">
+                <a class="alist" href="/applications.aspx">List a Property</a>
             </div>
-       </div>
+            <div class="srow formgroup center" >
+                <div class="footeritem">
+                   <span class="itemtile">Our Terms For Listing: </span>
+                   <span class="itemtext">1)	Our Booking Fee Is 10% Of The Reservation Amount.</span>
+                   <span class="itemtext">2)	We Do Not Collect Security Deposits, Local Taxes Or Cleaning Fees.</span>
+                   <span class="itemtext">3)	We Can Wire Funds Directly Into Your Bank Account Or Send To You Via Paypal.</span>
+                   <span class="itemtext">4)	We Transfer Funds To You 10 Days Prior To Arrival Of Your Guest.</span>
+                   <span class="itemtext">5)	All Listings Include:</span>
+                    <div class="interalitem">
+                   <span class="itemtext"> a.	7 Photos.</span>
+                   <span class="itemtext"> b.	Emails Inquiries Regarding Availability.</span>
+                   <span class="itemtext"> c.	Your Ability To Provide A Quote For The Inquiry.</span>
+                   <span class="itemtext"> d.	Upon The Booking Of A Reservation, You Will Receive The Contact Details Of The Person Making The Reservation.</span>
+                        </div>
+
+                     <div class="center">          <a>      >Click Here to List Your Property<</a></div>
+                   <span class="itemtext">The Management AT Vacations-Abroad.Com</span>
+
+                 </div>
+            </div>
+        </div>
     </div>
-    <!-- Start of StatCounter Code for Default Guide -->
-    <script type="text/javascript">
-        var sc_project = 7164674;
-        var sc_invisible = 1;
-        var sc_security = "7447e973";
-    </script>
 
     <div class="clear">
         
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
-    <noscript>
-        <div class="statcounter">
-            <a title="joomla
-visitors"
-                href="http://statcounter.com/joomla/" target="_blank">
-                <img class="statcounter" src="http://c.statcounter.com/7164674/0/7447e973/1/" alt="joomla visitors"></a>
-        </div>
-    </noscript>
-    <!-- End of StatCounter Code for Default Guide -->
-
+    
     </div>
 </asp:Content>
 
