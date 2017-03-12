@@ -15,10 +15,14 @@
           <img class="back_img" src="/Assets/img/footerimg.jpg" />
         <div class="backitem">
             <div class="srow center formgroup">
-                <a class="alist" href="/applications.aspx">List a Property</a>
+                <a class="alist" href="/userowner/listings.aspx">List a Property</a>
             </div>
-            <div class="srow formgroup center" >
-                <div class="footeritem">
+            <div class="srow formgroup" >
+                <div class="col-1">
+
+                </div>
+                <div class="col-9">
+                  <div class="footeritem">
                    <span class="itemtile">Our Terms For Listing: </span>
                    <span class="itemtext">1)	Our Booking Fee Is 10% Of The Reservation Amount.</span>
                    <span class="itemtext">2)	We Do Not Collect Security Deposits, Local Taxes Or Cleaning Fees.</span>
@@ -36,6 +40,7 @@
                    <span class="itemtext">The Management AT Vacations-Abroad.Com</span>
 
                  </div>
+                </div>
             </div>
         </div>
     </div>
