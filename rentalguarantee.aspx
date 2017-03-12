@@ -27,6 +27,7 @@
                     <span class="itemtile">Vacations-Abroad.com will Guarantee Your Reservation Booked Through Our Website. </span>
                     <span class="itemtext">Upon Your Arrival, If The Property Is Not Up To Your Expectations And You Have Found It To Be Unacceptable and Inaccurately Represented.  Notify Us Immediately.  We Will Begin Negotiations With the Property Owner Regarding a Refund. </span>
                     <span class="itemtext">Should The Property Owner Decline a Refund, Vacations-Abroad.com will Reimburse You Directly.  If Possible, Document the Status of The Property With Your Phone Camera.</span>
+                    <span class="itemtext">The Management at Vacations-Abroad.Com</span>
                  </div>
                 </div>
         </div>
