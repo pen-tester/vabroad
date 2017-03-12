@@ -6,40 +6,29 @@
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <link href="/Assets/css/staticspage.css" rel="stylesheet" />
+    <style>
+     .background{position:relative;} .back_img{width:100%;}.backitem{position:absolute;margin:0;padding:0;left:0;top:0;width:100%;}
+      .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
+      .formgroup{margin-top:60px;} .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin-left:170px;text-align:left;}
+    .itemtile{font-variant: small-caps;font-size:14pt;display:inline-block;padding:4px;}.itemtext{font-variant:small-caps; font-size:12pt;display:block;padding:4px;}
+    .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:15px 30px;border:2px solid #ff6600;width:400px;margin:auto;}
+    </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
-<div class="internalpagewidth">
-    <div class="apphead">
-    <h1>Rental Guarantee</h1>
+    <div class="background">
+          <img class="back_img" src="/Assets/img/rent.jpg" />
+        <div class="backitem">
+            <div class="srow center formgroup">
+                <div class="topbox"> <a class="alist" >Rental Guarantee</a></div>
+               
+            </div>
+            <div class="srow formgroup" >
+                  <div class="footeritem">
+                    <span class="itemtile">  Vacations-Abroad.com and Its Subsidiaries will Guarantee Your Reservation Booked Through Our Website. </span>
+                    <span class="itemtext">Upon Your Arrival, If The Property Is Not Up To Your Expectations And You Have Found It To Be Unacceptable and Inaccurately Represented.  Notify Us Immediately.  We Will Begin Negotiations With the Property Owner Regarding a Refund. </span>
+                    <span class="itemtext"> Should The Property Owner Decline a Refund, Vacations-Abroad.com will Reimburse You Directly.  If Possible, Document the Status of The Property With Your Phone Camera.</span>
+                 </div>
+                </div>
         </div>
-    <div class="advertise-con">
-        
-        <p style="margin-top: 5px; color: #6c6c6c;">
-            Vacations-Abroad.com and its subsidiaries will guarantee your reservation booked
-            through our website based on the following conditions:
-        </p>
-        <br />
-        <ol class="appcont">
-            <li><span>1st Condition: Vacations-Abroad.com must be notified by email by the renter
-                prior to sending a deposit on the property.</span> </li>
-            <li><span>2nd Condition: Details must contain Property #, Owner Name, Owner Email, and
-                Date of Reservation</span> </li>
-            <li><span>3rd Condition: We will notify you within 24 hours regarding the guarantee
-                and at that point, you can safely forward the deposit to the owner.</span></li>
-<li><span>We review every property very thoroughly prior to approving them for inclusion on the website.</span></li>
-        </ol>
     </div>
-</div>
-    <script type="text/javascript">
-        sc_project = 3632824;
-        sc_invisible = 1;
-        sc_partition = 43;
-        sc_security = "afbd8961"; 
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter_xhtml.js"></script>
-    <noscript>
-        <div class="statcounter">
-            <a href="http://www.statcounter.com/free_invisible_web_tracker.html" target="_blank">
-                <img class="statcounter" src="http://c44.statcounter.com/3632824/0/afbd8961/1/" alt="free web tracker"></a></div>
-    </noscript>
 </asp:Content>
