@@ -1,5 +1,9 @@
 <%@ Page Language="C#" MasterPageFile="~/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="OwnerInformation.aspx.cs" Inherits="OwnerInformation" Title="Owner Personal Information" %>
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    Owner Personal Information
+</asp:Content>
+
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <link href="/Assets/css/ownerinfo.css" rel="stylesheet" />
 </asp:Content>
