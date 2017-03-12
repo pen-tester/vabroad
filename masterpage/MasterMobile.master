@@ -25,7 +25,7 @@
     <![endif]-->
 </head>
  
-<body>
+<body oncontextmenu="return false;">
     <script defer="defer"  src="/Assets/js/jquery-3.1.0.min.js"></script>
     <script defer="defer" src="/Assets/js/normalmaster.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
