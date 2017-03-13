@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="/masterpage/NormalMaster.master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="default.aspx.cs" Inherits="Default" Title="<%# GetTitle () %>" EnableEventValidation="False"
     EnableViewState="false" %>
 
