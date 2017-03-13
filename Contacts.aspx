@@ -39,7 +39,7 @@
               </div>
             <div class="srow " >
                   <div class="footeritem">
-                    <span class="itemtile">Office Hours:</span>
+                    <span class="itemtile">Office Hours:(Eastern Time Zone)</span>
                     <span class="itemtext">Monday-Friday 8AM-8PM</span>
                     <span class="itemtext">Saturday 9AM-1PM</span>
                     <span class="itemtext">Sunday Closed</span>
