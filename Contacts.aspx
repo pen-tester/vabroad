@@ -38,7 +38,7 @@
         width:300px;
         position:relative;
         margin:auto;
-        margin-top:400px;
+        margin-top:300px;
         padding:40px;
     }
     .modalhead{
