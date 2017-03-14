@@ -63,8 +63,8 @@ Email: {1} <br/>
 Telephone: {2} <br/>
 Message: {3}";
         string msg = String.Format(msg_format, name, email, phone, comment);
-        //   BookDBProvider.SendEmail("linda@vacations-abroad.com", questions[ind_subject],msg);
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", questions[ind_subject], msg);
+        BookDBProvider.SendEmail("linda@vacations-abroad.com", questions[ind_subject],msg);
+       // BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", questions[ind_subject], msg);
         
     }
 }
