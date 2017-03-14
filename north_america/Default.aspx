@@ -3,7 +3,7 @@
     EnableViewState="false" %>
 
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <link href="/Assets/css/africa.css" rel="stylesheet" />
+    <link href="/assets/css/continent.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="titles" ContentPlaceHolderID="head" runat="server">
     North America Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
@@ -28,8 +28,9 @@
                 North America Destinations 
             </div>
         <div class ="newline">
-            <div class="clear">
+            <div class="clear">  </div>
                 <%--content text--%>
+            <div class="srow">
                <div class="col-7">
                     <p>
                                 Planning a vacation to North America might involve considering an exhaustive number of options and destinations. Apart from the countless tourist resorts and national parks dotting the map of the USA; there are numerous other countries to visit, where you can experience different cultures. The sheer variety of landscapes and climates make vacations to North America thoroughly enjoyable in all seasons. Excellent travelling and lodging facilities and easily available information make at all the more convenient to get around.
@@ -46,8 +47,8 @@ North America family vacations bring Disneyland and Niagara Falls to mind. Guate
                         <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
   
               </div>
-                                    
-            </div>
+            </div>                                    
+
 
         </div>
             <div class="newline">
@@ -88,12 +89,12 @@ North America family vacations bring Disneyland and Niagara Falls to mind. Guate
             </div>
     </div>
     <div class="newline">
-         <div class="clear">
-            <div class="col-3">
+        <div class="clear"></div>
+         <div class="srow">
+            <div class="col-4">
               <img alt="" src="/images/NorthAmericaWinterVacations.jpg" height="233" width="300" />
             </div>
-                           
-             <div class="col-r7">
+             <div class="col-7">
                            <p>
                                 North America is studded with ski resorts that attract skiers and snowboarders in large numbers. The best North America ski vacations are located in resorts that offer excellent facilities, snug dwellings and beautiful scenery make ski vacations equally enjoyable for families, couples, and professional skiers. The best ski resorts in North America are located in the US and Canada. The most popular mountain resorts for experiencing North America ski vacations are located in Colorado, Wycoming, Lake Tahoe California and Utah in the US. Whistler Canada and Mont Tremblant Canada are famous Canadian ski destinations.
 North America ski destinations are easily accessible during the winters, thanks to excellent road and rail links and modern onsite networks of cable cars and chairlifts. Availability of comfortable and stylish accommodations augments the pleasure of skiing amidst snow-covered cliffs. Slopes and pistes at these North America ski resorts offer enough diversity for all skill levels, making North America winter vacations equally suitable for kids, beginners, intermediaries, and expert skiers. 

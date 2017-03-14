@@ -42,18 +42,91 @@
         padding:40px;
     }
     .modalhead{
-        position:absolute;right:15px; top:10px;
+        position:absolute;right:0px; top:-10px;
     }
+    .emailform{
+        background-color:#fafbfc;
+        border:5px solid #f0b892;
+        border-radius:55px;
+        color:#767271;
+        width:340px;
+        position:relative;
+        margin:auto;
+        margin-top:300px;
+        padding:30px;
+    }
+    .required{color:red;}.hidden{display:none;}
+    .groupitem{margin:9px 0;}.formitem{width:90%;margin:0px 20px;} .txtarea{height:100px;}.captcha{padding:10px 0px 10px 15px;}
     </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+          <div id="inquiryform" class="modalform">
+              <div class="emailform">
+                      <div class="modalhead">
+                            <span class="mclose" id="inquriyclose">x</span>
+                      </div>
+                      <div>
+                       <div class="srow groupitem">
+                          <div class="cols-s-1">
+                              Your name: <label class="required">*</label>
+                          </div>
+                          <div class="cols-s-2">
+                              <input type="text" class="formitem" id="username" name="username" />
+                          </div>
+                      </div>
+                      <div class="srow groupitem">
+                          <div class="cols-s-1">
+                              Your email: <label class="required">*</label>
+                          </div>
+                          <div class="cols-s-2">
+                              <input type="text"  class="formitem" id="useremail" name="useremail" />
+                          </div>
+                      </div>
+                      <div class="srow groupitem">
+                          <div class="cols-s-1">
+                              Telephone: 
+                          </div>
+                          <div class="cols-s-2">
+                              <input type="text" class="formitem" id="userphone" name="userphone" />
+                          </div>
+                      </div>
+                      <div class="srow groupitem">
+                          <div class="cols-s-1">
+                              Subject: 
+                          </div>
+                          <div class="cols-s-2">
+                              <select class="formitem" id="userselect" name="userselect">
+                                <option value="0">Select one</option>
+                                  <option value="1">About a property</option>
+                                  <option value="2">About a reservation</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="srow groupitem">
+                          <div class="cols-s-1">
+                              How can we help? 
+                          </div>
+                          <div class="cols-s-2">
+                              <textarea  class="formitem txtarea" id="usercomment" name="usercomment"></textarea>
+                          </div>
+                      </div>
+                      <div class="srow captcha">
+                        <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LeiuBcUAAAAABl8pqeeYVr_M7DwF_b-CPzKo1eJ"></div>
+                      </div>
+                      <div class="srow center">
+                          <input type="button" id="btnsend" class="btnBookNow" style="width:90%;" value="Send Email" />
+                          <input type="submit" id="btnsendback" name="btnsendback" class="hidden" runat="server" onserverclick="btnsendback_ServerClick"  />
+                      </div>
+                      </div>
+              </div>
+          </div>
           <div id="msgform" class="modalform">
                   <div id="modal_loading" class="modalLoading">
                         <div class="loader"> </div>
                   </div>
                   <div id="modal_dialog" class="dlgMsg" >
                       <div class="modalhead">
-                            <span class="mclose">x</span>
+                            <span class="mclose" id="msgclose">x</span>
                       </div>
                       <div class="srow">
                           <div class="col-4">Message:</div>
@@ -103,5 +176,6 @@
             <div class="clear"></div>
         </div>
     </div>
+    <script defer="defer" src='https://www.google.com/recaptcha/api.js'></script>
     <script src="/assets/js/contacts.js" defer="defer"></script>
 </asp:Content>
