@@ -53,7 +53,7 @@ public partial class Contacts : System.Web.UI.Page
         if (name == "" || email == "") return;
         int ind_subject=0;
         if (Int32.TryParse(subject, out ind_subject)) ind_subject = 0;
-        if (ind_subject == 0 || ind_subject>2) { Response.Write("index false"); return; }
+        if (ind_subject == 0 || ind_subject>2) { Response.Write("index false"+ subject); return; }
 
         string msg_format = @"Dear Linda <br/>
 Someone has contacted with you. <br/>
