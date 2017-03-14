@@ -52,7 +52,7 @@
         width:340px;
         position:relative;
         margin:auto;
-        margin-top:300px;
+        margin-top:180px;
         padding:30px;
     }
     .required{color:red;}.hidden{display:none;}
