@@ -44,7 +44,7 @@ public partial class Contacts : System.Web.UI.Page
 
     protected void btnsendback_ServerClick(object sender, System.EventArgs e)
     {
-        if (pass_recaptcha == false) return;
+        if (pass_recaptcha == false) { Response.Write("captcha false"); return; }
         string name = Request["username"];
         string email = Request["useremail"];
         string subject = Request["userselect"];
@@ -53,7 +53,7 @@ public partial class Contacts : System.Web.UI.Page
         if (name == "" || email == "") return;
         int ind_subject=0;
         if (Int32.TryParse(subject, out ind_subject)) ind_subject = 0;
-        if (ind_subject == 0 || ind_subject>2) return;
+        if (ind_subject == 0 || ind_subject>2) { Response.Write("index false"); return; }
 
         string msg_format = @"Dear Linda <br/>
 Someone has contacted with you. <br/>
@@ -65,6 +65,6 @@ Message: {3}";
         string msg = String.Format(msg_format, name, email, phone, comment);
         //   BookDBProvider.SendEmail("linda@vacations-abroad.com", questions[ind_subject],msg);
         BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", questions[ind_subject], msg);
-        Response.Redirect("/contest.aspx");
+        
     }
 }
