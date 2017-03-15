@@ -8,7 +8,7 @@
     <link href="/Assets/css/staticspage.css" rel="stylesheet" />
     <style> 
         .itemtile a{color:#ff6600;}
-.righttext{float:right;}
+    .righttext{float:right;}
     .imgwraper{
         margin:0;padding:0 0 30px 0;left:0;top:0;width:100%;
         position:relative;
