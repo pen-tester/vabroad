@@ -21,7 +21,7 @@
        .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:1px;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
         .contentboxmargin{margin-top:4px;}
-        .contentbox{margin-top:10px;}
+        .contentbox{margin-top:5px;}
         .link{font-size:8pt;}
             .shidden{display:none;}
         }
