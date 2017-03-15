@@ -48,7 +48,7 @@
         width:340px;
         position:relative;
         margin:auto;
-        margin-top:180px;
+        margin-top:120px;
         padding:25px 5px;
     }
     .required{color:red;}.hidden{display:none;}
