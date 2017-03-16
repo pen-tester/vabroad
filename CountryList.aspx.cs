@@ -71,14 +71,17 @@ public partial class CountryList : CommonPage
             " AND (Cities.StateProvinceID = StateProvinces.ID) " +
             " AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID)) " +
             "ORDER BY Country", SqlDbType.Int);
-        StateProvincesAdapter = CommonFunctions.PrepareAdapter(CommonFunctions.GetConnection(), "SELECT StateProvinces.* " +
-            "FROM StateProvinces " +
-            "WHERE (StateProvinces.CountryID = @CountryID) AND EXISTS (" +
-            " SELECT * FROM Properties INNER JOIN Cities ON Properties.CityID = Cities.ID" +
-            " WHERE (Properties.IfFinished = 1) AND (Properties.IfApproved = 1)" +
-            " AND (Cities.StateProvinceID = StateProvinces.ID) " +
-            " AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID)) " +
-            "ORDER BY StateProvince", SqlDbType.Int);
+        /*        StateProvincesAdapter = CommonFunctions.PrepareAdapter(CommonFunctions.GetConnection(), "SELECT StateProvinces.* " +
+                    "FROM StateProvinces " +
+                    "WHERE (StateProvinces.CountryID = @CountryID) AND EXISTS (" +
+                    " SELECT * FROM Properties INNER JOIN Cities ON Properties.CityID = Cities.ID" +
+                    " WHERE (Properties.IfFinished = 1) AND (Properties.IfApproved = 1)" +
+                    " AND (Cities.StateProvinceID = StateProvinces.ID) " +
+                    " AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID)) " +
+                    "ORDER BY StateProvince", SqlDbType.Int);*/
+        StateProvincesAdapter = CommonFunctions.PrepareAdapter(CommonFunctions.GetConnection(), "select cits.ID,cits.StateProvince, count(Properties.ID) as propnum from (select states.*, Cities.ID as cityid,Cities.City  from (select * from StateProvinces where CountryID=@CountryID) states join Cities on states.ID = Cities.StateProvinceID) cits"+
+            " join Properties on Properties.CityID=cits.cityid and Properties.IfApproved=1 and Properties.IfFinished=1"
+            +" AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID)"+" group by  cits.ID,cits.StateProvince", SqlDbType.Int);
         // StateCodeInfo.Text = SqlDbType.Int.
         CitiesAdapter = CommonFunctions.PrepareAdapter(CommonFunctions.GetConnection(), String.Format(STR_SELECTCitiesFROMCitiesWHERECitiesStateProvinceID), SqlDbType.Int);
 
@@ -503,7 +506,8 @@ public partial class CountryList : CommonPage
             string temp = "/" + country.ToLower().Replace(" ", "_") + "/" + dr["StateProvince"].ToString().ToLower().Replace(" ", "_") + "/default.aspx";
             states1 += "<li"+li +"><a href='" + temp + "' class='StateTitle'>" + dr["StateProvince"].ToString().Replace(" ", "&nbsp;") + "</a><br/> ";
             //states1 += "<a href=\"" + temp + "\"><div class='drop-shadow effect4'><img width='160' height='125' src='/images/" + Convert.ToString(dt.Rows[0]["PhotoImage"]) + "' alt='" + Convert.ToString(dr["StateProvince"]) + " vacation rentals and boutique hotels in "+country+" ' title='" + Convert.ToString(dr["StateProvince"]) + " vacation rentals and boutique hotels in " + country + "' /></div></a></li>";
-            states1 += "<a href=\"" + temp + "\"><div class='drop-shadow effect4'><img width='160' height='125' src='/images/" + Convert.ToString(dt.Rows[0]["PhotoImage"]) + "' alt='" + Convert.ToString(dr["StateProvince"]) + " vacation rentals and boutique hotels in "+country+"' title='" + Convert.ToString(dr["StateProvince"]) + " vacation rentals and boutique hotels in " + country + "' /></div></a></li>";
+            //states1 += "<a href=\"" + temp + "\"><div class='drop-shadow effect4'><img width='160' height='125' src='/images/" + Convert.ToString(dt.Rows[0]["PhotoImage"]) + "' alt='" + Convert.ToString(dr["StateProvince"]) + " vacation rentals and boutique hotels in "+country+"' title='" + Convert.ToString(dr["StateProvince"]) + " vacation rentals and boutique hotels in " + country + "' /></div></a></li>";
+            states1 += "<a href=\"" + temp + "\"><div class='drop-shadow effect4'><img width='160' height='125' src='/images/" + Convert.ToString(dt.Rows[0]["PhotoImage"]) + "' alt='" + Convert.ToString(dr["propnum"]) + " properties in" + Convert.ToString(dr["StateProvince"]) + "' title='" + Convert.ToString(dr["propnum"]) + " properties in" + Convert.ToString(dr["StateProvince"]) + "' /></div></a></li>";
             str_states += Convert.ToString(dr["StateProvince"]) + ", ";
             str_keyword += Convert.ToString(dr["StateProvince"]) + " " + country + ", ";
         }
