@@ -78,7 +78,12 @@
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
+         <div class="heding_box center">
 
+            <h2>
+                <asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
+
+        </div>
     <div class="srow">
         <div class="borerstep normalGroup">
             <div class="srow">
@@ -167,12 +172,7 @@
             </div>
         </div>
                   <%--right cities column edit--%>
-          <div class="heding_box center">
-
-            <h2>
-                <asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
-
-        </div>
+ 
 
 
         <div class="custm-content">
