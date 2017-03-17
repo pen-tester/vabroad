@@ -77,6 +77,9 @@
     .uploadtitle{
         font-size:14px; font-weight:bold;
     }
+    .normalgroup{
+        margin-top:10px;
+    }
   </style>
 </asp:Content>
 
@@ -254,10 +257,13 @@
     </div>
        <div class="srow">
            <div class="col-6">
-               <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LeiuBcUAAAAABl8pqeeYVr_M7DwF_b-CPzKo1eJ"></div>
+               
            </div>
            <div class="col-6">
-               <div class="srow marginTop centered">
+               <div class="srow center">
+                    <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LeiuBcUAAAAABl8pqeeYVr_M7DwF_b-CPzKo1eJ"></div>
+               </div>
+               <div class="srow normalgroup">
                    <input type="button" class="btnsigns" onclick="Submit()" value="Submit" />
                </div>
            </div>
