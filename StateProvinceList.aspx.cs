@@ -297,6 +297,7 @@ public partial class StateProvinceList : CommonPage
             }
         }
         catch (Exception ex) { lblInfo.Text = ex.Message; }
+        rtLow3.Text = "";
 
         DBConnection obj3 = new DBConnection();
         SqlDataReader reader = obj3.ExecuteRecordSetArtificial("SELECT Cities.* FROM Cities WHERE (Cities.StateProvinceID = " + stateprovinceid + ") " + "AND EXISTS ( SELECT * FROM Properties WHERE (Properties.IfFinished = 1) AND (Properties.IfApproved = 1) AND " + "(Properties.CityID = Cities.ID)  AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID)) ORDER " + "BY City");
