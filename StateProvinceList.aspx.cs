@@ -40,6 +40,7 @@ public partial class StateProvinceList : CommonPage
 
     protected DataSet ds_PTypeNum, ds_PropList;
     protected int[] sleeps = { 0, 0, 0, 0 };
+    protected int ptype=0,psleep=0;
 
     protected void Page_Load(object sender, System.EventArgs e)
     {
@@ -774,12 +775,13 @@ public partial class StateProvinceList : CommonPage
 
     protected void btnFilter_Click(object sender, EventArgs e)
     {
-        int ptype =int.Parse( Request["ptypes"]);
-        int psleep = int.Parse(Request["psleep"]);
+         ptype =int.Parse( Request["ptypes"]);
+         psleep = int.Parse(Request["psleep"]);
         List<SqlParameter> param = new List<SqlParameter>();
         param.Add(new SqlParameter("@stid", stateprovinceid));
   
         param.Add(new SqlParameter("@sleep", psleep));
+        param.Add(new SqlParameter("@ptype", ptype));
 
         ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", param);
    

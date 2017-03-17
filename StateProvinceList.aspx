@@ -94,16 +94,19 @@
                 <div class="col-11">
                     <%      int total_count = 0;
                         int rcount = ds_PTypeNum.Tables[0].Rows.Count;
+                         string dis_all =(ptype == 0 ) ? "checked='checked'" : "";
                         if (ds_PTypeNum.Tables[0].Rows.Count > 0)
                         {
+                           
                             for(int tid= 0; tid< rcount; tid++)
                             {
                                 string pcid = ds_PTypeNum.Tables[0].Rows[tid]["pcid"].ToString();
                                 string pctype = ds_PTypeNum.Tables[0].Rows[tid]["CategoryTypes"].ToString();
                                 int pnum = int.Parse( ds_PTypeNum.Tables[0].Rows[tid]["Num"].ToString());
                                 total_count += pnum;
+                                string str_chk = (ptype.ToString() == pcid) ? "checked='checked'" : "";
                                 %>
-                        <div class="radiogroup"> <input type="radio" value="<%=pcid %>" name="ptypes" /><%=pctype %> (<%=pnum %>)</div>                    <%
+                        <div class="radiogroup"> <input type="radio" value="<%=pcid %>" name="ptypes" <%=str_chk %>  /><%=pctype %> (<%=pnum %>)</div>                    <%
 
                                 
                             }
@@ -111,7 +114,7 @@
                         }
                         
                          %>
-                   <div class="radiogroup"> <input type="radio" value="0" name="ptypes"  checked="checked" />Dispay all (<%=total_count %>)</div>
+                   <div class="radiogroup"> <input type="radio" value="0" name="ptypes"  <%=dis_all %> />Dispay all (<%=total_count %>)</div>
 
                 </div>
             </div>
@@ -122,10 +125,11 @@
                    <label> Step 2:</label>
                 </div>
                 <div class="col-9">
-                    <div class="radiogroup"><input type="radio" value="1" name="psleep"/>Sleeps 1-4 (<%=sleeps[1] %>)</div>
-                    <div class="radiogroup"><input type="radio" value="2" name="psleep"/>Sleeps 5-8 (<%=sleeps[2] %>)</div>
-                    <div class="radiogroup"><input type="radio" value="3" name="psleep"/>Sleeps 9+ (<%=sleeps[3] %>)</div>
-                    <div class="radiogroup"><input type="radio" value="0" name="psleep" checked="checked" />Display All (<%=sleeps[0] %>)</div>
+                    <% string[] chk_sleep = { "", "", "", "" }; chk_sleep[psleep] = "checked='checked'"; %>
+                    <div class="radiogroup"><input type="radio" value="1" name="psleep" <%=chk_sleep[1] %>/>Sleeps 1-4 (<%=sleeps[1] %>)</div>
+                    <div class="radiogroup"><input type="radio" value="2" name="psleep" <%=chk_sleep[2] %>/>Sleeps 5-8 (<%=sleeps[2] %>)</div>
+                    <div class="radiogroup"><input type="radio" value="3" name="psleep" <%=chk_sleep[3] %>/>Sleeps 9+ (<%=sleeps[3] %>)</div>
+                    <div class="radiogroup"><input type="radio" value="0" name="psleep"  <%=chk_sleep[0] %>/>Display All (<%=sleeps[0] %>)</div>
                 </div>
                 <div class="col-2">
                     <div>
