@@ -403,11 +403,18 @@ public partial class StateProvinceList : CommonPage
             ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", sparam);
         }
 
+        if (IsPostBack)
+        {
+            ptype = int.Parse(Request["ptypes"]);
+            psleep = int.Parse(Request["psleep"]);
+        }
+
         for (int i=0; i < 4; i++)
         {
             param.Clear();
             param.Add(new SqlParameter("@stid", stateprovinceid));
             param.Add(new SqlParameter("@sleep", i));
+            param.Add(new SqlParameter("@ptype", ptype));
             DataSet ds_tmp = BookDBProvider.getDataSet("uspGetStatePropNumListbySleep",param);
             sleeps[i] = int.Parse(ds_tmp.Tables[0].Rows[0]["Num"].ToString());
         }
@@ -775,8 +782,7 @@ public partial class StateProvinceList : CommonPage
 
     protected void btnFilter_Click(object sender, EventArgs e)
     {
-         ptype =int.Parse( Request["ptypes"]);
-         psleep = int.Parse(Request["psleep"]);
+
         List<SqlParameter> param = new List<SqlParameter>();
         param.Add(new SqlParameter("@stid", stateprovinceid));
   
