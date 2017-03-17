@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,9 +22,38 @@ public partial class AddComments : System.Web.UI.Page
 
     public string fname, lname, email, phonenumber, comment, vmon, vyear;
     public int rate = 0, image_count = 0;
+    protected bool pass_recaptcha;
     protected void Page_Load(object sender, EventArgs e)
     {
-        Request.SaveAs(Server.MapPath("~/assets/ss.txt"),true);
+        //   Request.SaveAs(Server.MapPath("~/assets/ss.txt"),true);
+
+        pass_recaptcha = false;
+        if (IsPostBack)
+        {
+            string sec_key = "6LeiuBcUAAAAAPEGRRVqTcLsdO83GSnGetOwOfMM";
+            string g_url = "https://www.google.com/recaptcha/api/siteverify";
+            using (WebClient wc = new WebClient())
+            {
+                byte[] response =
+                wc.UploadValues(g_url, new NameValueCollection()
+                {
+                   { "secret", sec_key },
+                   { "response", Request["g-recaptcha-response"] }
+                });
+
+                string result = System.Text.Encoding.UTF8.GetString(response);
+                JObject json = JObject.Parse(result);
+                if (json["success"].ToString() != "True" || json["hostname"].ToString() != "www.vacations-abroad.com")
+                {
+                    // Response.Write(String.Format("{0} <<<<  {1}<<<< {2}", Request["g-recaptcha-response"], json["success"].ToString(), json["hostname"].ToString()));
+                    return;
+                }
+                pass_recaptcha = true;
+            }
+        }
+
+        if (!pass_recaptcha) return;
+
         propNum = Int32.Parse(Request.Form["propid"]);
         image_count = Int32.Parse(Request.Form["image_count"]);
         fname = Server.HtmlEncode(Request.Form["txtFName"]);
@@ -43,5 +75,16 @@ public partial class AddComments : System.Web.UI.Page
         }
         BookDBProvider.addImagecomment(propNum, newid, comments, imgname);
 
+        string msg_format = @"Dear Linda <br/>
+ {0} has commented to property {1} <br/>
+ Travel Date: {2} <br/>
+ Email: {3} <br/>
+ Phone: {4} <br/>
+ Comment: {5} <br/>
+ Rate: {6} <br/>";
+        string msg = String.Format(msg_format, String.Format("{0} {1}", fname, lname), propNum, String.Format("{0} {1}", vyear, vmon)
+            , email, phonenumber, comment, rate);
+
+        BookDBProvider.SendEmail("prop@vacations-abroad.com", "Comment Notification", msg);
     }
 }
