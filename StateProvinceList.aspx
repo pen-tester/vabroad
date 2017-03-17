@@ -148,6 +148,11 @@
                     int counts = ds_PropList.Tables[0].Rows.Count;
                     for (int rind = 0; rind < counts; rind++)
                     {
+                        if (rind != 0 && rind % 4 == 0)
+                        {
+                        %>
+                        </div>
+                  <%}
                         var vrow = ds_PropList.Tables[0].Rows[rind];
                         int vpropid = int.Parse(vrow["ID"].ToString());
                         string str_city = vrow["City"].ToString();
@@ -155,7 +160,11 @@
                         string str_country= vrow["Country"].ToString();
                         string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
                         string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
+                        if (rind % 4 == 0) {
                      %>
+                            <div class="srow normalGroup">
+                            
+                        <%} %>
                     <div class="col-3">
                         <div><a href="<%=city_url %>"><%=str_city %></a></div>
                         <div class="imgwrapper"><a href="<%=url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=vrow["Name2"] %>" title="<%=vrow["Name2"] %>"/></a></div>
@@ -165,7 +174,7 @@
 
                         </div>
                     </div>
-
+                    
 
                 <%} %>
             </div>
