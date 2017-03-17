@@ -776,7 +776,7 @@
                                 <%} %>
                                   <% if (ind_img % 3 == 0)
                                       {
-                                          unclosed = 0; %>  <div class="srow">
+                                          unclosed = 1; %>  <div class="srow">
                                 <%} %>
                                      <div class="col-4">
                                          <div class="srow">
