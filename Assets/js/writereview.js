@@ -85,6 +85,9 @@ function Submit() {
             
     viewloading();
     submit = 1;
+
+    console.log($('form').serialize());
+
     $.ajax({
         type: "POST",
         url: "/addcomments.aspx",
@@ -94,11 +97,13 @@ function Submit() {
             submitted = 1;
             console.log(data);
             viewdisplayMsg("Review Success");
+            grecaptcha.reset();
         },
         error: function (e) {
             submit = 0;
             console.log(e);
             viewdisplayMsg('Review Fail');
+            grecaptcha.reset();
         },
         timeout: 5000
     });
