@@ -28,8 +28,6 @@ public partial class AddComments : System.Web.UI.Page
         //   Request.SaveAs(Server.MapPath("~/assets/ss.txt"),true);
 
         pass_recaptcha = false;
-        if (IsPostBack)
-        {
             string sec_key = "6LeiuBcUAAAAAPEGRRVqTcLsdO83GSnGetOwOfMM";
             string g_url = "https://www.google.com/recaptcha/api/siteverify";
             using (WebClient wc = new WebClient())
@@ -50,7 +48,7 @@ public partial class AddComments : System.Web.UI.Page
                 }
                 pass_recaptcha = true;
             }
-        }
+
 
         if (!pass_recaptcha) return;
 
