@@ -6,6 +6,9 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Net;
+using System.Collections.Specialized;
+using Newtonsoft.Json.Linq;
 
 public partial class PropertyReview : CommonPage
 {
@@ -22,9 +25,37 @@ public partial class PropertyReview : CommonPage
 
     public string fname, lname, email, phonenumber, comment, vmon,vyear;
     public int rate=0, image_count=0;
+    public bool pass_recaptcha;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        pass_recaptcha = false;
+        if (IsPostBack)
+        {
+            string sec_key = "6LeiuBcUAAAAAPEGRRVqTcLsdO83GSnGetOwOfMM";
+            string g_url = "https://www.google.com/recaptcha/api/siteverify";
+            using (WebClient wc = new WebClient())
+            {
+                byte[] response =
+                wc.UploadValues(g_url, new NameValueCollection()
+                {
+                   { "secret", sec_key },
+                   { "response", Request["g-recaptcha-response"] }
+                });
+
+                string result = System.Text.Encoding.UTF8.GetString(response);
+                JObject json = JObject.Parse(result);
+                if (json["success"].ToString() != "True" || json["hostname"].ToString() != "www.vacations-abroad.com")
+                {
+                    // Response.Write(String.Format("{0} <<<<  {1}<<<< {2}", Request["g-recaptcha-response"], json["success"].ToString(), json["hostname"].ToString()));
+                    return;
+                }
+                pass_recaptcha = true;
+            }
+        }
+
+
         if (!IsPostBack)
         {
             DBConnection obj = new DBConnection();

@@ -252,10 +252,18 @@
             </div>
         </div>
     </div>
-       <div class="srow marginTop centered">
-           <input type="button" class="btnsigns" onclick="Submit()" value="Submit" />
+       <div class="srow">
+           <div class="col-6">
+               <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LeiuBcUAAAAABl8pqeeYVr_M7DwF_b-CPzKo1eJ"></div>
+           </div>
+           <div class="col-6">
+               <div class="srow marginTop centered">
+                   <input type="button" class="btnsigns" onclick="Submit()" value="Submit" />
+               </div>
+           </div>
        </div>
-   </div>
 
+   </div>
+    <script defer="defer" src='https://www.google.com/recaptcha/api.js'></script>
     <script defer="defer" src="/Assets/js/writereview.js"></script>
 </asp:Content>

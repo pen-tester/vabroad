@@ -8,6 +8,12 @@ function Validate() {
     if (rates == undefined) {
         str_error += "Please rate your overall stay. ";
         vValue = false;
+        return str_error;
+    }
+
+    if (robot == 0) {
+        str_error += "You have to confirm that you are not robot.";
+        return str_error;
     }
 
    vFName = $('#txtFName').val();
@@ -24,37 +30,43 @@ function Validate() {
     if (vFName== "") {
         str_error +='Please enter first name.';
         vValue = false;
+        return str_error;
     }
     if ((vLName == '') || (vLName== null)) {
         str_error += 'Please enter last name. \n';
         vValue = false;
+        return str_error;
     }
     if (vMonth == 0) {
         str_error += 'Please specify month.\n';
         vValue = false;
+        return str_error;
     }
     if (vYear == 0) {
         str_error += 'Please specify year.\n';
         vValue = false;
+        return str_error;
     }
     if (vComments == "") {
         str_error += 'Please enter comments.\n';
         vValue = false;
+        return str_error;
     }
     if (vEmail == "") {
         str_error += 'Please enter email address.\n';
         vValue = false;
+        return str_error;
     }
     if (vPhone == "") {
         str_error += 'Please enter phone number.\n';
         vValue = false;
+        return str_error;
     }
        //        else {
     //            return true;
     //        }
-    $('#lblInfo').text(str_error);
     console.log(str_error);
-    return vValue;
+    return str_error;
 }
 var submit = 0;
 var submitted=0;
@@ -64,8 +76,13 @@ function Submit() {
         viewdisplayMsg("You've already reviewed.");
         return;
     }
-    if (Validate() == false || submit == 1)
+    var resp = Validate();
+       
+    if (resp != "" || submit == 1) {
+        $('#lblInfo').text(resp);
             return;
+    }
+            
     viewloading();
     submit = 1;
     $.ajax({
@@ -187,4 +204,9 @@ function completeHandler(e) {
 function errorHandler(e) {
     viewdisplayMsg("image uploading fail");
     console.log(e);
+}
+
+var robot = 0;
+function recaptchaCallback() {
+    robot = 1;
 }
