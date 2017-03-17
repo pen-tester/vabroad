@@ -320,6 +320,7 @@ public partial class StateProvinceList : CommonPage
         if (dt.Rows.Count > 0)
         {
             rtCountiesHd.InnerHtml = stateprovince + " Counties";
+            divCitiesRt.Text = "";
             foreach (DataRow datarow in dt.Rows)
             {
                 if (datarow["county"] is string)
