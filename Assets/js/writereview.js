@@ -85,8 +85,9 @@ function Submit() {
             
     viewloading();
     submit = 1;
+    $('#lblInfo').text("");
+    // console.log($('form').serialize());
 
-    console.log($('form').serialize());
 
     $.ajax({
         type: "POST",
