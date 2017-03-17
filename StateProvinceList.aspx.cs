@@ -38,6 +38,9 @@ public partial class StateProvinceList : CommonPage
     protected DataSet MainDataSet = new DataSet();
     protected DataSet MainDataSetCountries = new DataSet();
 
+    protected DataSet ds_PTypeNum, ds_PropList;
+    protected int[] sleeps = { 0, 0, 0, 0 };
+
     protected void Page_Load(object sender, System.EventArgs e)
     {
         
@@ -345,7 +348,6 @@ public partial class StateProvinceList : CommonPage
         }        
         /////// common for postback and ! postback ////////
         string cities1 = "";
-        string citiesNew = "";
         foreach (DataRow dr in MainDataSet.Tables["Cities"].Rows)
         {
             string temp = CommonFunctions.GetSiteAddress() + "/" + country +
@@ -358,34 +360,10 @@ public partial class StateProvinceList : CommonPage
         }
 
         string str_cities = "";
-        int ind = 0;
-        // string cls = " class='borderright' ";
-        string cls = "border-right:1px solid #0094ff;";
-        string li = "";
 
-        foreach (DataRow dr in MainDataSet.Tables["Cities"].Rows)
-        {
-            string temp = "/" + country +
-                  "/" + stateprovince + "/" + dr["City"].ToString() + "/default.aspx";
-            temp = temp.ToLower();
-            temp = temp.Replace(' ', '_');
 
-            DataTable dt1 = new DataTable();
-            dt1 = obj.PropertiesByCase(vList, Convert.ToInt32(dr["id"]), "City");
-
-           // li = " style='" + ((ind > 4) ? "border-top:0px;" : "") + (((ind++ % 5) == 4) ? cls : "") + "'";
-
-            citiesNew += "<li" + li+">" +
-                "<a href='" + temp + "' class='StateTitle'>" + dr["City"].ToString() + "</a> <br/>" +
-                "<a href='" + temp + "'>" +
-                "<div class='drop-shadow effect4'><img width='160' height='125' src='/images/" + Convert.ToString(dt1.Rows[0]["PhotoImage"]) + "' alt='" + dr["City"].ToString() + " Vacation Rentals and Boutique Hotels in "+stateprovince+"' title='" + dr["City"].ToString() + " Vacation Rentals and Boutique Hotels in " + stateprovince + "' /></a></div>" +
-            "</li>";
-            str_cities += dr["City"].ToString() + ", ";
-        }
 
         if(str_cities.Length>1)str_cities = str_cities.Substring(0, str_cities.Length - 2);
-
-        ulManiGrid.InnerHtml = citiesNew;
 
         string tempcountry2 = CommonFunctions.GetSiteAddress() + "/" + country.ToLower().Replace(" ", "_") + "/"+stateprovince.ToLower().Replace(" ", "_") +
                                              "/default.aspx";
@@ -413,6 +391,28 @@ public partial class StateProvinceList : CommonPage
         description.Content = "Plan your next " + stateprovince + " vacation: where to stay and places to visit!";
 
         head.Controls.Add(description);*/
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@stid", stateprovinceid));
+        ds_PTypeNum = BookDBProvider.getDataSet("uspGetPropNumListbyState", param);
+
+        if (!IsPostBack)
+        {
+            List<SqlParameter> sparam = new List<SqlParameter>();
+            sparam.Add(new SqlParameter("@stid", stateprovinceid));
+            ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", sparam);
+        }
+
+        for (int i=0; i < 4; i++)
+        {
+            param.Clear();
+            param.Add(new SqlParameter("@stid", stateprovinceid));
+            param.Add(new SqlParameter("@sleep", i));
+            DataSet ds_tmp = BookDBProvider.getDataSet("uspGetStatePropNumListbySleep",param);
+            sleeps[i] = int.Parse(ds_tmp.Tables[0].Rows[0]["Num"].ToString());
+        }
+
+
+        
 
         Page page1 = (Page)HttpContext.Current.Handler;
 
@@ -770,5 +770,24 @@ public partial class StateProvinceList : CommonPage
                 dtCategory.ImportRow(dr);
             }
         }
+    }
+
+    protected void btnFilter_Click(object sender, EventArgs e)
+    {
+        int ptype =int.Parse( Request["ptypes"]);
+        int psleep = int.Parse(Request["psleep"]);
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@stid", stateprovinceid));
+  
+        param.Add(new SqlParameter("@sleep", psleep));
+
+        ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", param);
+   
+
+    }
+
+    protected void rdoBedrooms_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }

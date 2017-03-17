@@ -7,7 +7,9 @@
    <%=stateprovince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    
+    <style>
+        .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
+    </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
     <asp:Label ID="Title" runat="server" Visible="false" Text="%stateprovince% %country% Vacation Rentals, %stateprovince% Vacation Home Rentals, %stateprovince% Holiday Accommodation"></asp:Label>
@@ -77,8 +79,98 @@
                     </asp:SqlDataSource>
                 </div>
 
- 
-                    <%--right cities column edit--%>
+    <div class="srow">
+        <div class="borerstep normalGroup">
+            <div class="srow">
+              <div class="stepfont">
+                <div class="col-1">
+                   <label> Step 1:</label>
+                </div>
+                <div class="col-11">
+                    <%      int total_count = 0;
+                        int rcount = ds_PTypeNum.Tables[0].Rows.Count;
+                        if (ds_PTypeNum.Tables[0].Rows.Count > 0)
+                        {
+                            for(int tid= 0; tid< rcount; tid++)
+                            {
+                                string pcid = ds_PTypeNum.Tables[0].Rows[tid]["pcid"].ToString();
+                                string pctype = ds_PTypeNum.Tables[0].Rows[tid]["CategoryTypes"].ToString();
+                                int pnum = int.Parse( ds_PTypeNum.Tables[0].Rows[tid]["Num"].ToString());
+                                total_count += pnum;
+                                %>
+                        <div class="radiogroup"> <input type="radio" value="<%=pcid %>" name="ptypes" /><%=pctype %> (<%=pnum %>)</div>                    <%
+
+                                
+                            }
+
+                        }
+                        
+                         %>
+                   <div class="radiogroup"> <input type="radio" value="0" name="ptypes"  checked="checked" />Dispay all (<%=total_count %>)</div>
+
+                </div>
+            </div>
+             </div>
+            <div class="srow">
+            <div class="stepfont">
+                <div class="col-1">
+                   <label> Step 2:</label>
+                </div>
+                <div class="col-9">
+                    <div class="radiogroup"><input type="radio" value="1" name="psleep"/>Sleeps 1-4 (<%=sleeps[1] %>)</div>
+                    <div class="radiogroup"><input type="radio" value="2" name="psleep"/>Sleeps 5-8 (<%=sleeps[2] %>)</div>
+                    <div class="radiogroup"><input type="radio" value="3" name="psleep"/>Sleeps 9+ (<%=sleeps[3] %>)</div>
+                    <div class="radiogroup"><input type="radio" value="0" name="psleep" checked="checked" />Display All (<%=sleeps[0] %>)</div>
+                </div>
+                <div class="col-2">
+                    <div>
+                    <asp:Button ID="btnFilter" runat="server" Text="Search" Style="width: 117px !important;white-space: normal;white-space: normal;border-radius: 1em;
+                            color: white;font-family: arial; font-size: 12px;background: #154890;cursor:pointer;font-weight: bold;height: 26px;right: 6px;top: -22px;
+                                                                    
+                            width: 120px;box-shadow: 2px 2px 6px #154890;border: 1px solid #154890;"
+                        OnClick="btnFilter_Click" CausesValidation="False"/>
+                    </div>
+                </div>
+            </div>
+                </div>
+
+        </div>
+    </div>
+        <div class="srow">
+            <div class="center">
+            <ul id="ulManiGrid" class="stateful">
+                <%
+                    int counts = ds_PropList.Tables[0].Rows.Count;
+                    for (int rind = 0; rind < counts; rind++)
+                    {
+                        var vrow = ds_PropList.Tables[0].Rows[rind];
+                        int vpropid = int.Parse(vrow["ID"].ToString());
+                        string str_city = vrow["City"].ToString();
+                        string str_state= vrow["StateProvince"].ToString();
+                        string str_country= vrow["Country"].ToString();
+                        string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid);
+                        string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city);
+                     %>
+                <li>
+                    <div class="">
+                        <div><a href="<%=city_url %>"><%=str_city %></a></div>
+                        <div class="imgwrapper"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" /></div>
+                        <div><span class='scomments'><%=vrow["CategoryTypes"]%> Sleeps <%=vrow["NumSleeps"] %> </span> <br />
+                             <span class='scomments'>Rates <%=vrow["minNightRate"] %> - <%=vrow["HiNightRate"] %> <%=vrow["minRateCurrency"] %>
+                          </span>
+
+                        </div>
+                    </div>
+
+
+                </li>
+
+
+                <%} %>
+            </ul>
+            </div>
+        </div>
+                  <%--right cities column edit--%>
           <div class="heding_box center">
 
             <h2>
@@ -86,12 +178,7 @@
 
         </div>
 
-        <div class="srow">
-            <div class="center">
-            <ul id="ulManiGrid" class="stateful" runat="server">
-            </ul>
-            </div>
-        </div>
+
         <div class="custm-content">
 
             <div class="srow">
