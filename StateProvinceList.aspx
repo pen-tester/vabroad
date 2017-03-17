@@ -138,7 +138,7 @@
     </div>
         <div class="srow">
             <div class="center">
-            <ul id="ulManiGrid" class="stateful">
+            <div class="srow">
                 <%
                     int counts = ds_PropList.Tables[0].Rows.Count;
                     for (int rind = 0; rind < counts; rind++)
@@ -151,10 +151,9 @@
                         string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid);
                         string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city);
                      %>
-                <li>
-                    <div class="">
+                    <div class="col-3">
                         <div><a href="<%=city_url %>"><%=str_city %></a></div>
-                        <div class="imgwrapper"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" /></div>
+                        <div class="imgwrapper"><a href="<%=url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=vrow["pName"] %>" title="<%=vrow["pName"] %>"/></a></div>
                         <div><span class='scomments'><%=vrow["CategoryTypes"]%> Sleeps <%=vrow["NumSleeps"] %> </span> <br />
                              <span class='scomments'>Rates <%=vrow["minNightRate"] %> - <%=vrow["HiNightRate"] %> <%=vrow["minRateCurrency"] %>
                           </span>
@@ -163,11 +162,8 @@
                     </div>
 
 
-                </li>
-
-
                 <%} %>
-            </ul>
+            </div>
             </div>
         </div>
                   <%--right cities column edit--%>
