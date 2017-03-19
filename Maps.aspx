@@ -63,6 +63,18 @@
                     });
                 })(marker, data);
             }
+            google.maps.event.addListener(map, 'zoom_changed', function () {
+                zoomChangeBoundsListener =
+                    google.maps.event.addListener(map, 'bounds_changed', function (event) {
+                        if (this.getZoom() > 13 && this.initialZoom == true) {
+                            // Change max/min zoom here
+                            this.setZoom(13);
+                            this.initialZoom = false;
+                        }
+                        google.maps.event.removeListener(zoomChangeBoundsListener);
+                    });
+            });
+            map.initialZoom = true;
             map.fitBounds(bounds);
         }
     </script>
