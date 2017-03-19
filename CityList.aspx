@@ -141,25 +141,27 @@
                 <div class="page_hid" id="cpage<%=pg %>">
 
                          <%   int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
-                              for (int i = pg*20; i < maxitem; i++)
-                              {
-                                  //Response.Write(proplistset.propertyList.Count);break;
-                                  PropertyAmenityInfo propamen = proplistset.propertyList[i];
-                                  string propname = propamen.detail.PropertyName + " " + propamen.detail.NumBedrooms + " Bedroom " + propamen.detail.NumBaths + " BA Sleeps " + propamen.detail.NumSleeps;
-                                  // Rates:  79-169 EUR Per Night 2 nights Minimum 
-                                  string rates = "Rates: " + propamen.detail.MinNightRate + "-" + propamen.detail.HiNightRate + "  " + propamen.detail.MinRateCurrency + " Per Night. Minimum " + min_rentaltypes[propamen.detail.MinimumNightlyRentalID]+" Rental.";
-                                  string amenity = "Amenity:  ";
-                                  int am_count = propamen.amenity.Count;
-                                  string href = ("/" + propamen.detail.Country + "/" + propamen.detail.StateProvince + "/" + propamen.detail.City + "/" + propamen.detail.ID + "/default.aspx").ToLower().Replace(" ", "_");
-                                  // var alt = (propamen_typeval.indexOf(propamen.detail.Category) == -1) ? propamen.detail.City + " " + propamen.detail.NumBedrooms +" bedroom Vacation Rentals" : propamen.detail.City + " " + propamen.detail.NumBedrooms+" bedroom Boutique Hotels";
-                                  //var alt = (propamen_typeval.indexOf(propamen.detail.Category) == -1) ?"Rentals" : "Hotel";
-                                  //console.log(am_count);
-                                  string alt = (!property_typeval.Contains(propamen.detail.Category)) ? propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Vacation Rental" : propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Hotel";
-                                  for (int j = 0; j < am_count; j++)
-                                  {
-                                      amenity += (propamen.amenity[j].Amenity + ", ");
-                                  }
-                                  amenity = amenity.Substring(0, amenity.Length - 2);
+                             for (int i = pg*20; i < maxitem; i++)
+                             {
+                                 //Response.Write(proplistset.propertyList.Count);break;
+                                 PropertyAmenityInfo propamen = proplistset.propertyList[i];
+                                 string propname = propamen.detail.PropertyName + " " + propamen.detail.NumBedrooms + " Bedroom " + propamen.detail.NumBaths + " BA Sleeps " + propamen.detail.NumSleeps;
+                                 // Rates:  79-169 EUR Per Night 2 nights Minimum 
+                                 string rates = "Rates: " + propamen.detail.MinNightRate + "-" + propamen.detail.HiNightRate + "  " + propamen.detail.MinRateCurrency + " Per Night. Minimum " + min_rentaltypes[propamen.detail.MinimumNightlyRentalID]+" Rental.";
+                                 string amenity = "Amenity:  ";
+                                 int am_count = propamen.amenity.Count;
+                                 string href = ("/" + propamen.detail.Country + "/" + propamen.detail.StateProvince + "/" + propamen.detail.City + "/" + propamen.detail.ID + "/default.aspx").ToLower().Replace(" ", "_");
+                                 // var alt = (propamen_typeval.indexOf(propamen.detail.Category) == -1) ? propamen.detail.City + " " + propamen.detail.NumBedrooms +" bedroom Vacation Rentals" : propamen.detail.City + " " + propamen.detail.NumBedrooms+" bedroom Boutique Hotels";
+                                 //var alt = (propamen_typeval.indexOf(propamen.detail.Category) == -1) ?"Rentals" : "Hotel";
+                                 //console.log(am_count);
+                                 //string alt = (!property_typeval.Contains(propamen.detail.Category)) ? propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Vacation Rental" : propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Hotel";
+                                 string alt = propamen.detail.Name2;
+
+                                 for (int j = 0; j < am_count; j++)
+                                 {
+                                     amenity += (propamen.amenity[j].Amenity + ", ");
+                                 }
+                                 amenity = amenity.Substring(0, amenity.Length - 2);
 
 
 
