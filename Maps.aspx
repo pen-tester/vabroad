@@ -63,6 +63,21 @@
                     });
                 })(marker, data);
             }
+            if (markers.length == 1) {
+
+                google.maps.event.addListener(map, 'zoom_changed', function () {
+                    zoomChangeBoundsListener =
+                        google.maps.event.addListener(map, 'bounds_changed', function (event) {
+                            if (this.getZoom() > 9 && this.initialZoom == true) {
+                                // Change max/min zoom here
+                                this.setZoom(9);
+                                this.initialZoom = false;
+                            }
+                            google.maps.event.removeListener(zoomChangeBoundsListener);
+                        });
+                });
+                map.initialZoom = true;
+            }
             map.fitBounds(bounds);
         }
     </script>
