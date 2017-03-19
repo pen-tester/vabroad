@@ -9,6 +9,7 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
         .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
+                                      .mapsize{overflow:hidden;height:100%;width:100%;}
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
