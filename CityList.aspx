@@ -260,7 +260,7 @@
    
         </div>
                        <div class="row">
-         <div class="srow">
+         <div class="srow normalbottom">
              <ul class="citylist">
                  <li><%=countryinfo.StateProvince %> Cities: </li>
              <% int rcount = city_ds.Tables[0].Rows.Count;
@@ -273,7 +273,6 @@
                  <li><a href="<%=href %>"><%=txt+mark %></a></li>
               <%} %>
              </ul>
-             <br />
          </div> 
      </div>
 
