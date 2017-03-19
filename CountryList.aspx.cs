@@ -81,7 +81,7 @@ public partial class CountryList : CommonPage
                     "ORDER BY StateProvince", SqlDbType.Int);*/
         StateProvincesAdapter = CommonFunctions.PrepareAdapter(CommonFunctions.GetConnection(), "select cits.ID,cits.StateProvince, count(Properties.ID) as propnum from (select states.*, Cities.ID as cityid,Cities.City  from (select * from StateProvinces where CountryID=@CountryID) states join Cities on states.ID = Cities.StateProvinceID) cits"+
             " join Properties on Properties.CityID=cits.cityid and Properties.IfApproved=1 and Properties.IfFinished=1"
-            +" AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID)"+" group by  cits.ID,cits.StateProvince", SqlDbType.Int);
+            +" AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID)"+ " group by  cits.ID,cits.StateProvince order by cits.StateProvince ", SqlDbType.Int);
         // StateCodeInfo.Text = SqlDbType.Int.
         CitiesAdapter = CommonFunctions.PrepareAdapter(CommonFunctions.GetConnection(), String.Format(STR_SELECTCitiesFROMCitiesWHERECitiesStateProvinceID), SqlDbType.Int);
 
