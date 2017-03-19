@@ -38,7 +38,7 @@
             var bounds = new google.maps.LatLngBounds();
             var mapOptions = {
                 center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
-                zoom: 3,
+                zoom: 5,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
                 //  marker:true
             };
@@ -68,9 +68,9 @@
                 google.maps.event.addListener(map, 'zoom_changed', function () {
                     zoomChangeBoundsListener =
                         google.maps.event.addListener(map, 'bounds_changed', function (event) {
-                            if (this.getZoom() > 10 && this.initialZoom == true) {
+                            if (this.getZoom() > 7 && this.initialZoom == true) {
                                 // Change max/min zoom here
-                                this.setZoom(10);
+                                this.setZoom(7);
                                 this.initialZoom = false;
                             }
                             google.maps.event.removeListener(zoomChangeBoundsListener);
