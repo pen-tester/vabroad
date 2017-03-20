@@ -150,6 +150,7 @@
             <div class="center">
             <div class="srow">
                 <%
+
                     int counts = ds_PropList.Tables[0].Rows.Count;
                     for (int rind = 0; rind < counts; rind++)
                     {

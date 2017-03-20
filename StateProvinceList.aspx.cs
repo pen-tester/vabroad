@@ -398,12 +398,12 @@ public partial class StateProvinceList : CommonPage
         param.Add(new SqlParameter("@stid", stateprovinceid));
         ds_PTypeNum = BookDBProvider.getDataSet("uspGetPropNumListbyState", param);
 
-        if (!IsPostBack)
+ /*       if (!IsPostBack)
         {
             List<SqlParameter> sparam = new List<SqlParameter>();
             sparam.Add(new SqlParameter("@stid", stateprovinceid));
             ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", sparam);
-        }
+        }*/
 
         if (IsPostBack)
         {
