@@ -845,7 +845,7 @@
                 }
             }
 
-            // county page
+         /*   // county page
             Regex regexCounty = new Regex(@"([a-zA-Z_\- ]+)/Holiday-Rentals/([a-zA-Z0-9_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matchesCounty = regexCounty.Matches(oldpath);
             if (matchesCounty.Count > 0)
@@ -896,7 +896,7 @@
                     ProcessException(exc, null);
                 }
             }
-
+            */
 
 
             Regex regex5 = new Regex(@"(\d+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
