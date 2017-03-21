@@ -36,8 +36,8 @@ public partial class AddLocationInfo : System.Web.UI.Page
                     Response.Write(resp);
                     if (jobj["status"].ToString() == "OK")
                     {
-                        string latitude = jobj["results"]["geometry"]["location"]["lat"].ToString();
-                        string longtitude = jobj["results"]["geometry"]["location"]["lng"].ToString();
+                        string latitude = jobj["results"][0]["geometry"]["location"]["lat"].ToString();
+                        string longtitude = jobj["results"][0]["geometry"]["location"]["lng"].ToString();
                         List<SqlParameter> param = new List<SqlParameter>();
                         param.Add(new SqlParameter("@country", row["Country"]));
                         param.Add(new SqlParameter("@state", row["StateProvince"]));
