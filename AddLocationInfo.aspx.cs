@@ -23,23 +23,30 @@ public partial class AddLocationInfo : System.Web.UI.Page
         {
             DataRow row = ds_country.Tables[0].Rows[i];
             string url = "http://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}",row["City"], row["Country"]) + "&sensor=false";
+          //  Response.Write(url);
+            if (i > 10) break;
             WebRequest request = WebRequest.Create(url);
             using (WebResponse response = request.GetResponse())
             {
                 using (var reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
                 {
+
                     string resp = reader.ReadToEnd();
                     JObject jobj = JObject.Parse(resp);
-                    string latitude = jobj["geometry"]["location"]["lat"].ToString();
-                    string longtitude = jobj["geometry"]["location"]["lng"].ToString();
-                    List<SqlParameter> param = new List<SqlParameter>();
-                    param.Add(new SqlParameter("@country", row["Country"]));
-                    param.Add(new SqlParameter("@state", row["StateProvince"]));
-                    param.Add(new SqlParameter("@city", row["City"]));
-                    param.Add(new SqlParameter("@lat", latitude));
-                    param.Add(new SqlParameter("@lng", longtitude));
-                    BookDBProvider.getDataSet("uspAddLatLong", param);
                     Response.Write(resp);
+                    if (jobj["status"].ToString() == "OK")
+                    {
+                        string latitude = jobj["geometry"]["location"]["lat"].ToString();
+                        string longtitude = jobj["geometry"]["location"]["lng"].ToString();
+                        List<SqlParameter> param = new List<SqlParameter>();
+                        param.Add(new SqlParameter("@country", row["Country"]));
+                        param.Add(new SqlParameter("@state", row["StateProvince"]));
+                        param.Add(new SqlParameter("@city", row["City"]));
+                        param.Add(new SqlParameter("@lat", latitude));
+                        param.Add(new SqlParameter("@lng", longtitude));
+                        BookDBProvider.getDataSet("uspAddLatLong", param);
+                    }
+                    
                 }
             }
         }
