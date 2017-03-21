@@ -8,6 +8,12 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Net;
+using System.IO;
+using System.Text;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 public partial class Locations : AdminPage
 {
@@ -397,6 +403,8 @@ public partial class Locations : AdminPage
         RegionsAdapter.Update(RegionsSet);
 
         Finish();
+    
+
     }
 
     protected void CountryRename_Click(object sender, System.EventArgs e)
@@ -416,6 +424,15 @@ public partial class Locations : AdminPage
         CountriesAdapter.Update(CountriesSet);
 
         Finish();
+
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@country", CountryName.Text));
+        param.Add(new SqlParameter("@state", StateList.Text));
+        param.Add(new SqlParameter("@city", CityList.Text));
+        param.Add(new SqlParameter("@ocount", CountryList.Text));
+        param.Add(new SqlParameter("@ostate", StateList.Text));
+        param.Add(new SqlParameter("@ocity", CityList.Text));
+        BookDBProvider.getDataSet("uspUpdateLatLong", param);
     }
 
     protected void StateRename_Click(object sender, System.EventArgs e)
@@ -435,6 +452,14 @@ public partial class Locations : AdminPage
         StateProvincesAdapter.Update(StateProvincesSet);
 
         Finish();
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@country", CountryList.Text));
+        param.Add(new SqlParameter("@state", StateName.Text));
+        param.Add(new SqlParameter("@city", CityList.Text));
+        param.Add(new SqlParameter("@ocount", CountryList.Text));
+        param.Add(new SqlParameter("@ostate", StateList.Text));
+        param.Add(new SqlParameter("@ocity", CityList.Text));
+        BookDBProvider.getDataSet("uspUpdateLatLong", param);
     }
 
     protected void CityRename_Click(object sender, System.EventArgs e)
@@ -454,6 +479,14 @@ public partial class Locations : AdminPage
         CitiesAdapter.Update(CitiesSet);
 
         Finish();
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@country", CountryList.Text));
+        param.Add(new SqlParameter("@state", StateName.Text));
+        param.Add(new SqlParameter("@city", CityName.Text));
+        param.Add(new SqlParameter("@ocount", CountryList.Text));
+        param.Add(new SqlParameter("@ostate", StateList.Text));
+        param.Add(new SqlParameter("@ocity", CityList.Text));
+        BookDBProvider.getDataSet("uspUpdateLatLong", param);
     }
 
     protected void RegionDelete_Click(object sender, System.EventArgs e)
@@ -663,6 +696,26 @@ public partial class Locations : AdminPage
             CitiesAdapter.Update(CitiesSet);
 
             Finish();
+
+            string url = "http://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}", NewCity.Text, CountryList.Text)  + "&sensor=false";
+            WebRequest request = WebRequest.Create(url);
+            using (WebResponse response = request.GetResponse())
+            {
+                using (var reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
+                {
+                    string resp = reader.ReadToEnd();
+                    JObject jobj = JObject.Parse(resp);
+                    string latitude = jobj["geometry"]["location"]["lat"].ToString();
+                    string longtitude= jobj["geometry"]["location"]["lng"].ToString();
+                    List<SqlParameter> param = new List<SqlParameter>();
+                    param.Add(new SqlParameter("@country", CountryList.Text));
+                    param.Add(new SqlParameter("@state", StateList.Text));
+                    param.Add(new SqlParameter("@city", NewCity.Text));
+                    param.Add(new SqlParameter("@lat", latitude));
+                    param.Add(new SqlParameter("@lng", longtitude));
+                    BookDBProvider.getDataSet("uspAddLatLong", param);
+                }
+            }
         }
         catch (Exception)
         {
