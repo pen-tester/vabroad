@@ -39,6 +39,7 @@ public partial class AddLocationInfo : System.Web.UI.Page
                     param.Add(new SqlParameter("@lat", latitude));
                     param.Add(new SqlParameter("@lng", longtitude));
                     BookDBProvider.getDataSet("uspAddLatLong", param);
+                    Response.Write(resp);
                 }
             }
         }
