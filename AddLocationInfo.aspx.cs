@@ -15,7 +15,7 @@ public partial class AddLocationInfo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        DataSet ds_country = BookDBProvider.getDataSet("uspGetCityWithNoLocationList", new List<SqlParameter>());
+        DataSet ds_country = BookDBProvider.getDataSet("uspGetCityWithNoLoctionList", new List<SqlParameter>());
 
         int count = ds_country.Tables[0].Rows.Count;
 
