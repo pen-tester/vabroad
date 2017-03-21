@@ -24,7 +24,7 @@ public partial class AddLocationInfo : System.Web.UI.Page
             DataRow row = ds_country.Tables[0].Rows[i];
             string url = "http://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}",row["City"], row["Country"]) + "&sensor=false";
           //  Response.Write(url);
-            if (i > 10) break;
+          //  if (i > 10) break;
             WebRequest request = WebRequest.Create(url);
             using (WebResponse response = request.GetResponse())
             {
