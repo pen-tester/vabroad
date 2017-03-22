@@ -481,7 +481,7 @@ public partial class Locations : AdminPage
         Finish();
         List<SqlParameter> param = new List<SqlParameter>();
         param.Add(new SqlParameter("@country", CountryList.Text));
-        param.Add(new SqlParameter("@state", StateName.Text));
+        param.Add(new SqlParameter("@state", StateList.Text));
         param.Add(new SqlParameter("@city", CityName.Text));
         param.Add(new SqlParameter("@ocount", CountryList.Text));
         param.Add(new SqlParameter("@ostate", StateList.Text));
