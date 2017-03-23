@@ -11,7 +11,7 @@
     <asp:ContentPlaceHolder id="links" runat="server">
     </asp:ContentPlaceHolder>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+    <meta name="google-site-verification" content="gHjc1Nj34JXxlr205WvfAtsrV_nkopl6S_YpbQyj3gY" />
             
        <!-- <link href="/Assets/css/navigation.css" rel="stylesheet" />-->
  <style>
