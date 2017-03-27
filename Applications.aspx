@@ -99,6 +99,7 @@
         
     
     </div>
+    <script src="/Assets/js/footerpage.js" defer="defer"></script>
 </asp:Content>
 
 

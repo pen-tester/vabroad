@@ -239,4 +239,5 @@
     </div>
     <script defer="defer" src='https://www.google.com/recaptcha/api.js'></script>
     <script src="/assets/js/contacts.js" defer="defer"></script>
+        <script src="/Assets/js/footerpage.js" defer="defer"></script>
 </asp:Content>

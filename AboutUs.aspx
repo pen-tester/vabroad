@@ -76,4 +76,5 @@
         </div>
           <img class="back_img" src="/Assets/img/about.jpg" />
     </div>
+        <script src="/Assets/js/footerpage.js" defer="defer"></script>
 </asp:Content>
