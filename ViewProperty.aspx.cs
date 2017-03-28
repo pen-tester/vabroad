@@ -1350,7 +1350,7 @@ Contact telephone:{8} <br>";*/
 					{8} of nights <br/>
 					# of Guests:  {9} Adults, {10} children <br/>
 					Renter's Name: {11}<br/>
-                    Phone Number:{13}
+                    Phone Number:{13} <br/>
 					Comments:{12}        		
         		</td>
         	</tr>
