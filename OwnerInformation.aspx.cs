@@ -261,7 +261,7 @@ public partial class OwnerInformation : ClosedPage
             catch (Exception ex) { lblInfo.Text = ex.Message; }
             finally { obj.CloseConnection(); }
 
-		Response.Redirect (CommonFunctions.PrepareURL("/userowner/listings.aspx"));
+		Response.Redirect ("/userowner/listings.aspx?userid="+userid);
 	}
 
 	protected void CancelButton_Click (object sender, System.EventArgs e)
