@@ -1350,6 +1350,8 @@ Contact telephone:{8} <br>";*/
 					{8} of nights <br/>
 					# of Guests:  {9} Adults, {10} children <br/>
 					Renter's Name: {11}<br/>
+                    Traveler's Name: {14} <br/>
+                    Traveler's Email: {15} <br/>
                     Phone Number:{13} <br/>
 					Comments:{12}        		
         		</td>
@@ -1372,7 +1374,7 @@ Contact telephone:{8} <br>";*/
   </table>
 </body>
  ";
-                string adminmsg = String.Format(adminmsg_format, DateTime.Now.ToString("MMM d, yyyy"), ownerinfo.firstname, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children, contactname, comment, phone);
+                string adminmsg = String.Format(adminmsg_format, DateTime.Now.ToString("MMM d, yyyy"), ownerinfo.firstname, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children, contactname, comment, phone, contactname, contactemail);
                 BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}", ownerinfo.name, url), adminmsg);
 
                 BookDBProvider.sendEmailToTraveler(contactname, contactemail,contactname, contactemail, arrivedate, nights, adults, children, comment, phone, propinfo.Name);
