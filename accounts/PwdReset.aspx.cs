@@ -46,6 +46,7 @@ public partial class accounts_PwdReset : System.Web.UI.Page
             param.Add(new SqlParameter("@salt", salt));
             param.Add(new SqlParameter("@repeat", repeats));
             param.Add(new SqlParameter("@hash", pwdhash));
+            param.Add(new SqlParameter("@link", uid));
 
             BookDBProvider.getDataSet("uspUpdateUserPwd", param);
 
