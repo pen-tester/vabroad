@@ -97,6 +97,10 @@
                     </div>
                     <asp:Button ID="btn_signin" ValidationGroup="signining" runat="server" class="btnLogin" Text="Sign In" OnClick="btn_signin_Click" />
                 </div>
+                   <div class="srow center">
+                       <a href="/accounts/reset.aspx" >Forgot your password?</a>
+                   </div>
+
                 </div>
  
 
