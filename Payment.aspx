@@ -144,7 +144,7 @@
                 </div>
                 <div class="srow top_formrow">
                     Adjusted Rental Price:<label id="cou_rental_price" class="pricebox"><%=BookDBProvider.DoFormat(_total) %></label>
-                    <input type="hidden" id="hid_total" value="<%=_total %>" />
+                    <input type="hidden" id="hid_total" value="<%=BookDBProvider.DoFormat(_total) %>" />
                     <input type="hidden" id="hid_sum" value="<%=_total_sum %>" />
                     <input type="hidden" id="hid_balance" value="<%=_balance %>" />
                 </div>
