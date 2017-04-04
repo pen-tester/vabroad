@@ -57,14 +57,18 @@ function processPropertyData(response) {
 
 
     if (cur_date >= sdate && cur_date <= edate) {
-
-        var rent_total = sum * (100 - discount) / 100 + balance;
+        var discounted_reserve = sum * (100 - discount) / 100;
+        var rent_total = discounted_reserve + balance;
         //  console.log(discount + " "+rent_total);
         $('#cou_discount').text(discount+"%");
         var ss_rent = rent_total.toString();
         var ind = ss_rent.indexOf('.');
         if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.') + 3));
         else $('#cou_rental_price').text(ss_rent + ".00");
+        
+        var tind = discounted_reserve.toString().indexOf('.');
+        if (tind != -1) $('#totalsum').text(discounted_reserve.toString().substring(0, ss_rent.indexOf('.') + 3));
+        else $('#totalsum').text(discounted_reserve + ".00");
     }
 }
 
