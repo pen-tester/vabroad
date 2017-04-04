@@ -70,5 +70,10 @@ function processPropertyData(response) {
         if (tind != -1) $('#totalsum').text(discounted_reserve.toString().substring(0, ss_rent.indexOf('.') + 3));
         else $('#totalsum').text(discounted_reserve + ".00");
     }
+    else {
+        $('#cou_discount').text('0%');
+        $('#cou_rental_price').text($('#hid_total').val());
+        $('#totalsum').text($('#hid_total').val());
+    }
 }
 
