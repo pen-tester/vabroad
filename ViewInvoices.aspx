@@ -14,7 +14,7 @@
                     <td>
                         <div align="center">
                             <strong>
-                                <asp:HyperLink ID="Hyperlink1" runat="server" NavigateUrl="MyAccount.aspx">
+                                <asp:HyperLink ID="Hyperlink1" runat="server" NavigateUrl="/userowner/listings.aspx?userid=<%=userid %>">
 							        My Account
                                 </asp:HyperLink>
                             </strong>
