@@ -295,7 +295,7 @@
                         <div class="tab-pane  <%=cssclass_tabs[2]%> tabback" id="tab3">
                             <div class="srow">
                                           <div class="srow center groupMargin">
-                                            <asp:Button ID="Button1" CssClass="btnBlue" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="btnBlue" runat="server" Text="List A Tour" />
+                                            <asp:Button ID="Button1" CssClass="btnBlue" runat="server" Text="List A Property" OnClick="ListProperty_Click" />
                                         </div>
                                         <div class="srow center">
                                             <asp:Button ID="Button3"  CssClass="btnBlue" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
