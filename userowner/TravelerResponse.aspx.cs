@@ -173,6 +173,7 @@ public partial class userowner_TravelerResponse : ClosedPage
     protected void sendcomments_Click(object sender, EventArgs e)
     {
         string comments = Request["comments"];
+        Response.Write(comments);
         if (comments != "") return;
 
         int newrespid = 0;
