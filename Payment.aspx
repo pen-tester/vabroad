@@ -140,7 +140,7 @@
                     Total Rental Price:<label class="pricebox"><%=BookDBProvider.DoFormat(_total) %></label>
                 </div>
                 <div class="srow top_formrow">
-                    Coupon Discount For Rental:<label id="cou_discount" class="pricebox">0</label>
+                    Coupon Discount For Rental:<label id="cou_discount" class="pricebox">0%</label>
                 </div>
                 <div class="srow top_formrow">
                     Adjusted Rental Price:<label id="cou_rental_price" class="pricebox"><%=BookDBProvider.DoFormat(_total) %></label>
