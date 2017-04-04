@@ -50,7 +50,7 @@ $(document).ready(function () {
     });
     $('#sendcomment').click(function (e) {
         console.log("send comment");
-        if ($('#comments').text() != "") $('#sendcomments').click();
+        if ($('#comments').text() != "") { console.log("click send comment"); $('#sendcomments').click(); }
         else showdlg("Please add comment for unavaility of the property.");
     });
     $('#comments').text("");
