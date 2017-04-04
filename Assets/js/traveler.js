@@ -49,7 +49,7 @@ $(document).ready(function () {
         $('#optform' + sel_val).show();
     });
     $('#sendcomment').click(function (e) {
-        console.log("send comment");
+        console.log($('#comments').val());
         if ($('#comments').val() != "") { console.log("click send comment"); $('#sendcomments').click(); }
         else showdlg("Please add comment for unavaility of the property.");
     });
