@@ -173,8 +173,8 @@ public partial class userowner_TravelerResponse : ClosedPage
     protected void sendcomments_Click(object sender, EventArgs e)
     {
         string comments = Request["comments"];
-        Response.Write(comments);
-        if (comments != "") return;
+      //  Response.Write(comments);
+        if (comments == "") return;
 
         int newrespid = 0;
         int _currency = Convert.ToInt32(currency.SelectedValue);
