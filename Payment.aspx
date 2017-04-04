@@ -34,6 +34,7 @@
                                   .btnsendquote:active{padding-top:4px;}
         .fullwidth{width:90%;}
         .margindown{margin-bottom:10px;}
+        .pricebox{width:80px; display:inline-block; text-align:right;}
     </style>
 </asp:Content>
 
@@ -130,19 +131,19 @@
             </div>
             <div class="srow text-right normalMargintop">
                <div class="srow">
-                    Amount Due to Reserve Property: <%=BookDBProvider.DoFormat(_total_sum) %>
+                    Amount Due to Reserve Property:<label class="pricebox"> <%=BookDBProvider.DoFormat(_total_sum) %></label>
                 </div>
                 <div class="srow">
-                    Amount Due to Owner upon Arrival:<%=BookDBProvider.DoFormat(_balance) %>
+                    Amount Due to Owner upon Arrival:<label class="pricebox"><%=BookDBProvider.DoFormat(_balance) %></label>
                 </div>
                 <div class="srow top_formrow">
-                    Total Rental Price:<%=BookDBProvider.DoFormat(_total) %>
+                    Total Rental Price:<label class="pricebox"><%=BookDBProvider.DoFormat(_total) %></label>
                 </div>
                 <div class="srow top_formrow">
-                    Coupon Discount For Rental:<label id="cou_discount">0</label>%
+                    Coupon Discount For Rental:<label id="cou_discount" class="pricebox">0</label>%
                 </div>
                 <div class="srow top_formrow">
-                    Adjusted Rental Price:<label id="cou_rental_price"><%=BookDBProvider.DoFormat(_total) %></label>
+                    Adjusted Rental Price:<label id="cou_rental_price" class="pricebox"><%=BookDBProvider.DoFormat(_total) %></label>
                     <input type="hidden" id="hid_total" value="<%=_total %>" />
                     <input type="hidden" id="hid_sum" value="<%=_total_sum %>" />
                     <input type="hidden" id="hid_balance" value="<%=_balance %>" />
