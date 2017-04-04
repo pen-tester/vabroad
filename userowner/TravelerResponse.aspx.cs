@@ -178,7 +178,7 @@ public partial class userowner_TravelerResponse : ClosedPage
         int newrespid = 0;
         int _currency = Convert.ToInt32(currency.SelectedValue);
 
-        if ((newrespid = BookDBProvider.addEmailResponse(inquiryinfo.PropertyOwnerID, inquiryinfo.UserID, quoteid, 0, 0, 0, 0, 0, 0, 0, DateTime.Now, 0, _currency, comment.InnerText)) > 0)
+        if ((newrespid = BookDBProvider.addEmailResponse(inquiryinfo.PropertyOwnerID, inquiryinfo.UserID, quoteid, 0, 0, 0, 0, 0, 0, 0, DateTime.Now, -1, _currency, comment.InnerText)) > 0)
         {
 
             BookDBProvider.updateEmailQuoteState(quoteid);

@@ -147,7 +147,7 @@
                                              <%} else { 
                                                     
                                                      %>
-                                                <td><a href="travelerresponse.aspx?quoteid=<%=row["ID"] %>">Respond</a></td>
+                                                <td><a class="bookinglink" href="travelerresponse.aspx?quoteid=<%=row["ID"] %>">Respond</a></td>
 
                                              <%} %>
 
