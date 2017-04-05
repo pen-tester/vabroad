@@ -35,7 +35,7 @@
 }
 
 .formborder{
-    margin-top:15px;
+    margin:15px auto;
     border:3px solid #e1d4c0;
     border-radius:3px;
     background-color:#fff;
@@ -235,6 +235,7 @@ ul {
     .commentbox{
         width:90%; height:140px;
     }
+    .form-grouppadding{padding:10px 0px;}
     </style>
 </asp:Content>
 
@@ -270,7 +271,7 @@ ul {
                             <label id="arrivaldate" class="normalval"><%=inquiryinfo.ArrivalDate %> </label>
                           </div>
                     </div>
-                    <div class="srow">
+                    <div class="srow form-grouppadding">
                         Is your property available?
                         <select id="opt_prop">
                             <option selected="selected" value="0">Yes</option>

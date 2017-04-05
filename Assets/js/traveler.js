@@ -42,7 +42,7 @@ $(document).ready(function () {
     $('#optform1').hide();
 
     $('#opt_prop').change(function () {
-        console.log("select changed");
+       // console.log("select changed");
         var sel_val = $(this).val();
         console.log(sel_val);
         $('#optform1').hide(); $('#optform0').hide();
