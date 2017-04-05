@@ -232,9 +232,9 @@ ul {
                                   .btnsendquote:active{padding-top:4px;}
 @media only screen and (max-width:600px){
     .respformpadding{padding:5px;}
-    .margintop{margin-top:10px;} 
 }
 .pricebox{width:80px; display:inline-block; text-align:right;}
+.margintop{margin-top:10px;} 
 </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
