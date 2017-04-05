@@ -307,26 +307,7 @@ ul {
                           <label class="normalval pricebox" id="Label2" runat="server"> <%=BookDBProvider.DoFormat(email_resp.SecurityDeposit) %></label>
                          </div>
                     </div>
-                    <div class="srow">
-                        <div class="col-4">
-                        </div>
-                        <div class="col-4 col-x-2">
-                            Discount:
-                        </div>
-                        <div class="col-4 col-x-2">
-                             <label class="normalval pricebox" id="cou_discount"></label>
-                        </div>
-                    </div>
-                    <div class="srow">
-                        <div class="col-4">
-                        </div>
-                        <div class="col-4 col-x-2">
-                            Adjusted Rental Price:
-                        </div>
-                        <div class="col-4 col-x-2">
-                            <label class="normalval pricebox" id="cou_rental_price"></label>
-                        </div>
-                    </div>
+    
                     <div class="srow">
                         <div class="col-4 col-x-2">
                             <label class="normaltxt">Lodging Tax</label>
@@ -351,7 +332,26 @@ ul {
                             <input type="hidden" id="hid_balance" value="<%=_balance %>"/>
                         </div>
                     </div>
-
+                <div class="srow">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4 col-x-2">
+                            Discount:
+                        </div>
+                        <div class="col-4 col-x-2">
+                             <label class="normalval pricebox" id="cou_discount"></label>
+                        </div>
+                    </div>
+                    <div class="srow">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4 col-x-2">
+                            Adjusted Rental Price:
+                        </div>
+                        <div class="col-4 col-x-2">
+                            <label class="normalval pricebox" id="cou_rental_price"></label>
+                        </div>
+                    </div>
                     <div class="srow margintop">
                         <div class="col-6">
                             If you have a coupon, enter it here

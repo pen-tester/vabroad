@@ -45,7 +45,7 @@ function processPropertyData(response) {
     var sum = parseFloat($('#hid_sum').val());
 
     if (couponitem.CID == 0) {
-        $('#cou_discount').text('0');
+        $('#cou_discount').text('0%');
         $('#cou_rental_price').text(total);
         return;
     }
@@ -60,7 +60,7 @@ function processPropertyData(response) {
 
         var rent_total = sum * (100 - discount) / 100 + balance;
         //  console.log(discount + " "+rent_total);
-        $('#cou_discount').text(discount);
+        $('#cou_discount').text(discount+"%");
         var ss_rent = rent_total.toString();
         var ind = ss_rent.indexOf('.');
         if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.') + 3));
