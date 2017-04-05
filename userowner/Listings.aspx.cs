@@ -16,6 +16,7 @@ public partial class userowner_Listing : ClosedPage
     // public DataSet owner_response_set, traveler_response_set;
     // public DataSet owner_book_set, traveler_book_set;
     public DataSet owner_ds, traveler_ds;
+    public string[] cssclass_tabs = { "", "", "" };
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!AuthenticationManager.IfAuthenticated) FormsAuthentication.SignOut();
@@ -34,17 +35,31 @@ public partial class userowner_Listing : ClosedPage
 
         owner_ds = BookDBProvider.getDataSet("uspGetOwnerResponseList", param);
         //For Traveller
-        param.Clear();
+     /*   param.Clear();
         SqlParameter pemail = new SqlParameter("@email", SqlDbType.NVarChar, 500);
         pemail.Value = userinfo.Email;
         param.Add(pemail);
 
         traveler_ds = BookDBProvider.getDataSet("uspGetTravelerResponseList", param);
 
-
+    */
         property_set = BookDBProvider.getPropertySet(userid);
         propertylist.DataSource = property_set;
         propertylist.DataBind();
+
+        if (owner_ds.Tables[0].Rows.Count != 0) cssclass_tabs[0] = "active";
+        else
+        {
+            cssclass_tabs[0] = "hidden";
+            if (property_set.Tables[0].Rows.Count == 0)
+            {
+                cssclass_tabs[1] = "hidden";
+                cssclass_tabs[2] = "active";
+            }
+            else cssclass_tabs[1] = "active";
+        }
+
+        //Displaying the tabs 
     }
 
     protected void ListProperty_Click(object sender, EventArgs e)
