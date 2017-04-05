@@ -22,6 +22,8 @@ function processPropertyData(response) {
     var couponitem = response.d;
 
     var total = parseFloat($('#hid_total').val());
+    var balance = parseFloat($('#hid_balance').val());
+    var sum = parseFloat($('#hid_sum').val());
 
     if (couponitem.CID == 0) {
         $('#cou_discount').text('0');
@@ -37,7 +39,7 @@ function processPropertyData(response) {
 
     if (cur_date >= sdate && cur_date <= edate) {
         
-        var rent_total = total * (100 - discount) / 100;
+        var rent_total = sum * (100 - discount) / 100 + balance;
       //  console.log(discount + " "+rent_total);
         $('#cou_discount').text(discount);
         var ss_rent = rent_total.toString();

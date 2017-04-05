@@ -75,7 +75,7 @@ public partial class userowner_Payment : CommonPage
                 DateTime now = DateTime.Now;
                 if (DateTime.Compare(s_date, now) <= 0 && DateTime.Compare(now, e_date) <= 0)
                 {
-                    _total = _total * (100 - discount) / 100;
+                    _total = _total_sum * (100 - discount) / 100 + _balance;
                     custom = coupon;
                 }
 

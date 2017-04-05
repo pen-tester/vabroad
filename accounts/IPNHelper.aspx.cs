@@ -103,7 +103,7 @@ public partial class accounts_IPNHelper : System.Web.UI.Page
             {
                 if (!int.TryParse(ds_coupon.Tables[0].Rows[0]["Discount"].ToString(), out discount)) discount = 0;
 
-                _total = _total * (100 - discount) / 100;
+                _total = _total_sum * (100 - discount) / 100 + _balance;
 
             }
         }
