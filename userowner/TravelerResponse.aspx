@@ -268,7 +268,7 @@ ul {
                     <div class="srow">
                           <div class="form-group">
                             <label for="arrivaldate" class="normaltxt">Arrival Date</label>
-                            <label id="arrivaldate" class="normalval"><%=DateTime.Parse(inquiryinfo.ArrivalDate).ToString("yyyy, MM d") %> </label>
+                            <label id="arrivaldate" class="normalval"><%=DateTime.Parse(inquiryinfo.ArrivalDate).ToString("MMMM d, yyyy") %> </label>
                           </div>
                           <div class="form-group">
                             <label  class="normalval"><%=inquiryinfo.Adults %> of Adults and <%=inquiryinfo.Children %>  of Children</label>
@@ -277,14 +277,16 @@ ul {
                             <label class="normalval"><%=inquiryinfo.Nights %> of Nights Requested </label>
                           </div>
                     </div>
-                    <div class="srow form-grouppadding center" id="questions">
-                        Is your property available?
-                        <div class="center">
-                            <input type="button" id="showResp" value="Yes" class="btnsendquote"/>&nbsp;
-                            <input type="button" id="hideResp" value="No" class="btnsendquote"/>
+                    <div id="questions">
+                        <div class="srow form-grouppadding center">
+                            Is your property available?
+                            <div class="center">
+                                <input type="button" id="showResp" value="Yes" class="btnsendquote"/>&nbsp;
+                                <input type="button" id="hideResp" value="No" class="btnsendquote"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="srow" id="optform1">
+                    <div id="optform1">
                         <div class="srow">
                             <textarea id="comments" name="comments" class="normalval commentbox">
 
@@ -295,7 +297,7 @@ ul {
                             <asp:Button ID="sendcomments" ClientIDMode="Static" CssClass="page_hid" runat="server" OnClick="sendcomments_Click"/>
                         </div>
                     </div>
-                    <div class="srow" id="optform0">
+                    <div id="optform0">
                        <div class="srow">
                             <div class="col-4">
 
@@ -406,7 +408,7 @@ ul {
 
                         <div class="srow top_formrow">
                             This offer is valid for <input type="text"  id="validnumber" name="validnumber" runat="server" class="normalval smallwidth" /> days from <%=cur.ToString("MM/dd/yyyy") %>.<br />
-                            30 days prior to renter’s arrival; the funds are transferred to the property owner.
+                            10 days prior to renter’s arrival; the funds are transferred to the property owner.
 
                         </div>
                         <div class="srow top_formrow">
