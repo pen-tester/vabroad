@@ -1217,20 +1217,7 @@ public partial class ViewProperty : CommonPage
             //adding sending email to emailquote table.
             if(BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment,phone,userid,  propertyid, ownerid, nights))
             {
-                //Send Email to owner
-                /*string ownermsg_format = @"Dear {0} <br><br>
-To respond to this inquiry click here:<a href='https://www.vacations-abroad.com/userowner/listings.aspx'>{1}</a> <br>
-You have received an inquiry through the vacations-abroad.com website for property '{2}' ({3}). <br.
-This is the URL: <br>
-<a href='{4}'>{4}</a> <br>
-Has been inquired about by IP Address:{5} <br>
-{6} ({7}, contact telephone: {8}). <br>
-Inquiry data: <br>
-Arrival date:{9} <br>
-Length of Stay:{10} <br>
-Number of adults:{11} <br>
-Number of children:{12} <br>
-Contact telephone:{8} <br>";*/
+                
                 string ownermsg_format = @"<body>
   <style>
   </style>
@@ -1304,6 +1291,74 @@ Contact telephone:{8} <br>";*/
 
 
                 BookDBProvider.SendEmail(ownerinfo.email,String.Format("{0} {1},Reservation for {2}",  ownerinfo.firstname,ownerinfo.lastname, arrivedate) , msg);
+
+
+                //Sending email to traveler
+                string travelermsg_format = @"<body>
+  <table border='0px' width='600px'>
+    <tr>
+      <td>
+         <table  style='width:600px;'>
+         	<tr>
+         	  <td style='color:#000;font-size:16pt;width:300px;font-family: Verdana;'>
+         	  	<b>Vacations Abroad</b>
+         	  </td>
+         	  <td style='color:#000;font-size:10pt;width:300px;text-align: right;font-family: Verdana;'>
+         	    {0}
+         	  </td>
+         	</tr>
+         </table>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;font-family: Verdana;'>
+         <b>Dear {1}: Thanks for your inquiry!<b>
+      </td>
+    </tr>
+    <tr>
+      <td style='padding:5px 0px;font-size:12pt;font-family: Verdana;'>
+        This is a copy of the inquiry you sent to <a href='{2}'>property {3}</a>-  listed on Vacations-Abroad.com
+      </td>
+    </tr>
+    <tr>
+      <td style='text-align: center;padding: 10px 0px;'>
+        <a href='{4}' download='vacations.jpg'><img src='{4}' style='width:350px;height: 220px;' width='350' height='220' /></a>
+      </td>
+    </tr>
+    <tr>
+    	<td style='text-align: center;font-size:10pt;font-family: Verdana;'>
+    	   {5} Name: {6}
+    	</td>
+    </tr>
+    <tr>
+      <td style='padding: 10px;'>
+        <table style='border:1px dashed #000;width:600px;font-size:12pt;'>
+            <tr><td>Details of Your Inquiry:</td></tr>
+        	<tr>
+        		<td style='padding:10px;font-family: Verdana;'>
+                    Name: {7} <br/>
+                    Email: {8} <br/>
+					Date of Arrival: {9} <br/>
+					# of nights: {10} <br/>
+					# of Guests:  {11} Adults, {12} children <br/>
+					Telephone: {13}<br/>
+					Comments:{14}        		
+        		</td>
+        	</tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style='text-align: center;'>
+        <a href='https://www.vacations-abroad.com/images/elogo.jpg' download='vacations.jpg'><img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' width='240' height='100'/></a>      
+      </td>
+    </tr>
+  </table>
+</body>
+ ";
+
+                string traveler_msg = String.Format(travelermsg_format, DateTime.Now.ToString("MMM d, yyyy"), contactname, url, propinfo.ID, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.CategoryTypes , propinfo.Name2, contactname,contactemail, arrivedate, nights, adults, children,  comment);
+                BookDBProvider.SendEmail(contactemail, String.Format("You've sent an inquiry for property {0} : Vacations-abroad.com", propinfo.ID), traveler_msg);
 
 
                 // BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has received an inquiry for {1}",ownerinfo.name,url), admin_msg);
