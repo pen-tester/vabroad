@@ -298,10 +298,7 @@ ul {
                     <div class="srow" id="optform0">
                        <div class="srow">
                             <div class="col-4">
-                              <div class="form-group">
-                                <label for="nights" class="normaltxt"># of Nights Requested</label><br />
-                                <label id="nights" class="normalval"><%=inquiryinfo.Nights %></label>
-                              </div>
+
                             </div>
                             <div class="col-4">
                               <div class="form-group">

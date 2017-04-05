@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     $('#showResp').click(function () {
         $('#questions').hide();
-        $('#optform0' ).show();
+        $('#optform0').show();
     });
     $('#disResp').click(function () {
         $('#questions').hide();
