@@ -74,7 +74,7 @@ function processPropertyData(response) {
     }
     else {
         $('#cou_discount').text('0%');
-        $('#cou_rental_price').text($('#hid_total').val());
+        $('#cou_rental_price').text($('#sumprice').val());
         $('#discounted_price').text("-0.00");
     }
 }
