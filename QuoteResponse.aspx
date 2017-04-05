@@ -234,7 +234,7 @@ ul {
     .respformpadding{padding:5px;}
     .margintop{margin-top:10px;} 
 }
-.pricebox{width:150px; display:inline-block; text-align:right;}
+.pricebox{width:80px; display:inline-block; text-align:right;}
 </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
