@@ -39,13 +39,20 @@ $(document).ready(function () {
         calculateValue();
     });
     
-    $('#optform1').hide(); $('#optform0').hide();
+    $('#optform0').hide();
+    $('#optform1').hide();
 
-    $('#showResp').click(function () {
+    $('#showResp').click(function (e) {
+        console.log("show disp");
+        $('#optform0').hide();
+        $('#optform1').hide();
         $('#questions').hide();
         $('#optform0').show();
     });
-    $('#disResp').click(function () {
+    $('#disResp').click(function (e) {
+        console.log("don't show disp");
+        $('#optform0').hide();
+        $('#optform1').hide();
         $('#questions').hide();
         $('#optform1').show();
     });
