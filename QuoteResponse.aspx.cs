@@ -44,6 +44,7 @@ public partial class userowner_TravelerResponse : Page
         _total_sum = email_resp.NightRate;
         _lodgingval = _total_sum * email_resp.LoadingTax / 100;
         _balance = _lodgingval + email_resp.CleaningFee + email_resp.SecurityDeposit;
+        _total = _total_sum + _balance;
 
         url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", countryinfo.country, countryinfo.state, countryinfo.city, inquiryinfo.PropertyID);
     }
