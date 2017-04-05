@@ -232,8 +232,9 @@ ul {
                                   .btnsendquote:active{padding-top:4px;}
 @media only screen and (max-width:600px){
     .respformpadding{padding:5px;}
-    .margintop{margin-top:10px;} .pricebox{width:150px; display:inline-block; text-align:right;}
+    .margintop{margin-top:10px;} 
 }
+.pricebox{width:150px; display:inline-block; text-align:right;}
 </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
@@ -349,7 +350,7 @@ ul {
                             Adjusted Rental Price:
                         </div>
                         <div class="col-4 col-x-2">
-                            <label class="normalval pricebox" id="cou_rental_price"></label>
+                            <label class="normalval pricebox" id="cou_rental_price"><%=BookDBProvider.DoFormat(_total_sum) %></label>
                         </div>
                     </div>
                     <div class="srow margintop">
