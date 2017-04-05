@@ -328,7 +328,7 @@ ul {
                         </div>
                         <div class="col-4 col-x-2">
                             <label class="normalval pricebox" id="Label4" runat="server"> <%=BookDBProvider.DoFormat(_balance) %></label>
-                            <input type="hidden" id="hid_total" value="<%=_total %>"/>
+                            <input type="hidden" id="hid_total" value="<%=BookDBProvider.DoFormat(_total) %>"/>
                             <input type="hidden" id="hid_sum" value="<%=_total_sum %>"/>
                             <input type="hidden" id="hid_balance" value="<%=_balance %>"/>
                         </div>
