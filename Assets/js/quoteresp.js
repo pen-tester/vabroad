@@ -46,7 +46,7 @@ function processPropertyData(response) {
 
     if (couponitem.CID == 0) {
         $('#cou_discount').text('0%');
-        $('#cou_rental_price').text(total);
+        $('#cou_rental_price').text($('#hid_total').val());
         return;
     }
 
