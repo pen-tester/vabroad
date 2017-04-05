@@ -268,15 +268,22 @@ ul {
                     <div class="srow">
                           <div class="form-group">
                             <label for="arrivaldate" class="normaltxt">Arrival Date</label>
-                            <label id="arrivaldate" class="normalval"><%=inquiryinfo.ArrivalDate %> </label>
+                            <label id="arrivaldate" class="normalval"><%=DateTime.Parse(inquiryinfo.ArrivalDate).ToString("yyyy, MM d") %> </label>
+                          </div>
+                          <div class="form-group">
+                            <label  class="normalval"><%=inquiryinfo.Adults %> of Adults and <%=inquiryinfo.Children %>  of Children</label>
+                          </div>
+                          <div class="form-group">
+                            <label for="arrivaldate" class="normaltxt">Arrival Date</label>
+                            <label class="normalval"><%=inquiryinfo.Nights %> of Nights Requested </label>
                           </div>
                     </div>
-                    <div class="srow form-grouppadding">
+                    <div class="srow form-grouppadding center" id="questions">
                         Is your property available?
-                        <select id="opt_prop">
-                            <option selected="selected" value="0">Yes</option>
-                            <option value="1">No</option>
-                        </select>
+                        <div class="center">
+                            <input type="button" id="showResp" value="Yes" class="btnsendquote"/>&nbsp;
+                            <input type="button" id="hideResp" value="No" class="btnsendquote"/>
+                        </div>
                     </div>
                     <div class="srow" id="optform1">
                         <div class="srow">
