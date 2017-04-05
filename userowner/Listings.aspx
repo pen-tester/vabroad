@@ -6,7 +6,7 @@
      <style>
        ul.nav li{display:inline-block; } ul.nav{z-index:10}
        .nav>li>a:focus, .nav>li>a:hover{text-decoration:none; background-color:#eee;}
-       .nav>li>a{cursor:pointer;background-color:#f3ede3;padding:10px 15px; border-radius:0px; box-shadow:inset 0px -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4); color:#767171;}
+       .nav>li>a{cursor:pointer;background-color:#f3ede3;padding:10px 15px; border-radius:0px; box-shadow:inset 0px -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4); }
        .nav>li.active >a, .nav>li.active>a:hover{background:#fff;border-bottom-color:transparent;box-shadow:inset 0 0 0 0 rgba(0,0,0,.4),-2px -3px 5px -2px rgba(0,0,0,.4); }
        .tab-pane.active{display:block;} .tab-pane{display:none;}
        .tabs-content{display:block;background-color:transparent;padding:0;margin-top:-4px;}
