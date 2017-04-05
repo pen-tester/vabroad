@@ -35,6 +35,7 @@
         .fullwidth{width:90%;}
         .margindown{margin-bottom:10px;}
         .pricebox{width:80px; display:inline-block; text-align:right;}
+        .redcolor{color:#ff0000;}
     </style>
 </asp:Content>
 
@@ -130,24 +131,24 @@
                 </table>
             </div>
             <div class="srow text-right normalMargintop">
+                <div class="srow top_formrow">
+                    Coupon Discount:<label id="cou_discount" class="pricebox">0%</label><label id="discounted_price" class="pricebox redcolor">-0.00</label>
+                </div>
                <div class="srow">
-                    Amount Due to Reserve Property:<label class="pricebox"> <%=BookDBProvider.DoFormat(_total_sum) %></label>
+                    Amount Due to Reserve Property:<label class="pricebox" id="rental_price"> <%=BookDBProvider.DoFormat(_total_sum) %></label>
+                   <input type="hidden" id="totalsum" value="<%=BookDBProvider.DoFormat(_total_sum) %>" />
                 </div>
                 <div class="srow">
                     Amount Due to Owner upon Arrival:<label class="pricebox"><%=BookDBProvider.DoFormat(_balance) %></label>
                 </div>
                 <div class="srow top_formrow">
-                    Total Rental Price:<label class="pricebox"><%=BookDBProvider.DoFormat(_total) %></label>
-                </div>
-                <div class="srow top_formrow">
-                    Coupon Discount For Rental:<label id="cou_discount" class="pricebox">0%</label>
-                </div>
-                <div class="srow top_formrow">
-                    Adjusted Rental Price:<label id="cou_rental_price" class="pricebox"><%=BookDBProvider.DoFormat(_total) %></label>
+                    Total Rental Price:<label class="pricebox"  id="cou_rental_price" ><%=BookDBProvider.DoFormat(_total) %></label>
                     <input type="hidden" id="hid_total" value="<%=BookDBProvider.DoFormat(_total) %>" />
                     <input type="hidden" id="hid_sum" value="<%=_total_sum %>" />
                     <input type="hidden" id="hid_balance" value="<%=_balance %>" />
+
                 </div>
+
             </div>
             <div class="srow normalMargintop">
                 <div class="col-4">

@@ -65,11 +65,11 @@ function processPropertyData(response) {
         $('#cou_discount').text(discount+"%");
         var ss_rent = discounted_reserve.toString();
         var ind = ss_rent.indexOf('.');
-        if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.') + 3));
+        if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ind + 3));
         else $('#cou_rental_price').text(ss_rent + ".00");
         
         var tind = discounted_price.toString().indexOf('.');
-        if (tind != -1) $('#discounted_price').text("-"+discounted_price.toString().substring(0, ss_rent.indexOf('.') + 3));
+        if (tind != -1) $('#discounted_price').text("-" + discounted_price.toString().substring(0, tind + 3));
         else $('#discounted_price').text("-"+discounted_price + ".00");
     }
     else {
