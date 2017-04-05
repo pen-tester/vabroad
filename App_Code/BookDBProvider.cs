@@ -873,60 +873,6 @@ You have received an inquiry through the vacations-abroad.com website for proper
          return true;
      }
 
-     public static bool sendEmailToTraveler(string ownername, string owneremail, string name, string email, string arrive, int nights, int adults, int child, string comment, string telephone, string propname)
-     {
-         Regex regex = new Regex("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-
-         // SmtpClient smtpclient = new SmtpClient(ConfigurationManager.AppSettings["SMTPServer"],
-         //   int.Parse(ConfigurationManager.AppSettings["SMTPPort"]));
-          SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
-
-          //MailMessage message = new MailMessage (IfShowContactInfo () ?
-          //    ContactEmail.Text : "ar@" + CommonFunctions.GetDomainName (), (string)PropertiesFullSet.Tables["Properties"].Rows[0]["Email"]);
-          // MailMessage message = new MailMessage("prop@vacations-abroad.com", (string)PropertiesFullSet.Tables["Properties"].Rows[0]["Email"]);
-
-          string mailbody = "Dear {0}! <br>Thanks for visiting our vacation abroad.<br> This is an inquiry for the property {1} on vacation-abroad.com.<br>" +
-              "Deatiled inquiry:<br>"
-              + "UserName:{2}<br> UserEmail:{3} <br> ArrivalDate:{4} <br> Nights:{5}<br> Adults:{6} Children:{7}<br>Telephone:{8} Comment:{9}<br>";
-
-          string emailbody = String.Format(mailbody, ownername, propname, name, email, arrive, nights, adults, child, telephone, comment);
-
-         // MailMessage message = new MailMessage(regex.Match(EmailAddress.Text).Success ?
-         //   EmailAddress.Text : "admin@" + CommonFunctions.GetDomainName(), ConfigurationManager.AppSettings["NewOwnerEmail"]);
-         // MailMessage message = new MailMessage(new MailAddress("noreply@vacations-abroad.com"), new MailAddress( owneremail));
-         MailMessage message = new MailMessage("noreply@vacations-abroad.com", owneremail);
-         message.Subject = "You've sent the inquiry on vacation abroad";
-          message.Body = emailbody;
-          message.IsBodyHtml = true;
-
-          message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
-        //message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
-        smtpclient.UseDefaultCredentials = false;
-        smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString());
-         //smtpclient.UseDefaultCredentials = false;
-
-         try
-         {
-             smtpclient.Send(message);
-         }
-         catch (Exception ex)
-         {
-             //  throw ex;
-             return false;
-         }
-         /*SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
-
-         MailMessage message = new MailMessage(new MailAddress("noreply@" + CommonFunctions.GetDomainName()), new MailAddress( owneremail));
-         message.Subject = "test";
-         message.Body = "dear , this is the test";
-         message.IsBodyHtml = false;
-
-         message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
-         message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
-         smtpclient.Credentials = new System.Net.NetworkCredential("noreply@vacations-abroad.com", System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString());
-         smtpclient.Send(message);*/
-        return true;
-    }
 
     public static int getUsrIDbyProperty(int propid)
     {
