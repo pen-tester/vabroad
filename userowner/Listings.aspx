@@ -104,10 +104,13 @@
             <div id="exTab3">	
                     <ul  class="nav">
 		                <li class="active lblFor">
-                            <a  class="btntab" data-target="tab1">Property Owner</a>
+                            <a  class="btntab" data-target="tab1">My Inquiries</a>
 		                </li>
 		                <li class="lblFor">
-                            <a class="btntab" data-target="tab2">Traveler</a>
+                            <a class="btntab" data-target="tab2">My Properties</a>
+		                </li>
+		                <li class="lblFor">
+                            <a class="btntab" data-target="tab3">List A Property</a>
 		                </li>
 	                 </ul>
                     <div class="clearfix"></div>
@@ -231,19 +234,15 @@
                         </div>  
                             </div>
                             <div class="clear"></div>
+
+			            </div>
+			            <div class="tab-pane tabback" id="tab2">
                           <div class="newline">
                                     <div class="srow center">
                                         MY PROPERTIES
                                     </div>
                                     
-                                        <div class="srow center groupMargin">
-                                            <asp:Button ID="Button1" CssClass="btnBlue" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="btnBlue" runat="server" Text="List A Tour" />
-                                        </div>
-                                        <div class="srow center">
-                                            <asp:Button ID="Button3"  CssClass="btnBlue" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
-                                        </div>
-
-                                        <div class="srow">
+                                       <div class="srow">
                                             <table>
                                                 <thead>
                                                     <tr>
@@ -288,116 +287,17 @@
                                             </table>
 
                                         </div>
-                                    
-
-
-
                                 </div>
-                        
-            
-            
-
+           
 			            </div>
-			            <div class="tab-pane tabback" id="tab2">
+                        <div class="tab-pane tabback" id="tab3">
                             <div class="srow">
-                          <div class="col-4">
-                            <div class="newline center">
-                                 Current Request for a Quote
-                            </div>
-                            <div class="newline tablepanel">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Date of Arrival</th>
-                                            <th>Response Status</th>
-                                        </tr>
-                                     </thead>
-                                    <tbody>
-                                        <% count = traveler_ds.Tables[0].Rows.Count;
-                                            for (int o_ind = 0; o_ind < count; o_ind++)
-                                            {
-                                                var row = traveler_ds.Tables[0].Rows[o_ind];
-                                                int resp = 0;
-                                                if (!Int32.TryParse(row["IfReplied"].ToString(), out resp)) resp = 0;
-                                                %>
-                                                <tr>
-                                                    <td>Property <%=row["PropertyID"] %></td>
-                                                     <td><%=row["ArrivalDate"] %></td>
-                                                     <% if (resp == 1)
-                                                         { %>
-                                                       <td>Responded</td>
-                                                    <%}else { %>
-                                                        <td>Not Responded</td>
-                                                    <%} %>
-                                                </tr>
-                                        <%} %>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="newline center">
-                                 Current Quote Submitted
-                            </div>
-                            <div class="srow tablepanel">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Date Submitted Quote</th>
-                                            <th>Link To Quote</th>
-                                        </tr>
-                                     </thead>
-                                    <tbody>
-                                        <%  
-                                            for (int o_ind = 0; o_ind < count; o_ind++)
-                                            {
-                                                var row = traveler_ds.Tables[0].Rows[o_ind];
-                                                int resp = 0,quote=0;
-                                                if (!Int32.TryParse(row["IfReplied"].ToString(), out resp)) resp = 0;
-                                                if (!Int32.TryParse(row["IsQuoted"].ToString(), out quote)) quote = 0;
-                                                %>
-                                                <tr>
-                                                    <% if (resp == 1)
-                                                             { %>
-                                                         <td><%=DateTime.Parse(row["SentTime"].ToString()).ToString("MMM d, yyyy") %></td>
-                                                         <% if (quote == 1)
-                                                                 { %>
-                                                           <td>Paid</td>
-                                                        <%}
-                                                                 else
-                                                                 { %>
-                                                            <td><a href="/quoteresponse.aspx?respid=<%=AjaxProvider.Base64Encode(row["MID"].ToString()) %>">Book Now</a></td>
-                                                        <%} %>
-                                                    <%}else { %>
-                                                        <td></td><td></td>
-                                                    <%} %>
-                                                </tr>
-                                        <%} %>                                   
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="newline center">
-                                 Quote Accepted
-                            </div>
-                            <div class="newline tablepanel">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Date of Arrival</th>
-                                            <th>State To Booking</th>
-                                        </tr>
-                                     </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>    
+                                          <div class="srow center groupMargin">
+                                            <asp:Button ID="Button1" CssClass="btnBlue" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="btnBlue" runat="server" Text="List A Tour" />
+                                        </div>
+                                        <div class="srow center">
+                                            <asp:Button ID="Button3"  CssClass="btnBlue" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
+                                        </div>
                             </div>
            
 			            </div>
