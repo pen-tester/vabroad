@@ -58,7 +58,7 @@
                 You have agreed the following terms.
             </div>
             <div class="srow normalMargintop">
-                <div class="col-6">
+                <div class="col-6 page_hid">
                     <div class="borderpane srow">
                         <div class="col-2 centered">
                             Owner:
