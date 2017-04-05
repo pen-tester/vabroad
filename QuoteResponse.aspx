@@ -280,7 +280,7 @@ ul {
                     <div class="srow top_formrow">
                          <div class="col-4"></div>
                         <div class="col-4 col-x-2">
-                            <label class="normaltxt">Total Due to Reserve</label>
+                            <label class="normaltxt">Total Cost</label>
                         </div>
 
                         <div class="col-4 col-x-2">
@@ -296,6 +296,16 @@ ul {
                         </div>
                         <div class="col-4 col-x-2">
                              <label class="normalval pricebox redcolor" id="discounted_price"></label>
+                        </div>
+                    </div>
+                    <div class="srow">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4 col-x-2">
+                            Adjusted Rental Price:
+                        </div>
+                        <div class="col-4 col-x-2">
+                            <label class="normalval pricebox" id="cou_rental_price"><%=BookDBProvider.DoFormat(_total) %></label>
                         </div>
                     </div>
                     <div class="srow top_formrow">
@@ -344,16 +354,7 @@ ul {
                         </div>
                     </div>
 
-                    <div class="srow">
-                        <div class="col-4">
-                        </div>
-                        <div class="col-4 col-x-2">
-                            Adjusted Rental Price:
-                        </div>
-                        <div class="col-4 col-x-2">
-                            <label class="normalval pricebox" id="cou_rental_price"><%=BookDBProvider.DoFormat(_total) %></label>
-                        </div>
-                    </div>
+
                     <div class="srow margintop">
                         <div class="col-6">
                             If you have a coupon, enter it here

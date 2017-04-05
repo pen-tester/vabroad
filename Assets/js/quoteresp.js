@@ -62,7 +62,7 @@ function processPropertyData(response) {
         var rent_total = discounted_reserve + balance;
         //  console.log(discount + " "+rent_total);
         $('#cou_discount').text(discount+"%");
-        var ss_rent = rent_total.toString();
+        var ss_rent = discounted_reserve.toString();
         var ind = ss_rent.indexOf('.');
         if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.') + 3));
         else $('#cou_rental_price').text(ss_rent + ".00");
