@@ -1357,7 +1357,7 @@ public partial class ViewProperty : CommonPage
 </body>
  ";
 
-                string traveler_msg = String.Format(travelermsg_format, DateTime.Now.ToString("MMM d, yyyy"), contactname, url, propinfo.ID, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.CategoryTypes , propinfo.Name2, contactname,contactemail, arrivedate, nights, adults, children,  comment);
+                string traveler_msg = String.Format(travelermsg_format, DateTime.Now.ToString("MMM d, yyyy"), contactname, url, propinfo.ID, "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.CategoryTypes , propinfo.Name2, contactname,contactemail, arrivedate, nights, adults, children,phone,  comment);
                 BookDBProvider.SendEmail(contactemail, String.Format("You've sent an inquiry for property {0} : Vacations-abroad.com", propinfo.ID), traveler_msg);
 
 
