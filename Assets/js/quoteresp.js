@@ -58,6 +58,7 @@ function processPropertyData(response) {
 
     if (cur_date >= sdate && cur_date <= edate) {
         var discounted_reserve = sum * (100 - discount) / 100;
+        var discounted_price = sum * discount / 100;
         var rent_total = discounted_reserve + balance;
         //  console.log(discount + " "+rent_total);
         $('#cou_discount').text(discount+"%");
@@ -66,14 +67,14 @@ function processPropertyData(response) {
         if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.') + 3));
         else $('#cou_rental_price').text(ss_rent + ".00");
         
-        var tind = discounted_reserve.toString().indexOf('.');
-        if (tind != -1) $('#totalsum').text(discounted_reserve.toString().substring(0, ss_rent.indexOf('.') + 3));
-        else $('#totalsum').text(discounted_reserve + ".00");
+        var tind = discounted_price.toString().indexOf('.');
+        if (tind != -1) $('#discounted_price').text("-"+discounted_price.toString().substring(0, ss_rent.indexOf('.') + 3));
+        else $('#discounted_price').text("-"+discounted_price + ".00");
     }
     else {
         $('#cou_discount').text('0%');
         $('#cou_rental_price').text($('#hid_total').val());
-        $('#totalsum').text($('#sumprice').val());
+        $('#discounted_price').text("-0.00");
     }
 }
 

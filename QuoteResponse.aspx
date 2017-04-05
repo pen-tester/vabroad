@@ -234,7 +234,7 @@ ul {
     .respformpadding{padding:5px;}
 }
 .pricebox{width:80px; display:inline-block; text-align:right;}
-.margintop{margin-top:10px;} 
+.margintop{margin-top:10px;} .redcolor{color:#ff0000;}
 </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
@@ -292,10 +292,10 @@ ul {
                         <div class="col-4">
                         </div>
                         <div class="col-4 col-x-2">
-                            Discount:
+                            Discount:<label class="normalval pricebox" id="cou_discount"></label>
                         </div>
                         <div class="col-4 col-x-2">
-                             <label class="normalval pricebox" id="cou_discount"></label>
+                             <label class="normalval pricebox redcolor" id="discounted_price"></label>
                         </div>
                     </div>
                     <div class="srow top_formrow">
