@@ -43,6 +43,6 @@ function processPropertyData(response) {
         var ss_rent = rent_total.toString();
         var ind = ss_rent.indexOf('.');
         if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.') + 3));
-        $('#cou_rental_price').text(ss_rent+".00");
+        else $('#cou_rental_price').text(ss_rent+".00");
     }
 }
