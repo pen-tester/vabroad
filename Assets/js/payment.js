@@ -1,21 +1,26 @@
 ﻿
 $(document).ready(function () {
     console.log("doc ready");
+    calcDiscount();
     $('#coupon').blur(function (e) {
-        var coupon = $(this).val();
-        $.ajax({
-            type: "POST",
-            url: "/ajaxhelper.aspx/getcouponitem",
-            data: '{coupon:"' +coupon + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: processPropertyData,
-            failure: function (response) {
-                console.log(response.d);
-            }
-        });
+        calcDiscount();
     });
 });
+
+function calcDiscount() {
+    var coupon = $(this).val();
+    $.ajax({
+        type: "POST",
+        url: "/ajaxhelper.aspx/getcouponitem",
+        data: '{coupon:"' + coupon + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: processPropertyData,
+        failure: function (response) {
+            console.log(response.d);
+        }
+    });
+}
 
 function processPropertyData(response) {
   //  console.log(response.d);

@@ -33,6 +33,7 @@
  .btnsendquote{cursor:pointer; padding:5px; border-radius:5px;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890}
                                   .btnsendquote:active{padding-top:4px;}
         .fullwidth{width:90%;}
+        .margindown{margin-bottom:10px;}
     </style>
 </asp:Content>
 
@@ -157,7 +158,7 @@
             </div>
         </div>
 
-        <div class="srow">
+        <div class="srow margindown">
             <div class="col-4">
                 <div id="pay_form">
 
@@ -168,7 +169,7 @@
                 </div>
             </div>
         </div>
-    
+        
 
     </div>
     </div>

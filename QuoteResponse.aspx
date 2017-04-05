@@ -329,6 +329,15 @@ ul {
                         </div>
                     </div>
 
+                    <div class="srow normalMargintop">
+                        <div class="col-4">
+                            If you have a coupon, enter it here
+                        </div>
+                        <div class="col-4">
+                            <input type="text" class="fullwidth" id="coupon" name="coupon" />
+                        </div>
+                    </div>
+
                     <div class="srow top_formrow">
                         <label class="normaltxt">Cancellation policy</label>
                     </div>
