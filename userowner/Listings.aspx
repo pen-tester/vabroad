@@ -52,6 +52,7 @@
         .table td,th{height:35px;}
         .btntab{font-size:12pt;font-family:Verdana;color:#ff6600;}
         .active .btntab{color:#154890;}
+        .orangecolor{font-family:Verdana;color:#ff6600;}
    </style>
 </asp:Content>
 
@@ -74,21 +75,21 @@
             <div class ="col-2 listingpadding">
                 <div class ="srow">
                     <strong>
-                    <a href='<%= CommonFunctions.PrepareURL ("OwnerInformation.aspx?UserID=" + userid.ToString ()) %>'>
+                    <a href='<%= CommonFunctions.PrepareURL ("OwnerInformation.aspx?UserID=" + userid.ToString ()) %>' class="orangecolor">
 							Contact Details
 					</a>
                     </strong>
                 </div>
                 <div class ="srow">
                     <strong>
-						<a href='<%= CommonFunctions.PrepareURL ("AccountInformation.aspx?UserID=" + userid.ToString ()) %>'>
+						<a class="orangecolor" href='<%= CommonFunctions.PrepareURL ("AccountInformation.aspx?UserID=" + userid.ToString ()) %>'>
 							Email / Password
 						</a>
 					</strong>
                 </div>
                 <div class ="srow">
 					<strong>
-						<a href='<%= CommonFunctions.PrepareURL ("ViewInvoices.aspx?UserID=" + userid.ToString ()) %>'>
+						<a class="orangecolor" href='<%= CommonFunctions.PrepareURL ("ViewInvoices.aspx?UserID=" + userid.ToString ()) %>'>
 							View Invoices
 						</a>
 					</strong>
