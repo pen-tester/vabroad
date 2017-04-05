@@ -274,7 +274,6 @@ ul {
                             <label  class="normalval"><%=inquiryinfo.Adults %> of Adults and <%=inquiryinfo.Children %>  of Children</label>
                           </div>
                           <div class="form-group">
-                            <label for="arrivaldate" class="normaltxt">Arrival Date</label>
                             <label class="normalval"><%=inquiryinfo.Nights %> of Nights Requested </label>
                           </div>
                     </div>
