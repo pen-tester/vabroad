@@ -50,8 +50,10 @@ $(document).ready(function () {
     });
     $('#sendcomment').click(function (e) {
         console.log("send comment");
-        if($('#comments').text()!="") $('#sendcomments').click();
+        if ($('#comments').text() != "") $('#sendcomments').click();
+        else showdlg("Please add comment for disavaility of the property.");
     });
+    $('#comments').text("");
 });
 
 var _txtboxid = "";
