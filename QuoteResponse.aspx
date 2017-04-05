@@ -305,7 +305,7 @@ ul {
                             Adjusted Rental Price:
                         </div>
                         <div class="col-4 col-x-2">
-                            <label class="normalval pricebox" id="cou_rental_price"><%=BookDBProvider.DoFormat(_total) %></label>
+                            <label class="normalval pricebox" id="cou_rental_price"><%=BookDBProvider.DoFormat(_total_sum) %></label>
                         </div>
                     </div>
                     <div class="srow top_formrow">
