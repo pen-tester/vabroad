@@ -135,10 +135,10 @@
                     Amount Due to Owner upon Arrival:<%=BookDBProvider.DoFormat(_balance) %>
                 </div>
                 <div class="srow top_formrow">
-                    Total Rental Price For Rental:<%=BookDBProvider.DoFormat(_total) %>
+                    Total Rental Price:<%=BookDBProvider.DoFormat(_total) %>
                 </div>
                 <div class="srow top_formrow">
-                    Coupon Discount:<label id="cou_discount">0</label>%
+                    Coupon Discount For Rental:<label id="cou_discount">0</label>%
                 </div>
                 <div class="srow top_formrow">
                     Adjusted Rental Price:<label id="cou_rental_price"><%=BookDBProvider.DoFormat(_total) %></label>
