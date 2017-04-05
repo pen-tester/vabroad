@@ -53,6 +53,7 @@
         .btntab{font-size:12pt;font-family:Verdana;color:#ff6600;}
         .active .btntab{color:#154890;}
         .orangecolor{font-family:Verdana;color:#ff6600;}
+        .hidden{display:none;}
    </style>
 </asp:Content>
 
@@ -103,13 +104,14 @@
         <div class="newline">
             <div id="exTab3">	
                     <ul  class="nav">
-		                <li class="active lblFor">
+                        
+		                <li class="lblFor <%=cssclass_tabs[0]%>">
                             <a  class="btntab" data-target="tab1">My Inquiries</a>
 		                </li>
-		                <li class="lblFor">
+		                <li class="lblFor  <%=cssclass_tabs[1]%>">
                             <a class="btntab" data-target="tab2">My Properties</a>
 		                </li>
-		                <li class="lblFor">
+		                <li class="lblFor  <%=cssclass_tabs[2]%>">
                             <a class="btntab" data-target="tab3">List A Property</a>
 		                </li>
 	                 </ul>
