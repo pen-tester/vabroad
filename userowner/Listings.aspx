@@ -117,7 +117,7 @@
 	                 </ul>
                     <div class="clearfix"></div>
                     <div class="tabs-content">
-			            <div class="tab-pane active tabback" id="tab1">
+			            <div class="tab-pane  <%=cssclass_tabs[0]%> tabback" id="tab1">
                             <div class="srow">
                            <div class="col-4 ">
                             <div class="newline center">
@@ -238,7 +238,7 @@
                             <div class="clear"></div>
 
 			            </div>
-			            <div class="tab-pane tabback" id="tab2">
+			            <div class="tab-pane  <%=cssclass_tabs[1]%> tabback" id="tab2">
                           <div class="newline">
                                     <div class="srow center">
                                         MY PROPERTIES
@@ -292,7 +292,7 @@
                                 </div>
            
 			            </div>
-                        <div class="tab-pane tabback" id="tab3">
+                        <div class="tab-pane  <%=cssclass_tabs[2]%> tabback" id="tab3">
                             <div class="srow">
                                           <div class="srow center groupMargin">
                                             <asp:Button ID="Button1" CssClass="btnBlue" runat="server" Text="List A Property" OnClick="ListProperty_Click" /><asp:Button ID="Button2"  OnClick="ListTour_Click" CssClass="btnBlue" runat="server" Text="List A Tour" />
