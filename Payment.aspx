@@ -153,7 +153,7 @@
                     If you have a coupon, enter it here
                 </div>
                 <div class="col-4">
-                    <input type="text" class="fullwidth" id="coupon" name="coupon" />
+                    <input type="text" class="fullwidth" id="coupon" name="coupon" value="<%=str_coupon %>" />
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ $(document).ready(function () {
 });
 
 function calcDiscount() {
-    var coupon = $(this).val();
+    var coupon = $('#coupon').val();
     $.ajax({
         type: "POST",
         url: "/ajaxhelper.aspx/getcouponitem",

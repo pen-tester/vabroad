@@ -232,6 +232,7 @@ ul {
                                   .btnsendquote:active{padding-top:4px;}
 @media only screen and (max-width:600px){
     .respformpadding{padding:5px;}
+    .margintop{margin-top:10px;} .pricebox{width:150px; display:inline-block; text-align:right;}
 }
 </style>
 </asp:Content>
@@ -282,7 +283,7 @@ ul {
                         </div>
 
                         <div class="col-4 col-x-2">
-                            <label class="normalval" id="totalsum" runat="server"> <%=BookDBProvider.DoFormat(_total_sum) %></label>
+                            <label class="normalval pricebox" id="totalsum" runat="server"> <%=BookDBProvider.DoFormat(_total_sum) %></label>
                         </div>
                     </div>
 
@@ -292,30 +293,49 @@ ul {
                         </div>
                         <div class="col-x-0 col-4"></div>
                         <div class="col-4 col-x-2">
-                           <label class="normalval" id="Label1" runat="server"> <%=BookDBProvider.DoFormat(email_resp.CleaningFee) %></label>
+                           <label class="normalval pricebox" id="Label1" runat="server"> <%=BookDBProvider.DoFormat(email_resp.CleaningFee) %></label>
 
                         </div>
                     </div>
 
                     <div class="srow">
                         <div class="col-4">
-                            <label class="normaltxt">Security Deposit</label>
+                            <label class="normaltxt ">Security Deposit</label>
                         </div>
                         <div class="col-x-0 col-4"></div>
                         <div class="col-4">
-                          <label class="normalval" id="Label2" runat="server"> <%=BookDBProvider.DoFormat(email_resp.SecurityDeposit) %></label>
+                          <label class="normalval pricebox" id="Label2" runat="server"> <%=BookDBProvider.DoFormat(email_resp.SecurityDeposit) %></label>
                          </div>
                     </div>
-
+                    <div class="srow">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4 col-x-2">
+                            Discount:
+                        </div>
+                        <div class="col-4 col-x-2">
+                             <label class="normalval pricebox" id="cou_discount"></label>
+                        </div>
+                    </div>
+                    <div class="srow">
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4 col-x-2">
+                            Adjusted Rental Price:
+                        </div>
+                        <div class="col-4 col-x-2">
+                            <label class="normalval pricebox" id="cou_rental_price"></label>
+                        </div>
+                    </div>
                     <div class="srow">
                         <div class="col-4 col-x-2">
                             <label class="normaltxt">Lodging Tax</label>
                         </div>
                         <div class="col-4 col-x-2">
-                               <label class="normalval" id="Label3" runat="server"> <%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>%</label>
+                               <label class="normalval " id="Label3" runat="server"> <%=BookDBProvider.DoFormat(email_resp.LoadingTax) %>%</label>
                         </div>
                         <div class="col-4">
-                            <label class="normaltxt" id="loadingtaxval" runat="server"><%=BookDBProvider.DoFormat(_lodgingval) %></label>
+                            <label class="normalval pricebox" id="loadingtaxval" runat="server"><%=BookDBProvider.DoFormat(_lodgingval) %></label>
                         </div>
                     </div>
 
@@ -325,15 +345,18 @@ ul {
                             <label class="normaltxt">Balance Due Upon Arrival</label>
                         </div>
                         <div class="col-4 col-x-2">
-                            <label class="normalval" id="Label4" runat="server"> <%=BookDBProvider.DoFormat(_balance) %></label>
+                            <label class="normalval pricebox" id="Label4" runat="server"> <%=BookDBProvider.DoFormat(_balance) %></label>
+                            <input type="hidden" id="hid_total" value="<%=_total %>"/>
+                            <input type="hidden" id="hid_sum" value="<%=_total_sum %>"/>
+                            <input type="hidden" id="hid_balance" value="<%=_balance %>"/>
                         </div>
                     </div>
 
-                    <div class="srow normalMargintop">
-                        <div class="col-4">
+                    <div class="srow margintop">
+                        <div class="col-6">
                             If you have a coupon, enter it here
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <input type="text" class="fullwidth" id="coupon" name="coupon" />
                         </div>
                     </div>
@@ -344,17 +367,17 @@ ul {
 
                     <div class="srow">
                         <div class="col-3 col-x-2"><label class="normaltxt">90 days prior to arrival</label></div>
-                        <div class="col-3 col-x-2"> <label class="normalval" id="Label5" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Cancel90) %>%</label>
+                        <div class="col-3 col-x-2"> <label class="normalval pricebox" id="Label5" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Cancel90) %>%</label>
                         </div>
                     </div>
                     <div class="srow">
                         <div class="col-3 col-x-2"><label class="normaltxt">60 days prior to arrival</label></div>
-                        <div class="col-3 col-x-2"> <label class="normalval" id="Label6" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Cancel60) %>%</label>
+                        <div class="col-3 col-x-2"> <label class="normalval pricebox" id="Label6" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Cancel60) %>%</label>
                         </div>
                     </div>
                     <div class="srow">
                         <div class="col-3 col-x-2"><label class="normaltxt">30 days prior to arrival</label></div>
-                        <div class="col-3 col-x-2"> <label class="normalval" id="Label7" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Cancel30) %>%</label>
+                        <div class="col-3 col-x-2"> <label class="normalval pricebox" id="Label7" runat="server"> <%=BookDBProvider.DoFormat(email_resp.Cancel30) %>%</label>
                         </div>
                     </div>
 

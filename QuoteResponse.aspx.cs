@@ -70,6 +70,7 @@ public partial class userowner_TravelerResponse : Page
         sb.AppendFormat(@"<body onload='document.forms[""form""].submit()'>");
         sb.AppendFormat("<form name='form' action='{0}' method='post'>", "/payment.aspx");
         sb.AppendFormat("<input type='hidden' name='respid' value='{0}'>", respid);
+        sb.AppendFormat("<input type='hidden' name='rescoupon' value='{0}'>", Request["coupon"]);
         // Other params go here
         sb.Append("</form>");
         sb.Append("</body>");

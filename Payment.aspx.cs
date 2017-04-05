@@ -20,7 +20,7 @@ public partial class userowner_Payment : CommonPage
 
     public int respid = 0;
     public decimal _total_sum, _lodgingval, _balance,_total=0;
-    public string custom = "";
+    public string custom = "" , str_coupon="";
     protected void Page_Load(object sender, EventArgs e)
     {
         NameValueCollection nvc = Request.Form;
@@ -35,6 +35,8 @@ public partial class userowner_Payment : CommonPage
             respid = Convert.ToInt32(resp_id.Value);
         }
         else Response.Redirect("/Error.aspx?error=Wrong Request for payment"); ;  //Not post or Wrong respid
+
+        str_coupon = Request["coupon"];
         //Get the inquiry info.
         email_resp = BookResponseEmail.getResponseInfo(respid);
         if (email_resp.ID == 0 ) Response.Redirect("/Error.aspx?error=Wrong Response number or not valid");
