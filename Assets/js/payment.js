@@ -34,6 +34,7 @@ function processPropertyData(response) {
         $('#cou_discount').text('0%');
         $('#discounted_price').text('-0.00');
         $('#cou_rental_price').text($('#hid_total').val());
+        $('#rental_price').text($('#totalsum').val());
         return;
     }
 
@@ -60,11 +61,18 @@ function processPropertyData(response) {
 
         var str_total = total_price.toString();
         var sind = str_total.indexOf('.');
-        if (sind != -1) $('#cou_rental_price').text("-" + str_total.substring(0, sind + 3));
-        else $('#discounted_price').text("-" + str_total + ".00");
+        if (sind != -1) $('#cou_rental_price').text( str_total.substring(0, sind + 3));
+        else $('#cou_rental_price').text( str_total + ".00");
 
         var tind = discounted_price.toString().indexOf('.');
         if (tind != -1) $('#discounted_price').text("-" + discounted_price.toString().substring(0, tind + 3));
         else $('#discounted_price').text("-" + discounted_price + ".00");
+    }
+    else {
+        $('#cou_discount').text('0%');
+        $('#discounted_price').text('-0.00');
+        $('#cou_rental_price').text($('#hid_total').val());
+        $('#rental_price').text($('#totalsum').val());
+        
     }
 }
