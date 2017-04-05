@@ -100,7 +100,6 @@
         <div class="srow center">
             Welcome <%=(userinfo.FirstName+ " "+userinfo.LastName) %> !
         </div>
-
         <div class="newline">
             <div id="exTab3">	
                     <ul  class="nav">
