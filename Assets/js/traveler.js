@@ -38,6 +38,18 @@ $(document).ready(function () {
         }
         calculateValue();
     });
+    
+    $('#optform1').hide();
+
+    $('#opt_prop').change(function () {
+        var sel_val = $(this).val();
+        console.log(sel_val);
+        $('#optform1').hide(); $('#optform0').hide();
+        $('#optform' + sel_val).show();
+    });
+    $('#sendcomment').click(function (e) {
+        if($('#comments').text()!="") $('#sendcomments').click();
+    });
 });
 
 var _txtboxid = "";

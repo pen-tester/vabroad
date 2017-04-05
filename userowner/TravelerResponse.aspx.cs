@@ -169,4 +169,112 @@ public partial class userowner_TravelerResponse : ClosedPage
             Response.Redirect("/userowner/listings.aspx?userid=" + inquiryinfo.PropertyOwnerID);
         else Response.Redirect("/userowner/listings.aspx");
     }
+
+    protected void sendcomments_Click(object sender, EventArgs e)
+    {
+        string comments = Request["comments"];
+        if (comments != "") return;
+
+        int newrespid = 0;
+        int _currency = Convert.ToInt32(currency.SelectedValue);
+
+        if ((newrespid = BookDBProvider.addEmailResponse(inquiryinfo.PropertyOwnerID, inquiryinfo.UserID, quoteid, 0, 0, 0, 0, 0, 0, 0, DateTime.Now, 0, _currency, comment.InnerText)) > 0)
+        {
+
+            BookDBProvider.updateEmailQuoteState(quoteid);
+        }
+
+
+
+        UserInfo userinfo = BookDBProvider.getUserInfo(inquiryinfo.PropertyOwnerID);
+        //  BookResponseEmail  /for owner
+        string toOwner = String.Format("Hi, {0}!<br> You have replied the inquiry for the property {1} in {2},{3},{4}.<br> Thanks.",
+            userinfo.firstname + " " + userinfo.lastname, inquiryinfo.PropertyID, countryinfo.city, countryinfo.state, countryinfo.country);
+
+        BookDBProvider.SendEmail(userinfo.email, "You have replied for the inquiry", toOwner);
+
+        PropertyDetailInfo propinfo = AjaxProvider.getPropertyDetailInfo(inquiryinfo.PropertyID);
+        string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", propinfo.Country, propinfo.StateProvince, propinfo.City, propinfo.ID).ToLower().Replace(" ", "_");
+
+        //To traveler
+        // UserInfo traveler = BookDBProvider.getUserInfo(inquiryinfo.UserID);
+        string toTraveler = @"<body>
+  <table border='0px' width='600px' >
+    <tr>
+      <td>
+         <table  style='width:600px;'>
+         	<tr>
+         	  <td style='color:#000;font-size:16pt;width:300px;font-family: Verdana;'>
+         	  	<b>Vacations Abroad</b>
+         	  </td>
+         	  <td style='color:#000;font-size:10pt;width:300px;text-align: right;font-family: Verdana;'>
+         	    {0}
+         	  </td>
+         	</tr>
+         </table>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor='#4472c4' style='border:1px solid #2f528f;text-align:center;padding: 10px 0px;color:#fff;font-size:12pt;font-family: Verdana;'>
+            <a style='cursor: pointer;color: #fff;text-decoration: none;font-size:12pt;font-family: Verdana;'>
+                <b>Sorry! The property is not available on {6}<b>
+            </a>
+      </td>
+    </tr>
+    <tr>
+      <td style='text-align: center;padding: 10px 0px;'>
+        <img src='{1}' style='width:350px;height: 220px;'  width='350' height='220' />
+      </td>
+    </tr>
+    <tr>
+    	<td style='text-align: center;font-size:10pt;font-family: Verdana;'>
+    	   Name of property:{2} &nbsp;&nbsp; Type of property:{3}
+    	</td>
+    </tr>
+    <tr>
+      <td style='padding: 10px;'>
+        <table style='border:1px dashed #000;width:600px;font-size:12pt;'>
+        	<tr>
+        		<td style='padding:10px;font-family: Verdana;'>
+              <a href='{4}'>Property {5}</a> <br/>
+              Date of Arrival: {6} <br/>
+              {7} of nights <br/>
+              # of Guests:  {8} Adults, {9} children <br/><br/>
+                
+        		</td>
+        	</tr>
+            <tr>
+            <td style='background: none; border: dotted 1px #999999; border-width:1px 0 0 0; height:1px;font-size:1px;'></td>
+            </tr>
+            <tr>
+                <td style='padding:3px;font-family: Verdana;'>
+                  Comment:{10}<br/>
+        		</td>            
+            </tr>
+          </table>
+      </td>
+    </tr>
+    <tr>
+     <td style='padding: 15px; text-align: center;'>
+   	    <a style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;font-family: Verdana;'>
+	      <b>Sorry! The property is not available on {6}</b>
+	    </a> 
+     </td>
+    </tr>
+    <tr>
+      <td style='text-align: center;'>
+        <img src='https://www.vacations-abroad.com/images/elogo.jpg' style='width:240px;height: 100px;' width='240' height='100' />     
+      </td>
+    </tr>
+  </table>
+</body>";
+        string msg = String.Format(toTraveler, DateTime.Now.ToString("MMM d, yyyy"),  "https://www.vacations-abroad.com/images/" + propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, inquiryinfo.ArrivalDate, inquiryinfo.Nights, inquiryinfo.Adults, inquiryinfo.Children, comments);
+        //BookDBProvider.SendEmail(traveler.email, toTraveler, "You have received the response from the property owner");
+        BookDBProvider.SendEmail(inquiryinfo.ContactorEmail, String.Format("{0}, here is your quote for {1}", inquiryinfo.ContactorName, inquiryinfo.ArrivalDate), msg);
+        BookDBProvider.SendEmail("prop@vacations-abroad.com", String.Format("{0} has responded to {1}", userinfo.name, inquiryinfo.ContactorName), msg);
+
+        if (AuthenticationManager.IfAdmin)
+            Response.Redirect("/userowner/listings.aspx?userid=" + inquiryinfo.PropertyOwnerID);
+        else Response.Redirect("/userowner/listings.aspx");
+    }
 }

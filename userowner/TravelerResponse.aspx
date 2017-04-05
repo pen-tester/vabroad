@@ -270,130 +270,150 @@ ul {
                             <label id="arrivaldate" class="normalval"><%=inquiryinfo.ArrivalDate %> </label>
                           </div>
                     </div>
-
                     <div class="srow">
-                        <div class="col-4">
-                          <div class="form-group">
-                            <label for="nights" class="normaltxt"># of Nights Requested</label><br />
-                            <label id="nights" class="normalval"><%=inquiryinfo.Nights %></label>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="form-group">
-                            <label for="rates" class="normaltxt">Price Quote</label>
-                              <input id="rates" name="rates" runat="server" class="normalval"/>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="form-group">
-                            <label for="currency" class="normaltxt">Select Currency </label><br />
-                             <asp:DropDownList ID="currency" runat="server" ClientIDMode="Static" Width="150px">
-                                 <asp:ListItem Text="USD" Value="0" Selected="True">
-                                  </asp:ListItem>
-                                 <asp:ListItem Text="EUR" Value="1">
-                                  </asp:ListItem>
-                                 <asp:ListItem Text="CAD" Value="2">
-                                  </asp:ListItem>
-                                 <asp:ListItem Text="GPB" Value="3">
-                                  </asp:ListItem>
-                                 <asp:ListItem Text="YEN" Value="4">
-                                  </asp:ListItem>
-                             </asp:DropDownList>
-                          </div>
-                        </div>
+                        Is your property available?
+                        <select id="opt_prop">
+                            <option selected="selected" value="0">Yes</option>
+                            <option value="1">No</option>
+                        </select>
                     </div>
-                    <div class="clear"></div>
-                    <div class="srow top_formrow">
-                        <div class="col-4"></div>
-                        <div class="col-4">
-                            <label class="normaltxt">Total Due to Reserve</label>
-                        </div>
-                        <div class="col-4">
-                            <label class="normalval" id="totalsum"> Sum of Above</label>
-                        </div>
-                    </div>
+                    <div class="srow" id="optform1">
+                        <div class="srow">
+                            <textarea id="comments" name="comments" class="normalval commentbox">
 
-                    <div class="srow top_formrow">
-                        <div class="col-4 col-x-2">
-                            <label class="normaltxt">Cleaning Fee</label>
+                            </textarea>
                         </div>
-                        <div class="col-4 col-x-0"></div>
-                        <div class="col-4 col-x-2">
-                            <input type="text" runat="server" id="cleaningfee" name="cleaningfee" class="normalval" />
+                        <div class="srow">
+                            <input type="button" id="sendcomment" value="Send Comment" class="btnsendquote"/>
+                            <asp:Button ID="sendcomments" ClientIDMode="Static" CssClass="page_hid" runat="server" OnClick="sendcomments_Click"/>
                         </div>
                     </div>
+                    <div class="srow" id="optform0">
+                       <div class="srow">
+                            <div class="col-4">
+                              <div class="form-group">
+                                <label for="nights" class="normaltxt"># of Nights Requested</label><br />
+                                <label id="nights" class="normalval"><%=inquiryinfo.Nights %></label>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="form-group">
+                                <label for="rates" class="normaltxt">Price Quote</label>
+                                  <input id="rates" name="rates" runat="server" class="normalval"/>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="form-group">
+                                <label for="currency" class="normaltxt">Select Currency </label><br />
+                                 <asp:DropDownList ID="currency" runat="server" ClientIDMode="Static" Width="150px">
+                                     <asp:ListItem Text="USD" Value="0" Selected="True">
+                                      </asp:ListItem>
+                                     <asp:ListItem Text="EUR" Value="1">
+                                      </asp:ListItem>
+                                     <asp:ListItem Text="CAD" Value="2">
+                                      </asp:ListItem>
+                                     <asp:ListItem Text="GPB" Value="3">
+                                      </asp:ListItem>
+                                     <asp:ListItem Text="YEN" Value="4">
+                                      </asp:ListItem>
+                                 </asp:DropDownList>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="srow top_formrow">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <label class="normaltxt">Total Due to Reserve</label>
+                            </div>
+                            <div class="col-4">
+                                <label class="normalval" id="totalsum"> Sum of Above</label>
+                            </div>
+                        </div>
 
-                    <div class="srow top_formrow">
-                        <div class="col-4">
-                            <label class="normaltxt">Security Deposit</label>
+                        <div class="srow top_formrow">
+                            <div class="col-4 col-x-2">
+                                <label class="normaltxt">Cleaning Fee</label>
+                            </div>
+                            <div class="col-4 col-x-0"></div>
+                            <div class="col-4 col-x-2">
+                                <input type="text" runat="server" id="cleaningfee" name="cleaningfee" class="normalval" />
+                            </div>
                         </div>
-                        <div class="col-4 col-x-0"></div>
-                        <div class="col-4 col-x-2">
-                            <input type="text" runat="server" id="secdeposit" name="secdeposit"  class="normalval"/>
-                         </div>
-                    </div>
 
-                    <div class="srow top_formrow">
-                        <div class="col-4 col-x-2">
-                            <label class="normaltxt">Lodging Tax</label>
+                        <div class="srow top_formrow">
+                            <div class="col-4">
+                                <label class="normaltxt">Security Deposit</label>
+                            </div>
+                            <div class="col-4 col-x-0"></div>
+                            <div class="col-4 col-x-2">
+                                <input type="text" runat="server" id="secdeposit" name="secdeposit"  class="normalval"/>
+                             </div>
                         </div>
-                        <div class="col-4 col-x-2">
-                            <input type="text" runat="server" id="loadingtax" name="loadingtax"  class="normalval smallwidth"/>%
-                        </div>
-                        <div class="col-4">
-                            <label class="normaltxt" id="loadingtaxval"  >(Rate % x Price Quote)</label>
-                        </div>
-                    </div>
 
-                    <div class="srow top_formrow">
-                        <div class="col-4"></div>
-                        <div class="col-4">
-                            <label class="normaltxt">Balance Due Upon Arrival</label>
+                        <div class="srow top_formrow">
+                            <div class="col-4 col-x-2">
+                                <label class="normaltxt">Lodging Tax</label>
+                            </div>
+                            <div class="col-4 col-x-2">
+                                <input type="text" runat="server" id="loadingtax" name="loadingtax"  class="normalval smallwidth"/>%
+                            </div>
+                            <div class="col-4">
+                                <label class="normaltxt" id="loadingtaxval"  >(Rate % x Price Quote)</label>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <input type="text" id="balance" name="balance" readonly="true" class="normalval" value="Cleaning Fee + Sec Deposit + Lodging Tax" />
+
+                        <div class="srow top_formrow">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <label class="normaltxt">Balance Due Upon Arrival</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" id="balance" name="balance" readonly="true" class="normalval" value="Cleaning Fee + Sec Deposit + Lodging Tax" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="srow top_formrow">
-                        <label class="normaltxt">Cancellation policy</label>
-                    </div>
-
-                    <div class="srow top_formrow">
-                        <div class="col-3"><label class="normaltxt">90 days prior to arrival</label></div>
-                        <div class="col-5">
-                            <input type="text" runat="server" id="cancel90" class="normalval smallwidth" name="cancel90" />%
+                        <div class="srow top_formrow">
+                            <label class="normaltxt">Cancellation policy</label>
                         </div>
-                    </div>
-                    <div class="srow top_formrow">
-                        <div class="col-3"><label class="normaltxt">60 days prior to arrival</label></div>
-                        <div class="col-5">
-                             <input type="text" runat="server" id="cancel60" class="normalval smallwidth" name="cancel60" />%
+
+                        <div class="srow top_formrow">
+                            <div class="col-3"><label class="normaltxt">90 days prior to arrival</label></div>
+                            <div class="col-5">
+                                <input type="text" runat="server" id="cancel90" class="normalval smallwidth" name="cancel90" />%
+                            </div>
                         </div>
-                    </div>
-                    <div class="srow top_formrow">
-                        <div class="col-3"><label class="normaltxt">30 days prior to arrival</label></div>
-                        <div class="col-5">
-                             <input type="text" runat="server" id="cancel30" class="normalval smallwidth" name="cancel30" />%
+                        <div class="srow top_formrow">
+                            <div class="col-3"><label class="normaltxt">60 days prior to arrival</label></div>
+                            <div class="col-5">
+                                 <input type="text" runat="server" id="cancel60" class="normalval smallwidth" name="cancel60" />%
+                            </div>
                         </div>
-                    </div>
+                        <div class="srow top_formrow">
+                            <div class="col-3"><label class="normaltxt">30 days prior to arrival</label></div>
+                            <div class="col-5">
+                                 <input type="text" runat="server" id="cancel30" class="normalval smallwidth" name="cancel30" />%
+                            </div>
+                        </div>
 
-                    <%
-                        DateTime cur = DateTime.Now;
-                         %>
+                        <%
+                            DateTime cur = DateTime.Now;
+                             %>
 
-                    <div class="srow top_formrow">
-                        This offer is valid for <input type="text"  id="validnumber" name="validnumber" runat="server" class="normalval smallwidth" /> days from <%=cur.ToString("MM/dd/yyyy") %>.<br />
-                        30 days prior to renter’s arrival; the funds are transferred to the property owner.
+                        <div class="srow top_formrow">
+                            This offer is valid for <input type="text"  id="validnumber" name="validnumber" runat="server" class="normalval smallwidth" /> days from <%=cur.ToString("MM/dd/yyyy") %>.<br />
+                            30 days prior to renter’s arrival; the funds are transferred to the property owner.
 
+                        </div>
+                        <div class="srow top_formrow">
+                            <div class="col-3"><label class="normaltxt">Message</label></div>
+                            <div class="col-9"><textarea id="comment" name="comment" runat="server" class="normalval commentbox"></textarea></div>
+                        </div>
+                        <br />
+                        <input type="button" id="btnsend" class="btnsendquote" value="Send Quote to Traveler"  />
+                        <asp:button ID="sendquote" ClientIDMode="Static" CssClass="page_hid" runat="server" OnClick="SendQuote_Click" />
                     </div>
-                    <div class="srow top_formrow">
-                        <div class="col-3"><label class="normaltxt">Message</label></div>
-                        <div class="col-9"><textarea id="comment" name="comment" runat="server" class="normalval commentbox"></textarea></div>
-                    </div>
-                    <br />
-                    <input type="button" id="btnsend" class="btnsendquote" value="Send Quote to Traveler"  />
-                    <asp:button ID="sendquote" ClientIDMode="Static" CssClass="page_hid" runat="server" OnClick="SendQuote_Click" />
+ 
                 </div>
             </div>
         </div>
