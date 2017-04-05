@@ -40,7 +40,9 @@ function processPropertyData(response) {
         var rent_total = total * (100 - discount) / 100;
       //  console.log(discount + " "+rent_total);
         $('#cou_discount').text(discount);
-        var ss_rent= rent_total.toString();
-        $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.')+3));
+        var ss_rent = rent_total.toString();
+        var ind = ss_rent.indexOf('.');
+        if (ind != -1) $('#cou_rental_price').text(ss_rent.substring(0, ss_rent.indexOf('.') + 3));
+        $('#cou_rental_price').text(ss_rent);
     }
 }
