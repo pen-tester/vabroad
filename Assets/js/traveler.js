@@ -49,7 +49,7 @@ $(document).ready(function () {
         $('#questions').hide();
         $('#optform0').show();
     });
-    $('#disResp').click(function (e) {
+    $('#hideResp').click(function (e) {
         console.log("don't show disp");
         $('#optform0').hide();
         $('#optform1').hide();
