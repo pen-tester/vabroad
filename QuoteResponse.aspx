@@ -285,6 +285,7 @@ ul {
 
                         <div class="col-4 col-x-2">
                             <label class="normalval pricebox" id="totalsum" > <%=BookDBProvider.DoFormat(_total_sum) %></label>
+                            <input type="hidden" id="sumprice" value="<%=BookDBProvider.DoFormat(_total_sum) %>" />
                         </div>
                     </div>
                     <div class="srow">

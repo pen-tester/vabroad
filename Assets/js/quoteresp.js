@@ -73,7 +73,7 @@ function processPropertyData(response) {
     else {
         $('#cou_discount').text('0%');
         $('#cou_rental_price').text($('#hid_total').val());
-        $('#totalsum').text($('#hid_sum').val());
+        $('#totalsum').text($('#sumprice').val());
     }
 }
 
