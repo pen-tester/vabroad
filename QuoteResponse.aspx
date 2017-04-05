@@ -389,7 +389,7 @@ ul {
 
                     <div class="srow top_formrow">
                          This offer is valid until 5:00 pm
-                        30 days prior to renter’s arrival; the funds are transferred to the property owner.
+                        10 days prior to renter’s arrival; the funds are transferred to the property owner.
                        <div class="srow">
                            <input id="chk_agree" type="checkbox"/>agree to all the terms specified above. 
                            <div class="row">
