@@ -53,7 +53,7 @@
         .btntab{font-size:12pt;font-family:Verdana;color:#ff6600;}
         .active .btntab{color:#154890;}
         .orangecolor{font-family:Verdana;color:#ff6600;}
-        .hidden{display:none;}
+        li.hidden{display:none;}
    </style>
 </asp:Content>
 
