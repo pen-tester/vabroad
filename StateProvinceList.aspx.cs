@@ -435,7 +435,7 @@ public partial class StateProvinceList : CommonPage
 
         string str_meta = "(%counts%) %state% vacation rentals and boutique hotels in %cities%.";
         newdescription.Name = "description";
-        newdescription.Content = str_meta.Replace("%state%", stateprovince ).Replace("%cities%", str_cities).Replace("%counts%", counts.ToString());
+        newdescription.Content = str_meta.Replace("%state%", stateprovince ).Replace("%cities%", str_cities).Replace("%counts%", ds_PropList.Tables[0].Rows.Count.ToString());
 
         head.Controls.Add(newdescription);
 
