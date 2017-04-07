@@ -351,6 +351,8 @@ public partial class StateProvinceList : CommonPage
         }        
         /////// common for postback and ! postback ////////
         string cities1 = "";
+        string str_cities = "";
+
         foreach (DataRow dr in MainDataSet.Tables["Cities"].Rows)
         {
             string temp = CommonFunctions.GetSiteAddress() + "/" + country +
@@ -358,11 +360,11 @@ public partial class StateProvinceList : CommonPage
             temp = temp.ToLower();
             temp = temp.Replace(' ', '_');
             cities1 += "<a href='" + temp + "'><span class=\"tdNoSleeps\" style=\"font-weight:normal;font-style:normal\">" + dr["City"].ToString().Replace(" ", "&nbsp;") + "</span></a>, ";
-
+            str_cities += (dr["City"].ToString() + ", ");
            
         }
 
-        string str_cities = "";
+       
 
 
 
