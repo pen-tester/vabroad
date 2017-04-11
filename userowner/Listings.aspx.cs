@@ -25,6 +25,10 @@ public partial class userowner_Listing : ClosedPage
 
         userinfo = BookDBProvider.getDetailedUserInfo(userid);
 
+        property_set = BookDBProvider.getPropertySet(userid);
+        propertylist.DataSource = property_set;
+        propertylist.DataBind();
+
         if (userinfo.Zip == "") Response.Redirect("/ownerinformation.aspx?userid="+userinfo.ID);
 
          
@@ -43,9 +47,7 @@ public partial class userowner_Listing : ClosedPage
         traveler_ds = BookDBProvider.getDataSet("uspGetTravelerResponseList", param);
 
     */
-        property_set = BookDBProvider.getPropertySet(userid);
-        propertylist.DataSource = property_set;
-        propertylist.DataBind();
+
 
         if (owner_ds.Tables[0].Rows.Count != 0) cssclass_tabs[0] = "active";
         else
