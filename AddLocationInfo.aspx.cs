@@ -23,7 +23,7 @@ public partial class AddLocationInfo : System.Web.UI.Page
         {
            // if (i > 100) return;
             DataRow row = ds_country.Tables[0].Rows[i];
-            string url = "https://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}",row["City"], row["StateProvince"]) + "&sensor=false&key=AIzaSyAJtbVRP65pcH3R0Kv7GCz187HYDMHdeFo";
+            string url = "https://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}",row["City"], row["StateProvince"]) + "&sensor=false&key=AIzaSyCLLZW2LVHAYTl-iwt4nm21EHWBjOZtA-M";
           //  Response.Write(url);
           //  if (i > 10) break;
             WebRequest request = WebRequest.Create(url);
