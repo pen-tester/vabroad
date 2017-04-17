@@ -1762,8 +1762,8 @@ public partial class EditProperty : ClosedPage
                 if (!string.IsNullOrEmpty(cityname))
                 {
                     List<SqlParameter> param = new List<SqlParameter>();
-                    param.Add(new SqlParameter("@country", Request["country"]));
-                    param.Add(new SqlParameter("@state", Request["state"]));
+                    param.Add(new SqlParameter("@country", hdnCountry.Value));
+                    param.Add(new SqlParameter("@state", hdnState.Value));
                     param.Add(new SqlParameter("@city", cityname));
                     param.Add(new SqlParameter("@lat", hdnLatitude.Value));
                     param.Add(new SqlParameter("@lng", hdnLongitude.Value));
