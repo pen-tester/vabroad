@@ -1750,8 +1750,6 @@ public partial class EditProperty : ClosedPage
                 }
 
                 // Add New Code
-                int CityLatLong;
-                bool IsExitsCity;
                 string cityname = string.Empty;
                 if (!string.IsNullOrEmpty(CityNew.Text) && CityNew.Text != "undefined")
                 {
@@ -1763,38 +1761,13 @@ public partial class EditProperty : ClosedPage
                 }
                 if (!string.IsNullOrEmpty(cityname))
                 {
-                    using (SqlConnection connection = CommonFunctions.GetConnection())
-                    {
-                        connection.Open();
-                        System.Data.SqlClient.SqlCommand cmdcity = new System.Data.SqlClient.SqlCommand(
-                            "SELECT count(City) FROM CityLatLong where City='" + cityname + "'", connection);
-
-                        CityLatLong = Convert.ToInt32(cmdcity.ExecuteScalar());
-                        connection.Close();
-                        cmdcity.Dispose();
-                    }
-                    if (CityLatLong == 0)
-                        IsExitsCity = true;
-                    else
-                        IsExitsCity = false;
-
-                    if (IsExitsCity)
-                    {
-
-                        if (!string.IsNullOrEmpty(hdnLongitude.Value) && !string.IsNullOrEmpty(hdnLatitude.Value) && !string.IsNullOrEmpty(hdnCountry.Value) && !string.IsNullOrEmpty(hdnState.Value))
-                        {
-                            using (SqlConnection connection = CommonFunctions.GetConnection())
-                            {
-                                connection.Open();
-                                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(
-                                    "Insert into CityLatLong(Country,StateProvince,City,Longitude,Latitude)values('" + hdnCountry.Value.ToString() + "','" + hdnState.Value.ToString() + "','" + cityname + "'," + float.Parse(hdnLongitude.Value) + "," + float.Parse(hdnLatitude.Value) + ")", connection);
-
-                                cmd.ExecuteNonQuery();
-                                connection.Close();
-                            }
-
-                        }
-                    }
+                    List<SqlParameter> param = new List<SqlParameter>();
+                    param.Add(new SqlParameter("@country", Request["country"]));
+                    param.Add(new SqlParameter("@state", Request["state"]));
+                    param.Add(new SqlParameter("@city", cityname));
+                    param.Add(new SqlParameter("@lat", hdnLatitude.Value));
+                    param.Add(new SqlParameter("@lng", hdnLongitude.Value));
+                    BookDBProvider.getDataSet("uspAddLatLong", param);
 
                 }
 
