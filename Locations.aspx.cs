@@ -697,7 +697,7 @@ public partial class Locations : AdminPage
 
             Finish();
 
-            string url = "http://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}", NewCity.Text, CountryList.Text)  + "&sensor=false";
+            string url = "http://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}", NewCity.Text, StateList.Text)  + "&sensor=false";
             WebRequest request = WebRequest.Create(url);
             using (WebResponse response = request.GetResponse())
             {
