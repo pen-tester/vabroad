@@ -772,7 +772,7 @@
     </div>
         </div>
     </div>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
 
 var country, state, city, pinCode;
