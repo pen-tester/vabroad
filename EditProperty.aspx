@@ -883,15 +883,17 @@ function GetLocation() {
                 document.getElementById("Latitude").value = latitude;
                 document.getElementById("Longitude").value = longitude;
                 console.log(latitude + "   " + longitude);
-                if (document.getElementById('<%= CityNew.ClientID %>').value != '' && document.getElementById('<%= CityNew.ClientID %>').value != 'undefined') {
-                    getLocationDetails();
-                } else {
+              //  if (document.getElementById('<%= CityNew.ClientID %>').value != '' && document.getElementById('<%= CityNew.ClientID %>').value != 'undefined') {
+              //      getLocationDetails();
+              //  } else {
+               //     document.getElementById('<%= hdnLatitude.ClientID %>').value = latitude;
+                //    document.getElementById('<%= hdnLongitude.ClientID %>').value = longitude;
+               // }
                     document.getElementById('<%= hdnLatitude.ClientID %>').value = latitude;
                     document.getElementById('<%= hdnLongitude.ClientID %>').value = longitude;
-                }
             } else {
                 console.log("Request failed.");
-            }
+            } 
         });
     }
 }
