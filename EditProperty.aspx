@@ -800,7 +800,7 @@ function getLocationDetails() {
     var Countrys = document.getElementById('<%= hdnCountry.ClientID %>').value;
     latitude1 = document.getElementById("Latitude").value;
     longitude1 = document.getElementById("Longitude").value;
-    var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+    var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
             latitude1 + "," + longitude1 + "&sensor=false";
     var xhr = createCORSRequest('POST', url);
     if (!xhr) {
