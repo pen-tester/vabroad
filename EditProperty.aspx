@@ -804,7 +804,7 @@ function getLocationDetails() {
             latitude1 + "," + longitude1 + "&sensor=false";
     var xhr = createCORSRequest('POST', url);
     if (!xhr) {
-        alert('CORS not supported');
+        console.log('CORS not supported');
     }
 
     xhr.onload = function () {
@@ -830,7 +830,7 @@ function getLocationDetails() {
             }
             if (isvalid == "false") {
                 document.getElementById('<%= CityNew.ClientID %>').value = '';
-                alert("No location available for provided details.");
+                console.log("No location available for provided details.");
                 document.getElementById('<%= CityNew.ClientID %>').focus();
             } else {
                 document.getElementById('<%= hdnLatitude.ClientID %>').value = latitude1;
@@ -839,13 +839,13 @@ function getLocationDetails() {
 
         }
         else {
-            alert("No location available for provided details.");
+            console.log("No location available for provided details.");
         }
 
     };
 
     xhr.onerror = function () {
-        alert('Woops, there was an error making the request.');
+        console.log('Woops, there was an error making the request.');
 
     };
     xhr.send();
@@ -882,6 +882,7 @@ function GetLocation() {
                 var longitude = results[0].geometry.location.lng();
                 document.getElementById("Latitude").value = latitude;
                 document.getElementById("Longitude").value = longitude;
+                console.log(latitude + "   " + longitude);
                 if (document.getElementById('<%= CityNew.ClientID %>').value != '' && document.getElementById('<%= CityNew.ClientID %>').value != 'undefined') {
                     getLocationDetails();
                 } else {
@@ -889,7 +890,7 @@ function GetLocation() {
                     document.getElementById('<%= hdnLongitude.ClientID %>').value = longitude;
                 }
             } else {
-                alert("Request failed.");
+                console.log("Request failed.");
             }
         });
     }

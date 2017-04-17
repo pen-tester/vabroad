@@ -2309,39 +2309,6 @@ public partial class EditProperty : ClosedPage
                     Response.Redirect(backlinkurl);
             }
 
-            if (CityNew.Text != "")
-            {
-                string url = "https://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}", CityNew.Text, Request["state"]) + "&sensor=false&key=AIzaSyAJtbVRP65pcH3R0Kv7GCz187HYDMHdeFo";
-               // string url = "";
-                //  Response.Write(url);
-                //  if (i > 10) break;
-                WebRequest request = WebRequest.Create(url);
-                using (WebResponse response = request.GetResponse())
-                {
-                    using (var reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
-                    {
-
-                        string resp = reader.ReadToEnd();
-                        JObject jobj = JObject.Parse(resp);
-                        Response.Write(resp);
-                        if (jobj["status"].ToString() == "OK")
-                        {
-                            string latitude = jobj["results"][0]["geometry"]["location"]["lat"].ToString();
-                            string longtitude = jobj["results"][0]["geometry"]["location"]["lng"].ToString();
-                            List<SqlParameter> param = new List<SqlParameter>();
-                            param.Add(new SqlParameter("@country", Request["country"]));
-                            param.Add(new SqlParameter("@state", Request["state"]));
-                            param.Add(new SqlParameter("@city", CityNew.Text));
-                            param.Add(new SqlParameter("@lat", latitude));
-                            param.Add(new SqlParameter("@lng", longtitude));
-                            BookDBProvider.getDataSet("uspAddLatLong", param);
-                        }
-
-                    }
-                }
-            }
-
-
         }
         catch (Exception ex) { lblInfo.Text = ex.Message; }
     }
