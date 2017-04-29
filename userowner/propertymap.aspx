@@ -22,12 +22,65 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+
+        .btnaction{
+            background-color:#154890;
+            border:2px solid #cdbfac;
+            border-radius:6px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
     <div class="internalpage">
-        <div id="map" class="smap">
+        <div class="srow">
+            <div id="map_canvas" class="smap">
+            </div>
+        </div>
+        <div class="srow">
+            <table>
+                <tr>
+                    <th>Property#</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Address</th>
+                    <th>Verified</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>8332 </td>
+                    <td>Name </td>
+                    <td>c </td>
+                    <td>s </td>
+                    <td>ct </td>
+                    <td>add </td>
+                    <td>Verified </td>
+                    <td><input type="button" value="Edit" class="btnaction"/></td>
+                </tr>
+                <tr>
+                    <td>8332 </td>
+                    <td>Name </td>
+                    <td>c </td>
+                    <td>s </td>
+                    <td>ct </td>
+                    <td>add </td>
+                    <td>Verified </td>
+                    <td><input type="button" value="Edit" class="btnaction"/></td>
+                </tr>
+                <tr>
+                    <td>8332 </td>
+                    <td>Name </td>
+                    <td>c </td>
+                    <td>s </td>
+                    <td>ct </td>
+                    <td>add </td>
+                    <td>Verified </td>
+                    <td><input type="button" value="Edit" class="btnaction"/></td>
+                </tr>
+            </table>
         </div>
     </div>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
     <script src="/assets/js/propmap.js" defer="defer"></script>
 </asp:Content>
