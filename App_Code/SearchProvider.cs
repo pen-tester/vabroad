@@ -142,7 +142,13 @@ public class SearchProvider
                     PropertyInfo[] props = tmp.GetType().GetProperties();
                     foreach(PropertyInfo prop_info in props)
                     {
-                        prop_info.SetValue(tmp, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
+                        try
+                        {
+                            prop_info.SetValue(tmp, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
+                        }catch(Exception ex)
+                        {
+
+                        }
 
                     }
                     prop_detail.Add(tmp);
@@ -267,7 +273,11 @@ public class SearchProvider
                     PropertyInfo[] props = tmp.GetType().GetProperties();
                     foreach (PropertyInfo prop_info in props)
                     {
-                        prop_info.SetValue(tmp, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
+                        try
+                        {
+                            prop_info.SetValue(tmp, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
+                        }
+                        catch { }
 
                     }
                     prop_detail.Add(tmp);
@@ -360,8 +370,12 @@ public class SearchProvider
                           Object safeValue = (reader[prop_info.Name] == null) ? null : Convert.ChangeType(reader[prop_info.Name], type);
                           */
                         //prop_info.SetValue(tmp, Convert.ChangeType(reader[prop_info.Name], prop_info.PropertyType), null);
-                        Object safeValue = (reader[prop_info.Name] == DBNull.Value)?"0": reader[prop_info.Name];
-                        prop_info.SetValue(tmp, Convert.ChangeType(safeValue, prop_info.PropertyType), null);
+                        try
+                        {
+                            Object safeValue = (reader[prop_info.Name] == DBNull.Value) ? "0" : reader[prop_info.Name];
+                            prop_info.SetValue(tmp, Convert.ChangeType(safeValue, prop_info.PropertyType), null);
+                        }
+                        catch { }
 
                     }
                     prop_detail.Add(tmp);
