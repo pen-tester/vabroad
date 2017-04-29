@@ -243,7 +243,12 @@
                                     <div class="srow center">
                                         MY PROPERTIES
                                     </div>
-                                    
+                                    <div class="srow center">
+                                       <a href="/userowner/propertymap.aspx" class="orangecolor">
+                                           View the map of your properties
+                                       </a>
+                                        
+                                    </div>
                                        <div class="srow">
                                             <table>
                                                 <thead>
