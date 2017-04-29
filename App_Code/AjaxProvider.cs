@@ -403,7 +403,13 @@ public class AjaxProvider
                             PropertyInfo[] props = tmp.GetType().GetProperties(); 
                             foreach(PropertyInfo prop in props)
                             {
-                                prop.SetValue(tmp, Convert.ChangeType(reader[prop.Name], prop.PropertyType), null);
+                                try
+                                {
+                                    prop.SetValue(tmp, Convert.ChangeType(reader[prop.Name], prop.PropertyType), null);
+                                }catch(Exception ex)
+                                {
+
+                                }
                             } 
                             num_list.Add(tmp);
                         }
