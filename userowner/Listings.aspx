@@ -244,7 +244,7 @@
                                         MY PROPERTIES
                                     </div>
                                     <div class="srow center">
-                                       <a href="/userowner/propertymap.aspx" class="orangecolor">
+                                       <a href="/userowner/propertymap.aspx?userid=<%=userid %>" class="orangecolor">
                                            View the map of your properties
                                        </a>
                                         
