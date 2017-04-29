@@ -76,7 +76,7 @@ public class AjaxProvider
             using (SqlConnection con = new SqlConnection(connString))
             {
                   con.Open();
-                SqlCommand cmd = new SqlCommand("uspGetPropertiesDetailIno", con);
+                SqlCommand cmd = new SqlCommand("uspGetPropertiesDetailInfoLocation", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add("@propid", SqlDbType.NVarChar, 200).Value = propid;

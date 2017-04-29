@@ -60,6 +60,9 @@ public class PropertyDetailInfo
     public string CategoryTypes { get; set; }
     public int Category { get; set; }
     public string FileName { get; set; }
+    public float loc_latlang { get; set; }
+    public float loc_logitude { get; set; }
+    public int loc_verified { get; set; }
 }
 
 public class PropertyAmenityInfo
