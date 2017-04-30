@@ -41,7 +41,6 @@
             <table>
                 <tr>
                     <th>Property#</th>
-                    <th>Name</th>
                     <th>Country</th>
                     <th>State</th>
                     <th>City</th>
@@ -61,10 +60,12 @@
                          if (!float.TryParse(srow["loc_latlang"].ToString(), out latitude)) latitude = 0;
                          if (!float.TryParse(srow["loc_logitude"].ToString(), out longitude)) longitude = 0;
 
+                         string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx",
+                             srow["Country"], srow["StateProvince"] ,srow["City"]);
 
                  %>
                      <tr>
-                        <td><%=srow["Name2"] %>  </td>
+                        <td><a href="<%=url %>"><%=srow["ID"] %> </a> </td>
                         <td><%=srow["Country"] %>  </td>
                         <td><%=srow["StateProvince"] %>  </td>
                         <td><%=srow["City"] %>  </td>
