@@ -121,6 +121,9 @@ function processProperty(response) {
     cityname = property.City;
     getcountries(countryname);
 
+    var lat = property.loc_latlang;
+    var lng= property.loc_logitude;
+    setMarkers(onemap,lat, lng);
     $('#m_addr').val(property.Address)
 }
 
