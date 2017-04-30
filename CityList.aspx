@@ -179,7 +179,7 @@
                                  if(addr_verified == 1)
                                  {
                                      Location loc = new Location();
-                                     loc.title = propamen.detail.City;
+                                     loc.title = propamen.detail.Name2;
                                      loc.lat = latitude;
                                      loc.lng = longitude;
                                      loc.description = propamen.detail.Name2;
