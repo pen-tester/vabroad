@@ -179,7 +179,7 @@
                                  if(addr_verified == 1)
                                  {
                                      Location loc = new Location();
-                                     loc.title = propamen.detail.Name2;
+                                     loc.title =Server.HtmlDecode(propamen.detail.Name2);
                                      loc.lat = latitude;
                                      loc.lng = longitude;
                                      loc.description = propamen.detail.Name2;
