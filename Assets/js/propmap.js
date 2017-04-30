@@ -280,7 +280,8 @@ function getLocationDetails(latitude, longitude) {
                 for (var i = 0; i < data.results.length; i++) {
                     locationDetails = data.results[i].formatted_address.toLowerCase();
                     console.log(data.results[i].formatted_address);
-                    if (parseInt(locationDetails.indexOf(city.toLowerCase())) >= 0 && parseInt(locationDetails.indexOf(country.toLowerCase())) >= 0) {
+                    //  if (parseInt(locationDetails.indexOf(city.toLowerCase())) >= 0 && parseInt(locationDetails.indexOf(country.toLowerCase())) >= 0) {
+                    if (parseInt(locationDetails.indexOf(country.toLowerCase())) >= 0) {
                         isvalid = "true";
                         break;
                     }
