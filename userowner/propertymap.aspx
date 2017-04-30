@@ -61,7 +61,7 @@
                          if (!float.TryParse(srow["loc_logitude"].ToString(), out longitude)) longitude = 0;
 
                          string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx",
-                             srow["Country"], srow["StateProvince"] ,srow["City"]);
+                             srow["Country"], srow["StateProvince"] ,srow["City"],srow["ID"]);
 
                  %>
                      <tr>
