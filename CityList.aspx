@@ -7,6 +7,9 @@
 
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
+    <style>
+        .smap{width:400px; height:300px;min-height:1px;margin:10px auto; }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
@@ -44,10 +47,16 @@
 
             </div>
             <div class="srow">
+                <div class="col-6">
                  <div class="txtalign">
                         <asp:Label runat="server" ID="lblcity"  ></asp:Label>
                   </div>
+                 </div>
+                <div class="col-6 center">
+                    <div class="smap" id="map_canvas">
 
+                    </div>
+                </div> 
                 <input type="hidden"  id="cityid" value="<%=cityid %>"  />
                 <input type="hidden"  id="CityParam" name="CityParam"  runat="server" />
                     <%--padding 305 center--%>
@@ -134,8 +143,9 @@
         <div class="srow">
             <div class="pcontent">
                 <%  int pages = (proplistset.allnums+19) / 20 ;
-    for (int pg = 0; pg < pages; pg++)
-    {
+                    List<Location> eLocation = new List<Location>();
+                    for (int pg = 0; pg < pages; pg++)
+                    {
                          %>
               
                 <div class="page_hid" id="cpage<%=pg %>">
@@ -156,6 +166,28 @@
                                  //console.log(am_count);
                                  //string alt = (!property_typeval.Contains(propamen.detail.Category)) ? propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Vacation Rental" : propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Hotel";
                                  string alt = propamen.detail.Name2;
+
+                                 int addr_verified;
+                                 addr_verified = propamen.detail.loc_verified;
+                                 float latitude, longitude;
+                                 latitude = propamen.detail.loc_latlang;
+                                 longitude = propamen.detail.loc_logitude;
+
+                                 string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx",
+                                     propamen.detail.Country, propamen.detail.StateProvince ,propamen.detail.City,propamen.detail.ID).ToLower().Replace(" ","_");
+
+                                 if(addr_verified == 1)
+                                 {
+                                     Location loc = new Location();
+                                     loc.title = propamen.detail.City;
+                                     loc.lat = latitude;
+                                     loc.lng = longitude;
+                                     loc.description = propamen.detail.Name2;
+                                     loc.URL = url;
+                                     eLocation.Add(loc);
+                                 }
+
+
 
                                  for (int j = 0; j < am_count; j++)
                                  {
@@ -214,7 +246,8 @@
 
                           <%} %>
                 </div>
-                <%} %>
+                <%}
+                    string ans =BookDBProvider.getJsonString<Location>(eLocation) ; %>
             </div>
         </div>
         <div class="srow">
@@ -281,8 +314,10 @@
  
 
     </div>
- 
+  <script>
+      var gmarkers = <%=ans%>;
+  </script>
    
-    
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
     <script defer="defer" src="/Assets/js/citylist.js"></script>
 </asp:Content>
