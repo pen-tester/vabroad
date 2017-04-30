@@ -47,12 +47,12 @@
 
             </div>
             <div class="srow">
-                <div class="col-6">
+                <div class="col-6" id="lbl_City">
                  <div class="txtalign">
                         <asp:Label runat="server" ID="lblcity"  ></asp:Label>
                   </div>
                  </div>
-                <div class="col-6 center">
+                <div class="col-6 center" id="wrap_map">
                     <div class="smap" id="map_canvas">
 
                     </div>

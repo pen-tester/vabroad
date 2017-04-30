@@ -2,6 +2,10 @@
     console.log("map");
     initialize();
     console.log("ready"), refresh_radios(); var e = $('input:hidden[name="allpages"]').val(); addPagination(e);
+    if (gmarkers.length == 0) {
+        $('#wrap_map').hide();
+        $('#lbl_City').removeClass("col-6");
+    }
 
 }); var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night"], prop_typeval = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12], min_groupnum = 0, max_group = 0, cpagenums = 0;
 
