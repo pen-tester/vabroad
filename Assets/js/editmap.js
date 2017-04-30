@@ -3,15 +3,10 @@ $(document).ready(function () {
 
 });
 
-
+var markers = "";
 
 initialize(markers);
 
-function showeditmap(propid) {
-    var left = ($(window).width() / 2) - (800 / 2);
-    var top = ($(window).height() / 2) - (600 / 2);
-    popup = window.open("/userowner/editpropmap.aspx?pid=" + propid, "_blank", "width=800, height=600, top=" + top + ", left=" + left);
-}
 
 function initialize(markers) {
     var bounds = new google.maps.LatLngBounds();

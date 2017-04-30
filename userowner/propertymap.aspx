@@ -50,6 +50,7 @@
                 </tr>
                  <%
                      int count = ds_proplocation.Tables[0].Rows.Count;
+                     List<Location> eLocation = new List<Location>();
                      for (int i=0; i<count; i++)
                      {
                          var srow = ds_proplocation.Tables[0].Rows[i];
@@ -61,8 +62,18 @@
                          if (!float.TryParse(srow["loc_logitude"].ToString(), out longitude)) longitude = 0;
 
                          string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx",
-                             srow["Country"], srow["StateProvince"] ,srow["City"],srow["ID"]);
+                             srow["Country"], srow["StateProvince"] ,srow["City"],srow["ID"]).ToLower().Replace(" ","_");
 
+                         if(addr_verified == 1)
+                         {
+                             Location loc = new Location();
+                             loc.title = srow["City"].ToString();
+                             loc.lat = Double.Parse(srow["loc_latlang"].ToString());
+                             loc.lng =Double.Parse(srow["loc_logitude"].ToString());
+                             loc.description = srow["City"].ToString();
+                             loc.URL = url;
+                             eLocation.Add(loc);
+                         }
                  %>
                      <tr>
                         <td><a href="<%=url %>"><%=srow["ID"] %> </a> </td>
@@ -75,13 +86,14 @@
                     </tr>
                 <%
                     }
+                    string ans =BookDBProvider.getJsonString<Location>(eLocation) ;
                 %>
 
             </table>
         </div>
     </div>
     <script>
-
+        var markers=<%=ans%>;
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
     <script src="/assets/js/propmap.js" defer="defer"></script>

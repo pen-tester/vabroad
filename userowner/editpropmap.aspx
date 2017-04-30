@@ -1,16 +1,28 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="editpropmap.aspx.cs" Inherits="userowner_editpropmap" %>
+   <div class="internalpage">
+        <div class="smap" id="map_canvas">
 
-<!DOCTYPE html>
+        </div>
+        <div class="srow">
+            <div>The full address of the property is ....</div>
+            <div>
+                <select id="mcountry">
+                    <option>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-      Hello edit map
+                    </option>
+                </select>
+                <select id="mstates">
+                    <option>
+
+                    </option>
+                </select>
+                <select id="mcity">
+                    <option>
+
+                    </option>
+                </select>
+                <input type="text" id="mothercity" />
+                <input type="text" id="maddr" />
+            </div>
+        </div>
     </div>
-    </form>
-</body>
-</html>

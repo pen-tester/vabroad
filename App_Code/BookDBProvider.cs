@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -368,6 +369,12 @@ public class BookDBProvider
         }
         return country_info;
     }
+
+    public static string getJsonString <T>(List<T> list)
+    {
+        return JsonConvert.SerializeObject(list, Formatting.Indented);
+    }
+
     public static DataSet getCommentImageSet(int comid)
     {
         DataSet inquiry_set = new DataSet();
