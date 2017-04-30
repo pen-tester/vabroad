@@ -16,7 +16,7 @@ function showeditmap(propid) {
 function initialize(markers) {
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
-        center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+        center: new google.maps.LatLng(51.5, -0.12),
         zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
         //  marker:true
