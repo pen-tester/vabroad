@@ -50,7 +50,36 @@
         return item;
     }
 
+    [WebMethod]
+    // Get session state value.AjaxPropListSet
+    public static  List<ObjectName> getcountryidlist(string cname) {
+        List<string> param = new List<string>();
+        List<string> pname = new List<string>();
+        param.Add(cname); pname.Add("@name");
+        List<ObjectName> list = MainHelper.getListFromDB<ObjectName>("uspGetCountryListByCountryName", MainHelper.getSqlParamList(param, pname));
 
+        return list;
+    }
+
+     [WebMethod]
+    public static  List<ObjectName> getstatesidlist(int id) {
+        List<string> param = new List<string>();
+        List<string> pname = new List<string>();
+        param.Add(id.ToString()); pname.Add("@id");
+        List<ObjectName> list = MainHelper.getListFromDB<ObjectName>("uspGetStateListByCountryID", MainHelper.getSqlParamList(param, pname));
+
+        return list;
+    }
+    
+     [WebMethod]
+    public static  List<ObjectName> getcityidlist(int id) {
+        List<string> param = new List<string>();
+        List<string> pname = new List<string>();
+        param.Add(id.ToString()); pname.Add("@id");
+        List<ObjectName> list = MainHelper.getListFromDB<ObjectName>("uspGetCityListByStateID", MainHelper.getSqlParamList(param, pname));
+
+        return list;
+    }
 </script>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
