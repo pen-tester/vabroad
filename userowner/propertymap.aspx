@@ -183,7 +183,7 @@
                          if(addr_verified == 1)
                          {
                              Location loc = new Location();
-                             loc.title = srow["City"].ToString();
+                             loc.title = srow["Name2"].ToString();
                              loc.lat = Double.Parse(srow["loc_latlang"].ToString());
                              loc.lng =Double.Parse(srow["loc_logitude"].ToString());
                              loc.description = srow["City"].ToString();

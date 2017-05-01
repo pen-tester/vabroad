@@ -43,7 +43,7 @@ public partial class userowner_propertymap : ClosedPage// Page   //ClosedPage
         }
 
 
-        int userid = int.Parse(Request["userid"]);
+       // int userid = int.Parse(Request["userid"]);
         List<SqlParameter> param = new List<SqlParameter>();
         param.Add(new SqlParameter("@userid", userid));
         ds_proplocation = BookDBProvider.getDataSet("uspGetPropertyLocationsByUserID", param);
