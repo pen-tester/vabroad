@@ -78,6 +78,10 @@ ul.stateful li:last-child{
     text-align: center;
     }
 
+.newline{
+    margin:10px 30px;
+}
+
 
 .greytext
 {
@@ -143,3 +147,8 @@ ul.TripleListMain li a{
     border:2px solid #E9E3D6;
     }
 
+     .contenttextleft{
+         clear:both;
+     }
+
+     .wrapper{display:inline-block; margin:auto;width:300px;}

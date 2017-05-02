@@ -3,7 +3,7 @@
     EnableViewState="false" %>
 
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <link href="/Assets/css/asia.css" rel="stylesheet" />
+    <link href="/Assets/css/continent.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="titles" ContentPlaceHolderID="head" runat="server">
     Asia Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
@@ -32,11 +32,13 @@
                                 The ethereal seafronts of Thailand, the virgin beaches and lush paddy fields of Cambodia, the thick rainforests and romantic beaches of Indonesia and Malaysia, the snow-covered peaks of Nepal, the idyllic coastline of Sri Lanka, or the historically rich and vibrant cities of India. The destinations where you can find Asia vacation rentals are endless. 
                             </p>
                 </div>
-                <div class="col-3">
+                <div class="col-5 center">
+                    <div class="wrapper">
                             <img src="/Images/AsiaVacations.jpg" alt="Beautiful beaches of Indonesia" height="190" width="300" />
                             <img src="../Images/likeusonfacebook.jpg" />
                               <div id="fb-root"></div>
-                        <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+                          <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+                    </div>
                 </div>
    
             </div>
@@ -70,18 +72,18 @@
         </div>
         <%--2nd part begins--%>
         <%--VBR--%>
-        <div class="row">
+        <div class="srow">
             <div class="newline">
                 <div class="vbrgreen">
                     Asia Vacations
                 </div>
             </div>
 
-            <div class="newline">
-                <div class="col-3">
+            <div class="srow">
+                <div class="col-5 center">
                             <img src="/images/AsiaDestinations.jpg" height="233" width="300" alt="The famous Mehrangharah Fort with the city of Jodhpur, Rajasthan in the background. " />
                 </div>
-                <div class="col-r7">
+                <div class="col-7">
                             <p>
                                 Asia vacations showcase a wide variety cultures, history and religion.  that is unique dazzling array of spell-binding beauty, heart-warming culture, pampering luxury, and spoiling services. There are all kinds of destinations studded across the historical Asian terrain, but Asia beach destinations are by far the most popular with tourists from the Western hemisphere. The cozy winter temperatures and breathtaking sea views at the coastal areas, and the galaxy of colorful, bustling cities running along the coastline attract tourists by the millions.
 The best beach destinations in Southeast Asia include Philippines, Indonesia, Malaysia, Cambodia, Thailand, and Sri Lanka. These countries have hundreds of clear water beaches, each more beautiful than the others in its own way. Some of the beaches are truly exotic destinations in Southeast Asia. India and Indonesia, with their picturesque islands of Goa and Bali, are famous Asia exotic destinations. Sri Lanka and Philippines are idyllic family destinations in Asia, where you can really feel closer to your loved ones.
@@ -90,6 +92,7 @@ The best beach destinations in Southeast Asia include Philippines, Indonesia, Ma
                 </div>
             </div>
         </div>
+        <div class="clear"></div>
         <div class="newline">
             <div>
 
@@ -119,7 +122,7 @@ Many Asia beach vacations have evolved; originally bohemian destinations for tho
 
                             </p></div>
 
-                 <div class="col-3">
+                 <div class="col-5 center">
                 <img src="/images/AsiaBeachVacations.jpg" height="233" width="300" alt="The amazing beaches and islands of the Philippines" />
              </div>
               </div>              
@@ -153,22 +156,24 @@ Many Asia beach vacations have evolved; originally bohemian destinations for tho
                 </div>
                 </div>
             <div class="newline">
-                <div class="col-3">
+                <div class="srow">
+                <div class="col-5 center">
                     <%--image--%>
 
                                 <img src="/images/AsiaVacationRentals.jpg" height="245" width="300" alt="The rice paddies of Bali Indonesia" />
                    </div>
-                <div class="col-r7">
+                <div class="col-7">
                                 <p>
                                     Vacation-Abroad offers an extensive variety of Asia vacation rentals to suite all tastes, purposes and budgets. Our picture-rich listings contain hundreds of properties replete with all modern facilities and services. You can easily choose among properties by looking at their interior and exterior views, reading about their features and facilities, and comparing their rents.
 The Asia vacation rentals that you'd like to consider would depend upon the purpose of your vacation, the number of people travelling with you, and your budget. For instance, if you are vacationing with a large family or group of friends, you might find it suitable to go for an Asia villa rental. Villas are usually very spacious and give you a lot of privacy. Asia bungalows are also similar to villas and are secluded places to unwind at.
 
                                 </p>
                 </div>
-
+                </div>
 
                 </div>
             </div>
+        <div class="clear"></div>
             <div class="newline">
 
                     <div style="text-align:center; width: 33%;display:inline-block">
@@ -181,7 +186,6 @@ The Asia vacation rentals that you'd like to consider would depend upon the purp
                         <h3><a class="greytext" href="/malaysia/selangor/kuala_lumpur/default.aspx"><b>Kuala Lampur Malaysia</b></a></h3>
                     </div>
             </div>
-        <div class="clearfix"></div>
                     <div class="linegreen">
             </div>
         </div>

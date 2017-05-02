@@ -3,7 +3,7 @@
     EnableViewState="false" %>
 
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <link href="/Assets/css/africa.css" rel="stylesheet" />
+    <link href="/assets/css/continent.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="titles" ContentPlaceHolderID="head" runat="server">
     South America Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
@@ -26,8 +26,9 @@
            <div class="vbrblue">
                 South America Destinations 
             </div>
+        <div class="clear"></div>
         <div class="newline">
-            <div class="clear">
+            <div class="srow">
                 <%--content text--%>
                <div class="col-7">
                             <p>
@@ -39,13 +40,14 @@
 
                             </p>
                </div>
-               <div class="col-3">
-                            <img src="/Images/SouthAmericaVacations.jpg" height="190" width="300" alt="" />
-                            <img src="../Images/likeusonfacebook.jpg" />
-                              <div id="fb-root"></div>
-                <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
-               </div>
-
+               <div class="col-5 center">
+                   <div class="wrapper">
+                                <img src="/Images/SouthAmericaVacations.jpg" height="190" width="300" alt="" />
+                                <img src="../Images/likeusonfacebook.jpg" />
+                                  <div id="fb-root"></div>
+                    <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+                   </div>
+                   </div>
 
             </div>
         </div>
@@ -68,14 +70,15 @@
                South America City Vacations
             </div>
          </div>
+        <div class="clear"></div>
         <div class="newline">
 
-            <div class="clear">
-                <div class="col-3">
+            <div class="srow">
+                <div class="col-5 center">
 
                             <img alt="" src="/images/SouthAmericaDestinations.jpg" height="233" width="300" />
                 </div>
-                <div class="col-r7">
+                <div class="col-7">
                            <p>
                                South America destinations have the potential of transporting you to another time and age. With cities immersed in festivities, beaches inundated in natural beauty, and rainforests infested with a million plants and creatures, the magic of South America destinations is just inescapable. 
 Most of the destinations are suitable for South America family vacations. The tourism sector is well-developed in Argentina, Brazil, Columbia, and Peru, so you will find a variety of activities for kids of all ages. From zip-lining to paragliding and from waterskiing to scuba diving, the fun and action is just unstoppable at most of the South America destinations. Vacation accommodations including hotels, resorts, apartments, villas, cottages, and lodges are available for a comfortable family stay. Family destinations in South America offer a perfect blend of privacy and activity to entertain and refresh your whole family.
@@ -109,8 +112,9 @@ Most of the destinations are suitable for South America family vacations. The to
             <div class="vbrblue">
                 South America Beach Vacations
             </div>
+        <div class="clear"></div>
         <div class="newline">
-            <div class="clear">
+            <div class="srow">
                 <div class="col-7">
                           <p>
                                 South America beach vacations can be a liberating experience for your mind, body and soul. Picture yourself perched up in a plush dwelling, feeling the soft tropical breeze tingle your skin, observing the mesmerizing blue ocean and its foamy waves as they strike the breathtaking beach. Imagine being pampered by healing massages and tropical drinks after a swim in the heavenly lagoons, or basking in cozy sun sprawled on the powdery white sand that looks like icing sugar. Or, you could be a part of the perpetual celebration that goes on in South America beach cities such as Rio de Janerio Brazil. 
@@ -124,7 +128,7 @@ Copa Cabana, Ipanema, Buenos Aires and Argentina are splendid South America beac
 
 
                 </div>
-                <div class="col-3">
+                <div class="col-5 center">
                     <img src="/images/SouthAmericaBeachVacations.jpg" alt="" height="233" width="300" />
                 </div>
              </div>
@@ -153,14 +157,15 @@ Copa Cabana, Ipanema, Buenos Aires and Argentina are splendid South America beac
                    South America Exotic Vacations
                 </div>
             </div>
+        <div class="clear"></div>
     <div class="newline">
 
-          <div class="clear">
+          <div class="srow">
                     <%--image--%>
-                    <div class="col-3">
+                    <div class="col-5 center">
                           <img alt="" src="/images/SouthAmericaVacationRentals.jpg" height="245" width="300"/>
                     </div>
-                     <div class="col-r7" >
+                     <div class="col-7" >
                                 <p>
                                    South America vacation rentals include villas, apartments, hotels, cottages, and numerous other types of fully furnished and serviced accommodations. You can also have the option of cooking your own meals at some of these properties, which come with fully fitted kitchens. All South America vacation rentals available on our website are unique and different from each other. We have a snug sanctuary all stocked up and waiting for your arrival, whatever your budget or group size might be.
 If you have a large family or group of friends travelling with you, you should probably go for villa rentals in South America. Artistically architected and tastefully furnished, each villa on our list is ideally located at a visually attractive and peaceful place. Some of the South America villa rentals allow you to rent individual bedrooms, while others have to be booked as a unit. Nestled in lush-green tropical hillsides, beside marvelous beaches, and in posh city locations, the villas on our list are exclusive abodes that take your South America vacations to a whole new level. 

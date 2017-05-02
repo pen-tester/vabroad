@@ -5,7 +5,7 @@
     Africa Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <link href="/Assets/css/africa.css" rel="stylesheet" />
+  <link href="/assets/css/continent.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
     <div class="internalpagewidth">
@@ -21,7 +21,8 @@
             <%--VBR--%>
 
             <%--content VBR--%>
-            <div class="clear">
+            <div class="clear">    </div>
+            <div class="srow">
                 <%--content text--%>
                 <div class="col-7">
                             <p>
@@ -32,17 +33,18 @@ Each country has its own personality and attractions. Egypt with its ancient rel
                             </p>
                 </div>
 
-                <div class="col-3">
+                <div class="col-5 center">
+                    <div class="wrapper">
                           <img src="/Images/AfricaVacations.jpg" alt="Sailing down the Nile River in Egypt" height="190" width="300" />
                             <br />
                             <img src="../Images/likeusonfacebook.jpg" />
                               <div id="fb-root"></div>
                        
                         <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
-
+                    </div>
                 </div>
-  
             </div>
+        
             <div class="greytext">
                 <div style="border: solid 0px #ececec; padding: 2px; background-color: white;width:928px">
                     <div id="ctl00_TabContainer_divAfrica">
@@ -71,7 +73,8 @@ Each country has its own personality and attractions. Egypt with its ancient rel
             </div>
         <div>
 
-
+                        <div class="clear">
+            </div>
         <%--2nd part begins--%>
         <%--VBR--%>
         <div class="newline">
@@ -79,10 +82,10 @@ Each country has its own personality and attractions. Egypt with its ancient rel
                Africa Safari Vacations 
             </div>
             <div style="margin-top:10px;">
-               <div class="col-3">
+               <div class="col-5 center">
                     <img src="/images/AfricaDestinations.jpg" alt="The view overlooking Capetown South Africa" height="233" width="300" />
                </div>
-               <div class="col-r7" >
+               <div class="col-7" >
                      Africa safari vacations are famous for their rich wildlife, thick forests, abundant lakes, sprawling African savannahs, and the pervasive charm of what's perhaps the oldest civilization in the world. Families, adventure tourists and idyllic travellers reaching Africa destinations have a well rounded, deeply entertaining experience, whether they are staying at beach destinations in Africa or an Africa safari vacation. The unspoilt natural charm of the shadowy continent is palpable, and it seems to resonate with your soul.
 The most enchanting Africa safari vacations are located in Morocco, South Africa and Kenya. Egypt is famous for its pyramids and ancient relics, bustling cities, and colourful nightlife, but also has splendid beaches along the Mediterranean coast.  Kenya, located further south, is widely known for its safaris and wildlife parks, and also doubles as one of the most picturesque beach destinations in Africa. The surprises never cease as you travel all the way to the southern tip of the continent through South Africa, a country known for its vibrant resorts, safari vacations, and fun activities.
 
@@ -92,6 +95,8 @@ The most enchanting Africa safari vacations are located in Morocco, South Africa
 
             </div>
         </div>
+                        <div class="clear">
+            </div>
         <div class="newline">
 
             
@@ -108,6 +113,8 @@ The most enchanting Africa safari vacations are located in Morocco, South Africa
 
 
         </div>
+              <div class="clear">
+            </div>
         <div class="linegreen">
         </div>
         <%--3rdpart--%>
@@ -127,7 +134,7 @@ Although most of the beach resorts are known for their beautiful beaches, side t
 
                             </p>
                 </div>
-                 <div class="col-3">
+                 <div class="col-5 center">
                                 <img src="/images/AfricaBeachVacations.jpg" alt="The exotic beaches of Kenya" height="233" width="300" />
                  </div>
   
@@ -166,15 +173,16 @@ Although most of the beach resorts are known for their beautiful beaches, side t
 
         <div class="newline">
             <%--VBR--%>
-            <div class="col-3">
+            <div class="col-5 center">
                 <img src="/images/AfricaVacationRentals.jpg" alt="A desert city in Morocco" height="245" width="300"/>
             </div>
-            <div class="col-r7">
+            <div class="col-7">
  Apart from zooming in on unveiled virgin nature and going wild chasing wildlife in the savannas, one of the most haunting memories you'll have from your Africa vacations is the peace and calm that you experience when you become one with nature. Africa's mystique is a part of its splendour, but the reclusive continent can be hard to explore for the lack of organized data about Africa vacation rentals. Tour operators usually book vacationers in more-or-less standard accommodations, with nothing unique or novel to spice up the vacations. Many tourists generally end up in hotels, where they might not be able to enjoy a fully immersive African adventure.
 Vacations-Abroad.com has painstakingly selected the best Africa vacations rentals from across 6 African countries. Our vacation rentals in Africa include resorts, lodges, villas, and beach rentals. All vacation rentals are conveniently accessible and serve as your fully stocked and serviced base-camp for launching into an adventure that you'll remember for the rest of your life. Each property is completely unique and provides the most authentic and comfortable dwelling at an exclusive location.
 
             </div>
           
+             <div class="clear"></div>
             <div class="newline">
 
                
@@ -197,6 +205,7 @@ Vacations-Abroad.com has painstakingly selected the best Africa vacations rental
                        <div class="linegreen">
             </div>
     </div>
+        </div>
     <%-- <style>
         .PDescText
         {

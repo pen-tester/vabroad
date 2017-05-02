@@ -39,12 +39,14 @@ North America family vacations bring Disneyland and Niagara Falls to mind. Guate
                             </p>
                             <br/>
                </div>
-              <div class="col-3">
+              <div class="col-5 center">
+                  <div class="wrapper">
                     <img alt="" src="/Images/NorthAmericaVacations.jpg" height="190" width="300" />
                             <img src="../Images/likeusonfacebook.jpg" />
                               <div id="fb-root"></div>
  
                         <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+                  </div>
   
               </div>
             </div>                                    
@@ -88,10 +90,11 @@ North America family vacations bring Disneyland and Niagara Falls to mind. Guate
                 North America Ski Vacations
             </div>
     </div>
+                <div class="clear"></div>
     <div class="newline">
-        <div class="clear"></div>
+
          <div class="srow">
-            <div class="col-4">
+            <div class="col-5 center">
               <img alt="" src="/images/NorthAmericaWinterVacations.jpg" height="233" width="300" />
             </div>
              <div class="col-7">
@@ -130,6 +133,7 @@ North America ski destinations are easily accessible during the winters, thanks 
   
             <%--content VBR--%>
             <div class="newline">
+                <div class="srow">
                <div class="col-7">
                             <p>
                                 North America presents an unparalleled diversity of beaches, ranging from reclusive island destinations to exciting beaches of Florida, Mexico and California. Sweeping views of the Atlantic and the Pacific Oceans and availability of a staggering number of water-sports facilities make the best beaches in North America thoroughly entertaining destinations for summer vacations in North America. Families, surfers, divers, and lifestyle travelers from across the globe converge upon beach resorts in North America every season.
@@ -138,10 +142,10 @@ The best beaches in North America, which include Florida, Mexico and California 
                             </p>
                             <br/>
                 </div>
-                <div class="col-3">
+                <div class="col-5 center">
                     <img alt="" src="/images/NorthAmericaBeachVacations.jpg" height="233" width="300" />
                 </div>
-   
+                </div>
             </div>
             <div class="newline">
                  
@@ -165,19 +169,19 @@ The best beaches in North America, which include Florida, Mexico and California 
             </div>
             <div class="clear">
             </div>   
-        
+          <div class="clear">
           <div class="newline">
                 <div class="vbrgreen">
                     North America City Vacations
                 </div>
         </div>
             <div class="newline">
-                <div class="clear">
+                <div class="srow">
                     <%--image--%>
-                    <div class="col-3">
+                    <div class="col-5 center">
                         <img alt="" src="/images/NorthAmericaVacationRentals.jpg" height="245" width="300"/>
                     </div>
-                    <div class="col-r7" >
+                    <div class="col-7" >
                                 <p>
                                     North America destinations for a vacation can present you with a dizzying number of choices for that perfect getaway. Beachfront accommodations, lake cottages, vacation cabins, resort-style accommodations, houses and other types of vacation rentals in all the top tourist destinations in North America with pictures and all details. You can browse by specific cities in North America and take a look at some top of the line vacation properties that suit all budget ranges and group sizes.
 Mountain cabins in North America ski destinations are usually located in the midst of beautiful scenery and surrounded by majestic mountains. These are rustic ski accommodations can boast all the modern facilities while offering privacy and seclusion. Lake cottages in North America are picturesque properties offering spectacular views of some of the most beautiful lakes in the world. North America destinations can also be found on beautiful islands such as Dominica, St Lucia, Barbados, and French Caribbean are home to rustic beach cottages in North America. The exclusive and fully stocked dwellings offer an exotic vacation in the lap of Mother Nature.
@@ -187,7 +191,7 @@ Mountain cabins in North America ski destinations are usually located in the mid
                 </div>
             </div>
             <%--VBR--%>
-
+            <div class="clear"></div>
             <div class="newline">
                  
                     <div style="display:inline-block;text-align:center; width: 413px;">
@@ -208,7 +212,7 @@ Mountain cabins in North America ski destinations are usually located in the mid
             </div>       
      </div>
   
-    
+    </div>
     <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
     <noscript>
         <div class="statcounter">

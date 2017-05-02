@@ -3,7 +3,7 @@
     EnableViewState="false" %>
 
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <link href="/Assets/css/africa.css" rel="stylesheet" />
+    <link href="/assets/css/continent.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="titles" ContentPlaceHolderID="head" runat="server">
     Oceania Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
@@ -41,12 +41,14 @@
                             <p>Imagine living in an offshore hut, perched above water so clear that you could see colourful fishes and other sea creatures swimming over the white seabed. Picture yourself cruising to breathtakingly beautiful volcanic islands scattered amidst the sprawling blue sea like green emeralds. Or, you could relish the ideal combination of a refreshingly idyllic and a sensually exciting vacation at Oceania cities such as Melbourne, Perth, and Auckland. </p>
 
                 </div>
-                <div class="col-3">
+                <div class="col-5 center">
+                    <div class="wrapper">
                             <img src="/images/oceaniavacations.jpg" height="190" width="300" alt=""/>
                             <img src="../Images/likeusonfacebook.jpg" />
                             <div id="fb-root"></div>
                             
                             <div class="fb-like" style="float: left; padding-left: 5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+                    </div>
   
                 </div>
 
@@ -122,14 +124,14 @@
                     Oceania Beach Vacations
                 </div>
             </div>
-
+            <div class="clear"></div>
             <div class="newline">
-            <div class="clear">
-               <div class="col-3">
+            <div class="srow">
+               <div class="col-5 center">
 
                    <img src="/images/oceaniabeachvacations.jpg" height="233" width="300" alt=""/>
                </div>
-               <div class="col-r7">
+               <div class="col-7">
                            <p>
                                 Oceania beach vacations take you to some of the most scenic seascapes of the world. Surrounded by the expansive South Pacific Ocean, the secluded Oceania beach resorts of Fiji, Tahiti and the Cook Islands are fringed with thick, towering palms and carpeted with white powdery sands. The sweeping views of the ocean, the lush green tropical hills and forests, and the stunning oceanic peaks protruding out of the sea can make most vacationers drunk on natural beauty.
                             </p>
@@ -170,8 +172,10 @@
             <div class="vbrblue">
                 Oceania Exotic Vacations
             </div>
+            <div class="clear"></div>
+
         <div class="newline">
-                        <div class="clear">
+                        <div class="srow">
                 <div class="col-7">
                            <p>
                                 Oceania destinations are awash with natural beauty and calmness. Millions of weary vacationers board their flights for Oceania destinations each year, looking to rejuvenate and be reborn before returning to their routines with a new gusto. Abundant scenic beauty, excellent facilities, and complete privacy make the South Pacific destinations rank among the best vacation retreats on the planet.
@@ -185,7 +189,7 @@
 
 
                 </div>
-                <div class="col-3">
+                <div class="col-5 center">
                         <img src="/images/oceaniadestinations.jpg" height="233" width="300" alt=""/>
                 </div>
 
@@ -221,8 +225,10 @@
                     Oceania Family Vacations
                 </div>
         </div>
+            <div class="clear"></div>
+
         <div class="newline">
-                <div class="clear">
+                <div class="srow">
                     <%--image--%>
                    <div class="col-3">
                        <img src="/images/oceaniaaccommodation.jpg" height="245px" width="300px" alt=""/>
