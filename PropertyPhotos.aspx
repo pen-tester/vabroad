@@ -44,7 +44,7 @@
 						width='<%# DataBinder.Eval(Container.DataItem, "Width", "{0:d}") %>' height='<%# DataBinder.Eval(Container.DataItem, "Height", "{0:d}") %>'
 						alt='Property Photo'>
 						changed by LMG 4/2/08--%>
-                 <img src='<%# "images/" + DataBinder.Eval(Container.DataItem, "FileName", "{0}")+"?"+AjaxProvider.Base64Decode(DateTime.Now.ToString()) %>'
+                 <img src='<%# "images/" + DataBinder.Eval(Container.DataItem, "FileName", "{0}")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
 						width='<%# DataBinder.Eval(Container.DataItem, "Width", "{0:d}") %>' height='<%# DataBinder.Eval(Container.DataItem, "Height", "{0:d}") %>'
 						alt='Property Photo' id='unknown'>
                 </td>
