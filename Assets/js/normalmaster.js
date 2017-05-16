@@ -1,7 +1,7 @@
 ﻿var redirect_links = [["/applications.aspx", "/accounts/login.aspx?type=0"], ["/rentalguarantee.aspx"], ["/aboutus.aspx", "/press/AboutLindaKJenkins.pdf"]
     , ["/presscoverage.aspx", "/pressreleases.aspx"], ["/Contacts.aspx", "http://blog2.vacations-abroad.com", "http://madmimi.com/signups/121428/join", "https://plus.google.com/+Vacations-abroad/posts", "https://twitter.com/vacationsabroad", "https://www.facebook.com/VacationsAbroad"]];
 
-var contact_links = ["/contacts.aspx", "/contacts.aspx", "/rentalguarantee.aspx", "/aboutus.aspx"];
+var contact_links = ["/contacts.aspx", "/applications.aspx", "/rentalguarantee.aspx", "/aboutus.aspx"];
 
 function onclickevent_footerment(menuindex, itemindex) {
     //alert(menuindex + "   " + itemindex);
