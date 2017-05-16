@@ -24,7 +24,7 @@
         </tr>
     </table>
 	<br />
-	<% } %>
+	<% }   %>
 	<div align="left" style="padding-left:10px">
 	<asp:Label ID="MoreThan7PhotosWarning" runat="server" Height="40px" Width="100%">
 		Please note you can’t upload more than 7 photos since you were not authorized by administration to do that. If you previously uploaded more than 7 photos and later you were unauthorized only first 7 photos will be displayed on the property page.
@@ -44,7 +44,7 @@
 						width='<%# DataBinder.Eval(Container.DataItem, "Width", "{0:d}") %>' height='<%# DataBinder.Eval(Container.DataItem, "Height", "{0:d}") %>'
 						alt='Property Photo'>
 						changed by LMG 4/2/08--%>
-                 <img src='<%# "images/" + DataBinder.Eval(Container.DataItem, "FileName", "{0}") %>'
+                 <img src='<%# "images/" + DataBinder.Eval(Container.DataItem, "FileName", "{0}")+"?"+AjaxProvider.Base64Decode(DateTime.Now.ToString()) %>'
 						width='<%# DataBinder.Eval(Container.DataItem, "Width", "{0:d}") %>' height='<%# DataBinder.Eval(Container.DataItem, "Height", "{0:d}") %>'
 						alt='Property Photo' id='unknown'>
                 </td>
@@ -86,10 +86,6 @@
     </div>
         </div>
     </div>
-
-    <noscript>
-        <img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all" width="1" height="1"><br />
-	</noscript>
 
     <script src="/Assets/js/photoproperty.js"></script>
 </asp:Content>

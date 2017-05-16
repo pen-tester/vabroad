@@ -125,29 +125,6 @@ ul.stateful li:last-child{
 }
 
 
-.col-7{
-    width:60% ;
-    display:inline-block;
-    vertical-align:top;
-    margin:20px;
-    text-align:justify;
-}
-
-.col-3{
-    width:30% ;
-    display:inline-block;
-    margin-top:20px;
-}
-
-.col-r7{
-    width:60% ;
-    display:inline-block;
-    vertical-align:top;
-    margin-top:10px;
-    margin-left:60px;
-    margin-right:0px;
-    text-align:justify;
-}
 
 .greytext
 {

@@ -1,8 +1,6 @@
 ﻿var redirect_links = [["/applications.aspx", "/accounts/login.aspx?type=0"], ["/rentalguarantee.aspx"], ["/aboutus.aspx", "/press/AboutLindaKJenkins.pdf"]
     , ["/presscoverage.aspx", "/pressreleases.aspx"], ["/Contacts.aspx", "http://blog2.vacations-abroad.com", "http://madmimi.com/signups/121428/join", "https://plus.google.com/+Vacations-abroad/posts", "https://twitter.com/vacationsabroad", "https://www.facebook.com/VacationsAbroad"]];
 
-var contact_links = ["/contacts.aspx", "/contacts.aspx", "/rentalguarantee.aspx", "/aboutus.aspx"];
-
 function onclickevent_footerment(menuindex, itemindex) {
     //alert(menuindex + "   " + itemindex);
     window.location.href = redirect_links[menuindex][itemindex];
@@ -19,11 +17,6 @@ $(document).ready(function () {
             return false;
         }
     });
-    $('.contactitem').click(function () {
-        var target = $(this).attr("data-target");
-        console.log(target);
-        window.location.href = contact_links[target];
-    });
 })
 
 function redirect() {
@@ -34,22 +27,11 @@ function getcountrylist(item) {
 
     //console.log(item.id);
     var rid = item.id.split("_")[1];
-
-
-
-
     if (menuitem[rid] != 0) {
         dropdownbtn(item);
-        var selector = "#ajcountry" + rid;
-        var mainmenu = $(selector).parent().parent().parent();
-        var r_height = mainmenu.height();
-        // mainmenu.find('.right-border').height(r_height);
-        mainmenu.find('.left-border').height(r_height);
-        // $("#menu" + call_rid + " .left-border").height(r_height);
-        console.log(selector + " " + r_height);
         return;
     }
-   // console.log("countrylist" + rid);
+    console.log("countrylist" + rid);
     call_rid = rid;
     $.ajax({
         type: "POST",
@@ -74,20 +56,12 @@ function processTopCountryData(response) {
     for (var i = 0; i < states.length; i++) {
         var id = "item" + call_rid + '_' + states[i].id;
         var href = "/" + states[i].name.toLowerCase().replaceAll(" ", "_") + "/default.aspx";
-        // var item = ' <li ><a href="'+href+'" class="mmitem" onmouseover="callstateslist(\''+id+'\')" id="' + id + '">' + states[i].name + '</a></li>';
-        var item = ' <li ><a href="' + href + '" class="mmitem" id="' + id + '">' + states[i].name + '</a></li>';
+        var item = ' <li ><a href="'+href+'" class="mmitem" onmouseover="callstateslist(\''+id+'\')" id="' + id + '">' + states[i].name + '</a></li>';
         $("#ajcountry"+call_rid).append(item);
         // $(".statelists").append('<li><a>' + states[i].name + '</a></li>');
     }
     menuitem[call_rid] = 1;
-    var selector = "#ajcountry" + call_rid;
-    var mainmenu = $(selector).parent().parent().parent();
-    var r_height = mainmenu.height();
-   // mainmenu.find('.right-border').height(r_height);
-    mainmenu.find('.left-border').height(r_height);
-   // $("#menu" + call_rid + " .left-border").height(r_height);
-    console.log(selector + " " + r_height );
-  //  dropdownbtn("#reg_" + call_rid);
+    dropdownbtn("#reg_" + call_rid);
 }
 
 
@@ -135,7 +109,7 @@ function dropdownbtn(item){
     var sp_str = cid.split("_");
     call_cid = sp_str[1];
     callcountry = $("#" + cid).text();
-   // getmainmenu(call_cid);
+    getmainmenu(call_cid);
 }
 
 
