@@ -21,7 +21,7 @@
      */
      .dropmenu-innercontent{border:1px solid #2f528f;background-color:#6699ff;}
      ul.countrygroup{list-style:disc}ul.countrygroup li{list-style-type:none;margin:0;position:relative;text-align:left;display:inline-block;}ul.countrygroup li a{color:#fff;padding:10px 15px;}
-     .right-border{border-right:1px solid #2f528f;height:100%;}
+     .right-border{height:100%;}
    /*
        For right menu
    */
