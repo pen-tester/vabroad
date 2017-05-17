@@ -313,7 +313,7 @@
                                       { %>
                                     <li>
                                         <div class='drop-shadow effect4'>
-                                        <img  alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>"
+                                        <img  alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>"
                                             src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 0) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[0]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 0) ? PhotosSet.Tables["PropertyPhotos"].Rows[0]["Width"].ToString () : "0" %>'
@@ -323,7 +323,7 @@
                                       { %>
                                     <li>
                                         <div class='drop-shadow effect4'>
-                                        <img  alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 1) ? 
+                                        <img  alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 1) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[1]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 1) ? PhotosSet.Tables["PropertyPhotos"].Rows[1]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 1) ? PhotosSet.Tables["PropertyPhotos"].Rows[1]["Height"].ToString () : "0" %>' /></div></li>
@@ -332,7 +332,7 @@
                                       { %>
                                     <li>
                                         <div class='drop-shadow effect4'>
-                                        <img  alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 2) ? 
+                                        <img  alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Country"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Country"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 2) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[2]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 2) ? PhotosSet.Tables["PropertyPhotos"].Rows[2]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 2) ? PhotosSet.Tables["PropertyPhotos"].Rows[2]["Height"].ToString () : "0" %>' /></div></li>
@@ -341,7 +341,7 @@
                                       { %>
                                     <li>
                                         <div class='drop-shadow effect4'>
-                                        <img alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 3) ? 
+                                        <img alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 3) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[3]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 3) ? PhotosSet.Tables["PropertyPhotos"].Rows[3]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 3) ? PhotosSet.Tables["PropertyPhotos"].Rows[3]["Height"].ToString () : "0" %>' /></div></li>
@@ -350,7 +350,7 @@
                                       { %>
                                     <li>
                                         <div class='drop-shadow effect4'>
-                                        <img alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 4) ? 
+                                        <img alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 4) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[4]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString())%>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 4) ? PhotosSet.Tables["PropertyPhotos"].Rows[4]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 4) ? PhotosSet.Tables["PropertyPhotos"].Rows[4]["Height"].ToString () : "0" %>' /></div></li>
@@ -359,7 +359,7 @@
                                       { %>
                                     <li>
                                         <div class='drop-shadow effect4'>
-                                        <img  alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 5) ? 
+                                        <img  alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Country"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Country"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 5) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[5]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 5) ? PhotosSet.Tables["PropertyPhotos"].Rows[5]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 5) ? PhotosSet.Tables["PropertyPhotos"].Rows[5]["Height"].ToString () : "0" %>' /></div></li>
@@ -368,7 +368,7 @@
                                       { %>
                                     <li style='<%# PhotosSet.Tables["PropertyPhotos"].Rows.Count > 6 ? "visibility: visible": "visibility: collapse"  %>'>
                                         <div class='drop-shadow effect4'>
-                                        <img  alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 6) ? 
+                                        <img  alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 6) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[6]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 6) ? PhotosSet.Tables["PropertyPhotos"].Rows[6]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 6) ? PhotosSet.Tables["PropertyPhotos"].Rows[6]["Height"].ToString () : "0" %>' /></div></li>
@@ -378,7 +378,7 @@
 
                                     <li style='<%# PhotosSet.Tables["PropertyPhotos"].Rows.Count > 7 ? "visibility: visible": "visibility: collapse" %>'>
                                         <div class='drop-shadow effect4'>
-                                        <img  alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 7) ? 
+                                        <img  alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 7) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[7]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 7) ? PhotosSet.Tables["PropertyPhotos"].Rows[7]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 7) ? PhotosSet.Tables["PropertyPhotos"].Rows[7]["Height"].ToString () : "0" %>' /></div></li>
@@ -387,7 +387,7 @@
                                       { %>
                                     <li style='<%# PhotosSet.Tables["PropertyPhotos"].Rows.Count > 8 ? "visibility: visible": "visibility: collapse" %>'>
                                         <div class='drop-shadow effect4'>
-                                        <img  alt="<%#  PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" title="<%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 8) ? 
+                                        <img  alt="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Country"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" title="<%# String.Format("{0}:{1} {2}",PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Country"].ToString(),PropertiesFullSet.Tables["Properties"].Rows[0]["Type"].ToString())  %>" src='<%# ConfigurationManager.AppSettings["ImagesVirtualLocation"] + ((PhotosSet.Tables["PropertyPhotos"].Rows.Count > 8) ? 
                                     PhotosSet.Tables["PropertyPhotos"].Rows[8]["FileName"].ToString () : "")+"?"+AjaxProvider.Base64Encode(DateTime.Now.ToString()) %>'
                                             width='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 8) ? PhotosSet.Tables["PropertyPhotos"].Rows[8]["Width"].ToString () : "0" %>'
                                             height='<%# (PhotosSet.Tables["PropertyPhotos"].Rows.Count > 8) ? PhotosSet.Tables["PropertyPhotos"].Rows[8]["Height"].ToString () : "0" %>' /></div></li>

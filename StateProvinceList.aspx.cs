@@ -41,7 +41,7 @@ public partial class StateProvinceList : CommonPage
     protected DataSet ds_PTypeNum, ds_PropList;
     protected int[] sleeps = { 0, 0, 0, 0 };
     protected int ptype=0,psleep=0;
-
+    public int[] proptypeinfo = { 8, 2, 5, 16, 11, 24, 2, 19, 22, 12 };
     protected void Page_Load(object sender, System.EventArgs e)
     {
         

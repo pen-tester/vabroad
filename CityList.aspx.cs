@@ -28,6 +28,7 @@ public partial class newCityList : CommonPage
     public int[] bedroominfo = new int[4];
     public int[] amenity_id = { 8, 33, 1, 11, 0 };
     public int[] amenity_nums = new int[5];
+    public int[] proptypeinfo = { 8, 2, 5, 16, 11, 24, 2, 19, 22, 12 };
     public string newdescription;
 
     // public string[] str_propcate = { "Chalet", "Apartment", "Villa", "Hotel", "Cottage", "Boat", "Castle", "B&B", "Guesthouse", "Farmhouse", "Display All" };
