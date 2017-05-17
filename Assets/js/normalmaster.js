@@ -63,7 +63,7 @@ function make_rightmenu(rid) {
     // mainmenu.find('.right-border').height(r_height);
    // var s_height = mainmenu.find('.left-border').height();
 
-    mainmenu.find('.left-border').height((r_height > 150) ? r_height : s_height);
+    mainmenu.find('.left-border').height((r_height > 150) ? r_height : 150);
     // $("#menu" + call_rid + " .left-border").height(r_height);
     console.log(selector + "XXXX " + r_height);
 }
