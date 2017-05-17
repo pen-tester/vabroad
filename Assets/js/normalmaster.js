@@ -44,9 +44,11 @@ function getcountrylist(item) {
         var mainmenu = $(selector).parent().parent().parent();
         var r_height = mainmenu.height();
         // mainmenu.find('.right-border').height(r_height);
-        mainmenu.find('.left-border').height(r_height);
+        var s_height= mainmenu.find('.left-border').height();
+       
+        mainmenu.find('.left-border').height((r_height>s_height)?r_height:s_height);
         // $("#menu" + call_rid + " .left-border").height(r_height);
-        console.log(selector + " " + r_height);
+        console.log(selector + "XXXX " + r_height);
         return;
     }
    // console.log("countrylist" + rid);
@@ -83,9 +85,9 @@ function processTopCountryData(response) {
     var selector = "#ajcountry" + call_rid;
     var mainmenu = $(selector).parent().parent().parent();
     var r_height = mainmenu.height();
-   // mainmenu.find('.right-border').height(r_height);
-    mainmenu.find('.left-border').height(r_height);
-   // $("#menu" + call_rid + " .left-border").height(r_height);
+    // mainmenu.find('.right-border').height(r_height);
+    var s_height = mainmenu.find('.left-border').height();
+    mainmenu.find('.left-border').height((r_height > s_height) ? r_height : s_height);
     console.log(selector + " " + r_height );
   //  dropdownbtn("#reg_" + call_rid);
 }
