@@ -22,7 +22,6 @@ Disallow: /destinations/
 Disallow: /generator/
 Disallow: /hms/
 Disallow: /hostmysite/
-Disallow: /img/
 Disallow: /links/
 Disallow: /login.aspx
 Disallow: /monitor/
