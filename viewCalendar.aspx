@@ -2,6 +2,7 @@
     CodeFile="viewCalendar.aspx.cs" Inherits="viewCalendar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
 <div class="internalpage">
     <div class="srow">
         <div style="height:300px">
@@ -22,4 +23,5 @@
     </div>
     </div>
 </div>
+            </div>
 </asp:Content>

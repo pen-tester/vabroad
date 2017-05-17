@@ -8,7 +8,7 @@
     <link href="/Assets/css/staticspage.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
-    
+        <div class="scontainer">
 
 
         <div class="internalpagewidth">
@@ -39,6 +39,7 @@ French Chateau</a>
         </ol>
     </div>
         </div>
+            </div>
     <script type="text/javascript">
         sc_project = 3632824;
         sc_invisible = 1;

@@ -3,6 +3,7 @@
     EnableEventValidation="false" Debug="true" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
   <div class="internalpage srow">
     <div style="font-family: Arial; font-size: 13px;">
         <% if (BackLink.Visible)
@@ -409,4 +410,5 @@
         <!-- End of StatCounter Code -->
     </div>
   </div>
+            </div>
 </asp:Content>

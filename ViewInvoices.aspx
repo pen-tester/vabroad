@@ -6,6 +6,7 @@
 
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
             <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="250" align="center"
@@ -169,7 +170,7 @@
             </asp:Repeater>
         </div>
     </div>
-
+            </div>
 	<noscript>
 		<img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all"
 			width="1" height="1">

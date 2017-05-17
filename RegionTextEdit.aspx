@@ -34,7 +34,7 @@ height: 114px;
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
-  
+      <div class="scontainer">
 <div class="internalpage srow">
         <asp:ScriptManager runat="server" ID="smMain"></asp:ScriptManager>
     <asp:UpdatePanel runat="server">
@@ -71,5 +71,6 @@ height: 114px;
     <br/><br/>
     <div align="right"><a href="Administration.aspx">Back to main administrative area</a></div>
 </div>
+          </div>
 </asp:Content>
 

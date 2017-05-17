@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="ThankYouPayment.aspx.cs" Inherits="ThankYouPayment" Title="Thank you" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
 <div class="internalpage">
     <div class="srow">
 	<div align="center">
@@ -30,4 +31,5 @@
 	</table>
     </div>
 </div>
+            </div>
 </asp:Content>

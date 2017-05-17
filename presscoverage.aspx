@@ -63,6 +63,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="background">
           <img class="back_img" src="/Assets/img/press.jpg" />
         <div class="back_item">
@@ -101,5 +102,6 @@
               </div>
         </div>
     </div>
+            </div>
         <script src="/Assets/js/footerpage.js" defer="defer"></script>
 </asp:Content>

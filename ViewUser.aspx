@@ -6,6 +6,7 @@
     <style>.marginBody{margin-top:20px;}</style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
 <div class="internalpage">
     <div class="srow marginBody">
 	<% if (BackLink.Visible) { %>
@@ -127,5 +128,6 @@
 	<% } %>
     </div>
 </div>
+            </div>
 </asp:Content>
 

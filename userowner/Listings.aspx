@@ -58,6 +58,7 @@
 </asp:Content>
 
 <asp:Content ID="cont_listing" runat="server" ContentPlaceHolderID="bodycontent">
+        <div class="scontainer">
     <div class="internalpage">
       <div class="srow">
 	<% if (BackLink.Visible) { %>
@@ -314,7 +315,7 @@
         </div>
         </div>
     </div> 
-
+            </div>
          
     <script src="/Assets/js/listings.js" defer="defer"></script>
 </asp:Content>

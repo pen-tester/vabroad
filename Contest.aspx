@@ -98,6 +98,7 @@
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
     <div class="clearfix"></div>
     <div class="contestbackground">
         <div class="scontainer">
@@ -237,5 +238,6 @@
             </div>
         </div>
     </div>
+            </div>
     <script defer="defer" src="/Assets/js/contest.js"></script>
 </asp:Content>

@@ -23,6 +23,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
     <div class="srow">
         <div class="col-1">
 
@@ -66,5 +67,6 @@
     </table>
         </div>
     </div>
+            </div>
 </asp:Content>
 

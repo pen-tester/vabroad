@@ -1,6 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="~/ThankYouInquiry.aspx.cs" Inherits="ThankYouInquiry" Title="Thank You!" EnableEventValidation="false" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
 <div class="internalpage">
     <div class="srow">
     <div id="thank-you-inquiry" style="max-height:555px;min-height:555px;">
@@ -44,6 +45,7 @@
     </div>
     </div>
 </div>
+            </div>
     <script type="text/javascript">
         $(document).ready(function () {
             // if the query string value is available, just do a redirect after specified number of seconds.

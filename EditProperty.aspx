@@ -8,6 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
         <div class="newline">
     <div id="divJS" runat="server">
@@ -772,6 +773,7 @@
     </div>
         </div>
     </div>
+            </div>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
 

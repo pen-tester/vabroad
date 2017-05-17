@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Newsletter Subscribe" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="Unsubscribe.aspx.cs" Inherits="Unsubscribe" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
  <div class="internalpage">
     <div class="srow">
         <h1>
@@ -19,5 +20,6 @@
         <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
     </div>
  </div>
+            </div>
 </asp:Content>
 

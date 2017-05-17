@@ -30,7 +30,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
-       
+           <div class="scontainer">
         <div id="" class="internalpage">	
                <div class="srow">
                    <div class="col-3"></div>
@@ -69,7 +69,7 @@
                </div>
     </div>
 
-
+               </div>
 
 
 

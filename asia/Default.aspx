@@ -9,6 +9,7 @@
     Asia Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
     <div class="upperheader">
         <h1>Experience the ancient cultures of Asia!</h1></br>
@@ -201,4 +202,5 @@ The Asia vacation rentals that you'd like to consider would depend upon the purp
         </div>
     </noscript>
       <script src="/Assets/js/asia.js"></script>
+            </div>
 </asp:Content>

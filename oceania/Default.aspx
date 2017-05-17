@@ -9,6 +9,7 @@
     Oceania Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <%-- <style>
         .PDescText
         {
@@ -307,6 +308,7 @@
         })();
 
     </script>--%>
+    </div>
     </div>
     <script src="/Assets/js/africa.js"></script>
 </asp:Content>

@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="SendToAFriend.aspx.cs" Inherits="SendToAFriend" Title="Send to a Friend" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
 <div class="internalpage">
     <div class="srow">
 	<% if (BackLink.Visible) { %>
@@ -65,7 +66,7 @@
     </table>
     </div>
 </div>
-    
+    </div>
     <noscript>
         <img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all"
             width="1" height="1">

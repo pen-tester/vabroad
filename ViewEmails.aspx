@@ -9,6 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
         <div class="newline">
 <div align="left">
@@ -66,6 +67,6 @@
 	</div>
         </div>
     </div>
-
+            </div>
     <script src="/Assets/js/viewemail.js"></script>
 </asp:Content>

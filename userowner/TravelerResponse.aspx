@@ -240,6 +240,7 @@ ul {
 </asp:Content>
 
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
            <div id="msgdlg" class="modalform">
                   <div id="modal_loading" class="modalLoading">
                         <div class="loader"> </div>
@@ -424,5 +425,6 @@ ul {
             </div>
         </div>
     </div>
+            </div>
     <script defer="defer" src="/Assets/js/traveler.js"></script>
 </asp:Content>

@@ -9,6 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
     <div class="srow">
 <div class="left">
@@ -414,6 +415,6 @@
 </div>
     </div>
     </div>
-
+            </div>
     <script src="/Assets/js/ownerinfo.js"></script>
 </asp:Content>

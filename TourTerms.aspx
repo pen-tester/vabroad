@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="TourTerms.aspx.cs" Inherits="TourTerms" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
  <div class="internalpage">
      <div class="srow">
     <asp:Label ID="Description" runat="server" Visible="false" Text="Add a %city% tour to our %city% tour directory. Vacations-Abroad.com a vacation rental directory"></asp:Label>
@@ -61,5 +62,6 @@
 <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
      </div>
  </div>
+            </div>
 </asp:Content>
 

@@ -8,9 +8,15 @@
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
+    <style>
+        .backimg{width:100%;}
+    </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
     <div class="scontainer">
+     <div class="srow">
+        <img src="/assets/img/landing.jpg" class="backimg" alt="Vacations Abroad"/>
+    </div>
         <div class="internalpage">
     <div class ="srow center">
   <div>

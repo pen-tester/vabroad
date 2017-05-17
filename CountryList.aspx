@@ -9,7 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
-    <div class="srow">
+    <div class="scontainer">
     <div class="internalpagewidth">
 
         <%--    <asp:TextBox runat="server" ID ="txtCityVal"  value="" Style="display:none;" ></asp:TextBox>

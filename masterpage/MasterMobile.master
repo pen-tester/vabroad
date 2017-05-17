@@ -115,12 +115,9 @@
 
           
 
-
-    <div class="scontainer">
             <asp:ContentPlaceHolder id="bodycontent" runat="server">
         
             </asp:ContentPlaceHolder>
-    </div>
     </form>
     <div class="clear"></div>
 

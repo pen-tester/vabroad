@@ -11,6 +11,7 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
             <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
@@ -81,4 +82,5 @@
             </div>
         </div>
     </div>
+            </div>
 </asp:Content>

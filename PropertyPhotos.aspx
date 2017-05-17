@@ -6,6 +6,7 @@
     <link href="/Assets/css/photoproperty.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
         <div class="srow center">
 	<% if (BackLink.Visible) { %>
@@ -86,6 +87,6 @@
     </div>
         </div>
     </div>
-
+            </div>
     <script src="/Assets/js/photoproperty.js"></script>
 </asp:Content>

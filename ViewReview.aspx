@@ -8,6 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
 		    Auction Transaction: <%# DrawAsterisks (MainDataSet.Tables["Auctions"].Rows[0]["Auction"])%><br />
@@ -22,4 +23,5 @@
 		    <button onclick='window.close ();'>Close</button>
         </div>
     </div>
+            </div>
 </asp:Content>

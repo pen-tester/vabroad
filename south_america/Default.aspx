@@ -9,6 +9,7 @@
     South America Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <%-- <style>
         .PDescText
         {
@@ -194,7 +195,7 @@ If you have a large family or group of friends travelling with you, you should p
             </div>
     </div>
   
-
+            </div>
 
    
     <!-- Start of StatCounter Code for Default Guide -->

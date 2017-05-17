@@ -238,6 +238,7 @@ ul {
 </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
         <div class="srow">
             <div class="col-2"></div>
             <div class="col-8">
@@ -408,5 +409,6 @@ ul {
                 </div>
             </div>
         </div>
+            </div>
     <script src="/Assets/js/quoteresp.js" defer="defer">  </script>
 </asp:Content>

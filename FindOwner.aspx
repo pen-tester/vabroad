@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="FindOwner.aspx.cs" Inherits="FindOwner" Title="Find Owner" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
   <div class="internalpage srow">
    <br /><br /><br /><br /> Want to list a property with us? First, let us verify if you have an account with <%= CommonFunctions.GetSiteName () %>
     <br />
@@ -14,5 +15,5 @@
     <asp:HyperLink ID="UserNotFound" runat="server" Visible="False" NavigateUrl="AccountInformation.aspx">We did not find you in our database. Click here to create your account.</asp:HyperLink>
  <br /> <br />
   </div>
-    
+    </div>
 </asp:Content>

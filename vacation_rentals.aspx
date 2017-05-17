@@ -12,6 +12,7 @@
 		</table>
 	<% } %>
 --%>	
+        <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
 <table width="100%" border="0">
@@ -110,7 +111,7 @@
 	</table>
         </div>
     </div>
-	
+	</div>
     <noscript>
         <img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all"
             width="1" height="1">

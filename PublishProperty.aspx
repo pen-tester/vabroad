@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PublishProperty.aspx.cs" Inherits="PublishProperty" Title="Publish Property" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
 <div class="internalpage srow">
 	<% if (BackLink.Visible) { %>
     <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="250" align="center"
@@ -42,4 +43,5 @@
         <br />
     <asp:Label ID="lblInfo" runat="server"></asp:Label>
 </div>
+            </div>
 </asp:Content>

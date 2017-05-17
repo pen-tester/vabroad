@@ -3,6 +3,7 @@
     EnableEventValidation="false" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
 <div class="internalpage srow">
 <table width="100%"><tr>                           
            <td width="25%">             
@@ -122,4 +123,5 @@
 </table>
 
 </div>
+            </div>
 </asp:Content>

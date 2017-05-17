@@ -9,6 +9,7 @@
     Europe Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
   <div class="upperheader">
         <h1>Europe Vacations</h1>
@@ -349,5 +350,6 @@
         })();
 
     </script>--%>
+            </div>
     <script src="/Assets/js/europe.js"></script>
 </asp:Content>

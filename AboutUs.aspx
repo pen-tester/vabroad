@@ -53,6 +53,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="background">
         <div class="back_item">
             <div class="srow center formgroup">
@@ -76,5 +77,6 @@
         </div>
           <img class="back_img" src="/Assets/img/about.jpg" />
     </div>
+            </div>
         <script src="/Assets/js/footerpage.js" defer="defer"></script>
 </asp:Content>

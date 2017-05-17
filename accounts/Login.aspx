@@ -37,6 +37,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
+        <div class="scontainer">
     <div class="internalpage">
          <div class="srow formmargin">
              <div class="col-3"></div>
@@ -170,6 +171,6 @@
             
          </div>
     </div>
-
+            </div>
   <script src="/assets/js/login.js" defer="defer"></script>       
 </asp:Content>

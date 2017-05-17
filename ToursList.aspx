@@ -3,6 +3,7 @@
     EnableEventValidation="false" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
     <asp:Label ID="Title" runat="server" Visible="false" Text="%city% Tours, %city% Sightseeing Tours, Private and Escorted Tours in %city% %stateprovince% - %city% Vacation Rentals"></asp:Label>
@@ -232,7 +233,7 @@ Advertise your <%# city %> sightseeing tour, <%# city %> escorted tour, <%# city
     </div>
         </div>
     </div>
-    
+    </div>
     <script type="text/javascript">
         /* This notice must be untouched at all times.
         Copyright (c) 2002-2008 Walter Zorn. All rights reserved.

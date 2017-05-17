@@ -90,6 +90,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
     <input type="hidden" name="propid" id="propid" value="<%=propNum %>" />
     <input type="hidden" name="commentid" id="commentid" value="-1" />
+    <div class="scontainer">
    <div class="internalpagewidth">
            <div id="inqureform" class="modalform">
                   <div id="modal_loading" class="modalLoading">
@@ -270,6 +271,7 @@
        </div>
 
    </div>
+</div>
     <script defer="defer" src='https://www.google.com/recaptcha/api.js'></script>
     <script defer="defer" src="/Assets/js/writereview.js"></script>
 </asp:Content>

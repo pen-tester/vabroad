@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PropertyTerms.aspx.cs" Inherits="TourTerms" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
   <div class="internalpage srow">
    <asp:Label ID="Description" runat="server" Visible="false" Text="Advertise a %city% vacation property or %city% holiday property."></asp:Label>
     <br /><br />
@@ -161,6 +162,7 @@ Australia 5%
 <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label><!-- Start of StatCounter Code for Default Guide -->
 
   </div>
+            </div>
 <!-- End of StatCounter Code for Default Guide -->
 </asp:Content>
 

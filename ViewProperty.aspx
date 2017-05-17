@@ -41,6 +41,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="srow">
      <div class="internalpagewidth">
           <script type="text/javascript" defer="defer" src="/js/responsiveCarousel.min.js"></script>
@@ -883,7 +884,7 @@
     </div>
 
     
-
+    </div>
 
   
 

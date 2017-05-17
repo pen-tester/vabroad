@@ -24,6 +24,7 @@
 
 </asp:Content>
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
     <div class="col-1"></div>
     <div class="col-10">
         <div class="srow">
@@ -106,4 +107,5 @@
     </table>
         </div>
     </div>
+            </div>
 </asp:Content>

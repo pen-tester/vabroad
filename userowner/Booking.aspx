@@ -36,6 +36,7 @@
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server" >
+        <div class="scontainer">
     <div class="internalpagewidth">
     <div class="internalpagewidth">
         <div class="srow normalMargintop">
@@ -151,5 +152,6 @@
 
     </div>
     </div>
+            </div>
 </asp:Content>
 

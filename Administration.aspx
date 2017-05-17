@@ -1,5 +1,6 @@
 <%@ page language="C#" masterpagefile="/masterpage/mastermobile.master" autoeventwireup="true" CodeFile="~/Administration.aspx.cs" inherits="Administration" title="Administration" enableeventvalidation="false" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
 <div class="srow">
         <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
@@ -365,5 +366,5 @@
     // -->
     </script>
     
-    
+    </div>
 </asp:Content>

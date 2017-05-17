@@ -20,7 +20,7 @@
     <asp:TextBox runat="server" ID="txtCityVal2" value="" Style="display: none;"></asp:TextBox>
     <%--    <asp:TextBox runat="server" ID ="txtCityVal"  value="" Style="display:none;" ></asp:TextBox>
     --%>
-    
+        <div class="scontainer">
 
  <div class="srow">
        <div class="internalpagewidth">
@@ -252,7 +252,7 @@
     <div class="OrangeText" style="text-align: left; float: left;">
         <br />
     </div>
-
+    </div>
     <asp:Label ID="lblInfo22" runat="server" ForeColor="Red" Style="display: none"></asp:Label>
    
 </asp:Content>

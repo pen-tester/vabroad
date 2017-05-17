@@ -7,6 +7,7 @@
     <link href="/Assets/css/makepayment.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
         <div class=" newline">
     <div class="left" style="padding-left:10px; padding-right:10px;">
@@ -563,6 +564,6 @@
 </div>
         </div>
     </div>
-
+            </div>
     <script src="/Assets/js/makepayment.js"></script>
 </asp:Content>

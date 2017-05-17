@@ -3,6 +3,7 @@
 
 <%@ OutputCache Duration="600" VaryByParam="*" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpage srow">
     <div class="advertise-con" style="min-height:560px;">
         
@@ -43,4 +44,5 @@
         </div>
     </div>
     </div>
+            </div>
 </asp:Content>

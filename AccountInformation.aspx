@@ -9,6 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
     <div class="newline centered">
   <% if (BackLink.Visible)
@@ -140,6 +141,6 @@
     </div>
 
   
-
+</div>
     <script src="/Assets/js/accountinfo.js"></script>
 </asp:Content>

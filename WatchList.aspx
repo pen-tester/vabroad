@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="WatchList.aspx.cs" Inherits="WatchList" Title="Watch List" EnableEventValidation="false" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
 	<% if (BackLink.Visible) { %>
 	<table cellspacing="0" cellpadding="0" width="250" align="center" bgcolor="#e4e4af" border="2">
 		<tr>
@@ -218,5 +219,6 @@
 		</FooterTemplate>
 	</asp:Repeater>
 	<% } %>
+            </div>
 </asp:Content>
 

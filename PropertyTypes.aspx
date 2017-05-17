@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="/masterpage/mastermobile.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="PropertyTypes.aspx.cs" Inherits="PropertyTypes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+        <div class="scontainer">
 <div class="internalpage srow">
     <div align="center">
 <table width="70%">
@@ -85,5 +86,6 @@ Edit Primary Type<br />
     <asp:Label ID="lblInfo" runat="server" ForeColor="Red" EnableViewState="False"></asp:Label>
     </div>
 </div>
+            </div>
 </asp:Content>
 

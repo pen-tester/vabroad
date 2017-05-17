@@ -8,6 +8,7 @@
   <link href="/assets/css/continent.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+        <div class="scontainer">
     <div class="internalpagewidth">
     <div class="upperheader" >
         <h1>Vacation Rentals in Africa</h1>
@@ -249,4 +250,5 @@ Vacations-Abroad.com has painstakingly selected the best Africa vacations rental
         })();
 
     </script>--%><script src="/Assets/js/africa.js"></script>
+            </div>
 </asp:Content>

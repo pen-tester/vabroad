@@ -76,6 +76,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
     <div id="editform" class="modalform">
         <div class="editmapform">
                   <div class="modalhead">
@@ -208,6 +209,7 @@
             </table>
         </div>
     </div>
+            </div>
     <script>
         var gmarkers=<%=ans%>;
     </script>

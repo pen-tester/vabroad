@@ -9,6 +9,7 @@
     North America Vacation Rentals and Boutique Hotels | Vacations-Abroad.com
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="server">
+        <div class="scontainer">
     <%-- <style>
         .PDescText
         {
@@ -236,6 +237,6 @@ Mountain cabins in North America ski destinations are usually located in the mid
         })();
 
     </script>--%>
-
+            </div>
     <script src="/Assets/js/africa.js"></script>
 </asp:Content>
