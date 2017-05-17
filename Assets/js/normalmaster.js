@@ -35,20 +35,10 @@ function getcountrylist(item) {
     //console.log(item.id);
     var rid = item.id.split("_")[1];
 
-
-
-
     if (menuitem[rid] != 0) {
-        dropdownbtn(item);
-        var selector = "#ajcountry" + rid;
-        var mainmenu = $(selector).parent().parent().parent();
-        var r_height = mainmenu.height();
-        // mainmenu.find('.right-border').height(r_height);
-        var s_height= mainmenu.find('.left-border').height();
-       
-        mainmenu.find('.left-border').height((r_height>s_height)?r_height:s_height);
-        // $("#menu" + call_rid + " .left-border").height(r_height);
-        console.log(selector + "XXXX " + r_height);
+        //   dropdownbtn(item);
+        make_rightmenu(rid);
+
         return;
     }
    // console.log("countrylist" + rid);
@@ -66,6 +56,17 @@ function getcountrylist(item) {
     });
 }
 
+function make_rightmenu(rid) {
+    var selector = "#ajcountry" + rid;
+    var mainmenu = $(selector).parent().parent().parent();
+    var r_height = mainmenu.height();
+    // mainmenu.find('.right-border').height(r_height);
+   // var s_height = mainmenu.find('.left-border').height();
+
+    mainmenu.find('.left-border').height((r_height > 150) ? r_height : s_height);
+    // $("#menu" + call_rid + " .left-border").height(r_height);
+    console.log(selector + "XXXX " + r_height);
+}
 
 function processTopCountryData(response) {
     var statelist = response.d;
@@ -82,13 +83,7 @@ function processTopCountryData(response) {
         // $(".statelists").append('<li><a>' + states[i].name + '</a></li>');
     }
     menuitem[call_rid] = 1;
-    var selector = "#ajcountry" + call_rid;
-    var mainmenu = $(selector).parent().parent().parent();
-    var r_height = mainmenu.height();
-    // mainmenu.find('.right-border').height(r_height);
-    var s_height = mainmenu.find('.left-border').height();
-    mainmenu.find('.left-border').height((r_height > s_height) ? r_height : s_height);
-    console.log(selector + " " + r_height );
+    make_rightmenu(call_rid);
   //  dropdownbtn("#reg_" + call_rid);
 }
 
