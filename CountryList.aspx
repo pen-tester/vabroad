@@ -95,7 +95,7 @@
  
 
                             <div class="orangetxt" id="OrangeTitle" runat="server">
-                                <h2>
+                                <h2 class="orangetxt">
                                     <%=country %> Vacations: Things to see while on vacation in <%=country %>
                                </h2>
                             </div>

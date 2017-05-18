@@ -261,7 +261,7 @@
    <% if (countryinfo.CityText2!="")
 { %>
                  <div class="com_box">
-                                <h2>
+                                <h2 class="orangetxt">
                                     <%=countryinfo.City %> Vacations: Things to see while on vacation in <%=countryinfo.City %> <%=countryinfo.StateProvince %>
                                 </h2><br />
                      <label>

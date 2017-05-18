@@ -206,7 +206,7 @@
 
                     <div class="subtitle" visible="true" id="OrangeTitle" runat="server">
 
-                        <h2 style="margin-top:55px; background-color:white;"><%=stateprovince %> Vacations: Things to see while on vacation in 
+                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"><%=stateprovince %> Vacations: Things to see while on vacation in 
                         <asp:Literal ID="ltrStateThing" runat="server"></asp:Literal> <%=country %></h2>
   
                     </div>
