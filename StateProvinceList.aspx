@@ -81,7 +81,7 @@
                 </div>
          <div class="heding_box center">
 
-            <h2>
+            <h2 class="orangetxt">
                 <asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
 
         </div>

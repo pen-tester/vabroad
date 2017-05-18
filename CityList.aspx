@@ -73,7 +73,7 @@
 
             <div class="srow" >
                         <div class="heding_box">
-                                <h2>
+                                <h2 class="orangetxt">
                                     <%=countryinfo.City %> Vacation Rentals and <%=countryinfo.City %> Hotels
                                 </h2>
                             </div>

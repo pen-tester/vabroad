@@ -68,7 +68,7 @@
                      <div class="srow text-left">  
                 
                              <div class="linkpadding">
-                                 <h2 class="inlineblock"><asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
+                                 <h2 class="inlineblock orangetxt"><asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
                                 <asp:HyperLink ID="hyplnkAllProps"  Text="AllProperties" runat="server"><h3 class="inlineblock viewalllink"><asp:Literal ID="ltrAllProps" runat="server"></asp:Literal></h3></asp:HyperLink>
                             </div>  
 
