@@ -14,7 +14,7 @@
         position:relative;
     }
       .background{position:relative;margin:0;}
-      .back_img{width:100%; left:0;top:-0px;z-index:-10;position:relative;}.back_item{margin:0;padding:0 0 30px 0;left:0;top:0;width:100%;position:absolute;}
+      .back_img{width:100%; left:0;top:-0px;z-index:0;position:relative;}.back_item{z-index:10; margin:0;padding:0 0 30px 0;left:0;top:0;width:100%;position:absolute;}
         @media(max-width:510px){
         .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
        .formgroup{padding-top:4px;} .footeritem{width:300px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin-left:1%;text-align:left;}
