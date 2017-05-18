@@ -243,16 +243,15 @@
             </ul>
 
         </div>
+                           <asp:Label ID="lblInfo22" runat="server" ForeColor="Red" Style="display: none"></asp:Label>
     </div>
         </div>
+
  </div>
  
 
-    <%--end right column edit--%>
-    <div class="OrangeText" style="text-align: left; float: left;">
-        <br />
+
     </div>
-    </div>
-    <asp:Label ID="lblInfo22" runat="server" ForeColor="Red" Style="display: none"></asp:Label>
+
    
 </asp:Content>
