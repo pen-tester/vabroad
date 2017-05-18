@@ -9,18 +9,24 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
     <style>
-        .backimg{width:100%;}
+        .backimg{width:100%;min-height:150px;} .backtitle{width:100%;font-family: Verdana; font-size: 28px; color: #fff;position:absolute;margin-top:50px;}
+        .topbox{padding:5px 5px;border:2px solid #ff6600;width:600px;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:28px; background-color:#fff;cursor:pointer;margin:auto;}
+        .formgroup{width:100%;position:relative;} .bgimg{background-color:#f5ede3;}
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+    <div class="bgimg">
     <div class="scontainer">
      <div class="srow">
-        <img src="/assets/img/landing.jpg" class="backimg" alt="Vacations Abroad"/>
+           <div class="srow center formgroup">
+                <div class="backtitle center"><div class="topbox"> <a class="alist" >Vacation Rentals & Boutique Hotels</a></div></div>
+           </div>
+        <img src="/assets/img/landing.jpg" class="backimg " alt="Vacations Abroad"/>
     </div>
         <div class="internalpage">
     <div class ="srow center">
   <div>
-        <h1 style="width: 100%; font-family: Verdana; font-size: 28px; color: #3c3c3c;" align="center">Vacation Rentals, Boutique Hotels, Quaint B&Bs, Beach Resorts</h1>
     </div>
     <br />
     <div id="map_canvas" style="width: 90%; height: 485px;margin:0px auto; "></div>
@@ -109,6 +115,6 @@
     <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=InitMap">
     </script>
 
-  
+  </div>
 
 </asp:Content>
