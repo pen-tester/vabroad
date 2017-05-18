@@ -314,7 +314,9 @@
     </div>
 
  
+        <div class="smallgap">
 
+        </div>
     </div>
   <script>
       var gmarkers = <%=ans%>;

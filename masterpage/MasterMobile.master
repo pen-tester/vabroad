@@ -32,6 +32,7 @@
        For normal color
    */
       .normalbgcolor{background-color:#f5ede3; border:1px solid transparent;}
+      .smallgap{min-height:1px;width:100%;}
  </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -137,8 +137,11 @@
 
 
         </div>
-            <asp:Label ID="lblInfo22" runat="server" ForeColor="Red" Style="display: none"></asp:Label>
+       <div>     <asp:Label ID="lblInfo22" runat="server" ForeColor="Red" Style="display: none"></asp:Label>
+           </div>
+        <div class="smallgap">
 
+        </div>
     </div>
              <asp:Label ID="Title" runat="server" Visible="false"></asp:Label>
         <asp:Label ID="Keywords" runat="server" Visible="false" Text="%stateprovince% vacation rentals, %stateprovince% Hotels, %stateprovince% Cottages, %stateprovince% B&Bs, %stateprovince% villas , "></asp:Label>
