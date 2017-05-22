@@ -77,7 +77,7 @@
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
     <div class="bgimg">
-    <div class="scontainer">
+    <div class="scontainer"  style="background-color:#f5ede3;">
      <div class="srow">
            <div class="srow center formgroup">
                 <div class="backtitle center"><div class="topbox"><h1> <label class="alist" >Vacation Rentals & Boutique Hotels</label></h1></div></div>
