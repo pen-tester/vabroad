@@ -1,7 +1,7 @@
 ﻿var redirect_links = [["/applications.aspx", "/accounts/login.aspx?type=0"], ["/rentalguarantee.aspx"], ["/aboutus.aspx", "/press/AboutLindaKJenkins.pdf"]
     , ["/presscoverage.aspx", "/pressreleases.aspx"], ["/Contacts.aspx", "http://blog2.vacations-abroad.com", "http://madmimi.com/signups/121428/join", "https://plus.google.com/+Vacations-abroad/posts", "https://twitter.com/vacationsabroad", "https://www.facebook.com/VacationsAbroad"]];
 
-var contact_links = ["/contacts.aspx", "/applications.aspx", "/rentalguarantee.aspx", "/aboutus.aspx"];
+var contact_links = ["/contacts.aspx", "/applications.aspx", "/rentalguarantee.aspx", "/aboutus.aspx", "/presscoverage.aspx"];
 
 function onclickevent_footerment(menuindex, itemindex) {
     //alert(menuindex + "   " + itemindex);
@@ -63,7 +63,7 @@ function make_rightmenu(rid) {
     // mainmenu.find('.right-border').height(r_height);
    // var s_height = mainmenu.find('.left-border').height();
 
-    mainmenu.find('.left-border').height((r_height > 148) ? r_height : 148);
+    mainmenu.find('.left-border').height((r_height > 111) ? r_height : 111);
     // $("#menu" + call_rid + " .left-border").height(r_height);
     console.log(selector + "XXXX " + r_height);
 }

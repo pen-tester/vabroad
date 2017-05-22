@@ -27,13 +27,25 @@
        For right menu
    */
      .left-border{border-left:1px solid #2f528f; background:#f5ede3;}
-     ul.contactmenu li{display:block; width:100%;padding:10px 20px;color:#ff6600;width:100%;text-align:left; cursor:pointer;} ul.contactmenu li:hover{color:#000;}
+     ul.contactmenu li{display:block; width:50%;padding:10px 20px;color:#ff6600;text-align:left; cursor:pointer;box-sizing:border-box;} ul.contactmenu li:hover{color:#000;}
    /*
        For normal color
    */
       .normalbgcolor{background-color:#f5ede3; border:1px solid transparent;}
       .smallgap{min-height:1px;width:100%;}
       .orangetxt{color:#ff6600;}
+   /* For footer
+
+   */
+     .footertxt{
+         font-family: Verdana;
+         color: #000;
+        font-size: 12px;
+        cursor: pointer;
+     }
+     .groupTradeMark{
+         padding:0 0 30px 0;
+     }
  </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +57,7 @@
  
 <body>
     <script defer="defer"  src="/Assets/js/jquery-3.1.0.min.js"></script>
-    <script defer="defer" src="/Assets/js/normalmaster.js?3"></script>
+    <script defer="defer" src="/Assets/js/normalmaster.js?4"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <form id="mainform" runat="server">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
@@ -93,17 +105,17 @@
                             <a href="#" class="dropbtn" id="reg_<%=regionid[i] %>" onmouseover="getcountrylist(this)"><%=CountryName[i] %></a>
                             <div class="dropdown-content" id="menu<%=i %>">
                                 <div class="srow dropmenu-innercontent">
-                                    <div class="col-x-3 col-9" >
+                                    <div class="col-x-3 col-8" >
                                         <div class="right-border">
                                         <ul id="ajcountry<%=regionid[i] %>" class="countrygroup" >
 
                                         </ul>
                                          </div>
                                     </div>
-                                    <div class="col-x-1 col-3" >
+                                    <div class="col-x-1 col-4" >
                                         <div class="left-border">
                                         <ul class="contactmenu">
-                                           <li class="contactitem" data-target="0">Contact Us</li> <li class="contactitem" data-target="1">List a Property</li><li class="contactitem" data-target="2">Rental Guarantee</li><li class="contactitem" data-target="3">About Us</li>
+                                           <li class="contactitem" data-target="0">Contact Us</li><li class="contactitem" data-target="4">Our Press</li> <li class="contactitem" data-target="1">List a Property</li><li class="contactitem" data-target="3">About Us</li><li class="contactitem" data-target="2">Rental Guarantee</li>
                                         </ul>
                                         </div>
                                     </div>
@@ -174,12 +186,15 @@
                     </ul>
                 </div>
             </div>
-        <div class="srow">
-            <div class="center">
-                <img src="/assets/img/logofooter.jpg" />
-            </div>
-        </div>
     </div>
+    </div>
+    <div class="srow">
+        <div class="center">
+            <img src="/assets/img/logofooter.jpg" />
+        </div>
+        <div class="center groupTradeMark">
+            <label class="footertxt">Is a registered trademark</label>
+        </div>
     </div>
 </body>
 </html>
