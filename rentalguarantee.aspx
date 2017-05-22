@@ -14,8 +14,10 @@
     }
       .background{position:relative;margin:0;}
       .back_img{width:100%; left:0;top:-0px;z-index:0;position:relative;}.back_item{z-index:10; margin:0;padding:0 0 30px 0;left:0;top:0;width:100%;position:absolute;}
+        .topbox h1{display:inline;font-size:28px;margin:0;padding:0; -webkit-margin-before: 0;  -webkit-margin-after: 0; -webkit-margin-start: 0px;    -webkit-margin-end: 0px;}
+        .footeritem h2{padding:0px;margin:0px;}
         @media(max-width:510px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:4px;} .footeritem{width:300px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin-left:1%;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:8pt;display:inline-block;padding:2px;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
@@ -25,7 +27,7 @@
             .shidden{display:none;}
         }
        @media(max-width:670px) and (min-width:510px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:29px;} .footeritem{width:320px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin-left:1%;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:10pt;display:inline-block;padding:4px;}.itemtext{font-variant:small-caps; font-size:8pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
@@ -34,7 +36,7 @@
        }
         @media(min-width:670px)
         {
-        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:16pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:16pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:45px;} .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 30px;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:11pt;display:inline-block;padding:4px;}.itemtext{font-variant:small-caps; font-size:9pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:400px;margin:auto;}
@@ -43,7 +45,7 @@
         }
         @media(min-width:900px)
         {
-        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:55px;} .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 100px;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:12pt;display:inline-block;padding:4px;}.itemtext{font-variant:small-caps; font-size:10pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:400px;margin:auto;}
@@ -52,7 +54,7 @@
          }
         @media(min-width:1200px)
         {
-         .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
+         .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;margin:auto;}
           .formgroup{padding-top:120px;} .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 170px;text-align:left;}
         .itemtile{font-variant: small-caps;font-size:14pt;display:inline-block;padding:4px;}.itemtext{font-variant:small-caps; font-size:12pt;display:block;padding:4px;}
         .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:15px 30px;border:2px solid #ff6600;width:400px;margin:auto;}
@@ -67,7 +69,7 @@
           <img class="back_img" src="/Assets/img/rent.jpg" />
         <div class="back_item">
             <div class="srow center formgroup">
-                <div class="topbox"> <a class="alist" >Rental Guarantee</a></div>
+                <div class="topbox"> <h1><label class="alist" >Rental Guarantee</label></h1></div>
                
             </div>
             <div class="srow formgroup" >

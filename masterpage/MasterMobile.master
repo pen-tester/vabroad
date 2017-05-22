@@ -42,6 +42,9 @@
          color: #000;
         font-size: 12px;
         cursor: pointer;
+        vertical-align: top;
+        margin: 20px 0 0 5px;
+        display: inline-block;
      }
      .groupTradeMark{
          padding:0 0 30px 0;
@@ -190,10 +193,7 @@
     </div>
     <div class="srow">
         <div class="center">
-            <img src="/assets/img/logofooter.jpg" />
-        </div>
-        <div class="center groupTradeMark">
-            <label class="footertxt">Is a registered trademark</label>
+            <img src="/assets/img/logofooter.jpg" /><label class="footertxt">Is a registered trademark</label>
         </div>
     </div>
 </body>

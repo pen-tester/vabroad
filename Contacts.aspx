@@ -60,8 +60,10 @@
     }
       .background{position:relative;margin:0;}
       .back_img{width:100%; left:0;top:-0px;z-index:0;position:relative;}.back_item{z-index:10; margin:0;padding:0 0 30px 0;left:0;top:0;width:100%;position:absolute;}
+        .topbox h1{display:inline;font-size:28px;margin:0;padding:0; -webkit-margin-before: 0;  -webkit-margin-after: 0; -webkit-margin-start: 0px;    -webkit-margin-end: 0px;}
+        .footeritem h2{padding:0px;margin:0px;}
         @media(max-width:470px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:10px;} .footeritem{width:190px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 20px;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:0px;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
@@ -73,7 +75,7 @@
         }
 
         @media(max-width:560px) and (min-width:470px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:10px;} .footeritem{width:300px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 20px;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:0px;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
@@ -83,7 +85,7 @@
 
         }
        @media(max-width:720px) and (min-width:560px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:25px;} .footeritem{width:320px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 30px;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:10pt;display:block;padding:0px;}.itemtext{font-variant:small-caps; font-size:8pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
@@ -92,7 +94,7 @@
        }
         @media(min-width:720px)
         {
-        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:16pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:16pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:35px;} .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 30px;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:11pt;display:block;padding:3px;}.itemtext{font-variant:small-caps; font-size:9pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:400px;margin:auto;}
@@ -101,7 +103,7 @@
         }
         @media(min-width:990px)
         {
-        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;margin:auto;}
        .formgroup{padding-top:50px;} .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 100px;text-align:left;}
        .itemtile{font-variant: small-caps;font-size:12pt;display:block;padding:3px;}.itemtext{font-variant:small-caps; font-size:10pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:400px;margin:auto;}
@@ -110,7 +112,7 @@
          }
         @media(min-width:1200px)
         {
-         .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
+         .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;margin:auto;}
           .formgroup{padding-top:120px;} .footeritem{ width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:0 170px;text-align:left;}
         .itemtile{font-variant: small-caps;font-size:14pt;display:block;padding:4px;}.itemtext{font-variant:small-caps; font-size:12pt;display:block;padding:4px;}
         .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:15px 30px;border:2px solid #ff6600;width:400px;margin:auto;}
@@ -200,7 +202,7 @@
           <img class="back_img" src="/Assets/img/stay.jpg" />
         <div class="back_item">
             <div class="srow center formgroup">
-                <div class="topbox"> <a class="alist" >Stay In Touch</a></div>
+                <div class="topbox"> <h1><label class="alist" >Stay In Touch</label></h1></div>
                
             </div>
             <div class="clear"></div>

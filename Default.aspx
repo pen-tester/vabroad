@@ -13,10 +13,12 @@
         .topbox{padding:5px 5px;border:2px solid #ff6600;width:600px;margin:auto;}
         .formgroup{width:100%;position:relative;} .bgimg{background-color:#f5ede3;}
         .placeItem{position:absolute;width:100%;}
+        .topbox h1{display:inline;font-size:28px;margin:0;padding:0; -webkit-margin-before: 0;  -webkit-margin-after: 0; -webkit-margin-start: 0px;    -webkit-margin-end: 0px;}
+        .footeritem h2{padding:0px;margin:0px;}
       @media(max-width:470px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
         .footeritem{width:190px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
-       .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:0px;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
+       .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:0px;color:#000;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
         .contentboxmargin{margin-top:4px;}    .footerarea{float:right; margin:0 20px 0 0;  width:@00px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:3px;}.margingroup{margin-top:210px;}
@@ -26,9 +28,9 @@
         }
 
         @media(max-width:560px) and (min-width:470px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
        .footeritem{width:300px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
-       .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:0px;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
+       .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:0px;color:#000;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
         .contentboxmargin{margin-top:4px;}    .footerarea{float:right; margin:10px 20px 0 0;  width:300px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:10px;}.margingroup{margin-top:250px;}
@@ -36,36 +38,36 @@
 
         }
        @media(max-width:720px) and (min-width:560px){
-        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
        .footeritem{width:320px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
-       .itemtile{font-variant: small-caps;font-size:10pt;display:block;padding:0px;}.itemtext{font-variant:small-caps; font-size:8pt;display:block;padding:4px;}
+       .itemtile{font-variant: small-caps;font-size:10pt;display:block;padding:0px;color:#000;}.itemtext{font-variant:small-caps; font-size:8pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
         .contentboxmargin{margin-top:4px;}    .footerarea{float:right; margin:5px 30px 0 0;  width:320px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:10px;}.margingroup{margin-top:320px;}
        }
         @media(min-width:720px)
         {
-        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:16pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:16pt; background-color:#fff;margin:auto;}
        .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
-       .itemtile{font-variant: small-caps;font-size:11pt;display:block;padding:3px;}.itemtext{font-variant:small-caps; font-size:9pt;display:block;padding:4px;}
+       .itemtile{font-variant: small-caps;font-size:11pt;display:block;padding:3px;color:#000;}.itemtext{font-variant:small-caps; font-size:9pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:600px;margin:auto;}
         .contentboxmargin{margin-top:30px;}    .footerarea{float:right; margin:20px 30px 0 0;  width:400px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:20px;}.margingroup{margin-top:420px;}
         }
         @media(min-width:990px)
         {
-        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
+        .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;margin:auto;}
         .footeritem{width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
-       .itemtile{font-variant: small-caps;font-size:12pt;display:block;padding:3px;}.itemtext{font-variant:small-caps; font-size:10pt;display:block;padding:4px;}
+       .itemtile{font-variant: small-caps;font-size:12pt;display:block;padding:3px;color:#000;}.itemtext{font-variant:small-caps; font-size:10pt;display:block;padding:4px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:600px;margin:auto;}
         .contentboxmargin{margin-top:30px;}    .footerarea{float:right; margin:20px 100px 0 0;  width:400px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:20px;}.margingroup{margin-top:540px;}
          }
         @media(min-width:1200px)
         {
-         .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;cursor:pointer;margin:auto;}
+         .alist{ color:#000;padding:3px 30px; font-family:Verdana; font-size:22pt; background-color:#fff;margin:auto;}
          .footeritem{ width:400px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
-        .itemtile{font-variant: small-caps;font-size:14pt;display:block;padding:4px;}.itemtext{font-variant:small-caps; font-size:12pt;display:block;padding:4px;}
+        .itemtile{font-variant: small-caps;font-size:14pt;display:block;padding:4px;color:#000;}.itemtext{font-variant:small-caps; font-size:12pt;display:block;padding:4px;}
         .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:15px 30px;border:2px solid #ff6600;width:800px;margin:auto;}
          .contentboxmargin{margin-top:30px;}
          .contentbox{margin-top:30px;} .margingroup{margin-top:650px;}
@@ -78,11 +80,11 @@
     <div class="scontainer">
      <div class="srow">
            <div class="srow center formgroup">
-                <div class="backtitle center"><div class="topbox"> <a class="alist" >Vacation Rentals & Boutique Hotels</a></div></div>
+                <div class="backtitle center"><div class="topbox"><h1> <label class="alist" >Vacation Rentals & Boutique Hotels</label></h1></div></div>
                 <div class="srow margingroup placeItem" >
                     <div class="center">
-                        <div class="footeritem">
-                            <span class="itemtile">Explore the World Undaunted</span>
+                        <div class="footeritem center">
+                            <h2><span class="itemtile">Explore the World Undaunted</span></h2>
                         </div>
                     </div>
                </div>
