@@ -92,8 +92,8 @@
         <img src="/assets/img/landing.jpg" class="backimg " alt="Vacations Abroad"/>
 
     </div>
-        <div class="internalpage">
-    <div class ="srow center">
+        <div class="internalpage" style="background-color:#f5ede3;">
+          <div class ="srow center">
   <div>
     </div>
     <br />
