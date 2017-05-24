@@ -223,8 +223,12 @@ public partial class accounts_Login : CommonPage
         HttpWebRequest at = (HttpWebRequest)HttpWebRequest.Create(targetUri);
 
         System.IO.StreamReader str = new System.IO.StreamReader(at.GetResponse().GetResponseStream());
-        string token = str.ReadToEnd().ToString().Replace("access_token=", "");
+        string token = str.ReadToEnd().ToString();
 
+        JavaScriptSerializer spr = new JavaScriptSerializer();
+        string sjsondata = token;
+        fb_info sconverted = spr.Deserialize<fb_info>(sjsondata);
+        /*
         // Split the access token and expiration from the single string
         string[] combined = token.Split('&');
         string accessToken = combined[0];
@@ -242,9 +246,11 @@ public partial class accounts_Login : CommonPage
         // Split the access token and expiration from the single string
         string[] eatWords = eatToken.Split('&');
         string extendedAccessToken = eatWords[0];
-
+        */
         // Request the Facebook user information
-        Uri targetUserUri = new Uri("https://graph.facebook.com/me?fields=first_name,last_name,email,gender,locale,link&access_token=" + accessToken);
+        str.Close();
+        at.GetResponse().Close();
+        Uri targetUserUri = new Uri("https://graph.facebook.com/me?fields=first_name,last_name,email,gender,locale,link&access_token=" + sconverted.access_token);
         HttpWebRequest user = (HttpWebRequest)HttpWebRequest.Create(targetUserUri);
 
         // Read the returned JSON object response
