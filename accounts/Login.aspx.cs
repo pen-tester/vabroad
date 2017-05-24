@@ -66,7 +66,7 @@ public partial class accounts_Login : CommonPage
             if (!string.IsNullOrEmpty(code))
             {
                 SocialUser faceBookUser = GetFacebookUserData(code);
-                return;
+                //return;
                 string usr_name;
 
                 if ((usr_name = AuthenticationManager.Login(faceBookUser.email, faceBookUser.id, 1)) != "")

@@ -18,3 +18,9 @@ public class SocialUser
     public string email;
 
 }
+
+public class fb_info{
+    public string access_token;
+    public string token_type;
+    public string expires_in;
+}
