@@ -173,7 +173,7 @@
          </div>
     </div>
             </div>
-  <script src="/assets/js/login.js" defer="defer"></script>  
+  <script src="/assets/js/login.js?1" defer="defer"></script>  
 <script>
   window.fbAsyncInit = function() {
     FB.init({

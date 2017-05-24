@@ -8,6 +8,7 @@
         $("#" + id).addClass("active");
     });
     $('#fblogin').click(function () {
+        console.log("fb login");
         facebooklogin();
     });
 });
