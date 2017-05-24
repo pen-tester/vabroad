@@ -228,7 +228,7 @@ public partial class accounts_Login : CommonPage
         // Split the access token and expiration from the single string
         string[] combined = token.Split('&');
         string accessToken = combined[0];
-
+        Response.Write(token);
         Response.Write(accessToken);
         return new SocialUser();
         // Exchange the code for an extended access token
