@@ -66,6 +66,7 @@ public partial class accounts_Login : CommonPage
             if (!string.IsNullOrEmpty(code))
             {
                 SocialUser faceBookUser = GetFacebookUserData(code);
+                return;
                 string usr_name;
 
                 if ((usr_name = AuthenticationManager.Login(faceBookUser.email, faceBookUser.id, 1)) != "")
@@ -235,6 +236,8 @@ public partial class accounts_Login : CommonPage
         StreamReader eatStr = new StreamReader(eat.GetResponse().GetResponseStream());
         string eatToken = eatStr.ReadToEnd().ToString().Replace("access_token=", "");
 
+        Response.Write(eatToken);
+        return new SocialUser();
         // Split the access token and expiration from the single string
         string[] eatWords = eatToken.Split('&');
         string extendedAccessToken = eatWords[0];
