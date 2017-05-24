@@ -258,6 +258,7 @@ public partial class accounts_Login : CommonPage
         //currentUser.Add(converted);
 
         // Return the current Facebook user
+        str.Close();
         return converted;
     }
  
