@@ -7,6 +7,19 @@
         $("#" + id).parent().find(".active").removeClass("active");
         $("#" + id).addClass("active");
     });
-
+    $('#fblogin').click(function () {
+        facebooklogin();
+    });
 });
+
+function facebooklogin() {
+    FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+            console.log('Logged in.');
+        }
+        else {
+            FB.login();
+        }
+    });
+}
 
