@@ -70,7 +70,7 @@
                     <div class="srow">
                         <div class ="col-sm-12">
                             <button type="button" class="btnLogins" id="fblogin"> <i class="fa fa-facebook-f socialchar"></i>  &nbsp;Login with Facebook</button>
-                             <button type="button" class="btnLogins" runat="server" onServerClick="btn_signinfacebook_Click" validationgroup="facebook"> <i class="fa fa-facebook-f socialchar"></i>  &nbsp;Login with Facebook</button>
+                             
                         </div>
                         
                     </div>
