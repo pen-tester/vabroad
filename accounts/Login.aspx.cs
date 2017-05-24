@@ -229,6 +229,8 @@ public partial class accounts_Login : CommonPage
         string[] combined = token.Split('&');
         string accessToken = combined[0];
 
+        Response.Write(accessToken);
+        return new SocialUser();
         // Exchange the code for an extended access token
         Uri eatTargetUri = new Uri("https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=" + ConfigurationManager.AppSettings["FacebookAppId"] + "&client_secret=" + ConfigurationManager.AppSettings["FacebookAppSecret"] + "&fb_exchange_token=" + accessToken);
         HttpWebRequest eat = (HttpWebRequest)HttpWebRequest.Create(eatTargetUri);
@@ -236,8 +238,7 @@ public partial class accounts_Login : CommonPage
         StreamReader eatStr = new StreamReader(eat.GetResponse().GetResponseStream());
         string eatToken = eatStr.ReadToEnd().ToString().Replace("access_token=", "");
 
-        Response.Write(eatToken);
-        return new SocialUser();
+
         // Split the access token and expiration from the single string
         string[] eatWords = eatToken.Split('&');
         string extendedAccessToken = eatWords[0];
