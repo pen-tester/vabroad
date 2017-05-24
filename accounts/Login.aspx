@@ -69,8 +69,7 @@
 
                     <div class="srow">
                         <div class ="col-sm-12">
-                            <button type="button" class="btnLogins" id="fblogin"> <i class="fa fa-facebook-f socialchar"></i>  &nbsp;Login with Facebook</button>
-                             
+                             <button type="button" class="btnLogins" runat="server" onServerClick="btn_signinfacebook_Click" validationgroup="facebook"> <i class="fa fa-facebook-f socialchar"></i>  &nbsp;Login with Facebook</button>
                         </div>
                         
                     </div>
@@ -173,7 +172,7 @@
          </div>
     </div>
             </div>
-  <script src="/assets/js/login.js?1" defer="defer"></script>  
+  <script src="/assets/js/login.js?2" defer="defer"></script>  
 <script>
   window.fbAsyncInit = function() {
     FB.init({

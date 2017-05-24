@@ -7,10 +7,12 @@
         $("#" + id).parent().find(".active").removeClass("active");
         $("#" + id).addClass("active");
     });
-    $('#fblogin').click(function () {
+   /* $('#fblogin').click(function () {
         console.log("fb login");
         facebooklogin();
     });
+    */
+
 });
 
 function facebooklogin() {

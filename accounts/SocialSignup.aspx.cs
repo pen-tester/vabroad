@@ -24,7 +24,7 @@ public partial class accounts_SocialSignup : CommonPage
             string Tuserid = Request.Cookies["fbinfo"]["username"];
             hidden_id.Value = faceBookUserId;
             acctype.Value = Request.Cookies["fbinfo"]["type"];
-            LoginName.Text = "usr" + Tuserid;
+            LoginName.Text = Tuserid;
             Email.Text = smail;
  
             //TUserID.Text = TwiID.Value;
