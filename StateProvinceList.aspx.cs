@@ -832,7 +832,7 @@ public partial class StateProvinceList : CommonPage
         param.Add(new SqlParameter("@sleep", psleep));
         param.Add(new SqlParameter("@ptype", ptype));
         ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", param);
-
+        markers = getMarkersJsonString(ds_citylocations);
     }
 
     protected void rdoBedrooms_SelectedIndexChanged(object sender, EventArgs e)
