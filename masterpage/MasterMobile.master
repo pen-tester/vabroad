@@ -73,7 +73,7 @@
     <form id="mainform" runat="server">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
                 <div class="scontainer">
-                <div class="srow place_right">
+                <div class="srow place_left">
                     <ul class="shareing">
                         <li><i class="fa fa-phone-square"></i> +1-877-672-2556</li>
                         <li><a href="skype:lindakayjenkins?chat"><i class="fa fa-skype"></i>Linda Jenkins</a></li>
