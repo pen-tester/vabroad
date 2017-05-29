@@ -49,6 +49,14 @@
      .groupTradeMark{
          padding:0 0 30px 0;
      }
+ /*
+     Adding contact info
+ */
+    .shareing{
+        list-style:none; display:inline-block; padding:0px; margin:0;
+    }
+    ul.shareing li{display:inline-block; padding:5px 10px;} ul.shareing li i{font-size:12pt;color:#ff6600;}
+    .place_right{text-align:right;} .plcace_left{text-align:left;}
  </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,11 +68,17 @@
  
 <body style="margin:0 -10px;">
     <script defer="defer"  src="/Assets/js/jquery-3.1.0.min.js"></script>
-    <script defer="defer" src="/Assets/js/normalmaster.js?4"></script>
+    <script defer="defer" src="/Assets/js/normalmaster.js?5"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <form id="mainform" runat="server">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
                 <div class="scontainer">
+                <div class="srow place_right">
+                    <ul class="shareing">
+                        <li><i class="fa fa-phone-square"></i> +1-877-672-2556</li>
+                        <li><a href="skype:lindakayjenkins?chat"><i class="fa fa-skype"></i>Linda Jenkins</a></li>
+                    </ul>
+                </div>
                     <div class="srow">
    
                       <div id="cus_head" class="col-x-4 col-4">
@@ -118,7 +132,7 @@
                                     <div class="col-x-1 col-4" >
                                         <div class="left-border">
                                         <ul class="contactmenu">
-                                           <li class="contactitem" data-target="0">Contact Us</li><li class="contactitem" data-target="4">Our Press</li> <li class="contactitem" data-target="1">List a Property</li><li class="contactitem" data-target="3">About Us</li><li class="contactitem" data-target="2">Rental Guarantee</li>
+                                           <li class="contactitem" data-target="0">Contact Us</li><li class="contactitem" data-target="4">Our Press</li> <li class="contactitem" data-target="1">List a Property</li><li class="contactitem" data-target="3">About Us</li><li class="contactitem" data-target="2">Rental Guarantee</li><li class="contactitem" data-target="5">Our Blog</li>
                                         </ul>
                                         </div>
                                     </div>
