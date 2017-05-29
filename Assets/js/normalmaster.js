@@ -2,10 +2,11 @@
     , ["/presscoverage.aspx", "/pressreleases.aspx"], ["/Contacts.aspx", "http://blog2.vacations-abroad.com", "http://madmimi.com/signups/121428/join", "https://plus.google.com/+Vacations-abroad/posts", "https://twitter.com/vacationsabroad", "https://www.facebook.com/VacationsAbroad"]];
 
 var contact_links = ["/contacts.aspx", "/applications.aspx", "/rentalguarantee.aspx", "/aboutus.aspx", "/presscoverage.aspx", "http://blog2.vacations-abroad.com"];
+var site_url = "https://www.vacations-abroad.com";
 
 function onclickevent_footerment(menuindex, itemindex) {
     //alert(menuindex + "   " + itemindex);
-    window.location.href = redirect_links[menuindex][itemindex];
+    window.location.href =site_url+ redirect_links[menuindex][itemindex];
 }
 
 
@@ -22,12 +23,12 @@ $(document).ready(function () {
     $('.contactitem').click(function () {
         var target = $(this).attr("data-target");
         console.log(target);
-        window.location.href = contact_links[target];
+        window.location.href =site_url+ contact_links[target];
     });
 })
 
 function redirect() {
-    window.location.href = "/SearchTerms.aspx?SearchTerms=" + $('#tbKeyWords').val();
+    window.location.href =site_url+ "/SearchTerms.aspx?SearchTerms=" + $('#tbKeyWords').val();
 }
 
 function getcountrylist(item) {
@@ -45,7 +46,7 @@ function getcountrylist(item) {
     call_rid = rid;
     $.ajax({
         type: "POST",
-        url: "/ajaxhelper.aspx/getcountrylist",
+        url: site_url+"/ajaxhelper.aspx/getcountrylist",
         data: '{id:' + rid + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -92,7 +93,7 @@ function processTopCountryData(response) {
 function getmainmenu(cid) {
     $.ajax({
         type: "POST",
-        url: "/ajaxhelper.aspx/getstatelist",
+        url:site_url+ "/ajaxhelper.aspx/getstatelist",
         data: '{id:'+cid+'}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
