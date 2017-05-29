@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using Newtonsoft.Json;
 
 public partial class StateProvinceList : CommonPage
 {
@@ -38,10 +39,11 @@ public partial class StateProvinceList : CommonPage
     protected DataSet MainDataSet = new DataSet();
     protected DataSet MainDataSetCountries = new DataSet();
 
-    protected DataSet ds_PTypeNum, ds_PropList;
+    protected DataSet ds_PTypeNum, ds_PropList, ds_citylocations;
     protected int[] sleeps = { 0, 0, 0, 0 };
     protected int ptype=0,psleep=0;
     public int[] proptypeinfo = { 8, 2, 5, 16, 11, 24, 2, 19, 22, 12 };
+    public string markers="";
     protected void Page_Load(object sender, System.EventArgs e)
     {
         
@@ -224,8 +226,8 @@ public partial class StateProvinceList : CommonPage
 
                     hyplnkBackLink.NavigateUrl = "/" + country.ToLower().ToLower().Replace(" ", "_") +"/" + "default.aspx";
                     ltrBackText.Text = country  + "<<";
-                    string iframe = "<iframe height='310' width='95%' frameborder='0' src='/" + country.ToLower().ToLower().Replace(" ", "_") + "/" + stateprovince.ToLower().ToLower().Replace(" ", "_") + "/maps.aspx'></iframe>";
-                    googlemap.InnerHtml = iframe;                    
+                    //string iframe = "<iframe height='310' width='95%' frameborder='0' src='/" + country.ToLower().ToLower().Replace(" ", "_") + "/" + stateprovince.ToLower().ToLower().Replace(" ", "_") + "/maps.aspx'></iframe>";
+                    //googlemap.InnerHtml = iframe;                    
                     page.Title = char.ToUpper(stateprovince[0]) + stateprovince.Substring(1) + " Vacation Rentals, Boutique Hotels | Vacations Abroad";
                     
                     string tempcountry1 = CommonFunctions.GetSiteAddress() + "/" + country.ToLower().Replace(" ", "_") + "/" + stateprovince.ToLower().Replace(" ", "_") +
@@ -405,7 +407,13 @@ public partial class StateProvinceList : CommonPage
             List<SqlParameter> sparam = new List<SqlParameter>();
             sparam.Add(new SqlParameter("@stid", stateprovinceid));
             ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", sparam);
-       // }*/
+
+             sparam.Clear();
+            sparam.Add(new SqlParameter("@stid", stateprovinceid));
+            ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", sparam);
+
+        markers = getMarkersJsonString(ds_citylocations);
+        // }*/
 
         if (IsPostBack)
         {
@@ -784,6 +792,29 @@ public partial class StateProvinceList : CommonPage
         }
     }
 
+    public string getMarkersJsonString(DataSet ds_citylocations)
+    {
+        List<Location> eList = new List<Location>();
+        foreach (DataRow dr in ds_citylocations.Tables[0].Rows)
+        {
+            try
+            {
+                Location e1 = new Location();
+                e1.title = dr["City"].ToString();
+                e1.lat = Convert.ToDouble(dr["latitude"]);
+                e1.lng = Convert.ToDouble(dr["longitude"]); ;
+                e1.description = dr["City"].ToString();
+                string temps = CommonFunctions.GetSiteAddress() + "/" + dr["Country"].ToString().ToLower().Replace(" ", "_") +
+                 "/" + dr["StateProvince"].ToString().ToLower().Replace(" ", "_") + "/" + dr["City"].ToString().ToLower().Replace(" ", "_") + "/default.aspx";
+                e1.URL = temps;
+                eList.Add(e1);
+            }
+            catch { }
+        }
+        // Response.Write(CitiesAdapter.SelectCommand.CommandText);
+        return JsonConvert.SerializeObject(eList, Formatting.Indented);
+    }
+
     protected void btnFilter_Click(object sender, EventArgs e)
     {
 
@@ -794,7 +825,13 @@ public partial class StateProvinceList : CommonPage
         param.Add(new SqlParameter("@ptype", ptype));
 
         ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", param);
-   
+
+        param.Clear();
+        param.Add(new SqlParameter("@stid", stateprovinceid));
+
+        param.Add(new SqlParameter("@sleep", psleep));
+        param.Add(new SqlParameter("@ptype", ptype));
+        ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", param);
 
     }
 

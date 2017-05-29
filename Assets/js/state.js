@@ -5,7 +5,7 @@
 var map;
 function initializeMap() {
 
-    var markers = [
+   /* var markers = [
     {
        "title": "Panipat",
         "lat": 29.3928,
@@ -18,7 +18,7 @@ function initializeMap() {
         "lng": 77.0193,
         "description": "Gurgaon"
     }];
-
+    */
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
 

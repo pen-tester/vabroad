@@ -9,7 +9,8 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
         .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
-                                    
+        /* For map*/                      
+        #googlemap{width:95%; height:310px;margin:0 15px;}
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
@@ -62,7 +63,7 @@
                         <% } %>
                         </div>
                         <div class="col-x-4 col-6">
-                           <div  id="googlemap" runat="server">
+                           <div  id="googlemap">
                             </div>
                         </div>
   
@@ -257,5 +258,13 @@
 
     </div>
 
-   
+    <script>
+        var markers=<%=markers %>;
+    </script>
+
+    <script type="text/javascript" defer="defer" src="/assets/js/state.js?1">
+    </script>
+    <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=initializeMap">
+    </script>
+
 </asp:Content>
