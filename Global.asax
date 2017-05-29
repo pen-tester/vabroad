@@ -552,7 +552,7 @@
                 //}
             }
 
-            //citylist url 
+       /*     //citylist url 
             Regex regex33 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matches33 = regex33.Matches(oldpath);
             if (matches33.Count > 0)
@@ -591,7 +591,7 @@
                 }
             }
 
-
+            */
 
 
             Regex regexMapsCat = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/Maps.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
