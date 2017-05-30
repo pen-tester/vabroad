@@ -1201,7 +1201,7 @@ public partial class ViewProperty : CommonPage
             {
 
                 byte[] response =
-                client.UploadValues("https://api.madmimi.com//audience_lists/"+ Server.UrlEncode("All contacts")+"/add", new NameValueCollection()
+                client.UploadValues("https://api.madmimi.com/audience_lists/"+ Server.UrlEncode("All contacts")+"/add", new NameValueCollection()
                 {
                        { "username", "Vacations-Abroad.com" },
                        { "api_key", "9881316569391d3dbfba35b71670b4b2" },
