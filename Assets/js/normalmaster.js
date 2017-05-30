@@ -23,7 +23,8 @@ $(document).ready(function () {
     $('.contactitem').click(function () {
         var target = $(this).attr("data-target");
         console.log(target);
-        window.location.href =site_url+ contact_links[target];
+        if (target != 5) window.location.href = site_url + contact_links[target];
+        else window.location.href = contact_links[target];
     });
 })
 
