@@ -186,7 +186,7 @@
                          %>
               
                <!-- <div class="page_hid scrollable" id="cpage<=pg %>">-->
-                <div class="page_hid scrollable" id="cpage">
+                <div class="scrollable" id="cpage0">
                          <% //  int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
                             // for (int i = pg*20; i < maxitem; i++)
                             for(int i=0;i<proplistset.allnums; i++)
