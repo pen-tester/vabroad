@@ -157,13 +157,13 @@ function changemapmarker(element) {
     var tmp_longi_val = $(element).find('.long_val').val();
     for (var i = 0; i < gmarkers.length; i++) {
         var data = gmarkers[i];
-        if (data.lat == tmp_lat_val && data.lng == tmp_longi_val) {
-            viewd_markers[i].setMap(null);
-            viewd_markers[i] = addOnemaker(mainmap, data, true);
-        }
         if (data.lat == _lat_val && data.lng == _longi_val) {
             viewd_markers[i].setMap(null);
             viewd_markers[i] = addOnemaker(mainmap, data, false);
+        }
+        if (data.lat == tmp_lat_val && data.lng == tmp_longi_val) {
+            viewd_markers[i].setMap(null);
+            viewd_markers[i] = addOnemaker(mainmap, data, true);
         }
     }
     _lat_val = tmp_lat_val; _longi_val = tmp_longi_val;
