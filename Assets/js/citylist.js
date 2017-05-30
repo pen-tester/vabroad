@@ -94,7 +94,7 @@ function addOnemaker(map,data, highlighten) {
         position: myLatlng,
         map: map,
         title: data.title,
-        icon: img_url,
+  //      icon: img_url,
         zIndex: zindex
     });
 
