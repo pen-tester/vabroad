@@ -181,14 +181,15 @@
             <div class="pcontent">
                 <%  int pages = (proplistset.allnums+19) / 20 ;
                     List<Location> eLocation = new List<Location>();
-                    for (int pg = 0; pg < pages; pg++)
-                    {
+                   // for (int pg = 0; pg < pages; pg++)
+                   // {
                          %>
               
-                <div class="page_hid scrollable" id="cpage<%=pg %>">
-
-                         <%   int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
-                             for (int i = pg*20; i < maxitem; i++)
+               <!-- <div class="page_hid scrollable" id="cpage<=pg %>">-->
+                <div class="page_hid scrollable" id="cpage">
+                         <% //  int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
+                            // for (int i = pg*20; i < maxitem; i++)
+                            for(int i=0;i<proplistset.allnums; i++)
                              {
                                  //Response.Write(proplistset.propertyList.Count);break;
                                  PropertyAmenityInfo propamen = proplistset.propertyList[i];
@@ -287,15 +288,16 @@
 
                           <%} %>
                 </div>
-                <%}
+                <%//}
                     string ans =BookDBProvider.getJsonString<Location>(eLocation) ; %>
             </div>
         </div>
         <div class="srow">
             <input type="hidden" name="allpages" value="<%=proplistset.allnums %>" />
-            <div class="pagination" id="paging">
+   <!--         <div class="pagination" id="paging">
         
             </div>
+       -->
         </div>
                  <div class="com_box">
                                 <h2 class="orangetxt">
