@@ -1197,6 +1197,21 @@ public partial class ViewProperty : CommonPage
             //PropertyInform propinfo = BookDBProvider.getPropertyInfo(propertyid);
             PropertyDetailInfo propinfo = AjaxProvider.getPropertyDetailInfo(propertyid);
 
+            using (WebClient client = new WebClient())
+            {
+
+                byte[] response =
+                client.UploadValues("https://api.madmimi.com//audience_lists/"+ Server.UrlEncode("All contacts")+"/add", new NameValueCollection()
+                {
+                       { "username", "Vacations-Abroad.com" },
+                       { "api_key", "9881316569391d3dbfba35b71670b4b2" },
+                       { "email", contactemail }
+
+                });
+
+                //string result = System.Text.Encoding.UTF8.GetString(response);
+            }
+
             //   Response.Write(String.Format("{0}   {1} {2} {3}", ownerinfo.id, ownerinfo.name, ownerinfo.email, ownerinfo.lastname));
             //  Response.Write(String.Format("{0}   {1} {2} {3}", userinfo.id, userinfo.name, userinfo.email, userinfo.lastname));
             //  return;
@@ -1215,7 +1230,7 @@ public partial class ViewProperty : CommonPage
                 */
 
             //adding sending email to emailquote table.
-            if(BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment,phone,userid,  propertyid, ownerid, nights))
+            if (BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment,phone,userid,  propertyid, ownerid, nights))
             {
                 
                 string ownermsg_format = @"<body>
