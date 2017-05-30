@@ -33,16 +33,15 @@ function redirect() {
 }
 
 function getcountrylist(item) {
-
     //console.log(item.id);
     var rid = item.id.split("_")[1];
 
-    if (menuitem[rid] != 0) {
+   // if (menuitem[rid] != 0) {
         //   dropdownbtn(item);
         make_rightmenu(rid);
 
         return;
-    }
+   // }
    // console.log("countrylist" + rid);
     call_rid = rid;
     $.ajax({
