@@ -66,10 +66,10 @@ $(document).ready(function () {
 });
 var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night"], prop_typeval = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12], min_groupnum = 0, max_group = 0, cpagenums = 0;
 
-function addOnemaker(map,data) {
+function addOnemaker(map,data, highlighten) {
     var myLatlng = new google.maps.LatLng(data.lat, data.lng);
     var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-    if (data.lat == _lat_val && data.lng == _longi_val) {
+    if (highlighten) {
         img_url = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
     }
     var marker = new google.maps.Marker({
@@ -95,7 +95,7 @@ function addAllmarkers(map) {
     var bounds = new google.maps.LatLngBounds();
     for (i = 0; i < gmarkers.length; i++) {
         var data = gmarkers[i]
-        var marker = addOnemaker(map, data);
+        var marker = addOnemaker(map, data,false);
         bounds.extend(marker.position);
         viewd_markers.push(marker);
     }
@@ -153,15 +153,20 @@ function checkInView(elem, partial) {
 //For highlightening the map marker
 function changemapmarker(element) {
     //  console.log(_lat_val + "   " + _longi_val);
-    _lat_val = $(element).find('.lat_val').val();
-    _longi_val = $(element).find('.long_val').val();
+    var tmp_lat_val = $(element).find('.lat_val').val();
+    var tmp_longi_val = $(element).find('.long_val').val();
     for (var i = 0; i < gmarkers.length; i++) {
         var data = gmarkers[i];
+        if (data.lat == tmp_lat_val && data.lng == tmp_longi_val) {
+            viewd_markers[i].setMap(null);
+            viewd_markers[i] = addOnemaker(mainmap, data, true);
+        }
         if (data.lat == _lat_val && data.lng == _longi_val) {
             viewd_markers[i].setMap(null);
-            viewd_markers[i] = addOnemaker(mainmap, data);
+            viewd_markers[i] = addOnemaker(mainmap, data, false);
         }
     }
+    _lat_val = tmp_lat_val; _longi_val = tmp_longi_val;
 }
 
 
