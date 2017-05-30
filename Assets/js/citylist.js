@@ -69,14 +69,17 @@ var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Mon
 function addOnemaker(map,data, highlighten) {
     var myLatlng = new google.maps.LatLng(data.lat, data.lng);
     var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+    var zindex=100;
     if (highlighten) {
         img_url = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+        zindex=9999;
     }
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
         title: data.title,
-        icon: img_url
+        icon: img_url,
+        zIndex: zindex
     });
 
     (function (marker, data) {
