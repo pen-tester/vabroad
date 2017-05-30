@@ -1197,19 +1197,26 @@ public partial class ViewProperty : CommonPage
             //PropertyInform propinfo = BookDBProvider.getPropertyInfo(propertyid);
             PropertyDetailInfo propinfo = AjaxProvider.getPropertyDetailInfo(propertyid);
 
-            using (WebClient client = new WebClient())
+            try
             {
-
-                byte[] response =
-                client.UploadValues("https://api.madmimi.com/audience_lists/"+ Server.UrlEncode("All contacts")+"/add", new NameValueCollection()
+                using (WebClient client = new WebClient())
                 {
+
+                    byte[] response =
+                    client.UploadValues("https://api.madmimi.com/audience_lists/" + Server.UrlEncode("All contacts") + "/add", new NameValueCollection()
+                    {
                        { "username", "Vacations-Abroad.com" },
                        { "api_key", "9881316569391d3dbfba35b71670b4b2" },
                        { "email", contactemail }
 
-                });
+                    });
 
-                //string result = System.Text.Encoding.UTF8.GetString(response);
+                    //string result = System.Text.Encoding.UTF8.GetString(response);
+                }
+            }
+            catch
+            {
+
             }
 
             //   Response.Write(String.Format("{0}   {1} {2} {3}", ownerinfo.id, ownerinfo.name, ownerinfo.email, ownerinfo.lastname));
