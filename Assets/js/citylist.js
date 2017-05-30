@@ -11,10 +11,20 @@ $(document).ready(function () {
         $('#lbl_City').removeClass("col-7");
     }
     $('#cpage0').show();
+/*
+    $(".scrollable .img_row").hover(function () {
+        $(".scrollable").findClass(".selected_prop").removeClass("selected_prop");
+        $(this).addClass("selected_prop");
+        changemapmarker($(this));
+    });
+    */
+
+    /*
     $(".scrollable").on("scrollstop", function () {
         console.log("Stopped scrolling!");
     });
 
+   
     //After loading first
     $(".scrollable .img_row").each(function (i, e) {
         //For all element displayed.
@@ -63,6 +73,7 @@ $(document).ready(function () {
 
         lastScrollTop = st;
     });
+    */
 });
 var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night"], prop_typeval = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12], min_groupnum = 0, max_group = 0, cpagenums = 0;
 

@@ -46,7 +46,10 @@
      }
      /* For Scrollable*/
      .scrollable{
-         overflow-y:auto;height:400px;
+         
+     }
+     .selected_prop{
+         background-color:#fff;
      }
     </style>
 </asp:Content>
@@ -378,5 +381,5 @@
   </script>
    
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/Assets/js/citylist.js?11"></script>
+    <script defer="defer" src="/Assets/js/citylist.js?13"></script>
 </asp:Content>
