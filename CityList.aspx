@@ -170,12 +170,12 @@
 
 
             <div class="srow" >
-                        <div class="heding_box">
+                     <!--   <div class="heding_box">
                                 <h2 class="orangetxt">
-                                    <%=countryinfo.City %> Vacation Rentals and <%=countryinfo.City %> Hotels
+                                   Vacation Rentals and  Hotels
                                 </h2>
                             </div>
-                        
+                        -->
             </div>
           <div class="srow">
         
@@ -381,5 +381,5 @@
   </script>
    
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/Assets/js/citylist.js?13"></script>
+    <script defer="defer" src="/Assets/js/citylist.js?14"></script>
 </asp:Content>

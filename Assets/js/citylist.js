@@ -5,7 +5,7 @@ $(document).ready(function () {
     var win_width = $('.borerstep').width();
     if (win_width <= 600) $('.colfield_2').width(win_width - 70);
 
-    console.log("ready"), refresh_radios(); var e = $('input:hidden[name="allpages"]').val(); addPagination(e);
+    console.log(win_width), refresh_radios(); var e = $('input:hidden[name="allpages"]').val(); addPagination(e);
     if (gmarkers.length == 0) {
         $('#wrap_map').hide();
         $('#lbl_City').removeClass("col-7");
