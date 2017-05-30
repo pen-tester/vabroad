@@ -2,35 +2,102 @@
 $(document).ready(function () {
     console.log("map");
     initialize();
+    var win_width = $('.borerstep').width();
+    if (win_width <= 600) $('.colfield_2').width(win_width - 70);
+
     console.log("ready"), refresh_radios(); var e = $('input:hidden[name="allpages"]').val(); addPagination(e);
     if (gmarkers.length == 0) {
         $('#wrap_map').hide();
-        $('#lbl_City').removeClass("col-6");
+        $('#lbl_City').removeClass("col-7");
     }
     $('#cpage0').show();
+    $(".scrollable").on("scrollstop", function () {
+        console.log("Stopped scrolling!");
+    });
 
-}); var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night"], prop_typeval = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12], min_groupnum = 0, max_group = 0, cpagenums = 0;
+    //After loading first
+    $(".scrollable .img_row").each(function (i, e) {
+        //For all element displayed.
+        if (checkInView($(e), false)) {
+            //$(this).css("background", "#333");
+            changemapmarker($(e));
+            return false;
+        }
+    });
+
+
+    $(".scrollable").scroll(function (event) {
+        var st = $(this).scrollTop();
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function () {
+            // do something
+            console.log("Haven't scrolled in 250ms!");
+            $(".scrollable .img_row").each(function (i, e) {
+                
+                //For partial element displayed.
+                if (checkInView($(e), true)) {
+                    return false;
+                }
+                // console.log("tttt");
+            });
+        }, 250));
+        tmp_index = 0;
+        $(".scrollable .img_row").each(function (i, e) {
+            tmp_index ++;
+            //For all element displayed.
+            if (checkInView($(e), false)) {
+                //$(this).css("background", "#333");
+                _matched_index = tmp_index;
+                changemapmarker($(e));
+                return false;
+            }
+        });
+        if (st > lastScrollTop) {
+            // downscroll code
+            direction = 1;
+
+        } else {
+            // upscroll code
+            direction = -1;
+        }
+
+        lastScrollTop = st;
+    });
+});
+var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night"], prop_typeval = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12], min_groupnum = 0, max_group = 0, cpagenums = 0;
+
+function addOnemaker(map,data) {
+    var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+    var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+    if (data.lat == _lat_val && data.lng == _longi_val) {
+        img_url = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+    }
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: data.title,
+        icon: img_url
+    });
+
+    (function (marker, data) {
+
+        // Attaching a click event to the current marker
+        google.maps.event.addListener(marker, "click", function (e) {
+            window.open(data.URL);
+            // infoWindow.setContent(data.description);
+            //infoWindow.open(map, marker);
+        });
+    })(marker, data);
+    return marker;
+}
 
 function addAllmarkers(map) {
     var bounds = new google.maps.LatLngBounds();
     for (i = 0; i < gmarkers.length; i++) {
         var data = gmarkers[i]
-        var myLatlng = new google.maps.LatLng(data.lat, data.lng);
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map,
-            title: data.title
-        });
+        var marker = addOnemaker(map, data);
         bounds.extend(marker.position);
-        (function (marker, data) {
-
-            // Attaching a click event to the current marker
-            google.maps.event.addListener(marker, "click", function (e) {
-                window.open(data.URL);
-                // infoWindow.setContent(data.description);
-                //infoWindow.open(map, marker);
-            });
-        })(marker, data);
+        viewd_markers.push(marker);
     }
     google.maps.event.addListener(map, 'zoom_changed', function () {
         zoomChangeBoundsListener =
@@ -52,7 +119,8 @@ var mainmap, onemap;
 
 function initialize() {
     mainmap = initializeMap("map_canvas");
-    addAllmarkers(mainmap)
+    reloadMarkers();
+    //addAllmarkers(mainmap)
 }
 
 
@@ -67,3 +135,52 @@ function initializeMap(mapid) {
     var map = new google.maps.Map(document.getElementById(mapid), mapOptions);
     return map;
 }
+
+function checkInView(elem, partial) {
+    var container = $(".scrollable");
+    var contHeight = container.height();
+    var contTop = container.scrollTop();
+    var contBottom = contTop + contHeight;
+
+    var elemTop = $(elem).offset().top - container.offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    var isTotal = (elemTop >= 0 && elemBottom <= contHeight);
+    var isPart = ((elemTop < 0 && elemBottom > 0) || (elemTop > 0 && elemTop <= container.height())) && partial;
+
+    return isTotal || isPart;
+}
+//For highlightening the map marker
+function changemapmarker(element) {
+    //  console.log(_lat_val + "   " + _longi_val);
+    _lat_val = $(element).find('.lat_val').val();
+    _longi_val = $(element).find('.long_val').val();
+    for (var i = 0; i < gmarkers.length; i++) {
+        var data = gmarkers[i];
+        if (data.lat == _lat_val && data.lng == _longi_val) {
+            viewd_markers[i].setMap(null);
+            viewd_markers[i] = addOnemaker(mainmap, data);
+        }
+    }
+}
+
+
+
+function reloadMarkers() {
+    // Loop through markers and set map to null for each
+    for (var i = 0; i < viewd_markers.length; i++) {
+        viewd_markers[i].setMap(null);
+    }
+
+    // Reset the markers array
+    viewd_markers = [];
+    // Call set markers to re-add markers
+    addAllmarkers(mainmap);
+}
+
+//For scroll view action and animation
+var lastScrollTop = 0;
+var direction = 1;
+var viewd_markers = [];
+var _lat_val, _longi_val;
+var _matched_index=0,tmp_index=0;

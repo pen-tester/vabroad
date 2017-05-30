@@ -8,7 +8,46 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
     <style>
-        .smap{width:400px; height:300px;min-height:1px;margin:10px auto; }
+        .smap{height:300px;min-height:1px;margin:15px 20px; }
+    /*For the step box*/
+        ul.step_line{display:block; margin:0;padding:0;}
+        ul.step_line li{display:inline-block; padding:3px 0px;}
+        .btn_wrapper{padding:5px 0 0 15px;display:inline-block;}
+
+        [class*=colfield_]{float:left;}
+
+     @media(max-width:600px){
+        .colfield_1{width:65px;}
+        .colfield_2{}
+        .colfield_3{width:200px;text-align:right;}
+     }
+
+     @media(max-width:768px) and (min-width:600px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:350px;text-align:right;}
+     }
+
+     @media(min-width:768px)and (max-width:992px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:350px;text-align:right;}
+     }
+
+     @media(max-width:1200px )and (min-width:992px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:250px;text-align:right;}
+     }
+     @media(min-width:1200px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:350px;text-align:right;}
+     }
+     /* For Scrollable*/
+     .scrollable{
+         overflow-y:auto;height:200px;
+     }
     </style>
 </asp:Content>
 
@@ -47,12 +86,77 @@
 
             </div>
             <div class="srow">
-                <div class="col-6" id="lbl_City">
-                 <div class="txtalign">
-                        <asp:Label runat="server" ID="lblcity"  ></asp:Label>
-                  </div>
+                <div class="col-7" id="lbl_City">
+                    <div class="srow">
+                        <div class="borerstep">
+
+                        <div class="stepfont">
+                            <div class="colfield_1">
+                                 <label> Step 1: </label>
+                            </div>
+                             <div class="colfield_2">
+                                 <ul class="step_line">
+                                   <% 
+            //"City" vacation Rentals (count) "City" Hotesl (count)
+                                       for (int i = 0; i < 3; i++) {%>
+                                    <li> <input type="radio" name="proptype" value="<%=prop_typeval[i]%>" /> <%=str_propcate[i] %> (<%=prop_nums[i] %>)</li>
+                                <%} %>
+                   
+                                </ul>
+                             </div>
+                           <div class="clear"></div>
+                        </div>
+                        <div class="stepfont">
+                            <div class="colfield_1">
+                                <label> Step 2: </label> 
+                            </div>
+                            <div class="colfield_2">
+                                <ul class="step_line">
+                                   <li>  <input type="radio"  name="roomnums"  value="1" /> 0-2 BD (<%=bedroominfo[1] %>)</li>
+                                   <li> <input type="radio"   name="roomnums" value="2" /> 3-4 BD (<%=bedroominfo[2] %>)</li>
+                                   <li> <input type="radio"  name="roomnums" value="3" /> 5+ BD (<%=bedroominfo[3] %>)</li>
+                                   <li> <input type="radio"  name="roomnums" value="0" /> All (<%=bedroominfo[0] %>)</li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="stepfont">
+                            <div class="colfield_1">
+                                    <label> Step 3: </label>
+                            </div>
+                            <div class="colfield_2">
+                                <ul class="step_line">
+                                   <li> <input type="radio"  name="amenitytype" value="8" /> Hot Tub(<%=amenity_nums[0] %>)</li>
+                                   <li> <input type="radio"  name="amenitytype" value="33" /> Internet(<%=amenity_nums[1] %>)</li>
+                                   <li> <input type="radio"  name="amenitytype" value="1" /> Pets(<%=amenity_nums[2] %>)</li>
+                                   <li> <input type="radio"  name="amenitytype" value="11" /> Pool(<%=amenity_nums[3] %>)</li>
+                                   <li> <input type="radio"  name="amenitytype" value="0" /> All(<%=amenity_nums[4] %>)</li>
+                                 </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="stepfont">
+                            <div class="colfield_1">
+                                <label> Step 4: </label>
+                            </div>
+                            <div class="colfield_2">
+                                <ul class="step_line">
+                                    <li> <input type="radio"  name="pricesort" value="1" /> High to Low Price</li>
+                                   <li> <input type="radio"  name="pricesort" value="2" /> Low to High Price</li>
+                                </ul>
+                            </div>
+                            <div class="colfield_3">
+                                <div class="btn_wrapper">
+                                    <input type="submit" id="refresh" class="btnsigns" value="Search" />
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                        </div>
+                    </div>
                  </div>
-                <div class="col-6 center" id="wrap_map">
+                <div class="col-5 center" id="wrap_map">
                     <div class="smap" id="map_canvas">
 
                     </div>
@@ -60,16 +164,7 @@
                 <input type="hidden"  id="cityid" value="<%=cityid %>"  />
                 <input type="hidden"  id="CityParam" name="CityParam"  runat="server" />
                     <%--padding 305 center--%>
-                    <div class="srow">
-                        <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
-                           { %>
-                        <asp:TextBox ID="txtCityText" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
-                        <asp:Button ID="btnSubmit" runat="server" Text="Save Text" OnClick="btnSubmit_Click" />
-                        <br />
-                        <asp:Label ID="lblInfo" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label>
-                        <% }%>
-                         
-                    </div>
+
 
             <div class="srow" >
                         <div class="heding_box">
@@ -79,64 +174,6 @@
                             </div>
                         
             </div>
-        <div class="srow">
-                  <div class="borerstep">
-
-            <div class="stepfont">
-                <div class="col-1">
-                     <label> Step 1: </label>
-                </div>
-                 <div class="col-7">
-                       <% 
-//"City" vacation Rentals (count) "City" Hotesl (count)
-                           for (int i = 0; i < 3; i++) {%>
-                        <input type="radio" name="proptype" value="<%=prop_typeval[i]%>" /> <%=str_propcate[i] %> (<%=prop_nums[i] %>)
-                    <%} %>
-                   
-       
-                 </div>
-               <div class="clear"></div>
-            </div>
-            <div class="stepfont">
-                <div class="col-1">
-                    <label> Step 2: </label> 
-                </div>
-                <div class="col-8"><input type="radio"  name="roomnums"  value="1" /> 0-2 BD (<%=bedroominfo[1] %>)
-                <input type="radio"   name="roomnums" value="2" /> 3-4 BD (<%=bedroominfo[2] %>)
-                <input type="radio"  name="roomnums" value="3" /> 5+ BD (<%=bedroominfo[3] %>)
-                <input type="radio"  name="roomnums" value="0" /> All (<%=bedroominfo[0] %>)</div>
-                <div class="clear"></div>
-            </div>
-            <div class="stepfont">
-                <div class="col-1">
-                        <label> Step 3: </label>
-                </div>
-                <div class="col-9">
-                <div  class="svisible"><input type="radio"  name="amenitytype" value="8" /> Hot Tub(<%=amenity_nums[0] %>)</div>
-                <input type="radio"  name="amenitytype" value="33" /> Internet(<%=amenity_nums[1] %>)
-                <input type="radio"  name="amenitytype" value="1" /> Pets(<%=amenity_nums[2] %>)
-                <input type="radio"  name="amenitytype" value="11" /> Pool(<%=amenity_nums[3] %>)
-                <input type="radio"  name="amenitytype" value="0" /> All(<%=amenity_nums[4] %>)
-                </div> 
-                <div class="clear"></div>
-            </div>
-            <div class="stepfont">
-                <div class="col-1">
-                    <label> Step 4: </label>
-                </div>
-                <div class="col-9">
-                 <input type="radio"  name="pricesort" value="1" /> High to Low Price
-                <input type="radio"  name="pricesort" value="2" /> Low to High Price
-                
-                </div>
-                <div class="col-2">
-                    <input type="submit" id="refresh" class="btnsigns" value="Search" />
-                </div>
-                <div class="clear"></div>
-            </div>
-
-        </div>
-        </div>
           <div class="srow">
         
  
@@ -148,7 +185,7 @@
                     {
                          %>
               
-                <div class="page_hid" id="cpage<%=pg %>">
+                <div class="page_hid scrollable" id="cpage<%=pg %>">
 
                          <%   int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
                              for (int i = pg*20; i < maxitem; i++)
@@ -171,7 +208,7 @@
 
                                  int addr_verified;
                                  addr_verified = propamen.detail.loc_verified;
-                                 float latitude, longitude;
+                                 double latitude, longitude;
                                  latitude = propamen.detail.loc_latlang;
                                  longitude = propamen.detail.loc_logitude;
 
@@ -203,47 +240,49 @@
                                    %>
                            <div class="img_row" > 
                                 <div class="srow">
-                 <div class="col-x-4 col-3">
-                     <div class="drop-shadow effect4">
-                       <a href="<%=href.Replace(" ", "_") %>"> <img class="thumbimg" title="<%=alt %>" alt="<%=alt %>" src="/images/<%= propamen.detail.FileName %>"/></a>
-                     </div>
-                     <div class="srow">
-                         <label class="imgtitle">
-                             <%=propamen.detail.Name2 %>
-                         </label>
-                     </div>
-                 </div>          
-                <div class="col-x-4 col-9">
-                    <div class="explaination">
-                        <div class="srow">
-                            <div class="col-9">
-                                <div class="ex_con1">
-                                    <a href="<%=href.Replace(" ", "_") %>"><%=propname %></a>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div style="float:right;">
-                                    <% for (int star_ind = 0; star_ind < list_rating[i]; star_ind++)
-                                        { %>
-                                    <img src="/images/star2.gif" />
-                                    <%} %>
-                                </div>
-                            </div>
-                        </div>
+                                    <input type="hidden" class="lat_val" value="<%=latitude.ToString("G17") %>" />
+                                    <input type="hidden" class="long_val"  value="<%=longitude.ToString("G17") %>" />
+                                     <div class="col-x-4 col-3">
+                                         <div class="drop-shadow effect4">
+                                           <a href="<%=href.Replace(" ", "_") %>"> <img class="thumbimg" title="<%=alt %>" alt="<%=alt %>" src="/images/<%= propamen.detail.FileName %>"/></a>
+                                         </div>
+                                         <div class="srow">
+                                             <label class="imgtitle">
+                                                 <%=propamen.detail.Name2 %>
+                                             </label>
+                                         </div>
+                                     </div>          
+                                    <div class="col-x-4 col-9">
+                                        <div class="explaination">
+                                            <div class="srow">
+                                                <div class="col-9">
+                                                    <div class="ex_con1">
+                                                        <a href="<%=href.Replace(" ", "_") %>"><%=propname %></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div style="float:right;">
+                                                        <% for (int star_ind = 0; star_ind < list_rating[i]; star_ind++)
+                                                            { %>
+                                                        <img src="/images/star2.gif" />
+                                                        <%} %>
+                                                    </div>
+                                                </div>
+                                            </div>
                         
-                        <div class="ex_con2">
-                            <%=rates %>
-                        </div>
-                        <div class="ex_con2">
-                            <%=amenity %>
-                        </div>
-                        <div class="ex_con3">
-                            <%=propamen.detail.Name %>
+                                            <div class="ex_con2">
+                                                <%=rates %>
+                                            </div>
+                                            <div class="ex_con2">
+                                                <%=amenity %>
+                                            </div>
+                                            <div class="ex_con3">
+                                                <%=propamen.detail.Name %>
 
-                        </div>
-                    </div>
-                </div>
-                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                           </div> 
 
                           <%} %>
@@ -258,34 +297,48 @@
         
             </div>
         </div>
-   <% if (countryinfo.CityText2!="")
-{ %>
                  <div class="com_box">
                                 <h2 class="orangetxt">
                                     <%=countryinfo.City %> Vacations: Things to see while on vacation in <%=countryinfo.City %> <%=countryinfo.StateProvince %>
                                 </h2><br />
+                     <div class="srow">
+                         <div class="txtalign">
+                            <asp:Label runat="server" ID="lblcity"  ></asp:Label>
+                        </div>
+                    </div>
+                    <div class="srow">
+                        <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
+                           { %>
+                        <asp:TextBox ID="txtCityText" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
+                        <asp:Button ID="btnSubmit" runat="server" Text="Save Text" OnClick="btnSubmit_Click" />
+                        <br />
+                        <asp:Label ID="lblInfo" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label>
+                        <% }%>
+                         
+                    </div>
+                    <div class="srow">
                      <label>
                          <%=Server.HtmlDecode(countryinfo.CityText2)%>
                      </label>
+                    </div>
                    </div> 
 
-            <% } %>
                </div>
 
 
  
-                                               <div>
+                    <div>
 
-                                                                <br />
-                                                                <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
-                                                                   { %>
-                                                                <center>
-                                                                        <asp:TextBox ID="txtCityText2" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox>
-                                                                        <br />
-                                                                        <asp:Button ID="btnSubmit2" runat="server" Text="Save Text" OnClick="btnSubmit2_Click" /></center>
-                                                                <br />
-                                                                <% } %>
-                                                    </div>
+                                    <br />
+                                    <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
+                                        { %>
+                                    <center>
+                                            <asp:TextBox ID="txtCityText2" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox>
+                                            <br />
+                                            <asp:Button ID="btnSubmit2" runat="server" Text="Save Text" OnClick="btnSubmit2_Click" /></center>
+                                    <br />
+                                    <% } %>
+                        </div>
                                   <div class="OrangeText" style="text-align: left; float: left;">
                         <br />
                     </div>
@@ -323,5 +376,5 @@
   </script>
    
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/Assets/js/citylist.js?2"></script>
+    <script defer="defer" src="/Assets/js/citylist.js?8"></script>
 </asp:Content>
