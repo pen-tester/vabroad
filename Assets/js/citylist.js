@@ -97,7 +97,7 @@ function changedPage() {
       else if (cur_page == (max_group - 1) && cur_page != (max_page - 1)) showPagination(cur_page - 4);
       */
     // showPagination(cur_page);
-    $('.pg-normal').find(".pg-selected").removeClass();
+    $('.pagination').find(".pg-selected").removeClass();
     $('#page' + cur_page).addClass("pg-selected");
     $('.page_hid').hide();
     $('#cpage' + cur_page).show();

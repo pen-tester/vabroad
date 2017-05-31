@@ -209,7 +209,8 @@
             <!--- For Property List   -->
             <div class="srow">
                 <%   //Loop for pages
-                    int pages = (proplistset.allnums+19) / 20 ;
+                    //int pages = (proplistset.allnums+19) / 20 ;
+                    int pages = (proplistset.allnums+9) / 10 ;
                     List<Location> eLocation = new List<Location>();
                     for (int pg = 0; pg < pages; pg++)
                     { %>
@@ -217,7 +218,8 @@
                    
                      <input type="hidden" name="pages" value="<%=pages %>"/>
                     <%  //Loop for each property
-                        int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
+                       // int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
+                        int maxitem = (proplistset.allnums > (pg + 1) * 10) ? (pg + 1) * 10 : proplistset.allnums;
                         //for (int i = 0; i < proplistset.allnums; i++)
                         for (int i = pg*20; i < maxitem; i++)
                         {
@@ -398,5 +400,5 @@
   </script>
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/Assets/js/citylist.js?19"></script>
+    <script defer="defer" src="/Assets/js/citylist.js?20"></script>
 </asp:Content>
