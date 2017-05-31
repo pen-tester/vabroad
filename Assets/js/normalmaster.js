@@ -29,7 +29,7 @@ $(document).ready(function () {
     $('.dropbtn').hover(function () {
         getcountrylist(this);
     });
-    var topbar_height = ($('.topNavigation').height() > 118) ? $('.topNavigation').height() : 118;
+    var topbar_height = ($('.topNavigation').height() > 116) ? $('.topNavigation').height() : 116;
     $('.mainContent').css("margin-top",topbar_height);
 })
 
