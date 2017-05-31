@@ -28,7 +28,9 @@ $(document).ready(function () {
     });
     $('.dropbtn').hover(function () {
         getcountrylist(this);
-    })
+    });
+    var topbar_height = ($('.topNavigation').height() > 118) ? $('.topNavigation').height() : 118;
+    $('.mainContent').css("margin-top",topbar_height);
 })
 
 function redirect() {
