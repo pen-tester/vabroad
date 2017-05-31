@@ -26,6 +26,9 @@ $(document).ready(function () {
         if (target != 5) window.location.href = site_url + contact_links[target];
         else window.location.href = contact_links[target];
     });
+    $('.dropbtn').hover(function () {
+        getcountrylist(this);
+    })
 })
 
 function redirect() {

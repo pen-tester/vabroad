@@ -124,6 +124,17 @@
     }
     ul.shareing li{display:inline-block; padding:5px 10px;} ul.shareing li i{font-size:12pt;color:#ff6600;}
     .place_right{text-align:right;} .plcace_left{text-align:left;}
+/* For fixed navigation bar*/
+   .topNavigation{
+       position:fixed; width:100%;
+       z-index:10;
+       top:0;
+       background:#fff;
+   }
+   .mainContent{
+       margin-top:118px;
+       position:relative;
+   }
  </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -138,6 +149,7 @@
     <script defer="defer" src="/Assets/js/normalmaster.js?9"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <form id="mainform" runat="server">
+        <div class="topNavigation">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
                 <div class="scontainer">
                     <div class="srow">
@@ -176,7 +188,7 @@
                         <% for (int i = 0; i < 7; i++)
                             { %>
                        <li class="dropdown">
-                            <a href="#" class="dropbtn" id="reg_<%=regionid[i] %>" onmouseover="getcountrylist(this)"><%=CountryName[i] %></a>
+                            <a href="#" class="dropbtn" id="reg_<%=regionid[i] %>" ><%=CountryName[i] %></a>
                             <div class="dropdown-content" id="menu<%=i %>">
                                 <div class="srow dropmenu-innercontent">
                                     <div class="col-x-3 col-8" >
@@ -222,8 +234,8 @@
             </div>
            </div>
 
-          
-        <div class="normalbgcolor">
+         </div> 
+        <div class="normalbgcolor mainContent">
             <asp:ContentPlaceHolder id="bodycontent" runat="server">
         
             </asp:ContentPlaceHolder>
