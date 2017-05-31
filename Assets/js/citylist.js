@@ -15,6 +15,8 @@ $(document).ready(function () {
     //Show map button event 
     $('#btn_showmap').click(function () {
         $('#wrap_map').show();
+        // setTimeout(function () { google.maps.event.trigger(mainmap, "resize"); }, 100);
+        initialize();
     });
 
     $(window).click(function (event) {
@@ -39,7 +41,7 @@ $(document).ready(function () {
     }
 
     //For map
-    initialize();
+   // initialize();
 });
 
 function RefreshStepbox() {
