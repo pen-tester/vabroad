@@ -31,6 +31,7 @@ public class AmenitySearchInfo
 public class AmenityInfo
 {
     public int ID { get; set; }
+    public int AmenityID { get; set; }
     public string Amenity { get; set; }
 }
 

@@ -41,6 +41,8 @@ public partial class newCityList : CommonPage
     public string[] min_rentaltypes = { "None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night" };
     public int[] property_typeval = { 8, 2, 5, 16, 11, 24, 2, 19, 22, 12 };
 
+    public int[] filtered_amenity = { 1, 3, 11, 12, 46, 8, 33, 4, 14, 47, 43, 5 };
+
     public int rproptype_id, rbedroom_id,ramenity_id, rsort_id, pagenum;
 
     public string meta_str = "";

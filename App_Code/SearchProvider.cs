@@ -410,6 +410,7 @@ public class SearchProvider
                         AmenityInfo tmp = new AmenityInfo();
                         tmp.ID = Convert.ToInt32(reader["ID"]);
                         tmp.Amenity = reader["Amenity"].ToString();
+                        tmp.AmenityID = Convert.ToInt32(reader["AmenityID"]);
                         propamenity.amenity.Add(tmp);
                     }
 
