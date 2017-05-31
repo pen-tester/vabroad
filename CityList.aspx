@@ -26,7 +26,7 @@
         .prop_rates{font-size:12pt;color: #050505;padding:10px;}
         .prop_rates_val{font-size:11pt;color: #3c3c3c;padding:5px 10px;}
         .btn_gurantee, .btn_gurantee:hover{width :100%;display:inline-block; padding:10px 20px; background-color:#4472c4;border:1px solid #2f528f;color:#fff; box-sizing:border-box;}
-        .btn_moreinfo{border-radius:5px; border:3px solid #e1d4c0;font-size:11pt; color:#2f528f;padding:7px 25px;background-color:#f5ede3;font-weight:bold;
+        .btn_moreinfo,.btn_moreinfo:hover{border-radius:5px; border:3px solid #e1d4c0;font-size:11pt; color:#2f528f;padding:7px 25px;background-color:#f5ede3;font-weight:bold;
                  -moz-box-shadow:
 		 2px 2px 3px 3px #c5bfb6 inset,-2px -2px 3px 3px #c5bfb6 inset;
 	-webkit-box-shadow:
