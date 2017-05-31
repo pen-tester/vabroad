@@ -216,12 +216,11 @@
                     { %>
                 <div class="page_hid" id="cpage<%=pg %>">
                    
-                     <input type="hidden" name="pages" value="<%=pages %>"/>
                     <%  //Loop for each property
                        // int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
                         int maxitem = (proplistset.allnums > (pg + 1) * 10) ? (pg + 1) * 10 : proplistset.allnums;
-                        //for (int i = 0; i < proplistset.allnums; i++)
-                        for (int i = pg*20; i < maxitem; i++)
+                        //for (int i = 0pg*20; i < proplistset.allnums; i++)
+                        for (int i = pg*10; i < maxitem; i++)
                         {
                             //Response.Write(proplistset.propertyList.Count);break;
                             PropertyAmenityInfo propamen = proplistset.propertyList[i];
@@ -321,6 +320,7 @@
                 </div>
                 <%} %>
             </div>
+            <input type="hidden" name="pages" value="<%=pages %>"/>
             <!--- Adding Pagination -->
             <div class="srow">
                 <input type="hidden" name="allpages" value="<%=proplistset.allnums %>" />
