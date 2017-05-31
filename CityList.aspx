@@ -44,11 +44,26 @@
     }
     .cont_button{padding:20px 0; width:100%;}
         [class*=colfield_]{float:left;}
-
+      .mapbox{
+         border:3px solid #f0b892;
+         padding:10px;
+         width:550px;
+         height:350px;
+         margin-top:150px;
+         display:inline-block;
+         z-index:30;
+     }
+      #map_canvas{
+          width:550px;
+          height:350px;
+      }
      @media(max-width:600px){
         .colfield_1{width:65px;}
         .colfield_2{}
         .colfield_3{width:200px;text-align:right;}
+        .mapbox{
+            width:95%; margin:150px auto;
+        }
      }
 
      @media(max-width:768px) and (min-width:600px){
@@ -69,6 +84,7 @@
         .colfield_1{width:65px;}
         .colfield_2{width:460px;}
         .colfield_3{width:250px;text-align:right;}
+        .property_img{ width: 260px; height:180px;}
      }
      @media(min-width:1200px){
         .colfield_1{width:65px;}
@@ -99,7 +115,7 @@
      .wraper_buttons{
          padding:15px;
      }
-     .wrapper_button{}
+
     </style>
 </asp:Content>
 
@@ -279,7 +295,7 @@
                                     <div class="col-12 col-g-7">
                                         <div class="srow">
                                             <div class="prop_type">
-                                                <%=propamen.detail.PropertyName %> in <%=propamen.detail.City %>
+                                                <%=propamen.detail.CategoryTypes %> in <%=propamen.detail.City %>
                                             </div>
                                             <div class="prop_name">
                                                 <%=propamen.detail.Name2 %>
@@ -395,6 +411,12 @@
   
          </div>
      </div>
+    <div id="wrap_map" class="modalform center">
+        <div class="mapbox center">
+            <div  id="map_canvas">
+            </div>
+        </div>
+    </div>
   <script>
       <% string ans =BookDBProvider.getJsonString<Location>(eLocation) ; %>
       var gmarkers = <%=ans%>;

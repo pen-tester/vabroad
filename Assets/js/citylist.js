@@ -12,6 +12,19 @@ $(document).ready(function () {
         search_box_trigger = 1 - search_box_trigger;
     });
 
+    //Show map button event 
+    $('#btn_showmap').click(function () {
+        $('#wrap_map').show();
+    });
+
+    $(window).click(function (event) {
+        console.log("windows click");
+        // $('#inqureform').hide();
+        if (event.target.id == "wrap_map") {
+            $('#wrap_map').hide();
+        }
+    });
+
     //Refresh the radio buttons
     RefreshStepbox();
     //Adding pagination
@@ -24,6 +37,9 @@ $(document).ready(function () {
         $('#container_search').css("width", "100%");
         $('#container_map').hide();
     }
+
+    //For map
+    initialize();
 });
 
 function RefreshStepbox() {
@@ -211,7 +227,7 @@ var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Mon
 
 
 
-/*
+
 function addOnemaker(map,data, highlighten) {
     var myLatlng = new google.maps.LatLng(data.lat, data.lng);
     var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
@@ -338,4 +354,3 @@ var direction = 1;
 var viewd_markers = [];
 var _lat_val, _longi_val;
 var _matched_index=0,tmp_index=0;
-*/
