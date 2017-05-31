@@ -63,6 +63,7 @@
         .colfield_3{width:200px;text-align:right;}
         .mapbox{
             width:95%; margin:250px auto;
+            height:270px;
         }
         #map_canvas{
               width:95%;
