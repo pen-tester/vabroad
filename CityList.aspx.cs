@@ -55,7 +55,6 @@ public partial class newCityList : CommonPage
         //Response.End(); 
         //HttpResponse.RemoveOutputCacheItem("/CityList.aspx");
         //CommonFunctions.Connection.Open ();
-
         
         if ((Request.Params["CityID"] != null) && (Request.Params["CityID"].Length > 0))
             try
@@ -147,17 +146,6 @@ public partial class newCityList : CommonPage
         newdescription = String.Format("Our {0}, {1} vacation rentals and boutique hotels include: {2} ", countryinfo.City, countryinfo.StateProvince, meta_str);
         city_ds = AjaxProvider.getCityListbyCityNum(cityid);
       //  Page.Header.Controls.Add(newdescription);
-    }
-
-    static string UppercaseFirst(string s)
-    {
-        if (string.IsNullOrEmpty(s))
-        {
-            return string.Empty;
-        }
-        char[] a = s.ToCharArray();
-        a[0] = char.ToUpper(a[0]);
-        return new string(a);
     }
 
 

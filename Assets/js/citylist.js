@@ -1,21 +1,140 @@
-﻿function refresh_radios() { var e = $('input:hidden[name="proptyperadio"]').val(), a = $('input:hidden[name="bedroomtyperadio"]').val(), n = $('input:hidden[name="amenityradio"]').val(), i = $('input:hidden[name="sortradio"]').val(); $("input[name=proptype][value=" + e + "]").prop("checked", !0), $('input[name="roomnums"][value="' + a + '"]').prop("checked", !0), $('input[name="amenitytype"][value="' + n + '"]').prop("checked", !0), $('input[name="pricesort"][value="' + i + '"]').prop("checked", !0) } function refreshpage() { } function refreshprop() { var e = ' <div class="loading-bro">  <h1>Searching...</h1>  <svg id="load" x="0px" y="0px" viewBox="0 0 150 150"> <circle id="loading-inner" cx="75" cy="75" r="60"/></svg>  </div>'; $(".pcontent").empty().append(e), refresh_flag = 1, cur_page = 0, callProplistfunction(cur_page) } function callProplistfunction(e) { var a = $("#cityid").val(), n = $("input[name=roomnums]:checked").val(), i = $("input[name=amenitytype]:checked").val(), t = $("input[name=pricesort]:checked").val(), p = $("input[name=proptype]:checked").val(); getpropertylist(a, p, i, n, t, e) } function getpropertylist(e, a, n, i, t, p) { console.log("call ajax"), $.ajax({ type: "POST", url: "/ajaxHelper.aspx/getpropertylistcityid", data: '{cityid:"' + e + '",proptype:' + a + ",amenitytype:" + n + ",roomnum:" + i + ",sorttype:" + t + ",pagenum:" + p + "}", contentType: "application/json; charset=utf-8", dataType: "json", success: processPropertyData, failure: function (e) { console.log(e.d) } }) } function processPropertyData(e) { var a = e.d.propertyList, n = e.d.allnums; 1 == refresh_flag && addPagination(n), refresh_flag = 0, 0 != n ? displayContent(a) : $(".pcontent").empty().append('<div class="newrow centered">No results</div>') } function displayContent(e) { $(".pcontent").empty(); var a = e.length; for (i = 0; i < a; i++) { var n = e[i], t = n.detail.PropertyName + " " + n.detail.NumBedrooms + " Bedroom " + n.detail.NumBaths + " BA Sleeps " + n.detail.NumSleeps, p = "Rates: " + n.detail.MinNightRate + "-" + n.detail.HiNightRate + "  " + n.detail.MinRateCurrency + " Per Night " + min_rentaltypes[n.detail.MinimumNightlyRentalID], o = "Amenity:  ", r = n.amenity.length, l = "/" + n.detail.Country + "/" + n.detail.StateProvince + "/" + n.detail.City + "/" + n.detail.ID + "/default.aspx", c = ("/" + n.detail.Country + "/" + n.detail.StateProvince + "/" + n.detail.City + "/default.aspx", "/" + n.detail.Country + "/" + n.detail.StateProvince + "/default.aspx", -1 == prop_typeval.indexOf(n.detail.Category) ? n.detail.City + " " + n.detail.NumBedrooms + " bedroom Vacation Rental" : n.detail.City + " " + n.detail.NumBedrooms + " bedroom Hotel"); for (j = 0; j < r; j++) o += n.amenity[j].Amenity + ", "; o = o.substring(0, o.length - 2); var d = '<div class="newrow">                 <div class="col-2">                     <div class="drop-shadow effect4">                       <a href="' + l.toLowerCase().replaceAll(" ", "_") + '"> <img title="' + c + '" alt="' + c + '" src="/images/' + n.detail.FileName + '"/></a>                     </div>                     <div class="newrow">                         <label class="imgtitle">' + n.detail.Name2 + ' </label>                     </div>                 </div>                          <div class="col-6">                    <div class="explaination">                        <div class="ex_con1">                            <a href="' + l.toLowerCase().replaceAll(" ", "_") + '"> ' + t + '</a>                        </div>                        <div class="ex_con2">' + p + ' </div>                        <div class="ex_con2">' + o + ' </div>                        <div class="ex_con3">' + n.detail.Name + " </div>                    </div>                </div>                </div>"; $(".pcontent").append(d) } } function showPagination(e) { for (max_group = Math.min(max_page, e + 10), min_groupnum = e, $("#paging").empty(), $("#paging").append('<span class="pg-normal" onclick="backpage()">«Prev</span>'), i = e; i < max_page; i++) $("#paging").append('|<span class="pg-normal" onclick="getpage(' + i + ')" id="page' + i + '">' + (i + 1) + "</span>"); $("#paging").append('|<span class="pg-normal"  onclick="nextpage()"> Next»</span>'), $("#page" + cur_page).addClass("pg-selected") } function addPagination(e) { max_page = Math.ceil(e / 20), console.log(max_page + "  " + e), min_groupnum = cur_page, showPagination(cur_page), changedPage() } function callPropAjax() { var e = ' <div class="loading-bro">  <h1>Searching...</h1>  <svg id="load" x="0px" y="0px" viewBox="0 0 150 150"> <circle id="loading-inner" cx="75" cy="75" r="60"/></svg>  </div>'; $(".pcontent").empty().append(e), $(".pagination").find(".pg-selected").removeClass("pg-selected"), $("#page" + cur_page).addClass("pg-selected"), callProplistfunction(cur_page) } function getpage(e) { cur_page != e && (cur_page = e, console.log(min_groupnum + " " + max_group + " " + cur_page), changedPage()) } function changedPage() { $(".pagination").find(".pg-selected").removeClass("pg-selected"), $("#page" + cur_page).addClass("pg-selected"), $(".pcontent").find(".pagecurrent").removeClass("pagecurrent"), $("#cpage" + cur_page).addClass("pagecurrent") } function backpage() { cur_page > 0 && (cur_page--, changedPage()) } function nextpage() { max_page > cur_page + 1 && (cur_page++, changedPage()) } var cur_page = 0, max_page = 1, refresh_flag = 0;
+﻿var search_box_trigger = 0;
 $(document).ready(function () {
-    console.log("map");
-    initialize();
-
-
-    console.log(win_width), refresh_radios(); var e = $('input:hidden[name="allpages"]').val(); addPagination(e);
-    if (gmarkers.length == 0) {
-        $('#wrap_map').hide();
-        $('#lbl_City').removeClass("col-7");
-    }
+    console.log("ready");
+   // initialize();
 
     var win_width = $('.borerstep').width();
     if (win_width <= 600) $('.colfield_2').width(win_width - 70);
 
+    //Jquery Slide down the step box
+    $('#btn_filter').click(function () {
+        if (search_box_trigger == 0) $('.borerstep').slideDown(); else $('.borerstep').slideUp();
+        search_box_trigger = 1 - search_box_trigger;
+    });
 
+    //Refresh the radio buttons
+    RefreshStepbox();
+    //Adding pagination
+    allprops = $('input:hidden[name = pages]').val();
+    addPagination(allprops);
 
     $('#cpage0').show();
+});
+
+function RefreshStepbox() {
+    //For proptype  proptyperadio
+    var proptype = $('input:hidden[name = proptyperadio]').val();
+    $("input[name=proptype][value=" + proptype + "]").attr('checked', 'checked');
+    //For Room Number  roomnums
+    var roomnums = $('input:hidden[name = bedroomtyperadio]').val();
+    $("input[name=roomnums][value=" + roomnums + "]").attr('checked', 'checked');
+    //For   Amenity Type
+    var amenity = $('input:hidden[name = amenityradio]').val();
+    $("input[name=amenitytype][value=" + amenity + "]").attr('checked', 'checked');
+    //For Sort  proptyperadio
+    var sort = $('input:hidden[name = sortradio]').val();
+    $("input[name=pricesort][value=" + sort + "]").attr('checked', 'checked');
+}
+
+
+var cur_page = 0,allprops=0 ;
+var min_groupnum = 0, max_group = 0, cpagenums = 0, max_page = 1;
+
+function addPagination(allnums) {
+    max_page = $('input:hidden[name = pages]').val();
+   // max_page = Math.ceil(allnums / 20);
+    console.log("pages info:pages, properties==>"+max_page + '  ' + allnums);
+    min_groupnum = cur_page;
+    showPagination(cur_page);
+    //curpage
+    changedPage();
+}
+
+
+function showPagination(cur_group) {
+    max_group = Math.min(max_page, cur_group + 10);
+    min_groupnum = cur_group;
+
+    /* $('#paging').empty();
+     $('#paging').append('<li><a onclick="backpage()">«</a></li>');
+     for (i = cur_group; i < max_group; i++) {
+         $('#paging').append('<li><a onclick="getpage(' + i + ')" id="page' + i + '">' + (i + 1) + '</a></li>');
+     }
+     $('#paging').append('<li><a onclick="nextpage()">»</a></li>');
+     $('#page' + cur_page).addClass("curpage");
+     */
+    $('#paging').empty();
+    $('#paging').append('<span class="pg-normal" onclick="backpage()">«Prev</span>');
+    for (i = 0; i < max_page; i++) {
+        $('#paging').append('|<span class="pg-normal" onclick="getpage(' + i + ')" id="page' + i + '">' + (i + 1) + '</span>');
+    }
+    $('#paging').append('|<span class="pg-normal"  onclick="nextpage()"> Next»</span>');
+    $('#page' + cur_page).addClass("pg-selected");
+}
+
+
+
+
+function getpage(pagenum) {
+    if (cur_page == pagenum) return;
+    cur_page = pagenum;
+    console.log(min_groupnum + ' ' + max_group + ' ' + cur_page);
+    /* if (cur_page == min_groupnum && min_groupnum != 0) {
+ 
+         showPagination(Math.max(cur_page - 4,0));
+     }
+     else if (cur_page == (max_group - 1) && cur_page != (max_page - 1)) showPagination(cur_page - 4);
+     */
+
+    //callPropAjax();
+    changedPage();
+}
+function changedPage() {
+    /*  if (cur_page == min_groupnum && min_groupnum != 0) {
+  
+          
+      }
+      else if (cur_page == (max_group - 1) && cur_page != (max_page - 1)) showPagination(cur_page - 4);
+      */
+    // showPagination(cur_page);
+    $('.pg-normal').find(".pg-selected").removeClass();
+    $('#page' + cur_page).addClass("pg-selected");
+    $('.page_hid').hide();
+    $('#cpage' + cur_page).show();
+}
+
+
+function backpage() {
+    if (cur_page > 0) cur_page--;
+    else return;
+    changedPage();
+}
+
+function nextpage() {
+    if ((cur_page + 1) < max_page) cur_page++;
+    else return;
+    changedPage();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
     $(".scrollable .img_row").hover(function () {
         $(".scrollable").findClass(".selected_prop").removeClass("selected_prop");
@@ -79,9 +198,15 @@ $(document).ready(function () {
         lastScrollTop = st;
     });
     */
-});
+
 var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night"], prop_typeval = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12], min_groupnum = 0, max_group = 0, cpagenums = 0;
 
+
+
+
+
+
+/*
 function addOnemaker(map,data, highlighten) {
     var myLatlng = new google.maps.LatLng(data.lat, data.lng);
     var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
@@ -208,3 +333,4 @@ var direction = 1;
 var viewd_markers = [];
 var _lat_val, _longi_val;
 var _matched_index=0,tmp_index=0;
+*/
