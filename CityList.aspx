@@ -49,7 +49,7 @@
          padding:10px;
          width:550px;
          height:350px;
-         margin-top:150px;
+         margin-top:210px;
          display:inline-block;
          z-index:30;
      }
@@ -62,7 +62,11 @@
         .colfield_2{}
         .colfield_3{width:200px;text-align:right;}
         .mapbox{
-            width:95%; margin:150px auto;
+            width:95%; margin:250px auto;
+        }
+        #map_canvas{
+              width:95%;
+              height:250px;
         }
      }
 
@@ -111,6 +115,7 @@
          color:#808080;
          font-size:11pt;
          cursor:pointer;
+         display:inline-block;
      }
      .wraper_buttons{
          padding:15px;
