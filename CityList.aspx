@@ -243,21 +243,21 @@
                             double latitude, longitude;
                             latitude = propamen.detail.loc_latlang;
                             longitude = propamen.detail.loc_logitude;
-                            /*
-                                                        string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx",
-                                                            propamen.detail.Country, propamen.detail.StateProvince, propamen.detail.City, propamen.detail.ID).ToLower().Replace(" ", "_");
+                            
+                            string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx",
+                                propamen.detail.Country, propamen.detail.StateProvince, propamen.detail.City, propamen.detail.ID).ToLower().Replace(" ", "_");
 
-                                                        if (addr_verified == 1)
-                                                        {
-                                                            Location loc = new Location();
-                                                            loc.title = Server.HtmlDecode(propamen.detail.Name2);
-                                                            loc.lat = latitude;
-                                                            loc.lng = longitude;
-                                                            loc.description = propamen.detail.Name2;
-                                                            loc.URL = url;
-                                                            eLocation.Add(loc);
-                                                        }
-                                                        */
+                            if (addr_verified == 1)
+                            {
+                                Location loc = new Location();
+                                loc.title = Server.HtmlDecode(propamen.detail.Name2);
+                                loc.lat = latitude;
+                                loc.lng = longitude;
+                                loc.description = propamen.detail.Name2;
+                                loc.URL = url;
+                                eLocation.Add(loc);
+                            }
+                                                        
                             for (int j = 0; j < am_count; j++)
                             {
                                 amenity += (propamen.amenity[j].Amenity + ", ");
@@ -396,7 +396,8 @@
          </div>
      </div>
   <script>
-      var gmarkers = {};
+      <% string ans =BookDBProvider.getJsonString<Location>(eLocation) ; %>
+      var gmarkers = <%=ans%>;
   </script>
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>

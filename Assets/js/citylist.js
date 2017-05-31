@@ -19,6 +19,11 @@ $(document).ready(function () {
     addPagination(allprops);
 
     $('#cpage0').show();
+
+    if (gmarkers.length == 0) {
+        $('#container_search').css("width", "100%");
+        $('#container_map').hide();
+    }
 });
 
 function RefreshStepbox() {
