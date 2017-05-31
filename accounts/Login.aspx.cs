@@ -16,7 +16,7 @@ using System.Net;
 using System.IO;
 using ASPSnippets.TwitterAPI;
 using Twitterizer;
-
+using System.Collections.Specialized;
 
 public partial class accounts_Login : CommonPage
 {
@@ -410,7 +410,29 @@ public partial class accounts_Login : CommonPage
 
                 //CommonFunctions.Connection.Close ();
                 connection.Close();
-                if(AuthenticationManager.Login(LoginName.Text, Password.Text, 0)!="")
+
+                try
+                {
+                    using (WebClient client = new WebClient())
+                    {
+
+                        byte[] response =
+                        client.UploadValues("https://api.madmimi.com/audience_lists/Owners/add", new NameValueCollection()
+                        {
+                           { "username", "noreply@vacations-abroad.com" },
+                           { "api_key", "9881316569391d3dbfba35b71670b4b2" },
+                           { "email", Email.Text}
+                        });
+
+                        //string result = System.Text.Encoding.UTF8.GetString(response);
+                    }
+                }
+                catch
+                {
+
+                }
+
+                if (AuthenticationManager.Login(LoginName.Text, Password.Text, 0)!="")
                 {
                     FormsAuthentication.RedirectFromLoginPage(LoginName.Text, false);
                 }

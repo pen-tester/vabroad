@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -48,6 +50,28 @@ public partial class accounts_SocialSignup : CommonPage
         social.username = LoginName.Text;
         social.id = hidden_id.Value;
         InsertNewUser(social);
+
+        try
+        {
+            using (WebClient client = new WebClient())
+            {
+
+                byte[] response =
+                client.UploadValues("https://api.madmimi.com/audience_lists/Owners/add", new NameValueCollection()
+                {
+                           { "username", "noreply@vacations-abroad.com" },
+                           { "api_key", "9881316569391d3dbfba35b71670b4b2" },
+                           { "email", Email.Text}
+                });
+
+                //string result = System.Text.Encoding.UTF8.GetString(response);
+            }
+        }
+        catch
+        {
+
+        }
+
     }
 
     protected bool InsertNewUser(SocialUser social)
