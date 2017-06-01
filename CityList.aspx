@@ -14,6 +14,7 @@
         ul.step_line{display:block; margin:0;padding:0;}
         ul.step_line li{display:inline-block; padding:3px 0px;}
         .btn_wrapper{padding:5px 0 0 15px;display:inline-block;}
+        .borerstep{box-sizing:border-box;}
     /*for each property*/
         .property_img{ width: 300px; height:220px;}
         .sleepsicon{width:40px;height:55px;}
@@ -88,14 +89,14 @@
 
      @media(max-width:1200px )and (min-width:992px){
         .colfield_1{width:65px;}
-        .colfield_2{width:460px;}
+        .colfield_2{width:560px;}
         .colfield_3{width:250px;text-align:right;}
         .property_img{ width: 260px; height:180px;}
      }
      @media(min-width:1200px){
         .colfield_1{width:65px;}
-        .colfield_2{width:460px;}
-        .colfield_3{width:350px;text-align:right;}
+        .colfield_2{width:560px;}
+        .colfield_3{width:250px;text-align:right;}
      }
      /* For Scrollable*/
      .scrollable{
@@ -214,7 +215,7 @@
                         <div class="colfield_1">
                             <label> Step 4: </label>
                         </div>
-                        <div class="colfield_2">
+                        <div class="colfield_s2">
                             <ul class="step_line">
                                 <li> <input type="radio"  name="pricesort" value="1" /> High to Low Price</li>
                                 <li> <input type="radio"  name="pricesort" value="2" /> Low to High Price</li>
@@ -430,5 +431,5 @@
   </script>
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/Assets/js/citylist.js?21"></script>
+    <script defer="defer" src="/Assets/js/citylist.js?22"></script>
 </asp:Content>

@@ -4,7 +4,8 @@ $(document).ready(function () {
    // initialize();
 
     var win_width = $('.borerstep').width();
-    if (win_width <= 600) $('.colfield_2').width(win_width - 70);
+    $('.colfield_2').width(win_width - 70);
+    if (win_width <= 768) $('.colfield_s2').width(win_width - 70);
 
     //Jquery Slide down the step box
     $('#btn_filter').click(function () {
