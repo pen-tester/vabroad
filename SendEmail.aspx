@@ -1,7 +1,9 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true"
     CodeFile="~/SendEmail.aspx.cs" Inherits="SendEmail" Title="<%# GetTitle () %>"
     EnableEventValidation="false" Debug="true" %>
-
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    Send Email | Vacations-Abroad.com
+</asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
         <div class="scontainer">
   <div class="internalpage srow">
