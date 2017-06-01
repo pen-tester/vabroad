@@ -328,7 +328,7 @@ public partial class CountryList : CommonPage
                         altTag = char.ToUpper(country[0]) + country.Substring(1) + " Vacation Rentals";
                         ltrH11.Text = char.ToUpper(country[0]) + country.Substring(1) + " Vacations";
                         hyplnkBackLink.NavigateUrl = "/" + region.ToLower().Replace(" ", "_")+"/default.aspx";
-                        ltrBackText.Text = region + "<<";
+                        ltrBackText.Text = region + " Vacations <<";
 			hyplnkAllProps.NavigateUrl = "/" + country.ToLower().Replace(" ", "_") + "/countryproperties.aspx";
 			ltrAllProps.Text = " View all " + char.ToUpper(country[0]) + country.Substring(1) + " properties";
                         string scountry = char.ToUpper(country[0]) + country.Substring(1);

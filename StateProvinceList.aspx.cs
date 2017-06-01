@@ -222,10 +222,10 @@ public partial class StateProvinceList : CommonPage
                     ltrStateThing.Text = char.ToUpper(stateprovince[0]) + stateprovince.Substring(1);
                     
                     hyplinkBackRegion.NavigateUrl = "/" + region.ToLower().ToLower().Replace(" ", "_") + "/" + "default.aspx";
-                    ltrRegion.Text = region + "<<";
+                    ltrRegion.Text = region + " Vacations <<";
 
                     hyplnkBackLink.NavigateUrl = "/" + country.ToLower().ToLower().Replace(" ", "_") +"/" + "default.aspx";
-                    ltrBackText.Text = country  + "<<";
+                    ltrBackText.Text = country  + " Vacations <<";
                     //string iframe = "<iframe height='310' width='95%' frameborder='0' src='/" + country.ToLower().ToLower().Replace(" ", "_") + "/" + stateprovince.ToLower().ToLower().Replace(" ", "_") + "/maps.aspx'></iframe>";
                     //googlemap.InnerHtml = iframe;                    
                     page.Title = char.ToUpper(stateprovince[0]) + stateprovince.Substring(1) + " Vacation Rentals, Boutique Hotels | Vacations Abroad";
