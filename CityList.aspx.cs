@@ -92,6 +92,9 @@ public partial class newCityList : CommonPage
 
         countryinfo = SearchProvider.getCountryInfoCityID(cityid);
 
+        str_propcate[0] = String.Format("{0} {1}", countryinfo.City, str_propcate[0]);
+        str_propcate[1] = String.Format("{0} {1}", countryinfo.City, str_propcate[1]);
+
         hyperRegion.NavigateUrl = "/" + countryinfo.Region.ToLower().Replace(" ", "_") + "/default.aspx";
         hyplnkCountryBackLink.NavigateUrl = "/" +  countryinfo.Country.ToLower().Replace(" ", "_") + "/default.aspx";
         hyplnkStateBackLink.NavigateUrl = "/" + countryinfo.Country.ToLower().Replace(" ", "_") + "/" + countryinfo.StateProvince.ToLower().Replace(" ", "_") + "/default.aspx";
