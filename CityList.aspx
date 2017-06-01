@@ -174,7 +174,7 @@
                                 <% 
         //"City" vacation Rentals (count) "City" Hotesl (count)
                                     for (int i = 0; i < 3; i++) {%>
-                                <li> <input type="radio" name="proptype" value="<%=prop_typeval[i]%>" /> <%=str_propcate[i] %> (<%=prop_nums[i] %>)</li>
+                                <li> <input type="radio" name="proptype" value="<%=prop_typeval[i]%>" /><%=countryinfo.City %> <%=str_propcate[i] %> (<%=prop_nums[i] %>)</li>
                             <%} %>
                    
                             </ul>
