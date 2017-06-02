@@ -90,12 +90,12 @@
         .colfield_1{width:65px;}
         .colfield_2{width:560px;}
         .colfield_3{width:250px;text-align:right;}
-        .property_img{ width: 260px; height:180px;}
+        .property_img{ width: 360px; height:180px;}
      }
      @media(min-width:1200px){
         .colfield_1{width:65px;}
         .colfield_2{width:560px;}
-        .colfield_3{width:250px;text-align:right;}
+        .colfield_3{width:450px;text-align:right;}
      }
      /* For Scrollable*/
      .scrollable{
@@ -430,5 +430,5 @@
   </script>
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/Assets/js/citylist.js?24"></script>
+    <script defer="defer" src="/Assets/js/citylist.js?26"></script>
 </asp:Content>

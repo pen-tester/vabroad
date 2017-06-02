@@ -3,14 +3,16 @@ $(document).ready(function () {
     console.log("ready");
    // initialize();
 
-    var win_width = $('.borerstep').width();
-    $('.colfield_2').width(win_width - 70);
-    if (win_width <= 768) $('.colfield_s2').width(win_width - 70);
-
     //Jquery Slide down the step box
     $('#btn_filter').click(function () {
         if (search_box_trigger == 0) $('.borerstep').slideDown(); else $('.borerstep').slideUp();
         search_box_trigger = 1 - search_box_trigger;
+
+        var step_width = $('.borerstep').width();
+        console.log("step box width:" + step_width);
+
+        $('.colfield_2').width(step_width - 70);
+        if (step_width <= 768) $('.colfield_s2').width(step_width - 70);
     });
 
     //Show map button event 
