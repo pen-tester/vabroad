@@ -756,13 +756,14 @@ public class BookDBProvider
      }
 
 
-    public static bool SendEmail(string toEmail, string subject, string msg)
+    public static bool SendEmail(string toEmail, string subject, string msg, string fromEmail="")
     {
         //SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
 
         string emailbody = msg;
-
-        MailMessage message = new MailMessage("noreply@vacations-abroad.com", toEmail);
+        MailMessage message;
+        if (fromEmail=="")  message = new MailMessage("noreply@vacations-abroad.com", toEmail);
+        else message = new MailMessage(fromEmail, toEmail);
         message.Subject = subject;
         message.Body = emailbody;
         message.IsBodyHtml = true;
