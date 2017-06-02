@@ -406,10 +406,6 @@
         </tr>
     </table>
     <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
-    <noscript>
-        <img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all"
-            width="1" height="1">
-    </noscript>
 
 
 </div>
