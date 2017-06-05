@@ -25,6 +25,7 @@ public partial class accounts_Login : CommonPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (userid == -1 || !AuthenticationManager.IfAuthenticated) FormsAuthentication.SignOut();
         if (User!=null && User.Identity.IsAuthenticated)
         {
             Response.Redirect("/userowner/listings.aspx");

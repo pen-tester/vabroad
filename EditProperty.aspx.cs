@@ -251,6 +251,7 @@ public partial class EditProperty : ClosedPage
 
         if ((userid != (int)PropertiesSet.Tables["Properties"].Rows[0]["UserID"]) && !AuthenticationManager.IfAdmin)
             Response.Redirect(CommonFunctions.PrepareURL("Login.aspx?BackLink=" + HttpUtility.UrlEncode(Request.Url.ToString())));
+        
 
         PropertiesAmenitiesSet.Clear();
         PropertiesAmenitiesAdapter.SelectCommand.Parameters["@PropertyID"].Value = propertyid;
