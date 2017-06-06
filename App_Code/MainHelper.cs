@@ -125,7 +125,7 @@ public class MainHelper
                     string resp = reader.ReadToEnd();
                     JObject jobj = JObject.Parse(resp);
 
-                    Exception ex = new Exception(jobj.ToString());
+                    Exception ex = new Exception(url+"=======<br>"+jobj.ToString());
                     throw ex;
                     //If the result is successful
                     if (jobj["status"].ToString() == "OK")
