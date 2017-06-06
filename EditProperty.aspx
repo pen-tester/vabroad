@@ -5,6 +5,11 @@
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <link href="/Assets/css/editproperty.css" rel="stylesheet" />
+    <style>
+        .padding_errorbox{
+            padding:5px; color:#f00;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
@@ -164,6 +169,9 @@
                                 </tr>
                             </table>
                             <asp:Label ID="LocationError" runat="server" ForeColor="Red" Visible="False">Please select region, country, state/province and city</asp:Label>
+                            <div class="center padding_errorbox">
+                                <%=error_msg %>
+                            </div>
                             <%--</form>--%>
                         </fieldset>
 

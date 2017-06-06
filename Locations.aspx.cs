@@ -469,26 +469,45 @@ public partial class Locations : AdminPage
         if (CityName.Text.Length < 1)
             return;
 
-        foreach (DataRow datarow in CitiesSet.Tables["Cities"].Rows)
-            if (datarow.RowState != DataRowState.Deleted)
-                if ((int)datarow["ID"] == Convert.ToInt32(CityList.SelectedValue))
-                {
-                    datarow["City"] = CityName.Text;
-                    break;
-                }
+        LatLongInfo latinfo = MainHelper.getCityLocation(CityName.Text, StateList.SelectedItem.Text, CountryList.SelectedItem.Text);
+        if (latinfo.status == 0) //Fail to get location info
+        {
+            error_msg = String.Format("Fail to get {0} location.", NewCity.Text);
+        }
+        else if (latinfo.status == 1) //Fail to verify the address
+        {
+            error_msg = String.Format("Fail to verify the location of {0}.", NewCity.Text);
+        }
+        else  //Success to get the latitude and longitude
+        {
+            try
+            {
+               //Update
+                foreach (DataRow datarow in CitiesSet.Tables["Cities"].Rows)
+                    if (datarow.RowState != DataRowState.Deleted)
+                        if ((int)datarow["ID"] == Convert.ToInt32(CityList.SelectedValue))
+                        {
+                            datarow["City"] = CityName.Text;
+                            break;
+                        }
 
-        //lock (CommonFunctions.Connection)
-        CitiesAdapter.Update(CitiesSet);
+                //lock (CommonFunctions.Connection)
+                CitiesAdapter.Update(CitiesSet);
 
-        Finish();
-        List<SqlParameter> param = new List<SqlParameter>();
-        param.Add(new SqlParameter("@country", CountryList.Text));
-        param.Add(new SqlParameter("@state", StateList.Text));
-        param.Add(new SqlParameter("@city", CityName.Text));
-        param.Add(new SqlParameter("@ocount", CountryList.Text));
-        param.Add(new SqlParameter("@ostate", StateList.Text));
-        param.Add(new SqlParameter("@ocity", CityList.Text));
-        BookDBProvider.getDataSet("uspUpdateLatLong", param);
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@stateid", StateList.SelectedValue));
+                param.Add(new SqlParameter("@city", NewCity.Text));
+                param.Add(new SqlParameter("@lat", latinfo.latitude));
+                param.Add(new SqlParameter("@lng", latinfo.longitude));
+                BookDBProvider.getDataSet("uspAddLatLong", param);
+
+                Finish();
+            }
+            catch {
+                error_msg = "Something is wrong.";
+            }
+
+        }
     }
 
     protected void RegionDelete_Click(object sender, System.EventArgs e)

@@ -18,6 +18,7 @@ using System.Collections.Generic;
 public partial class EditProperty : ClosedPage
 {
     private bool ifadd;
+    protected string error_msg;
 
     protected System.Data.SqlClient.SqlDataAdapter PropertiesAdapter;
     protected System.Data.SqlClient.SqlDataAdapter PropertyTypesAdapter;
@@ -1607,6 +1608,38 @@ public partial class EditProperty : ClosedPage
     {
         int newpropertytypeid;
 
+        string city_text="";
+      
+        if (!string.IsNullOrEmpty(CityNew.Text) && CityNew.Text != "undefined")
+        {
+            city_text = CityNew.Text;
+            LatLongInfo latinfo = MainHelper.getCityLocation(city_text, hdnState.Value, hdnCountry.Value);
+            if (latinfo.status == 0) //Fail to get location info
+            {
+                error_msg = String.Format("Fail to get {0} location.", city_text); return;
+            }
+            else if (latinfo.status == 1) //Fail to verify the address
+            {
+                error_msg = String.Format("Fail to verify the location of {0}.", city_text); return;
+            }
+            else  //Success to get the latitude and longitude
+            {
+
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@stateid", Request["state"]));
+                param.Add(new SqlParameter("@city", city_text));
+                param.Add(new SqlParameter("@lat", latinfo.latitude));
+                param.Add(new SqlParameter("@lng", latinfo.longitude));
+                BookDBProvider.getDataSet("uspAddLatLong", param);
+
+            }
+        }
+        else
+        {
+            city_text = hdcity.Value.ToString();
+        }
+
+
         try
         {
 
@@ -1759,17 +1792,6 @@ public partial class EditProperty : ClosedPage
                 else
                 {
                     cityname = hdcity.Value.ToString();
-                }
-                if (!string.IsNullOrEmpty(cityname))
-                {
-                    List<SqlParameter> param = new List<SqlParameter>();
-                    param.Add(new SqlParameter("@country", hdnCountry.Value));
-                    param.Add(new SqlParameter("@state", hdnState.Value));
-                    param.Add(new SqlParameter("@city", cityname));
-                    param.Add(new SqlParameter("@lat", hdnLatitude.Value));
-                    param.Add(new SqlParameter("@lng", hdnLongitude.Value));
-                    BookDBProvider.getDataSet("uspAddLatLong", param);
-
                 }
 
                 if (VirtualTour.Text.Length > 0)

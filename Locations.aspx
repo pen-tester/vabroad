@@ -3,6 +3,7 @@
 <%@ Reference Page="~/RegionList.aspx" %>
 <%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="Locations.aspx.cs" Inherits="Locations" Title="Locations Administration" %>
 <asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
+    
     <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
         <tr>
             <td colspan="100" align="center">
@@ -106,7 +107,7 @@
             cities assigned to it. Deleting a state/province will delete all cities assigned
             to it. </strong></font>
     </div>
-    <div class="center">
+    <div class="center" style="margin:30px 0px;">
           <font color="red"><strong><%=error_msg %></strong></font>      
     </div>
     <table width="100%" border="0" cellspacing="4" cellpadding="2" bordercolor="#ffffff">
