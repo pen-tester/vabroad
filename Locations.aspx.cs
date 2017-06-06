@@ -686,7 +686,7 @@ public partial class Locations : AdminPage
             return;
 
 
-        LatLongInfo latinfo = MainHelper.getCityLocation(NewCity.Text, StateList.Text, CountryList.Text);
+        LatLongInfo latinfo = MainHelper.getCityLocation(NewCity.Text, StateList.SelectedItem.Text, CountryList.SelectedItem.Text);
         if(latinfo.status == 0) //Fail to get location info
         {
             error_msg = String.Format("Fail to get {0} location.", NewCity.Text);
