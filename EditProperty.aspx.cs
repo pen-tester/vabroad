@@ -1609,11 +1609,11 @@ public partial class EditProperty : ClosedPage
         int newpropertytypeid;
 
         string city_text="";
-      
+        LatLongInfo latinfo=new LatLongInfo();
         if (!string.IsNullOrEmpty(CityNew.Text) && CityNew.Text != "undefined")
         {
             city_text = CityNew.Text;
-            LatLongInfo latinfo = MainHelper.getCityLocation(city_text, hdnState.Value, hdnCountry.Value);
+            latinfo = MainHelper.getCityLocation(city_text, hdnState.Value, hdnCountry.Value);
             if (latinfo.status == 0) //Fail to get location info
             {
                 error_msg = String.Format("Fail to get {0} location.", city_text); return;
@@ -1622,18 +1622,7 @@ public partial class EditProperty : ClosedPage
             {
                 error_msg = String.Format("Fail to verify the location of {0}.", city_text); return;
             }
-            else  //Success to get the latitude and longitude
-            {
-                Exception ex = new Exception(Request["state"]);
-                throw ex;
-                List<SqlParameter> param = new List<SqlParameter>();
-                param.Add(new SqlParameter("@stateid", Request["state"]));
-                param.Add(new SqlParameter("@city", city_text));
-                param.Add(new SqlParameter("@lat", latinfo.latitude));
-                param.Add(new SqlParameter("@lng", latinfo.longitude));
-                BookDBProvider.getDataSet("uspAddLatLong", param);
-
-            }
+            //Success get the location info;
         }
         else
         {
@@ -1728,7 +1717,13 @@ public partial class EditProperty : ClosedPage
                     //lock (CommonFunctions.Connection)
                     CitiesAdapter.Update(CitiesSet);
 
-                    
+                    //Adding the new city location info
+                    List<SqlParameter> param = new List<SqlParameter>();
+                    param.Add(new SqlParameter("@stateid", Request["state"]));
+                    param.Add(new SqlParameter("@city", city_text));
+                    param.Add(new SqlParameter("@lat", latinfo.latitude));
+                    param.Add(new SqlParameter("@lng", latinfo.longitude));
+                    BookDBProvider.getDataSet("uspAddLatLong", param);
 
 
 
