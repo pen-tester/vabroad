@@ -21,7 +21,7 @@
 
         Exception objErr = Server.GetLastError().GetBaseException();
         string strPage = Request.Url.ToString();
-        string strMessage = objErr.Message.ToString();
+        string strMessage = objErr.Message.ToString()+"Inner Msg:"+objErr.InnerException;
         string strStackTrace = objErr.StackTrace.ToString();
 
 
