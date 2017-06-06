@@ -34,6 +34,8 @@ public partial class Locations : AdminPage
     protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
     protected System.Data.SqlClient.SqlCommand sqlInsertCommand3;
 
+    protected string error_msg;
+
     protected void Page_Load(object sender, System.EventArgs e)
     {
         System.Data.SqlClient.SqlCommandBuilder builder = new System.Data.SqlClient.SqlCommandBuilder(RegionsAdapter);
@@ -683,43 +685,59 @@ public partial class Locations : AdminPage
         if (!EnterCity.IsValid || !InvalidCity.IsValid)
             return;
 
-        DataRow newrow = CitiesSet.Tables["Cities"].NewRow();
 
-        newrow["City"] = NewCity.Text;
-        try
+        LatLongInfo latinfo = MainHelper.getCityLocation(NewCity.Text, StateList.Text, CountryList.Text);
+        if(latinfo.status == 0) //Fail to get location info
         {
-            newrow["StateProvinceID"] = Convert.ToInt32(StateList.SelectedValue);
+            error_msg = String.Format("Fail to get {0} location.", NewCity.Text);
+        }
+        else if (latinfo.status == 1) //Fail to verify the address
+        {
+            error_msg = String.Format("Fail to verify the location of {0}.", NewCity.Text);
+        }
+        else  //Success to get the latitude and longitude
+        {
+            DataRow newrow = CitiesSet.Tables["Cities"].NewRow();
 
-            CitiesSet.Tables["Cities"].Rows.Add(newrow);
-
-            //lock (CommonFunctions.Connection)
-            CitiesAdapter.Update(CitiesSet);
-
-            Finish();
-
-            string url = "http://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}", NewCity.Text, StateList.Text)  + "&sensor=false";
-            WebRequest request = WebRequest.Create(url);
-            using (WebResponse response = request.GetResponse())
+            newrow["City"] = NewCity.Text;
+            try
             {
-                using (var reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
-                {
-                    string resp = reader.ReadToEnd();
-                    JObject jobj = JObject.Parse(resp);
-                    string latitude = jobj["geometry"]["location"]["lat"].ToString();
-                    string longtitude= jobj["geometry"]["location"]["lng"].ToString();
+                newrow["StateProvinceID"] = Convert.ToInt32(StateList.SelectedValue);
+
+                CitiesSet.Tables["Cities"].Rows.Add(newrow);
+
+                //lock (CommonFunctions.Connection)
+                CitiesAdapter.Update(CitiesSet);
+
+                Finish();
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@stateid", StateList.SelectedValue));
+                param.Add(new SqlParameter("@city", NewCity.Text));
+                param.Add(new SqlParameter("@lat", latinfo.latitude ));
+                param.Add(new SqlParameter("@lng", latinfo.longitude));
+                BookDBProvider.getDataSet("uspAddLatLong", param);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+/*
+
+
                     List<SqlParameter> param = new List<SqlParameter>();
-                    param.Add(new SqlParameter("@country", CountryList.Text));
-                    param.Add(new SqlParameter("@state", StateList.Text));
-                    param.Add(new SqlParameter("@city", NewCity.Text));
+                    param.Add(new SqlParameter("@country", country));
+                    param.Add(new SqlParameter("@state", state));
+                    param.Add(new SqlParameter("@city", city));
                     param.Add(new SqlParameter("@lat", latitude));
                     param.Add(new SqlParameter("@lng", longtitude));
                     BookDBProvider.getDataSet("uspAddLatLong", param);
-                }
-            }
-        }
-        catch (Exception)
-        {
-        }
+
+    */
+ 
     }
 
     private void Finish()

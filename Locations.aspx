@@ -106,6 +106,9 @@
             cities assigned to it. Deleting a state/province will delete all cities assigned
             to it. </strong></font>
     </div>
+    <div class="center">
+          <font color="red"><strong><%=error_msg %></strong></font>      
+    </div>
     <table width="100%" border="0" cellspacing="4" cellpadding="2" bordercolor="#ffffff">
         <tr>
             <td align="center">
