@@ -1624,7 +1624,8 @@ public partial class EditProperty : ClosedPage
             }
             else  //Success to get the latitude and longitude
             {
-
+                Exception ex = new Exception(Request["state"]);
+                throw ex;
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@stateid", Request["state"]));
                 param.Add(new SqlParameter("@city", city_text));
