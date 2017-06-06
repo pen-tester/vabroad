@@ -125,13 +125,14 @@ public class MainHelper
                     string resp = reader.ReadToEnd();
                     JObject jobj = JObject.Parse(resp);
 
-                    Exception ex = new Exception(url+"=======<br>"+jobj.ToString());
-                    throw ex;
+                     
                     //If the result is successful
                     if (jobj["status"].ToString() == "OK")
                     {
-                        info.latitude =Double.Parse( jobj["geometry"]["location"]["lat"].ToString());
-                        info.longitude = Double.Parse(jobj["geometry"]["location"]["lng"].ToString());
+                        JArray jarr = (JArray)jobj["results"];
+                        JObject j_addr = (JObject)jarr[0];
+                        info.latitude =Double.Parse(j_addr["geometry"]["location"]["lat"].ToString());
+                        info.longitude = Double.Parse(j_addr["geometry"]["location"]["lng"].ToString());
                         info.status = 1;
                     }
                     else { return info; }
@@ -139,7 +140,7 @@ public class MainHelper
                     response.Close();
 
                     //Get location info details
-                   /* string detail_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + info.latitude + "," + info.longitude + "&sensor=false";
+                    string detail_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + info.latitude + "," + info.longitude + "&sensor=false";
                     WebRequest req_detail = WebRequest.Create(detail_url);
 
                     using (WebResponse det_response = req_detail.GetResponse())
@@ -167,7 +168,7 @@ public class MainHelper
                             det_response.Close();
                         }
                     }
-                    */
+                    
 
                 }
             }
