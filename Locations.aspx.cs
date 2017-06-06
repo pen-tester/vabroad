@@ -711,7 +711,7 @@ public partial class Locations : AdminPage
 
                 Finish();
                 List<SqlParameter> param = new List<SqlParameter>();
-                param.Add(new SqlParameter("@stateid", StateList.SelectedValue));
+                param.Add(new SqlParameter("@stateid", StateList.Text));
                 param.Add(new SqlParameter("@city", NewCity.Text));
                 param.Add(new SqlParameter("@lat", latinfo.latitude ));
                 param.Add(new SqlParameter("@lng", latinfo.longitude));
