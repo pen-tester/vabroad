@@ -496,7 +496,7 @@ public partial class Locations : AdminPage
 
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@stateid", StateList.SelectedValue));
-                param.Add(new SqlParameter("@city", NewCity.Text));
+                param.Add(new SqlParameter("@city", CityName.Text));
                 param.Add(new SqlParameter("@lat", latinfo.latitude));
                 param.Add(new SqlParameter("@lng", latinfo.longitude));
                 BookDBProvider.getDataSet("uspAddLatLong", param);
