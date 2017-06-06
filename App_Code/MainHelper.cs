@@ -137,7 +137,7 @@ public class MainHelper
                     response.Close();
 
                     //Get location info details
-                    string detail_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + info.latitude + "," + info.longitude + "&sensor=false";
+                   /* string detail_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + info.latitude + "," + info.longitude + "&sensor=false";
                     WebRequest req_detail = WebRequest.Create(detail_url);
 
                     using (WebResponse det_response = req_detail.GetResponse())
@@ -165,7 +165,7 @@ public class MainHelper
                             det_response.Close();
                         }
                     }
-
+                    */
 
                 }
             }
