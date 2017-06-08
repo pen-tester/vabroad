@@ -171,12 +171,5 @@
         </div>
     </div>
             </div>
-	<noscript>
-		<img src="http://www.watchwise.net/cgi-watchwise/monitor.cgi?<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all"
-			width="1" height="1">
-	</noscript>
 
-	<script language="Javascript">
-		    document.write('<img src="http://www.watchwise.net/cgi-watchwise/monitorwise.cgi?URL=<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all&LINK=',escape(document.referrer),'" height=1 width=1>')
-	</script>
 </asp:Content>

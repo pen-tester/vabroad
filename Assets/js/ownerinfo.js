@@ -1,1 +1,1 @@
-﻿document.write('<img src="http://www.watchwise.net/cgi-watchwise/monitorwise.cgi?URL=<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all&LINK=', escape(document.referrer), '" height=1 width=1>');
+﻿

@@ -412,5 +412,5 @@
     </div>
     </div>
             </div>
-    <script src="/Assets/js/ownerinfo.js"></script>
+
 </asp:Content>
