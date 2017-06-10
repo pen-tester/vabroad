@@ -22,7 +22,7 @@ public partial class CreateSitemap : System.Web.UI.Page
         {
             writer.WriteStartDocument();
             writer.WriteStartElement("urlset");
-            writer.WriteAttributeString("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            writer.WriteAttributeString("xmlnss", "http://www.sitemaps.org/schemas/sitemap/0.9");
             addRegionElements(writer);
             addCountryElements(writer);
             addStateElements(writer);
