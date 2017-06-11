@@ -39,22 +39,24 @@ namespace Vacations
 			if ((direction != "up") && (direction != "down"))
 				Response.Redirect (backlinkurl);
 
-            object auctionidresult = null;
-            using(SqlConnection connection = CommonFunctions.GetConnection()) {
-                connection.Open();
-                SqlCommand GetAuctionID = new SqlCommand("SELECT ID FROM Auctions WHERE PropertyID = @PropertyID", connection);
-                GetAuctionID.Parameters.Add("@PropertyID", SqlDbType.Int);
-                GetAuctionID.Parameters["@PropertyID"].Value = propertyid;
+            /*  object auctionidresult = null;
+              using(SqlConnection connection = CommonFunctions.GetConnection()) {
+                  connection.Open();
+                  SqlCommand GetAuctionID = new SqlCommand("SELECT ID FROM Auctions WHERE PropertyID = @PropertyID", connection);
+                  GetAuctionID.Parameters.Add("@PropertyID", SqlDbType.Int);
+                  GetAuctionID.Parameters["@PropertyID"].Value = propertyid;
 
-                auctionidresult = GetAuctionID.ExecuteScalar();
-                connection.Close();
-            }
+                  auctionidresult = GetAuctionID.ExecuteScalar();
+                  connection.Close();
+              }
 
-			bool ifauction = (auctionidresult is int);
-			if (ifauction)
-				Response.Redirect (CommonFunctions.PrepareURL ("InternalError.aspx"));
+              bool ifauction = (auctionidresult is int);
 
-			if (Request.Params["PhotoID"] != null)
+              if (ifauction)
+                  Response.Redirect (CommonFunctions.PrepareURL ("InternalError.aspx"));
+         */
+
+            if (Request.Params["PhotoID"] != null)
 			{
 				//string connectionstring = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
