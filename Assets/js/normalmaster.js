@@ -36,8 +36,8 @@ $(document).ready(function () {
     if ($('#google-cache-hdr').length != 0) {
         console.log("there is google cache content");
         $('#google-cache-hdr').css({ "position": "fixed", "z-index": "110", "top": "0", "width": "100%" });
-        $(".topNavigation").css("top", $('#google-cache-hdr').height());
-        $(".mainContent").css("margin-top", $('#google-cache-hdr').height() + $(".topNavigation").height());
+        $(".topNavigation").css("top", $('#google-cache-hdr').outerHeight());
+        $(".mainContent").css("margin-top", $('#google-cache-hdr').outerHeight() + $(".topNavigation").height());
     }
     else {
         console.log("there is not google cache");
