@@ -12,6 +12,7 @@ function onclickevent_footerment(menuindex, itemindex) {
 
 $(document).ready(function () {
     //$('links').attr("media","none");
+    console.log("the web page is ready in layout page");
     $('head').append('<link id="fontcss" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"  media="none"/>');
     setTimeout(function () { $('#fontcss').attr("media", "all"); }, 0);
     $('input[type="text"]').keydown(function (event) {
@@ -30,7 +31,17 @@ $(document).ready(function () {
         getcountrylist(this);
     });
     var topbar_height = ($('.topNavigation').height() > 116) ? $('.topNavigation').height() : 116;
-    $('.mainContent').css("margin-top",topbar_height);
+    $('.mainContent').css("margin-top", topbar_height);
+    //If there is google cache content.
+    if ($('#google-cache-hdr').length != 0) {
+        console.log("there is google cache content");
+        $('#google-cache-hdr').css({ "position": "fixed", "z-index": "110", "top": "0", "width": "100%" });
+        $(".topNavigation").css("top", $('#google-cache-hdr').height());
+        $(".mainContent").css("margin-top", $('#google-cache-hdr').height() + $(".topNavigation").height());
+    }
+    else {
+        console.log("there is not google cache");
+    }
 })
 
 function redirect() {
