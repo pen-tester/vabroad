@@ -90,7 +90,7 @@
         .colfield_1{width:65px;}
         .colfield_2{width:560px;}
         .colfield_3{width:250px;text-align:right;}
-        .property_img{ width: 360px; height:180px;}
+        .property_img{ width: 260px; height:180px;}
      }
      @media(min-width:1200px){
         .colfield_1{width:65px;}
