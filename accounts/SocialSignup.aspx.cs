@@ -61,7 +61,8 @@ public partial class accounts_SocialSignup : CommonPage
                 {
                            { "username", "noreply@vacations-abroad.com" },
                            { "api_key", "9881316569391d3dbfba35b71670b4b2" },
-                           { "email", Email.Text}
+                           { "email", Email.Text},
+                           { "first_name", LoginName.Text}
                 });
 
                 //string result = System.Text.Encoding.UTF8.GetString(response);

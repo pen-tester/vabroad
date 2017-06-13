@@ -390,8 +390,8 @@ public partial class accounts_Login : CommonPage
                 newuser["ReservationEmail"] = newuser["Email"];
                 newuser["DateCreated"] = DateTime.Now;
 
-                newuser["FirstName"] = "";
-                newuser["LastName"] = "";
+                newuser["FirstName"] = reg_firstname.Text;
+                newuser["LastName"] = reg_lastname.Text;
                 //new part
                 newuser["dateModified"] = DateTime.Today.ToString();
                 newuser["AccountType"] = 0;  //0:email 1: facebook 2:twitter
@@ -422,7 +422,9 @@ public partial class accounts_Login : CommonPage
                         {
                            { "username", "noreply@vacations-abroad.com" },
                            { "api_key", "9881316569391d3dbfba35b71670b4b2" },
-                           { "email", Email.Text}
+                           { "email", Email.Text},
+                             { "first_name", reg_firstname.Text},
+                             {"last_name", reg_lastname.Text }
                         });
 
                         //string result = System.Text.Encoding.UTF8.GetString(response);
