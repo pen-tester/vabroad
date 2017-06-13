@@ -1201,14 +1201,25 @@ public partial class ViewProperty : CommonPage
             {
                 using (WebClient client = new WebClient())
                 {
+                    string f_name="", l_name="";
+                    char[] delimiterChars = { ' ', ',', '.', ':', '\t' };
+                    string[] words = contactname.Split(delimiterChars);
+                    if (words.Length > 1)
+                    {
+                        f_name = words[0]; l_name = words[1];
+                    }else if (words.Length == 1)
+                    {
+                        f_name = words[0];
+                    }
 
                     byte[] response =
                     client.UploadValues("https://api.madmimi.com/audience_lists/Travelers/add", new NameValueCollection()
                     {
                        { "username", "noreply@vacations-abroad.com" },
                        { "api_key", "9881316569391d3dbfba35b71670b4b2" },
-                       { "email", contactemail }
-
+                       { "email", contactemail },
+                       { "first_name", f_name},
+                        {"last_name", l_name }
                     });
 
                     //string result = System.Text.Encoding.UTF8.GetString(response);
