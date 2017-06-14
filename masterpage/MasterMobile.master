@@ -194,7 +194,7 @@
  
 <body style="margin:0 -3px;">
     <script defer="defer"  src="/Assets/js/jquery-3.1.0.min.js"></script>
-    <script defer="defer" src="/Assets/js/normalmaster.js?17"></script>
+    <script defer="defer" src="/Assets/js/normalmaster.js?18"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <form id="mainform" runat="server">
         <div class="topNavigation">

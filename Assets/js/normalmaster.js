@@ -6,7 +6,8 @@ var site_url = "https://www.vacations-abroad.com";
 
 function onclickevent_footerment(menuindex, itemindex) {
     //alert(menuindex + "   " + itemindex);
-    window.location.href =site_url+ redirect_links[menuindex][itemindex];
+    if (menuindex == 4 && itemindex > 0) window.location.href =  redirect_links[menuindex][itemindex];
+    else window.location.href =site_url+ redirect_links[menuindex][itemindex];
 }
 
 
