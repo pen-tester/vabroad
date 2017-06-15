@@ -62,9 +62,6 @@
                                 Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
-
-                   
-                
                      <div class="srow text-left">  
                 
                              <div class="linkpadding">
@@ -77,24 +74,13 @@
               <div class="srow">
                   <div class="center">
                         <ul id="Statesul" class="stateful" runat="server">
-                            <%--<asp:Repeater ID="rptrStates" runat="server">
-                                <ItemTemplate>
-                                    <li>
-                                        <h3>Dorset</h3>
-                                        <a href="#">
-                                            <img src="http://www.vacations-abroad.com/images/THproperty00008527photo0005.JPG" alt="" /></a>
-                                    </li>
-                                </ItemTemplate>
-                            </asp:Repeater>--%>
                         </ul>
                    </div>
               </div>
         
         <div class="srow">
             <div class="contentpadding">
- 
-
-                            <div class="orangetxt" id="OrangeTitle" runat="server">
+                             <div class="orangetxt" id="OrangeTitle" runat="server">
                                 <h2 class="orangetxt">
                                     <%=country %> Vacations: Things to see while on vacation in <%=country %>
                                </h2>
@@ -108,34 +94,16 @@
                         <% } %>
                         <p><asp:Label ID="lblInfo2" CssClass="contentstyle" runat="server" EnableViewState="False"></asp:Label>
                             </p>
-
-
-  
             </div>
         </div>
-
         <div class="srow contentpadding">
-            
-
                 <ul class="countrylist">
                     <li><div id="rtHd3" runat="server" style="display:inline;"></div></li>
                     <asp:Literal id="rtLow3" runat="server">
                             </asp:Literal>
-
                 </ul>
-
-   
         </div>
-                      
-
-
         </div>
-
-
-
-            
-
-
         </div>
        <div>     <asp:Label ID="lblInfo22" runat="server" ForeColor="Red" Style="display: none"></asp:Label>
            </div>

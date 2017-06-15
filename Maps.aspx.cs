@@ -30,26 +30,20 @@ public partial class _Maps : CommonPage
                       "CityLatLong ON Cities.City = CityLatLong.City AND Countries.Country = CityLatLong.Country AND StateProvinces.StateProvince = CityLatLong.StateProvince " +
 "where StateProvinces.ID=@StateId AND EXISTS ( SELECT * FROM Properties WHERE (Properties.IfFinished = 1) AND (Properties.IfApproved = 1) AND (Properties.CityID = Cities.ID)  AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID))";
 
-    protected SqlDataAdapter CitiesAdapter;               
+    protected SqlDataAdapter CitiesAdapter;   
+    protected int countryid;
+    protected DataSet ds_citylocations;
+    protected string markers;
     protected void Page_Load(object sender, EventArgs e)
     {
-    //        SqlConnection connection = CommonFunctions.GetConnection();
-    //        SqlDataAdapter GetIDsAdapter = CommonFunctions.PrepareAdapter(connection,
-    //                       "select * from countries where Country=@Country",
-    //                       SqlDbType.NVarChar, 300, SqlDbType.NVarChar, 300, SqlDbType.NVarChar, 300, SqlDbType.NVarChar, 300,
-    //                       SqlDbType.Int);
+        if(!int.TryParse( Request["CountryID"].ToString(),out countryid))countryid=0;
+        if (countryid == 0) return;
+        List<SqlParameter> sparam = new List<SqlParameter>();
+        sparam.Add(new SqlParameter("@countryid", countryid));
+        ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCountry", sparam);
 
-    //        DataSet MainDataSet = new DataSet();
-    //       string url = HttpContext.Current.Request.UrlReferrer.Host;
-    //        string[] spliturl = url.Split('/');
-    //     //   GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
-    //                GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = spliturl[1];
-    //                //GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = "";
-    //                //GetIDsAdapter.SelectCommand.Parameters["@City"].Value = "";
-    //                //GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
-
-    //                //lock(CommonFunctions.Connection)
-    //                GetIDsAdapter.Fill(MainDataSet);
+        markers =CommonProvider.getMarkersJsonString(ds_citylocations);
+        /*
         ClientScriptManager cs = Page.ClientScript;
         string url = Request.Url.AbsoluteUri;
         string[] token = url.Split('/');
@@ -131,7 +125,7 @@ public partial class _Maps : CommonPage
 
                 cs.RegisterStartupScript(Page.GetType(), "JSON", "initialize(" + ans + ");", true);
             }
-        
+        */
     }
 }
 

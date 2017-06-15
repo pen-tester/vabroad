@@ -412,7 +412,7 @@ public partial class StateProvinceList : CommonPage
             sparam.Add(new SqlParameter("@stid", stateprovinceid));
             ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", sparam);
 
-        markers = getMarkersJsonString(ds_citylocations);
+        markers = CommonProvider.getMarkersJsonString(ds_citylocations);
         // }*/
 
         if (IsPostBack)
@@ -792,29 +792,6 @@ public partial class StateProvinceList : CommonPage
         }
     }
 
-    public string getMarkersJsonString(DataSet ds_citylocations)
-    {
-        List<Location> eList = new List<Location>();
-        foreach (DataRow dr in ds_citylocations.Tables[0].Rows)
-        {
-            try
-            {
-                Location e1 = new Location();
-                e1.title = dr["City"].ToString();
-                e1.lat = Convert.ToDouble(dr["latitude"]);
-                e1.lng = Convert.ToDouble(dr["longitude"]); ;
-                e1.description = dr["City"].ToString();
-                string temps = CommonFunctions.GetSiteAddress() + "/" + dr["Country"].ToString().ToLower().Replace(" ", "_") +
-                 "/" + dr["StateProvince"].ToString().ToLower().Replace(" ", "_") + "/" + dr["City"].ToString().ToLower().Replace(" ", "_") + "/default.aspx";
-                e1.URL = temps;
-                eList.Add(e1);
-            }
-            catch { }
-        }
-        // Response.Write(CitiesAdapter.SelectCommand.CommandText);
-        return JsonConvert.SerializeObject(eList, Formatting.Indented);
-    }
-
     protected void btnFilter_Click(object sender, EventArgs e)
     {
 
@@ -832,7 +809,7 @@ public partial class StateProvinceList : CommonPage
         param.Add(new SqlParameter("@sleep", psleep));
         param.Add(new SqlParameter("@ptype", ptype));
         ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", param);
-        markers = getMarkersJsonString(ds_citylocations);
+        markers =CommonProvider.getMarkersJsonString(ds_citylocations);
     }
 
     protected void rdoBedrooms_SelectedIndexChanged(object sender, EventArgs e)

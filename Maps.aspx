@@ -15,12 +15,15 @@
         }
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=initialize">
     </script>
 
     <script type="text/javascript">
         
-        function initialize(markers) {
+        var markers=<%=markers%>;
+
+
+        function initialize() {
             
             //var markers = [
             //{
