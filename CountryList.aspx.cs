@@ -285,9 +285,7 @@ public partial class CountryList : CommonPage
                     ltrAllProps.Text = " View all " + char.ToUpper(country[0]) + country.Substring(1) + " properties";
                     string scountry=char.ToUpper(country[0]) + country.Substring(1);
                     ltrHeading.Text = scountry + " Vacation Rentals and "+scountry+" Hotels";
-                    string iframe = "<iframe height='260' width='95%' frameborder='0' src='/" + country.ToLower().Replace(" ","_") + "/Maps.aspx'></iframe>";
-                   // ltrCountryThing.Text = char.ToUpper(country[0]) + country.Substring(1);
-                    googleCountrymap.InnerHtml = iframe;
+
                     page.Title = char.ToUpper(country[0]) + country.Substring(1) + " Vacation Rentals, Boutique Hotels | Vacations Abroad";
 
                    string tempcountry1 = CommonFunctions.GetSiteAddress() + "/" + country.ToLower().Replace(" ", "_") +
@@ -336,8 +334,6 @@ public partial class CountryList : CommonPage
                         string scountry = char.ToUpper(country[0]) + country.Substring(1);
                         ltrHeading.Text = scountry + " Vacation Rentals and " + scountry + " Hotels"; 
 
-                        string iframe = "<iframe height='260' frameborder='0' width='95%' src='/" + country.ToLower().Replace(" ","_") + "/Maps.aspx'></iframe>";
-                        googleCountrymap.InnerHtml = iframe;
                         //ltrCountryThing.Text = char.ToUpper(country[0]) + country.Substring(1);
                         page.Title = char.ToUpper(country[0]) + country.Substring(1) + " Vacation Rentals, Boutique Hotels | Vacations Abroad";
                        
