@@ -2,7 +2,9 @@
     CodeFile="~/countrylist.aspx.cs" Inherits="CountryList"
     EnableEventValidation="false" EnableViewState="true" %>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-
+    <style>
+         #googlemap{width:95%; height:310px;margin:0 15px;}
+    </style>
 </asp:Content>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     <%=country %> Vacation Rentals, Boutique Hotels | Vacations Abroad
@@ -45,8 +47,8 @@
                         </div>
                     </div>
                     <div class="col-x-4 col-6">
-                     <div  id="googleCountrymap" runat="server">
-                    </div>
+                           <div  id="googlemap">
+                            </div>
                     </div>
  
  
@@ -117,7 +119,13 @@
         <asp:TextBox runat="server" ID="txtCityVal" value="" Style="display: none;"></asp:TextBox>
         <asp:TextBox runat="server" ID="txtCityVal2" value="" Style="display: none;"></asp:TextBox>
     </div>
-    <script type="text/javascript" defer="defer" src="/assets/js/countryproperty.js?1">
+    <script>
+        var markers=<%=markers %>;
     </script>
+    <script type="text/javascript" defer="defer" src="/assets/js/countryproperty.js?2">
+    </script>
+    <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=initializeMap">
+    </script>
+
 </asp:Content>
 

@@ -57,7 +57,9 @@ public partial class CountryList : CommonPage
     protected DataSet MainDataSetCountries = new DataSet();
 
     #endregion
-
+    //For maping.
+    protected DataSet ds_citylocations;
+    protected string markers;
     protected void Page_Load(object sender, System.EventArgs e)
     {
         
