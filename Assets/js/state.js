@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
-    console.log("ready");
+    var statename = $('#statename').val();
+    var title = "Vacations Abroad is a directory of " + statename + " Vacation Rentals and " + statename + " Hotels";
+    $('#footerlogo').attr({ "title": title, "alt": title });
 });
 
 var map;

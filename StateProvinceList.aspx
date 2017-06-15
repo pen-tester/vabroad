@@ -22,7 +22,7 @@
     <%--    <asp:TextBox runat="server" ID ="txtCityVal"  value="" Style="display:none;" ></asp:TextBox>
     --%>
         <div class="scontainer">
-
+              <input type="hidden" id="statename" value="<%=stateprovince %>" />
  <div class="srow">
        <div class="internalpagewidth">
             <div class="srow">
@@ -262,7 +262,7 @@
         var markers=<%=markers %>;
     </script>
 
-    <script type="text/javascript" defer="defer" src="/assets/js/state.js?2">
+    <script type="text/javascript" defer="defer" src="/assets/js/state.js?3">
     </script>
     <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=initializeMap">
     </script>

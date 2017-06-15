@@ -340,7 +340,7 @@
     </div>
     <div class="srow">
         <div class="center">
-            <img src="/assets/img/logofooter.jpg" /><label class="footertxt">Is a registered trademark</label>
+            <img src="/assets/img/logofooter.jpg" id="footerlogo" alt="Vacations Abroad is a directory of unique vacation rentals, boutique hotels, cozy guesthouses and beach resorts." title="Vacations Abroad is a directory of unique vacation rentals, boutique hotels, cozy guesthouses and beach resorts."/><label class="footertxt">Is a registered trademark</label>
         </div>
     </div>
 </body>

@@ -11,7 +11,7 @@
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
     <div class="scontainer">
     <div class="internalpagewidth">
-
+        <input type="hidden" id="countryname" value="<%=country %>" />
         <%--    <asp:TextBox runat="server" ID ="txtCityVal"  value="" Style="display:none;" ></asp:TextBox>
         --%>
 
@@ -149,6 +149,7 @@
         <asp:TextBox runat="server" ID="txtCityVal" value="" Style="display: none;"></asp:TextBox>
         <asp:TextBox runat="server" ID="txtCityVal2" value="" Style="display: none;"></asp:TextBox>
     </div>
-
+    <script type="text/javascript" defer="defer" src="/assets/js/countryproperty.js?1">
+    </script>
 </asp:Content>
 

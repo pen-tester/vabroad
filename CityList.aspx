@@ -133,6 +133,7 @@
     <input type="hidden" name="sortradio" value="<%=rsort_id %>" />
     <input type="hidden" name="pagenums" value="<%=pagenum %>" />
 
+    <input type="hidden" id="cityname" value="<%=countryinfo.City %>" />
     
     <div class="scontainer">
         <div class="internalpagewidth">
@@ -430,5 +431,5 @@
   </script>
    
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/Assets/js/citylist.js?26"></script>
+    <script defer="defer" src="/Assets/js/citylist.js?27"></script>
 </asp:Content>

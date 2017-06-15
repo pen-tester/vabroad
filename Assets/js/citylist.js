@@ -43,6 +43,11 @@ $(document).ready(function () {
         $('#container_map').hide();
     }
 
+    //For footer image logo alt text
+    
+    var cityname = $('#cityname').val();
+    var title = "Vacations Abroad is a directory of "+cityname+" Vacation Rentals and "+cityname+" Hotels";
+    $('#footerlogo').attr({ "title": title, "alt": title });
     //For map
    // initialize();
 });
