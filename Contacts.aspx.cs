@@ -56,15 +56,14 @@ public partial class Contacts : System.Web.UI.Page
         if (ind_subject == 0 || ind_subject>2) {  return; }
 
         string msg_format = @"Dear Linda <br/>
-Someone has contacted with you. <br/>
-His information is following. <br/>
+General Inquiry originating on Vacations-Abroad.com <br/>
 Name: {0} <br/>
 Email: {1} <br/>
 Telephone: {2} <br/>
 Message: {3}";
         string msg = String.Format(msg_format, name, email, phone, comment);
-        BookDBProvider.SendEmail("linda@vacations-abroad.com", questions[ind_subject],msg, email);
-       // BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", questions[ind_subject], msg);
+       // BookDBProvider.SendEmail("linda@vacations-abroad.com", questions[ind_subject],msg, email);
+        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", questions[ind_subject], msg, email);
         
     }
 }
