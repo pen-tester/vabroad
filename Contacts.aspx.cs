@@ -39,7 +39,7 @@ public partial class Contacts : System.Web.UI.Page
         }
     }
 
-    public string[]  questions={"","Question about a reservation","Question about listing a property"};
+    public string[]  questions={"","Question about listing a property","Question about a reservation" };
 
 
     protected void btnsendback_ServerClick(object sender, System.EventArgs e)
