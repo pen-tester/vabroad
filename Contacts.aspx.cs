@@ -39,7 +39,7 @@ public partial class Contacts : System.Web.UI.Page
         }
     }
 
-    public string[]  questions={"Question about a reservation","Question about listing a property"};
+    public string[]  questions={"","Question about a reservation","Question about listing a property"};
 
 
     protected void btnsendback_ServerClick(object sender, System.EventArgs e)
@@ -62,8 +62,8 @@ Email: {1} <br/>
 Telephone: {2} <br/>
 Message: {3}";
         string msg = String.Format(msg_format, name, email, phone, comment);
-       // BookDBProvider.SendEmail("linda@vacations-abroad.com", questions[ind_subject],msg, email);
-        BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", questions[ind_subject], msg, email);
+        BookDBProvider.SendEmail("linda@vacations-abroad.com", questions[ind_subject],msg, email);
+      //  BookDBProvider.SendEmail("devalbum.andrew1987@gmail.com", questions[ind_subject], msg, email);
         
     }
 }
