@@ -18,6 +18,6 @@ General Inquiry originating on In the service. <br/>
 Name: {0} <br/>
 Email: {1} <br/>";
         string msg = String.Format(msg_format, name, email);
-        BookDBProvider.SendEmail(email, "About the Listing the services", msg, "kingdev1987@gmail.com");
+        BookDBProvider.SendEmail(email, "About the Listing the services", msg, "kingdev1987@yandex.com");
     }
 }
