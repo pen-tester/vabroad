@@ -34,13 +34,14 @@
                 <div class="srow">
                     <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                     { %>
-                    <asp:TextBox ID="txtCountryText" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
-                    <asp:Button ID="btnSubmit" runat="server" Text="Save Text" OnClick="btnSubmit_Click" />
-                    <br />
-                    <asp:Label ID="Label1" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label>
+                    <div class="srow">
+                        <asp:TextBox ID="txtCountryText" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
+                        <asp:Button ID="btnSubmit" runat="server" Text="Save Text" OnClick="btnSubmit_Click" />
+                        <br />
+                        <asp:Label ID="Label1" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label>
+                    </div>
                     <% }
-                    else
-                    {%>
+                       %>
                     <div class="col-x-4 col-6">
                        <div runat="server" visible="true">
                             <asp:Label ID="lblCountryInfo" CssClass="txtalign" runat="server"></asp:Label>
@@ -53,7 +54,7 @@
  
  
 
-                    <% } %>
+
                 </div>
                 <div class="srow">
                     <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
