@@ -59,7 +59,7 @@ public partial class CountryList : CommonPage
     #endregion
     //For maping.
     protected DataSet ds_citylocations;
-    protected string markers;
+    protected string markers="{}";
     protected void Page_Load(object sender, System.EventArgs e)
     {
         
@@ -552,6 +552,12 @@ public partial class CountryList : CommonPage
         //  keywords.Content = page1.Title;
         keywords.Content = str_keyword + "etc.";
         head.Controls.Add(keywords);
+        //For google map
+        List<SqlParameter> sparam = new List<SqlParameter>();
+        sparam.Add(new SqlParameter("@countryid", countryid));
+        ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCountry", sparam);
+
+        markers = CommonProvider.getMarkersJsonString(ds_citylocations);
     }
 
     private HtmlControl FindControl(string p)
