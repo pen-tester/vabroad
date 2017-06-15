@@ -113,12 +113,6 @@
         <br>
         <asp:label id="lblInfo" runat="server" forecolor="Red"></asp:label>
     </div>
-    <!-- Start of StatCounter Code for Default Guide -->
-    <script type="text/javascript">
-        var sc_project = 3336280;
-        var sc_invisible = 1;
-        var sc_security = "510252c5";
-    </script>
 
     </div>
         </div>
