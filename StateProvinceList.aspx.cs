@@ -52,6 +52,11 @@ public partial class StateProvinceList : CommonPage
 
         List<SqlParameter> sparam = new List<SqlParameter>();
         sparam.Add(new SqlParameter("@stateid", stateprovinceid));
+
+        countryinfo = CommonProvider.ConvertToClassFromDataSet<CountryInfoWithCityID>(BookDBProvider.getDataSet("uspGetCountryInfoWithStateID", sparam));
+        str_propcate[0] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[0]);
+        str_propcate[1] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[1]);
+
         //For H1 title, state province text, links
         hyperRegion.NavigateUrl = "/" + countryinfo.Region.ToLower().Replace(" ", "_") + "/default.aspx";
         hyplnkCountryBackLink.NavigateUrl = "/" + countryinfo.Country.ToLower().Replace(" ", "_") + "/default.aspx";
@@ -89,9 +94,6 @@ public partial class StateProvinceList : CommonPage
 
 
         //Get the step box value
-        countryinfo = CommonProvider.ConvertToClassFromDataSet<CountryInfoWithCityID>(BookDBProvider.getDataSet("uspGetCountryInfoWithStateID", sparam));
-        str_propcate[0] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[0]);
-        str_propcate[1] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[1]);
 
         List<SqlParameter> numparam = new List<SqlParameter>();
         for (int i = 0; i < 4; i++)
