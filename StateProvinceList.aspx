@@ -1,40 +1,90 @@
 <%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master"
     AutoEventWireup="true" CodeFile="~/stateprovincelist.aspx.cs" Inherits="StateProvinceList"
-    Title="<%# GetTitle () %>" EnableEventValidation="false" ValidateRequest="false"  %>
+    EnableEventValidation="false" ValidateRequest="false"  %>
 
 <%--<%@ OutputCache Duration="600" VaryByParam="*" %>--%>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-   <%=stateprovince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
+   <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+    <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
+    <meta name="keywords" content="<%=Server.HtmlDecode(newdescription) %>"/>
     <style>
         .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
         /* For map*/                      
         #googlemap{width:95%; height:310px;margin:0 15px;}
+    /*For the step box*/
+        ul.step_line{display:block; margin:0;padding:0;}
+        ul.step_line li{display:inline-block; padding:3px 0px;}
+        .btn_wrapper{padding:5px 0 0 15px;display:inline-block;}
+    .cont_button{padding:20px 0; width:100%;}
+     [class*=colfield_]{float:left;}
+     @media(max-width:600px){
+        .colfield_1{width:65px;}
+        .colfield_2{}
+        .colfield_3{width:200px;text-align:right;}
+        .mapbox{
+            width:95%; margin:250px auto;
+            height:270px;
+        }
+        #map_canvas{
+              width:95%;
+              height:250px;
+        }
+     }
+
+     @media(max-width:768px) and (min-width:600px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:350px;text-align:right;}
+        .property_img{ width: 240px; height:170px;}
+     }
+
+     @media(min-width:768px)and (max-width:992px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:350px;text-align:right;}
+        .property_img{ width: 260px; height:180px;}
+     }
+
+     @media(max-width:1200px )and (min-width:992px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:560px;}
+        .colfield_3{width:250px;text-align:right;}
+        .property_img{ width: 260px; height:180px;}
+     }
+     @media(min-width:1200px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:560px;}
+        .colfield_3{width:450px;text-align:right;}
+     }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
     <asp:Label ID="Title" runat="server" Visible="false" Text="%stateprovince% %country% Vacation Rentals, %stateprovince% Vacation Home Rentals, %stateprovince% Holiday Accommodation"></asp:Label>
     <asp:Label ID="Keywords" runat="server" Visible="false" Text="%stateprovince% vacation rentals, %stateprovince% Hotels, %stateprovince% Cottages, %stateprovince% B&Bs, %stateprovince% villas , "></asp:Label>
-    <asp:Label ID="Description" runat="server" Visible="false" Text="A great selection of unique %stateprovince% vacation rentals and boutique %stateprovince% properties for your next adventure in %stateprovince% ."></asp:Label>
     <asp:TextBox runat="server" ID="txtCityVal" value="" Style="display: none;"></asp:TextBox>
     <asp:TextBox runat="server" ID="txtCityVal2" value="" Style="display: none;"></asp:TextBox>
     <%--    <asp:TextBox runat="server" ID ="txtCityVal"  value="" Style="display:none;" ></asp:TextBox>
     --%>
         <div class="scontainer">
-              <input type="hidden" id="statename" value="<%=stateprovince %>" />
+            <input type="hidden" name="proptyperadio" value="<%=rproptype_id %>" />
+            <input type="hidden" name="bedroomtyperadio" value="<%=rbedroom_id %>" />
+            <input type="hidden" name="amenityradio" value="<%=ramenity_id %>" />
+            <input type="hidden" name="sortradio" value="<%=rsort_id %>" />
+            <input type="hidden" name="pagenums" value="<%=pagenum %>" />
+              <input type="hidden" id="statename" value="<%=countryinfo.StateProvince %>" />
  <div class="srow">
        <div class="internalpagewidth">
             <div class="srow">
                    <div>
-                       <div class=" backitem">
-                       <asp:HyperLink ID="hyplinkBackRegion" runat="server">
-                                <asp:Literal ID="ltrRegion" runat="server"></asp:Literal>
-                        </asp:HyperLink>
-                       <asp:HyperLink ID="hyplnkBackLink" runat="server">
-                                <asp:Literal ID="ltrBackText" runat="server"></asp:Literal>
-                        </asp:HyperLink>
-                       </div>
+                    <div >
+                        <asp:HyperLink ID="hyperRegion" CssClass="backitem" runat="server"><%=countryinfo.Region %> Vacations<<</asp:HyperLink>
+                        <asp:HyperLink ID="hyplnkCountryBackLink" CssClass="backitem" runat="server"><%=countryinfo.Country %> Vacations<<</asp:HyperLink>
+                        <div class="clear"></div>
+
+                    </div>
  
                           <h1 class="H1CityText center">
                             <asp:Literal ID="ltrH1" runat="server"></asp:Literal>
@@ -87,65 +137,73 @@
 
         </div>
     <div class="srow">
-        <div class="borerstep normalGroup">
+            <!--- For Search Filter Area   Step Box  -->
             <div class="srow">
-              <div class="stepfont">
-                <div class="col-1">
-                   <label> Step 1:</label>
-                </div>
-                <div class="col-11">
-                    <%      int total_count = 0;
-                        int rcount = ds_PTypeNum.Tables[0].Rows.Count;
-                         string dis_all =(ptype == 0 ) ? "checked='checked'" : "";
-                        if (ds_PTypeNum.Tables[0].Rows.Count > 0)
-                        {
-                           
-                            for(int tid= 0; tid< rcount; tid++)
-                            {
-                                string pcid = ds_PTypeNum.Tables[0].Rows[tid]["pcid"].ToString();
-                                string pctype = ds_PTypeNum.Tables[0].Rows[tid]["CategoryTypes"].ToString();
-                                int pnum = int.Parse( ds_PTypeNum.Tables[0].Rows[tid]["Num"].ToString());
-                                total_count += pnum;
-                                string str_chk = (ptype.ToString() == pcid) ? "checked='checked'" : "";
-                                %>
-                        <div class="radiogroup"> <input type="radio" value="<%=pcid %>" name="ptypes" <%=str_chk %>  /><%=pctype %> (<%=pnum %>)</div>                    <%
-
-                                
-                            }
-
-                        }
-                        
-                         %>
-                   <div class="radiogroup"> <input type="radio" value="0" name="ptypes"  <%=dis_all %> />Dispay all (<%=total_count %>)</div>
-
-                </div>
-            </div>
-             </div>
-            <div class="srow">
-            <div class="stepfont">
-                <div class="col-1">
-                   <label> Step 2:</label>
-                </div>
-                <div class="col-9">
-                    <% string[] chk_sleep = { "", "", "", "" }; chk_sleep[psleep] = "checked='checked'"; %>
-                    <div class="radiogroup"><input type="radio" value="1" name="psleep" <%=chk_sleep[1] %>/>Sleeps 1-4 (<%=sleeps[1] %>)</div>
-                    <div class="radiogroup"><input type="radio" value="2" name="psleep" <%=chk_sleep[2] %>/>Sleeps 5-8 (<%=sleeps[2] %>)</div>
-                    <div class="radiogroup"><input type="radio" value="3" name="psleep" <%=chk_sleep[3] %>/>Sleeps 9+ (<%=sleeps[3] %>)</div>
-                    <div class="radiogroup"><input type="radio" value="0" name="psleep"  <%=chk_sleep[0] %>/>Display All (<%=sleeps[0] %>)</div>
-                </div>
-                <div class="col-2">
-                    <div>
-                    <asp:Button ID="btnFilter" runat="server" Text="Search" Style="width: 117px !important;white-space: normal;white-space: normal;border-radius: 1em;
-                            color: white;font-family: arial; font-size: 12px;background: #154890;cursor:pointer;font-weight: bold;height: 26px;right: 6px;top: -22px;
-                                                                    
-                            width: 120px;box-shadow: 2px 2px 6px #154890;border: 1px solid #154890;"
-                        OnClick="btnFilter_Click" CausesValidation="False"/>
+                <div class="borerstep">
+                    <div class="stepfont">
+                        <div class="colfield_1">
+                                <label> Step 1: </label>
+                        </div>
+                            <div class="colfield_2">
+                                <ul class="step_line">
+                                <% 
+        //"City" vacation Rentals (count) "City" Hotesl (count)
+                                    for (int i = 0; i < 3; i++) {%>
+                                <li> <input type="radio" name="proptype" value="<%=prop_typeval[i]%>" /> <%=str_propcate[i] %> (<%=prop_nums[i] %>)</li>
+                            <%} %>
+                   
+                            </ul>
+                            </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="stepfont">
+                        <div class="colfield_1">
+                            <label> Step 2: </label> 
+                        </div>
+                        <div class="colfield_2">
+                            <ul class="step_line">
+                                <li>  <input type="radio"  name="roomnums"  value="1" /> 0-2 BD (<%=bedroominfo[1] %>)</li>
+                                <li> <input type="radio"   name="roomnums" value="2" /> 3-4 BD (<%=bedroominfo[2] %>)</li>
+                                <li> <input type="radio"  name="roomnums" value="3" /> 5+ BD (<%=bedroominfo[3] %>)</li>
+                                <li> <input type="radio"  name="roomnums" value="0" /> All (<%=bedroominfo[0] %>)</li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="stepfont">
+                        <div class="colfield_1">
+                                <label> Step 3: </label>
+                        </div>
+                        <div class="colfield_2">
+                            <ul class="step_line">
+                                <li> <input type="radio"  name="amenitytype" value="8" /> Hot Tub(<%=amenity_nums[0] %>)</li>
+                                <li> <input type="radio"  name="amenitytype" value="33" /> Internet(<%=amenity_nums[1] %>)</li>
+                                <li> <input type="radio"  name="amenitytype" value="1" /> Pets(<%=amenity_nums[2] %>)</li>
+                                <li> <input type="radio"  name="amenitytype" value="11" /> Pool(<%=amenity_nums[3] %>)</li>
+                                <li> <input type="radio"  name="amenitytype" value="0" /> All(<%=amenity_nums[4] %>)</li>
+                                </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="stepfont">
+                        <div class="colfield_1">
+                            <label> Step 4: </label>
+                        </div>
+                        <div class="colfield_s2">
+                            <ul class="step_line">
+                                <li> <input type="radio"  name="pricesort" value="1" /> High to Low Price</li>
+                                <li> <input type="radio"  name="pricesort" value="2" /> Low to High Price</li>
+                            </ul>
+                        </div>
+                        <div class="colfield_3">
+                            <div class="btn_wrapper">
+                                <input type="submit" id="refresh" class="btnsigns" value="Search" />
+                            </div>
+                        </div>
+                        <div class="clear"></div>
                     </div>
                 </div>
             </div>
-                </div>
-
-        </div>
     </div>
         <div class="srow">
             <div class="center">
@@ -153,6 +211,7 @@
                 <%
 
                     int counts = ds_PropList.Tables[0].Rows.Count;
+                    //For google map markers
                     for (int rind = 0; rind < counts; rind++)
                     {
                         if (rind != 0 && rind % 4 == 0)
@@ -207,8 +266,8 @@
 
                     <div class="subtitle" visible="true" id="OrangeTitle" runat="server">
 
-                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"><%=stateprovince %> Vacations: Things to see while on vacation in 
-                        <asp:Literal ID="ltrStateThing" runat="server"></asp:Literal> <%=country %></h2>
+                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"><%=countryinfo.StateProvince %> Vacations: Things to see while on vacation in 
+                        <asp:Literal ID="ltrStateThing" runat="server"></asp:Literal> <%=countryinfo.Country %></h2>
   
                     </div>
 
@@ -262,7 +321,7 @@
         var markers=<%=markers %>;
     </script>
 
-    <script type="text/javascript" defer="defer" src="/assets/js/state.js?3">
+    <script type="text/javascript" defer="defer" src="/assets/js/state.js?4">
     </script>
     <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=initializeMap">
     </script>

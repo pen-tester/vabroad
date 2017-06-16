@@ -94,6 +94,20 @@ public class CountryInfoWithCityID
     //Regions.Region, co.Country, co.City, co.CityText, co.descriptionoverride, co.titleoverride
 }
 
+public class CountryInfoWithStateID
+{
+    public string Region { get; set; }
+    public string StateProvince { get; set; }
+    public string Country { get; set; }
+    public string City { get; set; }
+    public string CityText { get; set; }
+    public string CityText2 { get; set; }
+    public string descriptionoverride { get; set; }
+    public string titleoverride { get; set; }
+
+
+    //Regions.Region, co.Country, co.City, co.CityText, co.descriptionoverride, co.titleoverride
+}
 
 public class CouponItem
 {
