@@ -148,7 +148,7 @@ public partial class StateProvinceList : CommonPage
         for (int stid = 0; stid < citycount; stid++)
         {
             DataRow drow = ds_citylocations.Tables[0].Rows[stid];
-            string comma = (stid == (citycount - 1)) ? ", " : "";
+            string comma = (stid == (citycount - 1)) ? "" : ", ";
             city_lists += (drow["City"]+comma);
         }
 
