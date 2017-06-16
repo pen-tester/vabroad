@@ -7,17 +7,20 @@
    <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
-    <meta name="keywords" content="<%=Server.HtmlDecode(newdescription) %>"/>
+    <meta name="description" content="<%=Server.HtmlDecode(String.Format("({0}) {1} vacation rentals and boutique hotels in {2}.",prop_nums[2],countryinfo.StateProvince, city_lists)) %>"/>
+    <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
     <style>
         .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
         /* For map*/                      
         #googlemap{width:95%; height:310px;margin:0 15px;}
-    /*For the step box*/
+        /*For the step box*/
         ul.step_line{display:block; margin:0;padding:0;}
         ul.step_line li{display:inline-block; padding:3px 0px;}
         .btn_wrapper{padding:5px 0 0 15px;display:inline-block;}
-    .cont_button{padding:20px 0; width:100%;}
+        .cont_button{padding:20px 0; width:100%;}
+        .country_list_box ul li:first-child{
+            color:#000;
+        }
      [class*=colfield_]{float:left;}
      @media(max-width:600px){
         .colfield_1{width:65px;}
@@ -62,12 +65,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
-    <asp:Label ID="Title" runat="server" Visible="false" Text="%stateprovince% %country% Vacation Rentals, %stateprovince% Vacation Home Rentals, %stateprovince% Holiday Accommodation"></asp:Label>
-    <asp:Label ID="Keywords" runat="server" Visible="false" Text="%stateprovince% vacation rentals, %stateprovince% Hotels, %stateprovince% Cottages, %stateprovince% B&Bs, %stateprovince% villas , "></asp:Label>
-    <asp:TextBox runat="server" ID="txtCityVal" value="" Style="display: none;"></asp:TextBox>
-    <asp:TextBox runat="server" ID="txtCityVal2" value="" Style="display: none;"></asp:TextBox>
-    <%--    <asp:TextBox runat="server" ID ="txtCityVal"  value="" Style="display:none;" ></asp:TextBox>
-    --%>
         <div class="scontainer">
             <input type="hidden" name="proptyperadio" value="<%=rproptype_id %>" />
             <input type="hidden" name="bedroomtyperadio" value="<%=rbedroom_id %>" />
@@ -263,20 +260,26 @@
 
             <div class="srow">
                    <div class="col-12">
-
+                    <!--If there is a city second description -->
+                       <%if (countryinfo.CityText2 != null && countryinfo.CityText2 != "")
+                           { %>
                     <div class="subtitle" visible="true" id="OrangeTitle" runat="server">
 
-                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"><%=countryinfo.StateProvince %> Vacations: Things to see while on vacation in 
-                        <asp:Literal ID="ltrStateThing" runat="server"></asp:Literal> <%=countryinfo.Country %></h2>
+                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"><%=countryinfo.StateProvince %> Vacations: Things to see while on vacation in <%=countryinfo.Country %></h2>
   
                     </div>
+                       <%} %>
+
+
 
                     <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                { %>
-                    <asp:TextBox ID="txtCityText2" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
-                    <center>
-                        <asp:Button ID="btnSubmit2" runat="server" Text="Save Text" OnClick="btnSubmit2_Click" /></center>
-                    <br />
+                    <div class="center">
+                        <asp:TextBox ID="txtCityText2" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
+                   
+                            <asp:Button ID="btnSubmit2" runat="server" Text="Save Text" OnClick="btnSubmit2_Click" />
+                        <br />
+                    </div>
                     <% } %>
                     <p>
                         <asp:Label ID="lblInfo2" runat="server" EnableViewState="False" CssClass="LightTextLower"></asp:Label></p>
@@ -287,21 +290,22 @@
         </div>
 
         <div class="country_list_box">
-
+            
             <ul>
+                <li><%=countryinfo.Country %> Regions: </li>
+                <% int statecount = ds_statelist.Tables[0].Rows.Count;
+                    for (int stid = 0; stid < statecount; stid++)
+                    {
+                        var drow = ds_statelist.Tables[0].Rows[stid];
+                        string href = String.Format("/{0}/{1}/default.aspx",countryinfo.Country,drow["StateProvince"] ); 
+                        string comma = (stid == (statecount - 1))?", ":""; %>
+
                 <li>
-                    <div id="rtHd3" runat="server" style="display: inline"></div>
+                    <a href="<%=href %>"><%=drow["StateProvince"] %><%=comma %></a>
                 </li>
-                <asp:Literal ID="rtLow3" runat="server"></asp:Literal>
+                <%} %>
             </ul>
             <br />
-            <ul>
-                <li>
-                    <div id="rtCountiesHd" runat="server" style="display: inline;"></div>
-                </li>
-                <asp:Literal ID="divCitiesRt" runat="server"></asp:Literal>
-            </ul>
-
         </div>
                            <asp:Label ID="lblInfo22" runat="server" ForeColor="Red" Style="display: none"></asp:Label>
 
