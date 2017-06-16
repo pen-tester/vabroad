@@ -120,10 +120,10 @@ public partial class StateProvinceList : CommonPage
         {
             numparam.Clear();
             numparam.Add(new SqlParameter("@stateid", stateprovinceid));
-           // numparam.Add(new SqlParameter("@proptype", prop_typeval[i]));
+            numparam.Add(new SqlParameter("@proptype", prop_typeval[i]));
            // numparam.Add(new SqlParameter("@roomnum", rbedroom_id));
             //numparam.Add(new SqlParameter("@proptype", rproptype_id));
-            numparam.Add(new SqlParameter("@amenityid", ramenity_id));
+           // numparam.Add(new SqlParameter("@amenityid", ramenity_id));
             prop_nums[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
         }
 
