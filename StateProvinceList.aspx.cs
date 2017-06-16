@@ -52,47 +52,18 @@ public partial class StateProvinceList : CommonPage
 
         List<SqlParameter> sparam = new List<SqlParameter>();
         sparam.Add(new SqlParameter("@stateid", stateprovinceid));
-
-        //Get the step box value
-        countryinfo = CommonProvider.ConvertToClassFromDataSet<CountryInfoWithCityID>(BookDBProvider.getDataSet("uspGetCountryInfoWithStateID", sparam));
-        str_propcate[0] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[0]);
-        str_propcate[1] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[1]);
-        
-        List<SqlParameter> numparam = new List<SqlParameter>();
-        for (int i = 0; i < 4; i++)
-        {
-            numparam.Clear();
-            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
-            numparam.Add(new SqlParameter("@roomnum", i));
-            bedroominfo[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
-        }
-            
-        for (int i = 0; i < 5; i++)
-        {
-            numparam.Clear();
-            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
-            numparam.Add(new SqlParameter("@amenityid", amenity_id[i]));
-            amenity_nums[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
-            numparam.Clear();
-            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
-            numparam.Add(new SqlParameter("@proptype", prop_typeval[i]));
-            prop_nums[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
-        }
-
         //For H1 title, state province text, links
         hyperRegion.NavigateUrl = "/" + countryinfo.Region.ToLower().Replace(" ", "_") + "/default.aspx";
         hyplnkCountryBackLink.NavigateUrl = "/" + countryinfo.Country.ToLower().Replace(" ", "_") + "/default.aspx";
 
-        ltrH1.Text = countryinfo.City + " Vacation Rentals and " + countryinfo.City + " Hotels";
+        ltrH1.Text = countryinfo.StateProvince + " Vacation Rentals and " + countryinfo.StateProvince + " Hotels";
         lblcityInfo.Text = Server.HtmlDecode(countryinfo.CityText);
         if (countryinfo.CityText == null || countryinfo.CityText == "")
         {
             lblcityInfo.Text = String.Format("Vacations-abroad.com is a {0} {1} vacation rental directory of short term {0} vacation condos, privately owned {0} villas and {0} rentals by owner. Our unique and exotic boutique {0} hotels and luxury {0} resorts are perfect {0} {1} rentals for family and groups that are looking for vacation rentals in {0} {1}", countryinfo.City, countryinfo.Country);
         }
+
+        ltrHeading.Text = String.Format("{0} Province Vacation Rentals and {0} Province Hotels",countryinfo.StateProvince);
 
         //For stepbox radio button value, description text
         if (!IsPostBack)
@@ -115,6 +86,47 @@ public partial class StateProvinceList : CommonPage
             pagenum = Int32.Parse(Request.Form["pagenums"]);
 
         }
+
+
+        //Get the step box value
+        countryinfo = CommonProvider.ConvertToClassFromDataSet<CountryInfoWithCityID>(BookDBProvider.getDataSet("uspGetCountryInfoWithStateID", sparam));
+        str_propcate[0] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[0]);
+        str_propcate[1] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[1]);
+
+        List<SqlParameter> numparam = new List<SqlParameter>();
+        for (int i = 0; i < 4; i++)
+        {
+            numparam.Clear();
+            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
+            numparam.Add(new SqlParameter("@roomnum", i));
+            numparam.Add(new SqlParameter("@amenityid", ramenity_id));
+            numparam.Add(new SqlParameter("@proptype", rproptype_id));
+            //dsparam.Add(new SqlParameter("@roomnum", rbedroom_id));
+            //dsparam.Add(new SqlParameter("@amenityid", ramenity_id));
+            bedroominfo[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            numparam.Clear();
+            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
+            numparam.Add(new SqlParameter("@roomnum", rbedroom_id));
+            numparam.Add(new SqlParameter("@proptype", rproptype_id));
+            numparam.Add(new SqlParameter("@amenityid", amenity_id[i]));
+            amenity_nums[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            numparam.Clear();
+            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
+            numparam.Add(new SqlParameter("@proptype", prop_typeval[i]));
+            numparam.Add(new SqlParameter("@roomnum", rbedroom_id));
+            //numparam.Add(new SqlParameter("@proptype", rproptype_id));
+            numparam.Add(new SqlParameter("@amenityid", ramenity_id));
+            prop_nums[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
+        }
+
 
         //Get the property list for the state province
 

@@ -325,7 +325,7 @@
         var markers=<%=markers %>;
     </script>
 
-    <script type="text/javascript" defer="defer" src="/assets/js/state.js?5">
+    <script type="text/javascript" defer="defer" src="/assets/js/state.js?6">
     </script>
     <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=initializeMap">
     </script>
