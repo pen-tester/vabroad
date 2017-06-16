@@ -137,7 +137,7 @@ public partial class StateProvinceList : CommonPage
         ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", param);
         markers = CommonProvider.getMarkersJsonString(ds_citylocations);
 
-        lblInfo2.Text = countryinfo.CityText2.Replace("<br />", Environment.NewLine );
+        lblInfo2.Text = Server.HtmlDecode(countryinfo.CityText2).Replace("<br />", Environment.NewLine );
 
         param.Clear();
         param.Add(new SqlParameter("@stateid", stateprovinceid));
