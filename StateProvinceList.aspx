@@ -297,7 +297,7 @@
                     for (int stid = 0; stid < statecount; stid++)
                     {
                         var drow = ds_statelist.Tables[0].Rows[stid];
-                        string href = String.Format("/{0}/{1}/default.aspx",countryinfo.Country,drow["StateProvince"] ); 
+                        string href = String.Format("/{0}/{1}/default.aspx",countryinfo.Country,drow["StateProvince"] ).ToLower().Replace(" ","_"); 
                         string comma = (stid == (statecount - 1))?"":", "; %>
 
                 <li>
