@@ -76,15 +76,7 @@ public partial class newCityList : CommonPage
         // propertylist.DataSource = propertyset;
         // propertylist.DataBind();
         // propertytypes = SearchProvider.getPropertyTypeListSet(strkeyword);
-        for (int i = 0; i < 4; i++)
-            bedroominfo[i] = SearchProvider.getNumbersOfCityID(cityid, 0, 0, i);
-        for (int i = 0; i < 5; i++)
-            amenity_nums[i] = SearchProvider.getNumbersOfCityID(cityid, 0, amenity_id[i], 0);
 
-        for (int i = 0; i < 3; i++)
-        {
-            prop_nums[i] = SearchProvider.getNumbersOfCityID(cityid, prop_typeval[i], 0, 0);
-        }
         // ajax_proplist = SearchProvider.getAjaxPropListSet(strkeyword, 0, 0, 0, 0, 0);
 
         // Response.Write(cityid + " City");
@@ -136,6 +128,16 @@ public partial class newCityList : CommonPage
 
         }
 
+        //Get the step box value
+        for (int i = 0; i < 4; i++)
+            bedroominfo[i] = SearchProvider.getNumbersOfCityID(cityid, rproptype_id, ramenity_id, i);
+        for (int i = 0; i < 5; i++)
+            amenity_nums[i] = SearchProvider.getNumbersOfCityID(cityid, rproptype_id, amenity_id[i], rbedroom_id);
+
+        for (int i = 0; i < 3; i++)
+        {
+            prop_nums[i] = SearchProvider.getNumbersOfCityID(cityid, prop_typeval[i], 0, 0);
+        }
 
         proplistset = SearchProvider.getAjaxAllPropListSetWithCityID(cityid, rproptype_id, ramenity_id, rbedroom_id,rsort_id);
         for(int i=0;i< proplistset.allnums; i++)
