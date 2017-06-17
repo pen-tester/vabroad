@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var statename = $('#statename').val();
-    var title = "Vacations Abroad is a directory of " + statename + " Vacation Rentals and " + statename + " Hotels";
+    var title = "Vacations Abroad is a directory of " + statename + " Vacation Rentals and " + statename + " Boutique Hotels";
     $('#footerlogo').attr({ "title": title, "alt": title });
 
     //For step box item width

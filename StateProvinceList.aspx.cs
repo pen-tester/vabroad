@@ -68,7 +68,7 @@ public partial class StateProvinceList : CommonPage
             lblcityInfo.Text = String.Format("Vacations-abroad.com is a {0} {1} vacation rental directory of short term {0} vacation condos, privately owned {0} villas and {0} rentals by owner. Our unique and exotic boutique {0} hotels and luxury {0} resorts are perfect {0} {1} rentals for family and groups that are looking for vacation rentals in {0} {1}", countryinfo.City, countryinfo.Country);
         }
 
-        ltrHeading.Text = String.Format("{0} Province Vacation Rentals and {0} Province Hotels",countryinfo.StateProvince);
+        ltrHeading.Text = String.Format("{0} Vacation Rentals and {0} Hotels",countryinfo.StateProvince);
 
         //For stepbox radio button value, description text
         if (!IsPostBack)
