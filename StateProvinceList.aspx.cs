@@ -76,7 +76,7 @@ public partial class StateProvinceList : CommonPage
             txtCityText.Text = Server.HtmlDecode(countryinfo.CityText).Replace("<br />", Environment.NewLine);
             txtCityText2.Text = Server.HtmlDecode(countryinfo.CityText2).Replace("<br />", Environment.NewLine);
             //txtCityText2.Text = countryinfo.CityText2;
-            rproptype_id = 2;
+            rproptype_id = 0;
             rbedroom_id = 0;
             ramenity_id = 0;
             rsort_id = 0;
