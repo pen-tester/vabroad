@@ -46,7 +46,7 @@ $(document).ready(function () {
     //For footer image logo alt text
     
     var cityname = $('#cityname').val();
-    var title = "Vacations Abroad is a directory of "+cityname+" Vacation Rentals and "+cityname+" Hotels";
+    var title = "Vacations Abroad is a directory of " + cityname + " Vacation Rentals and " + cityname + " Boutique Hotels";
     $('#footerlogo').attr({ "title": title, "alt": title });
     //For map
    // initialize();
