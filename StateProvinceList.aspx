@@ -188,7 +188,7 @@
                         </div>
                         <div class="colfield_s2">
                             <ul class="step_line">
-                                <li> <input type="radio"  name="pricesort" value="1" /> High to Low Price</li>
+                                <li> <input type="radio"  name="pricesort" value="1" /> Higher Rate</li>
                                 <li> <input type="radio"  name="pricesort" value="2" /> Low to High Price</li>
                                 <li> <input type="radio"  name="pricesort" value="0" /> All</li>
                             </ul>
