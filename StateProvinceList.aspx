@@ -162,7 +162,7 @@
                                 <li>  <input type="radio"  name="roomnums"  value="1" /> 0-2 BD (<%=bedroominfo[1] %>)</li>
                                 <li> <input type="radio"   name="roomnums" value="2" /> 3-4 BD (<%=bedroominfo[2] %>)</li>
                                 <li> <input type="radio"  name="roomnums" value="3" /> 5+ BD (<%=bedroominfo[3] %>)</li>
-                                <li> <input type="radio"  name="roomnums" value="0" /> All (<%=bedroominfo[0] %>)</li>
+                                <li> <input type="radio"  name="roomnums" value="0" /> Display All (<%=bedroominfo[0] %>)</li>
                             </ul>
                         </div>
                         <div class="clear"></div>
@@ -177,7 +177,7 @@
                                 <li> <input type="radio"  name="amenitytype" value="33" /> Internet(<%=amenity_nums[1] %>)</li>
                                 <li> <input type="radio"  name="amenitytype" value="1" /> Pets(<%=amenity_nums[2] %>)</li>
                                 <li> <input type="radio"  name="amenitytype" value="11" /> Pool(<%=amenity_nums[3] %>)</li>
-                                <li> <input type="radio"  name="amenitytype" value="0" /> All(<%=amenity_nums[4] %>)</li>
+                                <li> <input type="radio"  name="amenitytype" value="0" /> Display All(<%=amenity_nums[4] %>)</li>
                                 </ul>
                         </div>
                         <div class="clear"></div>
@@ -188,9 +188,9 @@
                         </div>
                         <div class="colfield_s2">
                             <ul class="step_line">
-                                <li> <input type="radio"  name="pricesort" value="1" /> Higher Rate</li>
-                                <li> <input type="radio"  name="pricesort" value="2" /> Low to High Price</li>
-                                <li> <input type="radio"  name="pricesort" value="0" /> All</li>
+                                <li> <input type="radio"  name="pricesort" value="1" /> High to Low Rate</li>
+                                <li> <input type="radio"  name="pricesort" value="2" /> Low to High Rate</li>
+                                <li> <input type="radio"  name="pricesort" value="0" /> Display All</li>
                             </ul>
                         </div>
                         <div class="colfield_3">
