@@ -253,42 +253,44 @@ public partial class PropertyPhotos : ClosedPage
 		//lock (CommonFunctions.Connection)
 			PropertiesAdapter.Update (PropertiesSet);
 
-        //get top photo and make thumbnail if not already exist..don't forget to delete thumbnails when delete, names not in db
-            DBConnection obj = new DBConnection();
-            try
-            {
-                DataTable dt = VADBCommander.PropertyPhotoTopOne(propertyid.ToString());
-                //create thumbnail for top photo or overwrite
-                if (dt.Rows.Count > 0)
-                {
-                    File.Delete("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\TH" + dt.Rows[0]["filename"].ToString());
+        /*
+         //get top photo and make thumbnail if not already exist..don't forget to delete thumbnails when delete, names not in db
+             DBConnection obj = new DBConnection();
+             try
+             {
+                 DataTable dt = VADBCommander.PropertyPhotoTopOne(propertyid.ToString());
+                 //create thumbnail for top photo or overwrite
+                 if (dt.Rows.Count > 0)
+                 {
+                     File.Delete("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\TH" + dt.Rows[0]["filename"].ToString());
 
-                    //see if file exists
-                    if (!File.Exists("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\TH" + dt.Rows[0]["filename"].ToString()))
-                    {
-                        System.IO.FileStream streamFrom = new System.IO.FileStream("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\" + dt.Rows[0]["filename"].ToString(), System.IO.FileMode.Open, System.IO.FileAccess.Read);
-                        System.IO.FileStream streamTo = new FileStream("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\TH" + dt.Rows[0]["filename"].ToString(), FileMode.Create, FileAccess.Write);
+                     //see if file exists
+                     if (!File.Exists("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\TH" + dt.Rows[0]["filename"].ToString()))
+                     {
+                         System.IO.FileStream streamFrom = new System.IO.FileStream("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\" + dt.Rows[0]["filename"].ToString(), System.IO.FileMode.Open, System.IO.FileAccess.Read);
+                         System.IO.FileStream streamTo = new FileStream("C:\\Inetpub\\wwwroot\\vacations-abroad\\httpdocs\\images\\TH" + dt.Rows[0]["filename"].ToString(), FileMode.Create, FileAccess.Write);
 
-                        ResizeImage(streamFrom, streamTo);
-                    }
-                }
-            }
-            catch (Exception ex) { lblInfo.Text = ex.Message; }
-                finally { obj.CloseConnection(); }
-        //get top photo and make thumbnail if not already exist..don't forget to delete thumbnails when delete, names not in db
+                         ResizeImage(streamFrom, streamTo);
+                     }
+                 }
+             }
+             catch (Exception ex) { lblInfo.Text = ex.Message; }
+                 finally { obj.CloseConnection(); }
+         //get top photo and make thumbnail if not already exist..don't forget to delete thumbnails when delete, names not in db
 
-		if (ifadd)
-			if (ifauction)
-				Response.Redirect (CommonFunctions.PrepareURL ("MakePayment.aspx?UserID=" + userid.ToString () +
-					"&AuctionID=" + auctionid.ToString (), backlinktext));
-			else
-				Response.Redirect (CommonFunctions.PrepareURL ("PublishProperty.aspx?UserID=" + userid.ToString () +
-					"&PropertyID=" + propertyid.ToString (), backlinktext));
-		else if (ifauction)
-			Response.Redirect (CommonFunctions.PrepareURL ("MyAccount.aspx"));
-		else
-			Response.Redirect (backlinkurl);
-	}
+         if (ifadd)
+             if (ifauction)
+                 Response.Redirect (CommonFunctions.PrepareURL ("MakePayment.aspx?UserID=" + userid.ToString () +
+                     "&AuctionID=" + auctionid.ToString (), backlinktext));
+             else
+                 Response.Redirect (CommonFunctions.PrepareURL ("PublishProperty.aspx?UserID=" + userid.ToString () +
+                     "&PropertyID=" + propertyid.ToString (), backlinktext));
+         else if (ifauction)
+             Response.Redirect (CommonFunctions.PrepareURL ("MyAccount.aspx"));
+         else
+             Response.Redirect (backlinkurl);
+             */
+    }
     public void ResizeImage(Stream fromStream, Stream toStream)
     {
         System.Drawing.Image image = System.Drawing.Image.FromStream(fromStream);
