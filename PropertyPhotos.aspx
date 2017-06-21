@@ -10,20 +10,14 @@
     <div class="internalpagewidth">
         <div class="srow center">
 	<% if (BackLink.Visible) { %>
-    <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="250" align="center"
-        border="2">
-        <tr>
-            <td>
-                <div align="center">
+                <div class="center">
+                    <br />
                     <strong>
                         <asp:HyperLink ID="BackLink" runat="server" NavigateUrl="MyAccount.aspx">
 							Return to My Account page
                         </asp:HyperLink>
                     </strong>
                 </div>
-            </td>
-        </tr>
-    </table>
 	<br />
 	<% }   %>
 	<div align="left" style="padding-left:10px">

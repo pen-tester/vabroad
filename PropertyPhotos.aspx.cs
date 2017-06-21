@@ -66,7 +66,7 @@ public partial class PropertyPhotos : ClosedPage
 					//lock (CommonFunctions.Connection)
 						PhotosAdapter.Fill (PhotosSet);
 
-					allowupload = morethan7allowed || (PhotosSet.Tables["PropertyPhotos"].Rows.Count < 7);
+					allowupload = morethan7allowed || (PhotosSet.Tables["PropertyPhotos"].Rows.Count < 15);
 
 					if (!IsPostBack)
 						DataBind ();
@@ -76,7 +76,7 @@ public partial class PropertyPhotos : ClosedPage
 			}
 		}
 
-        object auctionidresult = null;
+      /*  object auctionidresult = null;
         using(SqlConnection connection = CommonFunctions.GetConnection()) {
             connection.Open();
             SqlCommand GetAuctionID = new SqlCommand("SELECT ID FROM Auctions WHERE PropertyID = @PropertyID", connection);
@@ -108,7 +108,7 @@ public partial class PropertyPhotos : ClosedPage
 
 			allowupload = true;
 		}
-
+        */
 		if (ifadd)
 			FinishButton.Text = "Next Step";
 		else
