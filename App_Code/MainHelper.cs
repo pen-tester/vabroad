@@ -187,7 +187,7 @@ public class MainHelper
         LatLongInfo info = getCityLocationInfo(addr, country);
         if(info.status <2)
         {
-            addr = String.Format("{0}, {2}", city, country);
+            addr = String.Format("{0}, {1}", city, country);
             info = getCityLocationInfo(addr, country);
         }
         return info;
