@@ -165,7 +165,7 @@ public partial class ViewProperty : CommonPage
         if ((bool)PropertiesFullSet.Tables["Properties"].Rows[0]["IfMoreThan7PhotosAllowed"])
         {
             PhotosAdapter.SelectCommand.CommandText =
-                PhotosAdapter.SelectCommand.CommandText.Replace(" TOP 7", "");
+                PhotosAdapter.SelectCommand.CommandText.Replace(" TOP 15", "");
 
 
             PhotosAdapter.Fill(ExtraPhotosSet);
@@ -754,7 +754,7 @@ public partial class ViewProperty : CommonPage
         // 
         // sqlCommand1
         // 
-        this.sqlCommand1.CommandText = "SELECT TOP 7 ID, PropertyID, FileName, OrderNumber, Width, Height FROM PropertyPh" +
+        this.sqlCommand1.CommandText = "SELECT TOP 15 ID, PropertyID, FileName, OrderNumber, Width, Height FROM PropertyPh" +
             "otos WHERE (PropertyID = @PropertyID) ORDER BY OrderNumber";
         this.sqlCommand1.Connection = CommonFunctions.GetConnection();
         this.sqlCommand1.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PropertyID", System.Data.SqlDbType.Int, 4, "PropertyID"));
