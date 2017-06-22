@@ -109,10 +109,10 @@ public class MainHelper
         return param_list;
     }
 
-    public static LatLongInfo getCityLocation(string city, string state, string country)
+    public static LatLongInfo getCityLocationInfo(string addr,string country)
     {
         LatLongInfo info = new LatLongInfo();
-        string url = "http://maps.google.com/maps/api/geocode/json?address=" + String.Format("{0}, {1}, {2}", city, state, country) + "&sensor=false";
+        string url = "http://maps.google.com/maps/api/geocode/json?address=" + addr + "&sensor=false";
 
         try
         {
@@ -125,13 +125,13 @@ public class MainHelper
                     string resp = reader.ReadToEnd();
                     JObject jobj = JObject.Parse(resp);
 
-                     
+
                     //If the result is successful
                     if (jobj["status"].ToString() == "OK")
                     {
                         JArray jarr = (JArray)jobj["results"];
                         JObject j_addr = (JObject)jarr[0];
-                        info.latitude =Double.Parse(j_addr["geometry"]["location"]["lat"].ToString());
+                        info.latitude = Double.Parse(j_addr["geometry"]["location"]["lat"].ToString());
                         info.longitude = Double.Parse(j_addr["geometry"]["location"]["lng"].ToString());
                         info.status = 1;
                     }
@@ -148,7 +148,7 @@ public class MainHelper
                         using (var detail_reader = new StreamReader(det_response.GetResponseStream(), Encoding.UTF8))
                         {
                             string details_loc = detail_reader.ReadToEnd();
-                            
+
                             JObject details = JObject.Parse(details_loc);
                             if (details["status"].ToString() != "OK") return info;
 
@@ -168,17 +168,28 @@ public class MainHelper
                             det_response.Close();
                         }
                     }
-                    
+
 
                 }
             }
-        }catch(Exception e)
+        }
+        catch (Exception e)
         {
-           throw e;
+            throw e;
         }
         return info;
     }
 
+    public static LatLongInfo getCityLocation(string city, string state, string country)
+    {
 
-
+        string addr = String.Format("{0}, {1}, {2}", city, state, country);
+        LatLongInfo info = getCityLocationInfo(addr, country);
+        if(info.status <2)
+        {
+            addr = String.Format("{0}, {2}", city, country);
+            info = getCityLocationInfo(addr, country);
+        }
+        return info;
+    }
 }
