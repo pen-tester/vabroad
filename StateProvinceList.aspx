@@ -229,7 +229,7 @@
                           string alt;
                           int prop_cat;
                           int.TryParse(vrow["Category"].ToString(), out prop_cat);
-                          if (proptypeinfo.Contains(prop_cat)) alt = vrow["Name2"].ToString() + " is a Boutique Hotel";
+                          if (proptypeinfo.Contains(prop_cat)) alt = vrow["Name2"].ToString();
                           else alt = vrow["Name2"].ToString();
 
 
