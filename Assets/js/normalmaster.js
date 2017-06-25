@@ -50,6 +50,8 @@ function window_resize(){
     else {
         console.log("there is not google cache");
     }
+
+    $('.footertopline').width($('.headerunderline').width());
 }
 
 function redirect() {
