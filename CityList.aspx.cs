@@ -33,7 +33,7 @@ public partial class newCityList : CommonPage
 
     // public string[] str_propcate = { "Chalet", "Apartment", "Villa", "Hotel", "Cottage", "Boat", "Castle", "B&B", "Guesthouse", "Farmhouse", "Display All" };
     // public int[] prop_typeval = { 17, 4, 1, 2, 9, 15, 16, 5, 11, 13, 0 };
-    public string[] str_propcate = { "Vacation Rentals", "Hotels, Resorts & Guesthouses", "All" };
+    public string[] str_propcate = { "Vacation Rentals", "Boutique Hotels, Resorts & Guesthouses", "All" };
     public int[] prop_typeval = { 1, 2, 0 };
     public int[] prop_nums = new int[3];
     public int[] bedroom_id = { 1, 2, 3, 0 };
@@ -91,7 +91,7 @@ public partial class newCityList : CommonPage
         hyplnkCountryBackLink.NavigateUrl = "/" +  countryinfo.Country.ToLower().Replace(" ", "_") + "/default.aspx";
         hyplnkStateBackLink.NavigateUrl = "/" + countryinfo.Country.ToLower().Replace(" ", "_") + "/" + countryinfo.StateProvince.ToLower().Replace(" ", "_") + "/default.aspx";
 
-        ltrH11.Text = countryinfo.City + " Vacation Rentals and "+ countryinfo.City + " Hotels";
+        ltrH11.Text = countryinfo.City + "  Vacation Rentals and Boutique Hotels";
         lblcity.Text = Server.HtmlDecode( countryinfo.CityText);
         if (countryinfo.CityText == null || countryinfo.CityText == "")
         {

@@ -4,6 +4,7 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
          #googlemap{width:95%; height:310px;margin:0 15px;}
+        .footer_text{padding:25px 0 0 0;}
     </style>
 </asp:Content>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
@@ -98,6 +99,9 @@
                         <p><asp:Label ID="lblInfo2" CssClass="contentstyle" runat="server" EnableViewState="False"></asp:Label>
                             </p>
             </div>
+        </div>
+        <div class="footer_text">
+            <%=String.Format("{0} vacation rentals and {0} boutique hotels are the perfect opportunity to indulge in {0} vacations.",country) %>
         </div>
         <div class="srow contentpadding">
                 <ul class="countrylist">

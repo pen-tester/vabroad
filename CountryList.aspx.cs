@@ -284,7 +284,8 @@ public partial class CountryList : CommonPage
 		    hyplnkAllProps.NavigateUrl = "/" + country.ToLower().Replace(" ", "_") + "/countryproperties.aspx";
                     ltrAllProps.Text = " View all " + char.ToUpper(country[0]) + country.Substring(1) + " properties";
                     string scountry=char.ToUpper(country[0]) + country.Substring(1);
-                    ltrHeading.Text = scountry + " Vacation Rentals and "+scountry+" Hotels";
+                    country = scountry;
+                    ltrHeading.Text = scountry + " Vacation Rentals and Boutique Hotels";
 
                     page.Title = char.ToUpper(country[0]) + country.Substring(1) + " Vacation Rentals, Boutique Hotels | Vacations Abroad";
 
@@ -332,7 +333,8 @@ public partial class CountryList : CommonPage
 			hyplnkAllProps.NavigateUrl = "/" + country.ToLower().Replace(" ", "_") + "/countryproperties.aspx";
 			ltrAllProps.Text = " View all " + char.ToUpper(country[0]) + country.Substring(1) + " properties";
                         string scountry = char.ToUpper(country[0]) + country.Substring(1);
-                        ltrHeading.Text = scountry + " Vacation Rentals and " + scountry + " Hotels"; 
+                        country = scountry;
+                        ltrHeading.Text = scountry + " Vacation Rentals and Boutique Hotels"; 
 
                         //ltrCountryThing.Text = char.ToUpper(country[0]) + country.Substring(1);
                         page.Title = char.ToUpper(country[0]) + country.Substring(1) + " Vacation Rentals, Boutique Hotels | Vacations Abroad";

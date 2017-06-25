@@ -8,6 +8,9 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
     <style>
+    /*For footer text*/
+       .footer_text{padding:25px 0 0 0;}
+    /* For map*/
         .smap{height:300px;min-height:1px;margin:15px 20px; }
         .borerstep{display:none;}
     /*For the step box*/
@@ -396,6 +399,11 @@
             <!-- Hidden Values -->
                 <input type="hidden"  id="cityid" value="<%=cityid %>"  />
                 <input type="hidden"  id="CityParam" name="CityParam"  runat="server" /> 
+            <!--Footer text -->
+            <div class="footer_text">
+               <%=String.Format("{0} vacation rentals and {0} boutique hotels let you indulge in {0} vacations", countryinfo.City) %> 
+
+            </div>
             <!-- Bottom City list -->
              <div class="row">
                  <div class="srow normalbottom">
@@ -413,6 +421,9 @@
                      </ul>
                  </div> 
              </div>
+
+
+
             <div class="smallgap">
 
             </div>

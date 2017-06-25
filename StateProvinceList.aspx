@@ -11,6 +11,7 @@
     <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
     <style>
         .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
+        .footer_text{padding:25px 0 0 0;}
         /* For map*/                      
         #googlemap{width:95%; height:310px;margin:0 15px;}
         /*For the step box*/
@@ -289,7 +290,9 @@
             </div>
 
         </div>
-
+        <div class="footer_text">
+           <%=String.Format("{0} vacations offer you the chance to enjoy unique {0} vacation rentals and {0} boutique hotels.",countryinfo.StateProvince) %>  
+        </div>
         <div class="country_list_box">
             
             <ul>
