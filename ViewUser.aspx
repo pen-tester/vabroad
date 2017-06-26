@@ -6,6 +6,7 @@
     <style>.marginBody{margin-top:20px;}</style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
 <div class="internalpage">
     <div class="srow marginBody">
@@ -129,5 +130,6 @@
     </div>
 </div>
             </div>
+</form>
 </asp:Content>
 

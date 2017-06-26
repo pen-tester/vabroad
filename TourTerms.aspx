@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="TourTerms.aspx.cs" Inherits="TourTerms" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
  <div class="internalpage">
      <div class="srow">
@@ -63,5 +64,6 @@
      </div>
  </div>
             </div>
+</form>
 </asp:Content>
 

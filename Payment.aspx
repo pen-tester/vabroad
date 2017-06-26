@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="Payment.aspx.cs" Inherits="userowner_Payment" %>
+﻿<%@ Page Language="C#" MasterPageFile="/masterpage/masterMobile.master" AutoEventWireup="true" CodeFile="Payment.aspx.cs" Inherits="userowner_Payment" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Payment
 </asp:Content>
@@ -40,6 +40,7 @@
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server" >
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpagewidth">
     <div class="internalpagewidth">
@@ -178,5 +179,6 @@
     </div>
             </div>
     <script src="/Assets/js/payment.js" defer="defer"></script>
+</form>
 </asp:Content>
 

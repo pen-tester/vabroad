@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="/masterpage/mastermobile.master" CodeFile="treeview.aspx.cs" Inherits="treeview" %>
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+<form id="mainform" runat="server">
         <div class="scontainer">
        <div>        
         
@@ -11,4 +12,5 @@
         </asp:TreeView>
     </div>
             </div>
+</form>
 </asp:Content>

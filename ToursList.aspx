@@ -3,6 +3,7 @@
     EnableEventValidation="false" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
@@ -1342,4 +1343,5 @@ tt_u = "undefined";
         tt_Init();
 
         </script>
+</form>
 </asp:Content>

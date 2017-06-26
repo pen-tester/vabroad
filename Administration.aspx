@@ -1,5 +1,6 @@
 <%@ page language="C#" masterpagefile="/masterpage/mastermobile.master" autoeventwireup="true" CodeFile="~/Administration.aspx.cs" inherits="Administration" title="Administration" enableeventvalidation="false" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+    <form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpagewidth">
 <div class="srow">
@@ -367,4 +368,5 @@
     </script>
     
     </div>
+</form>
 </asp:Content>

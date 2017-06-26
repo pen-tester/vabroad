@@ -5,6 +5,7 @@
 <%@ OutputCache Duration="600" VaryByParam="*" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
   <div class="internalpage srow">
   <div style="height: 413px;">
@@ -334,4 +335,5 @@
   </div>
     </div>
     <!--EOF tab_container-->
+</form>
 </asp:Content>

@@ -9,6 +9,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+    <form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpagewidth">
     <div class="newline centered">
@@ -143,4 +144,5 @@
   
 </div>
     <script src="/Assets/js/accountinfo.js"></script>
+</form>
 </asp:Content>

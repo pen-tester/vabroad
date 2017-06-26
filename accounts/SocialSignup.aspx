@@ -30,6 +30,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
+    <form id="mainform" runat="server">
            <div class="scontainer">
         <div id="" class="internalpage">	
                <div class="srow">
@@ -72,6 +73,6 @@
                </div>
 
 
-
+        </form>
 
 </asp:Content>

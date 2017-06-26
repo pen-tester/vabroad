@@ -1,161 +1,90 @@
-﻿
-var country, state, city, pinCode;
-function createCORSRequest(method, url) {
-    var xhr = new XMLHttpRequest();
-
-    if ("withCredentials" in xhr) {
-        // XHR for Chrome/Firefox/Opera/Safari.
-        xhr.open(method, url, true);
-
-    } else if (typeof XDomainRequest != "undefined") {
-        // XDomainRequest for IE.
-        xhr = new XDomainRequest();
-        xhr.open(method, url);
-
-    } else {
-        // CORS not supported.
-        xhr = null;
-    }
-    return xhr;
-}
-function getLocationDetails() {
-
-    var States = document.getElementById('<%= hdnState.ClientID %>').value;
-    var Countrys = document.getElementById('<%= hdnCountry.ClientID %>').value;
-    latitude1 = document.getElementById("Latitude").value;
-    longitude1 = document.getElementById("Longitude").value;
-    var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-            latitude1 + "," + longitude1 + "&sensor=false";
-    var xhr = createCORSRequest('POST', url);
-    if (!xhr) {
-        alert('CORS not supported');
-    }
-
-    xhr.onload = function () {
-
-        var data = JSON.parse(xhr.responseText);
-
-        if (data.results.length > 0) {
-            var locationDetails;
-            var EntCity = document.getElementById('<%= CityNew.ClientID %>').value;
-
-            if (EntCity == '' || EntCity == 'undefined') {
-                var hdcty = document.getElementById('city');
-                EntCity = hdcty.options[hdcty.selectedIndex].text;
-                document.getElementById('<%= hdcity.ClientID %>').value = EntCity;
-            }
-            var isvalid = "false";
-            for (var i = 0; i < data.results.length; i++) {
-                locationDetails = data.results[i].formatted_address.toLowerCase();
-                if (parseInt(locationDetails.indexOf(EntCity.toLowerCase().replace(/ /g, ''))) >= 0) {
-                    isvalid = "true";
-                    break;
-                }
-            }
-            if (isvalid == "false") {
-                document.getElementById('<%= CityNew.ClientID %>').value = '';
-                alert("No location available for provided details.");
-                document.getElementById('<%= CityNew.ClientID %>').focus();
-            } else {
-                document.getElementById('<%= hdnLatitude.ClientID %>').value = latitude1;
-                document.getElementById('<%= hdnLongitude.ClientID %>').value = longitude1;
-            }
-
+﻿var current_page = 0;
+$(document).ready(function () {
+    $("#wzardstep" + current_page).show();
+    //For clicking step wizard 
+    $('div.step').click(function () {
+        var target = $(this).attr('data-target');
+        if (!$('div.step[data-target="' + target + '"]').parent().hasClass("done")) return;
+        switchPage(target);
+        buttongroup(current_page);
+    });
+    //For step button event
+    $('.btnprev').click(function () {
+        if (current_page > 0) {
+            switchPage(current_page - 1);
+            buttongroup(current_page);
         }
-        else {
-            alert("No location available for provided details.");
+    });
+    $('.btnnext').click(function () {
+        if (current_page < 3 && validatePage(current_page)) {
+            switchPage(current_page + 1);
+            buttongroup(current_page);
         }
+    });
+    $('input').keypress(function () {
+        $(this).removeClass('error_required');
+        $(this).parent().find('.error_msg').remove();
+    });
+    buttongroup(current_page);
+});
 
-    };
+function switchPage(target) {
+    for (var i = target; i < 4; i++) {
+        $('div.step[data-target="' + i + '"]').parent().removeClass("done").removeClass("active");
+    }
 
-    xhr.onerror = function () {
-        alert('Woops, there was an error making the request.');
+    for (var i =0 ; i < target; i++) {
+        $('div.step[data-target="' + i + '"]').parent().addClass("done").removeClass("active");
+    }
 
-    };
-    xhr.send();
-
+    $("#wzardstep" + current_page).hide();
+    $("#wzardstep" + target).css({ "left": 300, "opacity": 0 });
+    $("#wzardstep" + target).show();
+    $("#wzardstep" + target).animate({
+        opacity: 1.0,
+        left: 0,
+    }, 300, function () {
+        // Animation complete.
+    });
+    current_page = parseInt(target);
+    $('div.step[data-target="' + current_page + '"]').parent().addClass("active");
 }
 
-
-function GetLocation() {
-    var hdcounty = document.getElementById('country');
-    var hdState = document.getElementById('state');
-    var hdcnty = document.getElementById('<%= hdnCountry.ClientID %>').value;
-    var hdsts = document.getElementById('<%= hdnState.ClientID %>').value;
-    if (hdcnty == '' && hdsts == '') {
-        document.getElementById('<%= hdnCountry.ClientID %>').value = hdcounty.options[hdcounty.selectedIndex].text;
-        document.getElementById('<%= hdnState.ClientID %>').value = hdState.options[hdState.selectedIndex].text;
-    }
-
-    var geocoder = new google.maps.Geocoder();
-    var address = document.getElementById('<%= CityNew.ClientID %>').value;
-
-    if (address == '' || address == 'undefined' || address == 'Other (please specify)') {
-        var hdcty = document.getElementById('city');
-        address = hdcty.options[hdcty.selectedIndex].text;
-        document.getElementById('<%= hdcity.ClientID %>').value = address;
-    }
-
-    if (address != '' && address != 'undefined' && address != 'Other (please specify)') {
-        var country = document.getElementById('<%= hdnCountry.ClientID %>').value;
-        var state = document.getElementById('<%= hdnState.ClientID %>').value;
-        address = address + ', ' + state + ', ' + country;
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                var latitude = results[0].geometry.location.lat();
-                var longitude = results[0].geometry.location.lng();
-                document.getElementById("Latitude").value = latitude;
-                document.getElementById("Longitude").value = longitude;
-                if (document.getElementById('<%= CityNew.ClientID %>').value != '' && document.getElementById('<%= CityNew.ClientID %>').value != 'undefined') {
-                    getLocationDetails();
-                } else {
-                    document.getElementById('<%= hdnLatitude.ClientID %>').value = latitude;
-                    document.getElementById('<%= hdnLongitude.ClientID %>').value = longitude;
+//Function to validate the each step
+function validatePage(page) {
+    var result = true;
+    $('.error_msg').remove();
+    if (page == 0) {
+        //Check the required field.
+        $('input').each(function () {
+            if ($(this).hasClass('required')) {
+                if ($(this).val().length == 0) {
+                    $(this).addClass('error_required');
+                    addErrorField(this, "This field is requried");
+                    result = false;
                 }
-            } else {
-                alert("Request failed.");
+            }
+            if ($(this).hasClass('maxchars')) {
+                if ($(this).val().length> $(this).attr('data-max')) {
+                    $(this).addClass('error_required');
+                    addErrorField(this, "This field length has to be less than " + $(this).attr('data-max'));
+                    result = false;
+                }
             }
         });
     }
-}
-function GetText(element, option) {
-    var text = element.options[element.selectedIndex].text;
-    if (option == 'Country') {
-        document.getElementById('<%= hdnCountry.ClientID %>').value = text;
-    }
-    else if (option == 'State') {
-        document.getElementById('<%= hdnState.ClientID %>').value = text;
-    }
-}
-
-function ProcessValidators() {
-    var i, val;
-    for (i = 0; i < Page_Validators.length; i++) {
-        val = Page_Validators[i];
-        if (typeof (val.evaluationfunction) == "function") {
-            if (eval("val.evaluationfunction == RequiredFieldValidatorEvaluateIsValid;"))
-                eval("val.evaluationfunction = RequiredFieldAlertValidate;");
-            else if (eval("val.evaluationfunction == RegularExpressionValidatorEvaluateIsValid;"))
-                eval("val.evaluationfunction = RegularExpressionAlertValidate;");
-        }
-    }
-}
-
-function RequiredFieldAlertValidate(val) {
-    var result;
-    result = RequiredFieldValidatorEvaluateIsValid(val)
-    if (!result)
-        window.alert(val.errormessage);
     return result;
 }
-
-function RegularExpressionAlertValidate(val) {
-    var result;
-    result = RegularExpressionValidatorEvaluateIsValid(val)
-    if (!result)
-        window.alert(val.errormessage);
-    return result;
+//Add error field
+function addErrorField(obj,message) {
+    $(obj).after("<div class='error_msg'>"+message+"</div>");
 }
 
-
-InitializeDropdowns();
+function buttongroup(page) {
+    if (page == 0) {
+        $('.btnprev').addClass('firststep');
+    } else $('.btnprev').removeClass('firststep');
+    if (page == 3) {
+        $('.btnnext').val("Finish");
+    } else $('.btnnext').val("Next");
+}

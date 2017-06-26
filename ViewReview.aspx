@@ -8,6 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
@@ -24,4 +25,5 @@
         </div>
     </div>
             </div>
+</form>
 </asp:Content>

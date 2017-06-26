@@ -7,6 +7,7 @@
     <link href="/Assets/css/makepayment.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpagewidth">
         <div class=" newline">
@@ -566,4 +567,5 @@
     </div>
             </div>
     <script src="/Assets/js/makepayment.js"></script>
+</form>
 </asp:Content>

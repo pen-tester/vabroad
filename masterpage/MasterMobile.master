@@ -187,7 +187,6 @@
     <script defer="defer"  src="/Assets/js/jquery-3.1.0.min.js"></script>
     <script defer="defer" src="/Assets/js/normalmaster.js?22"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <form id="mainform" runat="server">
         <div class="topNavigation">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
                 <div class="scontainer">
@@ -289,7 +288,6 @@
             </asp:ContentPlaceHolder>
 
         </div>
-    </form>
     <div class="clear"></div>
 
     <div class="footertopline">

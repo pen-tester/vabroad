@@ -58,6 +58,7 @@
 </asp:Content>
 
 <asp:Content ID="cont_listing" runat="server" ContentPlaceHolderID="bodycontent">
+    <form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpage">
       <div class="srow">
@@ -318,4 +319,5 @@
             </div>
          
     <script src="/Assets/js/listings.js" defer="defer"></script>
+</form>
 </asp:Content>

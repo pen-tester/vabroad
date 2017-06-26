@@ -2,6 +2,7 @@
     CodeFile="Reviews.aspx.cs" Inherits="PropertyReviewRead" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
 <div class="internalpage srow">
         <br />
@@ -75,4 +76,5 @@
     </center>
 </div>
             </div>
+</form>
 </asp:Content>

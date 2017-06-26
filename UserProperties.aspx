@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="UserProperties.aspx.cs" Inherits="UserProperties" Title="User Properties" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpage">
         <div class="srow">
@@ -99,4 +100,5 @@
         </div>
     </div>
             </div>
+</form>
 </asp:Content>

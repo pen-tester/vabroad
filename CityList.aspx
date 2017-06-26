@@ -130,6 +130,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+    <form id="mainform" runat="server">
     <input type="hidden" name="proptyperadio" value="<%=rproptype_id %>" />
     <input type="hidden" name="bedroomtyperadio" value="<%=rbedroom_id %>" />
     <input type="hidden" name="amenityradio" value="<%=ramenity_id %>" />
@@ -461,5 +462,5 @@ target="_blank"><img class="statcounter"
 src="//c.statcounter.com/3345790/0/b7bf8208/1/" alt="website
 statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
-
+</form>
 </asp:Content>

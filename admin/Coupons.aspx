@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="/Assets/js/jqueryui112/jquery-ui.min.css" />
 </asp:Content>
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+    <form id="mainform" runat="server">
          <div id="msgdlg" class="modalform">
                   <div id="modal_dialog" class="dlgMsg" >
                       <div class="modalhead">
@@ -199,4 +200,5 @@
     </div>
     <script defer="defer" src="/Assets/js/jqueryui112/jquery-ui.min.js"></script>
     <script defer="defer" src="/Assets/js/coupons.js"></script>
+</form>
 </asp:Content>

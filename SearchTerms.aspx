@@ -8,6 +8,7 @@
 </asp:Content>
 
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpagewidth">
             <div class="srow center">
@@ -81,4 +82,5 @@
     </div>
             </div>
     <script defer="defer" src="Assets/js/search.js"></script>
+</form>
 </asp:Content>

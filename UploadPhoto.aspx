@@ -12,6 +12,7 @@
 		<meta http-equiv="cache-control" content="no-cache">
 </asp:Content>
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
-
+<form id="mainform" runat="server">
+</form>
 </asp:Content>
 

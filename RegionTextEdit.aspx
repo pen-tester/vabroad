@@ -34,6 +34,7 @@ height: 114px;
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
       <div class="scontainer">
 <div class="internalpage srow">
         <asp:ScriptManager runat="server" ID="smMain"></asp:ScriptManager>
@@ -72,5 +73,6 @@ height: 114px;
     <div align="right"><a href="Administration.aspx">Back to main administrative area</a></div>
 </div>
           </div>
+</form>
 </asp:Content>
 

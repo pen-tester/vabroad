@@ -37,6 +37,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="LoginContent" ContentPlaceHolderID="bodycontent">
+    <form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpage">
          <div class="srow formmargin">
@@ -191,5 +192,6 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>         
+</script>       
+        </form>  
 </asp:Content>

@@ -67,6 +67,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+    <form id="mainform" runat="server">
         <div class="scontainer">
     <div class="background">
           <img class="back_img" src="/Assets/img/footerimg.jpg" />
@@ -104,6 +105,7 @@
     </div>
             </div>
     <script src="/Assets/js/footerpage.js" defer="defer"></script>
+</form>
 </asp:Content>
 
 

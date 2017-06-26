@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="<%# GetTitle () %>" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PropertyTerms.aspx.cs" Inherits="TourTerms" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
   <div class="internalpage srow">
    <asp:Label ID="Description" runat="server" Visible="false" Text="Advertise a %city% vacation property or %city% holiday property."></asp:Label>
@@ -164,5 +165,6 @@ Australia 5%
   </div>
             </div>
 <!-- End of StatCounter Code for Default Guide -->
+</form>
 </asp:Content>
 

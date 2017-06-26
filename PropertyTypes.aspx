@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="/masterpage/mastermobile.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="PropertyTypes.aspx.cs" Inherits="PropertyTypes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
 <div class="internalpage srow">
     <div align="center">
@@ -87,5 +88,6 @@ Edit Primary Type<br />
     </div>
 </div>
             </div>
+</form>
 </asp:Content>
 

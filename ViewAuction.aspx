@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="ViewAuction.aspx.cs" Inherits="ViewAuction" Title="<%# GetTitle () %>" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
   <div class="internalpage">
       <div class="srow">
@@ -285,6 +286,6 @@
 	<script language="javascript">
 		document.write('<img src="http://www.watchwise.net/cgi-watchwise/monitorwise.cgi?URL=<%= CommonFunctions.GetSiteAddress ().ToLower () %>:all&LINK=',escape(document.referrer),'" height=1 width=1>')
 	</script>
-
+</form>
 </asp:Content>
 

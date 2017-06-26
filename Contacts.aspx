@@ -123,6 +123,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+    <form id="mainform" runat="server">
         <div class="scontainer">
           <div id="inquiryform" class="modalform">
               <div class="emailform">
@@ -244,4 +245,5 @@
     <script defer="defer" src='https://www.google.com/recaptcha/api.js'></script>
     <script src="/assets/js/contacts.js" defer="defer"></script>
         <script src="/Assets/js/footerpage.js" defer="defer"></script>
+</form>
 </asp:Content>

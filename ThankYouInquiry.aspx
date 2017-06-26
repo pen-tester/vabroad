@@ -1,6 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="~/ThankYouInquiry.aspx.cs" Inherits="ThankYouInquiry" Title="Thank You!" EnableEventValidation="false" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
 <div class="internalpage">
     <div class="srow">
@@ -72,4 +73,5 @@
             }
         });
     </script>
+</form>
 </asp:Content>

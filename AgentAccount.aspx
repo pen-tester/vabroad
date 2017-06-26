@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="AgentAccount.aspx.cs" Inherits="AgentAccount" Title="Agent Account" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+    <form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpage srow">
 	<% if (BackLink.Visible) { %>
@@ -173,4 +174,5 @@
 		document.write('<img src="http://www.watchwise.net/cgi-watchwise/monitorwise.cgi?URL=<%= CommonFunctions.GetSiteAddress ().ToLower () %>:myaccount&LINK=',escape(document.referrer),'" height=1 width=1>')
 	</script>
             </div>
+</form>
 </asp:Content>

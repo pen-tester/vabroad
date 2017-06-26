@@ -56,6 +56,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="body" ContentPlaceHolderID="bodycontent" runat="server">
+    <form id="mainform" runat="server">
         <div class="scontainer">
                 <div id="msgdlg" class="modalform">
                   <div id="modal_loading" class="modalLoading">
@@ -98,5 +99,6 @@
    </div>
             </div>
    <script src="/assets/js/pwd.js" defer="defer"></script>
+        </form>
 </asp:Content>
 

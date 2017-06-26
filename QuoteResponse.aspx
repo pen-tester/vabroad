@@ -238,6 +238,7 @@ ul {
 </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
+<form id="mainform" runat="server">
         <div class="scontainer">
         <div class="srow">
             <div class="col-2"></div>
@@ -411,4 +412,5 @@ ul {
         </div>
             </div>
     <script src="/Assets/js/quoteresp.js" defer="defer">  </script>
+</form>
 </asp:Content>

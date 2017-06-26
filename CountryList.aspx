@@ -12,6 +12,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
     <div class="scontainer">
     <div class="internalpagewidth">
         <input type="hidden" id="countryname" value="<%=country %>" />
@@ -150,6 +151,6 @@ src="//c.statcounter.com/3341533/0/ebe10c56/1/" alt="site
 stats"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 
-
+</form>
 </asp:Content>
 

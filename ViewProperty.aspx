@@ -41,6 +41,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="srow">
      <div class="internalpagewidth">
@@ -850,5 +851,5 @@ class="statcounter"
 src="//c.statcounter.com/3614019/0/5d0ed9a7/1/" alt="free
 hit counter"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
-
+    </form>
 </asp:Content>

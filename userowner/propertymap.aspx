@@ -76,6 +76,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
+    <form id="mainform" runat="server">
         <div class="scontainer">
     <div id="editform" class="modalform">
         <div class="editmapform">
@@ -215,4 +216,5 @@
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
     <script src="/assets/js/propmap.js" defer="defer"></script>
+</form>
 </asp:Content>

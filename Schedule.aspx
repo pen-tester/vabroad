@@ -3,6 +3,7 @@
     EnableEventValidation="false" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
 <div class="internalpage srow">
 <table width="100%"><tr>                           
@@ -124,4 +125,5 @@
 
 </div>
             </div>
+</form>
 </asp:Content>

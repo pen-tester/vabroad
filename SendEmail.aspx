@@ -5,6 +5,7 @@
     Send Email | Vacations-Abroad.com
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
   <div class="internalpage srow">
     <div style="font-family: Arial; font-size: 13px;">
@@ -413,4 +414,5 @@
     </div>
   </div>
             </div>
+</form>
 </asp:Content>

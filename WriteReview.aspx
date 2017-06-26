@@ -88,6 +88,7 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
     <input type="hidden" name="propid" id="propid" value="<%=propNum %>" />
     <input type="hidden" name="commentid" id="commentid" value="-1" />
     <div class="scontainer">
@@ -274,4 +275,5 @@
 </div>
     <script defer="defer" src='https://www.google.com/recaptcha/api.js'></script>
     <script defer="defer" src="/Assets/js/writereview.js"></script>
+</form>
 </asp:Content>

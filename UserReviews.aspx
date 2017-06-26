@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="/masterpage/MasterMobile.master" AutoEventWireup="true" CodeFile="UserReviews.aspx.cs" Inherits="UserReviews" Title="User Auction Reviews" %>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
 <div class="internalpage">
     <div class="srow">
@@ -107,4 +108,5 @@
     </div>
 </div>
             </div>
+</form>
 </asp:Content>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="PropertyCalendar.aspx.cs" Inherits="Default3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
   <div class="internalpage srow">
   <div align="center" style="font-family:Arial; font-size:14px;">
@@ -60,5 +61,6 @@ style="width: 100px" type="button" value="Previous Page"/>--%>
 </div>
   </div>
             </div>
+</form>
 </asp:Content>
 

@@ -13,6 +13,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpagewidth">
    <asp:Label ID="Label2" runat="server" Visible="false" Text="%country% vacation Rentals, %country% Holiday Rentals, %country% Rental Accommodations"></asp:Label>
@@ -92,4 +93,5 @@
  </div>
     <script type="text/javascript" src="/scripts/pager.js"></script>	
     <script src="/Assets/js/countryproperty.js"></script>
+</form>
 </asp:Content>

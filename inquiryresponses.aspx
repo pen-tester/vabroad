@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="/masterpage/MasterMobile.master" CodeFile="inquiryresponses.aspx.cs" Inherits="inquiryresponses" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="/masterpage/masterMobile.master" CodeFile="inquiryresponses.aspx.cs" Inherits="inquiryresponses" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Inquriry Response
 </asp:Content>
@@ -23,6 +23,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" runat="server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="srow">
         <div class="col-1">
@@ -68,5 +69,6 @@
         </div>
     </div>
             </div>
+</form>
 </asp:Content>
 
