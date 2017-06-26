@@ -1,6 +1,3 @@
-<%@ Reference Page="~/CityList.aspx" %>
-<%@ Reference Page="~/CountryList.aspx" %>
-<%@ Reference Page="~/RegionList.aspx" %>
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="Locations.aspx.cs" Inherits="Locations" Title="Locations Administration" %>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" Runat="Server">
 <form id="mainform" runat="server">
