@@ -253,6 +253,14 @@ public partial class PropertyPhotos : ClosedPage
 		//lock (CommonFunctions.Connection)
 			PropertiesAdapter.Update (PropertiesSet);
 
+        if (ifadd)
+            if (ifauction)
+                Response.Redirect(CommonFunctions.PrepareURL("MakePayment.aspx?UserID=" + userid.ToString() +
+                    "&AuctionID=" + auctionid.ToString(), backlinktext));
+            else
+                Response.Redirect(CommonFunctions.PrepareURL("PublishProperty.aspx?UserID=" + userid.ToString() +
+                    "&PropertyID=" + propertyid.ToString(), backlinktext));
+
         /*
          //get top photo and make thumbnail if not already exist..don't forget to delete thumbnails when delete, names not in db
              DBConnection obj = new DBConnection();
