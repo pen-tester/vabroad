@@ -97,19 +97,18 @@
                         <div class="col-x-4 col-6">
                       <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                            { %>
-                        <asp:TextBox ID="txtCityText" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
-                        <asp:Button ID="btnSubmit" runat="server" Text="Save Text" OnClick="btnSubmit_Click" />
-                        <br />
-                        <asp:Label ID="Label9" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label>
+                            <div>
+                                <asp:TextBox ID="txtCityText" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
+                                <asp:Button ID="btnSubmit" runat="server" Text="Save Text" OnClick="btnSubmit_Click" />
+                                <br />
+                                <asp:Label ID="Label9" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label>
+                            </div>
                         <% }
-                           else
-                           {%>
+                           %>
                         <div id="divHide123" class="txtalign" runat="server">
                             <asp:Label ID="lblcityInfo" runat="server"></asp:Label>
                         </div>
 
-
-                        <% } %>
                         </div>
                         <div class="col-x-4 col-6">
                            <div  id="googlemap">
