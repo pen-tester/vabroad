@@ -1,9 +1,9 @@
 <%@ Reference Page="~/CityList.aspx" %>
 <%@ Reference Page="~/CountryList.aspx" %>
 <%@ Reference Page="~/RegionList.aspx" %>
-<%@ Page Language="C#" MasterPageFile="~/MasterPageNoCss.master" AutoEventWireup="true" CodeFile="Locations.aspx.cs" Inherits="Locations" Title="Locations Administration" %>
-<asp:Content ID="Content" ContentPlaceHolderID="Content" Runat="Server">
-    
+<%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="Locations.aspx.cs" Inherits="Locations" Title="Locations Administration" %>
+<asp:Content ID="Content" ContentPlaceHolderID="bodycontent" Runat="Server">
+<form id="mainform" runat="server">
     <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
         <tr>
             <td colspan="100" align="center">
@@ -324,5 +324,5 @@
         </tr>
     </table>
 
-
+</form>
 </asp:Content>
