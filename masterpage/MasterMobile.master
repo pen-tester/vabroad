@@ -209,10 +209,19 @@
                         <div class="srow">
                            <div class="wdropdown">
                              <button class="wdropbtn btnsign" type="button"><i class="fa fa-cog" aria-hidden="true"></i> My Account</button>
+                              <%if (AuthenticationManager.UserID == -1 || !AuthenticationManager.IfAuthenticated)
+                                  { %>
                               <div class="wdropdown-content">
                                 <a href="/accounts/login.aspx?type=1"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
                                 <a href="/accounts/login.aspx?type=0"><i class="fa fa-user" aria-hidden="true"></i> Register</a>
                               </div>
+                            <%}
+                            else
+                            { %>
+                              <div class="wdropdown-content">
+                                <a href="/logout.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+                              </div>
+                               <%} %>
                           </div>
                         </div>
                     </div>
