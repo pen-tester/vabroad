@@ -1,6 +1,8 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="Locations.aspx.cs" Inherits="Locations" Title="Locations Administration" %>
 <asp:Content ID="content" ContentPlaceHolderID="bodycontent" Runat="Server">
-    <div class="internalpage">
+    <div class="scontainer">
+        <div class="internalpagewidth">
+            <div class="srow">
 <form id="mainform" runat="server">
     <table bgcolor="#e4e4af" cellspacing="0" cellpadding="0" width="100%" align="center" border="2">
         <tr>
@@ -323,5 +325,7 @@
     </table>
 
 </form>
+            </div>
+        </div>
     </div>
 </asp:Content>
