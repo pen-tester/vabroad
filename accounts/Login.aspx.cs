@@ -192,7 +192,7 @@ public partial class accounts_Login : CommonPage
                         //Response.Write(backlinkurl);
                         if (backlinkpassed) Response.Redirect( backlinkurl);
                         else if (AuthenticationManager.IfAdmin)
-                            Response.Redirect(CommonFunctions.PrepareURL("Administration.aspx"));
+                            Response.Redirect("/administration.aspx");
                         else
                             Response.Redirect("/userowner/listings.aspx");
                         /* if (AuthenticationManager.IfAdmin)
