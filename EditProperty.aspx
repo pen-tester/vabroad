@@ -13,6 +13,7 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+<form id="mainform" runat="server">
         <div class="scontainer">
     <div class="internalpagewidth">
         <div class="newline">
@@ -950,5 +951,5 @@ function RegularExpressionAlertValidate(val) {
 InitializeDropdowns();
     </script>
 
- 
+</form>
 </asp:Content>
