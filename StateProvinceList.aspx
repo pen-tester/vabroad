@@ -94,7 +94,7 @@
                     <asp:Label ID="Label1" runat="server" EnableViewState="False" ForeColor="Red" Style="display: none"></asp:Label>
 
                     <div class="srow">
-                        <div class="col-x-4 col-6">
+                        <div class="srow">
                       <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                            { %>
                             <div>
@@ -105,6 +105,9 @@
                             </div>
                         <% }
                            %>
+                        </div>
+                        <div class="col-x-4 col-6">
+
                         <div id="divHide123" class="txtalign" runat="server">
                             <asp:Label ID="lblcityInfo" runat="server"></asp:Label>
                         </div>
