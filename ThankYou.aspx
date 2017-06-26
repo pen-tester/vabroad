@@ -14,6 +14,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
+ <form id="mainform" runat="server">
    <div class="scontainer">
     <div class="internalpage srow">
          <div class="smallgap"></div>
@@ -60,4 +61,5 @@
          <div class="smallgap"></div>
     </div>
    </div>
+</form>
 </asp:Content>
