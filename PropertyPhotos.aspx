@@ -23,11 +23,11 @@
 	<% }   %>
 	<div align="left" style="padding-left:10px">
 	<asp:Label ID="MoreThan7PhotosWarning" runat="server" Height="40px" Width="100%">
-		Please note you can’t upload more than 15 photos since you were not authorized by administration to do that. If you previously uploaded more than 15 photos and later you were unauthorized only first 15 photos will be displayed on the property page.
+		Please note you can’t upload more than 15 photos.
 	</asp:Label><br />
 	<br />
 	<asp:Label ID="Label1" runat="server" Height="64px" Width="100%">
-		Please note all uploaded photos will be resized so that largest side becomes 320 pixels. Please note quality may degrade severely during the resize. Since quality resizing includes some very advanced algorithms not present on this website, you may increase quality by resizing the pictures manually to the correct size with specialized graphics tools like Adobe Photoshop before uploading them.
+		
 	</asp:Label><br />
 	<asp:Repeater ID="Repeater1" runat="server" DataSource="<%# PhotosSet %>" DataMember="PropertyPhotos">
 		<HeaderTemplate>
