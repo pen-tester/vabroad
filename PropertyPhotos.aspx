@@ -22,7 +22,7 @@
 	<br />
 	<% }   %>
 	<div align="left" style="padding-left:10px">
-	<asp:Label ID="MoreThan15PhotosWarning" runat="server" Height="40px" Width="100%">
+	<asp:Label ID="MoreThan7PhotosWarning" runat="server" Height="40px" Width="100%">
 		Please note you can’t upload more than 15 photos since you were not authorized by administration to do that. If you previously uploaded more than 15 photos and later you were unauthorized only first 15 photos will be displayed on the property page.
 	</asp:Label><br />
 	<br />
