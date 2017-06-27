@@ -263,7 +263,7 @@
                             //console.log(am_count);
                             //string alt = (!property_typeval.Contains(propamen.detail.Category)) ? propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Vacation Rental" : propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Hotel";
                             string alt = propamen.detail.Name2;
-                            if (proptypeinfo.Contains(propamen.detail.Category)) alt = propamen.detail.Name2;
+                            if (proptypeinfo.Contains(propamen.detail.CategoryID)) alt = propamen.detail.Name2;
                             else alt = propamen.detail.Name2 ;
 
                             int addr_verified;
