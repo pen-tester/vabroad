@@ -183,7 +183,7 @@ public partial class allPropertiesList : CommonPage
             {
                 dt1 = obj1.PropertiesByCase(vList, countryid, "Country");
                 DataView dv = dt1.DefaultView;
-                dv.Sort = "minNightRate desc";
+               // dv.Sort = "minNightRate desc";
                 dt1 = dv.ToTable();
 
                 FillPropertiesBox(dt1, string.Empty);
@@ -194,7 +194,7 @@ public partial class allPropertiesList : CommonPage
 
 
                 DataView dvMax = dtCategories.DefaultView;
-                dvMax.Sort = "count desc";
+               // dvMax.Sort = "count desc";
                 DataTable dtMax = dvMax.ToTable();
                 int vCategoryCount = 0;
                 string firstCategory = "";
@@ -347,7 +347,7 @@ public partial class allPropertiesList : CommonPage
                     Session["dt"] = dtCategory.DefaultView.Table;
 
                     DataView dv1 = dtCategory.DefaultView;
-                    dv1.Sort = "MinNightRate asc";
+                 //   dv1.Sort = "MinNightRate asc";
 
 
 
@@ -460,7 +460,7 @@ public partial class allPropertiesList : CommonPage
             DataFunctions obj1 = new DataFunctions();
             var dt1 = obj1.PropertiesByCase(vList, countryid, "Country");
             DataView dv = dt1.DefaultView;
-            dv.Sort = "minNightRate desc";
+           // dv.Sort = "minNightRate desc";
             dt1 = dv.ToTable();
             var categoryCondition = vTypeSelect[0].Trim();
             string typeFilterCondition = string.Empty;
@@ -480,7 +480,7 @@ public partial class allPropertiesList : CommonPage
         DataFunctions obj1 = new DataFunctions();
         var dt1 = obj1.PropertiesByCase(vList, countryid, "Country");
         DataView dv = dt1.DefaultView;
-        dv.Sort = "minNightRate desc";
+       // dv.Sort = "minNightRate desc";
         dt1 = dv.ToTable();
 
         string[] vTypeSelect = rdoBedrooms.SelectedItem.Text.Split('(');
