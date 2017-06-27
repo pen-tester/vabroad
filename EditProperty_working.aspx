@@ -382,5 +382,5 @@
     </script>
     <script defer="defer" src="/assets/plugins/custom_chosen/chosen.js"></script>
     <script defer="defer" src="/assets/plugins/chosen/chosen.jquery.min.js"></script>
-   <script defer="defer" src="/assets/js/editproperty.js?1"></script>
+   <script defer="defer" src="/assets/js/editproperty.js?2"></script>
 </asp:Content>
