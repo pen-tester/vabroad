@@ -291,96 +291,36 @@ public class AjaxProvider
                 return inquiry_set;
             }
 
-    public static AjaxCountryList getCountryInfo(int regionid)
+    public static string getCountryInfo(int regionid)
     {
-        AjaxCountryList ajaxlist = new AjaxCountryList();
-        ajaxlist.regionid = regionid;
-        //uspGetCountryInfo  @PropID
-        List<Ajaxcountryinfo> list = new List<Ajaxcountryinfo>();
-        try
-        {
-            using (SqlConnection con = new SqlConnection(connString))
-            {
-                using (SqlCommand cmd = new SqlCommand("uspGetCountryList", con))
-                {
-                    con.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@RegionID", SqlDbType.Int).Value = regionid;
-
-
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Ajaxcountryinfo tmp = new Ajaxcountryinfo();
-                            tmp.id = Convert.ToInt32(reader[0]);
-                            tmp.name = reader[1].ToString();
-                            list.Add(tmp);
-                        }
-
-                    }
-
-
-                    con.Close();
-
-                }
-            }
-
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            // return 0;
-        }
-        ajaxlist.statelist = list;
-        return ajaxlist;
-    }
-    public static AjaxStateList getSateInfo(int countryid)
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@RegionID", regionid));
+        DataSet result = BookDBProvider.getDataSet("uspGetCountryListbyRegionID", param);
+        return CommonProvider.getJsonStringFromDs(result);
+      }
+    public static string  getSateInfo(int countryid)
     {
-        AjaxStateList ajaxlist = new AjaxStateList();
-        ajaxlist.countryid = countryid;
-        //uspGetCountryInfo  @PropID
-        List<AjaxStateInfo> list = new List<AjaxStateInfo>();
-        try
-        {
-            using (SqlConnection con = new SqlConnection(connString))
-            {
-                using (SqlCommand cmd = new SqlCommand("uspGetStateList", con))
-                {
-                    con.Open();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@CountryID", SqlDbType.Int).Value = countryid;
-
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            AjaxStateInfo tmp = new AjaxStateInfo();
-                            tmp.id = Convert.ToInt32(reader[0]);
-                            tmp.name = reader[1].ToString();
-                            list.Add(tmp);
-                        }
-
-                    }
-
-
-                    con.Close();
-
-                }
-            }
-
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            // return 0;
-        }
-        ajaxlist.statelist = list;
-        return ajaxlist;
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@id", countryid));
+        DataSet result = BookDBProvider.getDataSet("uspGetStateListByCountryID", param);
+        return CommonProvider.getJsonStringFromDs(result);
     }
 
+    public static string getCityInfo(int countryid)
+    {
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@id", countryid));
+        DataSet result = BookDBProvider.getDataSet("uspGetCityListByStateID", param);
+        return CommonProvider.getJsonStringFromDs(result);
+    }
+
+    public static string getTypeList(int id)
+    {
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@catid", id));
+        DataSet result = BookDBProvider.getDataSet("uspGetPropertyTypeListbyCategory", param);
+        return CommonProvider.getJsonStringFromDs(result);
+    }
     public static List<NumbersPropertybyCountry> getNumbersProperty()
     {
         List<NumbersPropertybyCountry> num_list = new List<NumbersPropertybyCountry>();

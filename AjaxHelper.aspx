@@ -6,14 +6,32 @@
 
     [WebMethod]
     // Get session state value.
-    public static AjaxCountryList GetCountryList(int id) {
-        return AjaxProvider.getCountryInfo(id);
+    public static string GetCountryList(int id) {
+        string res= AjaxProvider.getCountryInfo(id);
+        return String.Format("{{\"id\":{0} , \"data\":{1} }}", id, res);
     }
     [WebMethod]
     // Get session state value.
-    public static AjaxStateList GetStateList(int id) {
-        return AjaxProvider.getSateInfo(id);
+    public static string GetStateList(int id) {
+        string res= AjaxProvider.getSateInfo(id);
+        return String.Format("{{\"id\":{0} , \"data\":{1} }}", id, res);
     }
+
+    [WebMethod]
+    // Get session state value.
+    public static string GetCityList(int id) {
+         string res= AjaxProvider.getCityInfo(id);
+        return String.Format("{{\"id\":{0} , \"data\":{1} }}", id, res);
+    }
+
+
+    [WebMethod]
+    // Get session state value.
+    public static string GetTypeListByCategory(int id) {
+        string res= AjaxProvider.getTypeList(id);
+        return String.Format("{{\"id\":{0} , \"data\":{1} }}", id, res);
+    }
+
 
     [WebMethod]
     // Get session state value.AjaxPropListSet

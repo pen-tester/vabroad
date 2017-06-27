@@ -43,6 +43,7 @@ public class PropertyDetailInfo
     public int UserID { get; set; }
     public string Name { get; set; }
     public string Address { get; set; }
+    public int TypeID { get; set; }
     public int NumBedrooms { get; set; }
     public int NumBaths { get; set; }
     public int NumSleeps { get; set; }
@@ -54,12 +55,18 @@ public class PropertyDetailInfo
     public int HiNightRate { get; set; }
     public int MinimumNightlyRentalID { get; set; }
     public string MinRateCurrency { get; set; }
+    public int CityID { get; set; }
     public string City { get; set; }
+    public int StateProvinceID { get; set; }
+    public int IfShowAddress { get; set; }
     public string StateProvince { get; set; }
+    public int CountryID { get; set; }
     public string Country { get; set; }
+    public string VirtualTour { get; set; }
+    public int RegionID { get; set; }
     public string PropertyName { get; set; }
     public string CategoryTypes { get; set; }
-    public int Category { get; set; }
+    public int CategoryID { get; set; }
     public string FileName { get; set; }
     public float loc_latlang { get; set; }
     public float loc_logitude { get; set; }

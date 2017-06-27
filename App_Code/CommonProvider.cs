@@ -42,6 +42,30 @@ public class CommonProvider
         // Response.Write(CitiesAdapter.SelectCommand.CommandText);
         return JsonConvert.SerializeObject(eList, Formatting.Indented);
     }
+    //Convert dataset to json
+    public static string getJsonStringFromDs(DataSet ds_tabables)
+    {
+        string result = "";
+        foreach (DataRow dr in ds_tabables.Tables[0].Rows)
+        {
+            string tmp = "";
+            foreach(DataColumn dc in ds_tabables.Tables[0].Columns)
+            {
+                try
+                {
+                    tmp = String.Format("{0}, \"{1}\":\"{2}\"", tmp, dc.ColumnName, dr[dc.ColumnName]);
+                }
+                catch { }
+
+            }
+            if (tmp.Length > 1) tmp = tmp.Substring(1);
+            result = String.Format("{0}, {{{1}}}", result, tmp);
+        }
+        if (result.Length > 1) result = String.Format("[{0}]", result.Substring(1));
+        else result = "[]";
+        return result;
+        // Response.Write(CitiesAdapter.SelectCommand.CommandText);
+    }
 
     //For new version
     public static T ConvertToClassFromDataSet<T>(DataSet ds) where T :class, new()
