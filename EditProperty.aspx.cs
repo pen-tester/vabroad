@@ -146,7 +146,7 @@ public partial class EditProperty : ClosedPage
     {
 
         Response.Write("This is under maintanence. We are working hard now. Please retry after about 5 hours.");
-        Response.Close();
+        Response.End();
         return;
 
         System.Data.SqlClient.SqlCommandBuilder builder = new System.Data.SqlClient.SqlCommandBuilder(PropertiesAdapter);
