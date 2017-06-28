@@ -53,6 +53,9 @@ public class PropertyDetailInfo
     public string Name2 { get; set; }
     public int MinNightRate { get; set; }
     public int HiNightRate { get; set; }
+    public string Description { get; set; }
+    public string Amenities { get; set; }
+    public string LocalAttractions { get; set; }
     public int MinimumNightlyRentalID { get; set; }
     public string MinRateCurrency { get; set; }
     public int CityID { get; set; }

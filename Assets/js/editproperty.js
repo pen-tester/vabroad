@@ -18,7 +18,9 @@ $(document).ready(function () {
         }
     });
     $('.btnnext').click(function () {
-        if (current_page < 3 && validatePage(current_page)) {
+        if (current_page == 0 && validatePage(current_page)) { checkCityLocation(); }
+        else if (current_page < 3 && validatePage(current_page)) {
+            SubmitPage(current_page);
             switchPage(current_page + 1);
             buttongroup(current_page);
         }
@@ -50,6 +52,7 @@ $(document).ready(function () {
     });
 
     $('#citylist').change(function () {
+        $('#citylist').parent().find('.error_msg').remove();
         changeCityEvent();
     });
 
@@ -101,6 +104,7 @@ function refreshListBox(target, funcname) {
     if (typeof fn === "function") fn(cat_id);
 }
 function changePropertyType() {
+    $('#proptypename').parent().find('.error_msg').remove();
     var ind = $('#proptypename').val();
     if (ind == null) return;
     if (ind.toString() == "0") {
@@ -120,6 +124,23 @@ function changeCityEvent() {
         $('#additionalcity').hide();
         $('#additionalcity').removeClass("required");
     }
+}
+
+//When clicking "next" button, submitting the current page to helper page(to store the current page)
+function SubmitPage(current_page) {
+    var frmname = "#frmstep" + current_page;
+    $.ajax({
+        type: "POST",
+        url: site_url + "/apihelper/savepropertyinfo.aspx",
+        data: $(frmname).serialize(),
+        success: processSubmitResult,
+        error: function (response) {
+            console.log(response);
+        }
+    });
+}
+function processSubmitResult(response) {
+    console.log(response);
 }
 
 function switchPage(target) {
@@ -145,6 +166,19 @@ function switchPage(target) {
 }
 
 //Function to validate the each step
+function checkCityLocation() {
+    //For additional city
+    if ($('#additionalcity').hasClass("required")) {
+        var city = $('#additionalcity').val();
+        var state = $('#statelist option:selected').text();
+        var country = $('#countrylist option:selected').text();
+        geocodeAddress(city, state, country);
+    } else {
+        SubmitPage(current_page);
+        switchPage(current_page + 1);
+        buttongroup(current_page);
+    }
+}
 function validatePage(page) {
     var result = true;
     $('.error_msg').remove();
@@ -384,4 +418,64 @@ function refreshCityList(index) {
     $('#citylist').trigger("chosen:updated");
     init_rendering = false;
     changeCityEvent();
+}
+
+//For google geo coder
+var geocoder;
+function initMap() {
+    geocoder = new google.maps.Geocoder();
+}
+
+function geocodeAddress(city, state, country) {
+    var address = city + ", " + state + ", " + country;
+    var result = { lat: 0, lng: 0, status:-1 };
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status === 'OK') {
+            console.log("addr:" + address);
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+            geocodeLatLng(latitude, longitude, country,city);
+        } else {
+            console.log("get geo code error:" + status);
+        }
+    });
+  /*  if (result.status == -1) {
+        address = city + ", " + country;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status === 'OK') {
+                // resultsMap.setCenter(results[0].geometry.location);
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+                if (geocodeLatLng(latitude, longitude, country)) result = { lat: latitude, lng: longitude, status: 0 };
+            } else {
+                console.log("get geo code error:" + status);
+            }
+        });
+    }*/
+  //  return result;
+}
+function geocodeLatLng(latitude, longitude, country,city) {
+    var isvalid = false;
+    var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
+    geocoder.geocode({ 'location': latlng }, function (results, status) {
+        if (status === 'OK') {
+            for (var i = 0; i < results.length; i++) {
+                locationDetails = results[i].formatted_address.toLowerCase();
+                console.log(locationDetails);
+                if (locationDetails.indexOf(country.toLowerCase()) >= 0 && locationDetails.indexOf(city.toLowerCase()) >= 0) {
+                    isvalid = true;
+                        SubmitPage(current_page);
+                        switchPage(current_page + 1);
+                        buttongroup(current_page);
+                    return;
+                }
+            }
+            addErrorField("#additionalcity", "Fail to get the geo code");
+            console.log("geocodelatlng No results found");
+
+        } else {
+            console.log("geocodelatlng error:"+status);
+        }
+    });
+    return isvalid;
 }
