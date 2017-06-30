@@ -112,7 +112,7 @@ function init_basicstepPage(){
     $('#_propbedroom').val(prop_info["NumBedrooms"]);
     $('#_propbathrooms').val(prop_info["NumBaths"]);
     $('#_propsleep').val(prop_info["NumSleeps"]);
-    $('#_propminrental').val(prop_info["MinimumNightlyRentalID"]);
+    if (prop_info["MinimumNightlyRentalID"] != "" && prop_info["MinimumNightlyRentalID"] != null) $('#_propminrental').val(prop_info["MinimumNightlyRentalID"]);
     $('#_proptv').val(prop_info["NumTVs"]);
     $('#_propcd').val(prop_info["NumCDPlayers"]);
 

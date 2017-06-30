@@ -348,7 +348,7 @@
                                     <option value="3">1 Week</option>
                                     <option value="4">2 Weeks</option>
                                     <option value="5">Monthly</option>
-                                    <option value="6">1 Night</option>
+                                    <option value="6" selected="selected">1 Night</option>
                                 </select>
                             </div>
                         </div>
@@ -578,6 +578,6 @@
     </script>
     <script defer="defer" src="/assets/plugins/custom_chosen/chosen.js"></script>
     <script defer="defer" src="/assets/plugins/chosen/chosen.jquery.min.js"></script>
-   <script defer="defer" src="/assets/js/editproperty.js?6"></script>
+   <script defer="defer" src="/assets/js/editproperty.js?7"></script>
     <script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvUZLV46qiEwP-tQm3gA7xdLYiDuEyW3o&callback=initMap"></script>
 </asp:Content>
