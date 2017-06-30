@@ -191,10 +191,6 @@ public partial class userowner_SavePropertyInfo : CommonPage
             {
                 List<SqlParameter> param = getParamRates(propid);
                 CommonProvider.getScalarValueFromDB("uspUpdatePropertyRates", param);
-                if (UpdateLocalAttraction() == -1)
-                {
-                    return -1;
-                }
             }
             catch (Exception ex)
             {
