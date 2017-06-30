@@ -6,9 +6,11 @@
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
    <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
-<asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
     <meta name="description" content="<%=Server.HtmlDecode(String.Format("({0}) {1} vacation rentals and boutique hotels in {2}.",prop_nums[2],countryinfo.StateProvince, city_lists)) %>"/>
     <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
+</asp:Content>
+<asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
         .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
         .footer_text{padding:25px 0 0 0;}

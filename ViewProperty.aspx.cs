@@ -30,6 +30,8 @@ public partial class ViewProperty : CommonPage
     public string[] min_rentaltypes = { "None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Monthly", "1 Night" };
     public DetailedUserInfo userinfo;
     public UserInfo duserinfo;
+    protected string str_meta, str_keyword = "";
+
 
     protected System.Data.SqlClient.SqlDataAdapter PhotosAdapter;
     protected System.Data.SqlClient.SqlDataAdapter AmenitiesAdapter;
@@ -232,15 +234,10 @@ public partial class ViewProperty : CommonPage
 
         //  if (WebsitePresent()) { websitelink.Visible = true; };
 
-        HtmlHead head = Page.Header;
-
-        HtmlMeta keywords = new HtmlMeta();
-
-        keywords.Name = "keywords";
         if (PropertiesFullSet.Tables["Properties"].Rows.Count < 1)
-            keywords.Content = "View property";
+            str_keyword = "View property";
         else
-            keywords.Content = Keywords.Text.Replace("%city%", PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString()).
+            str_keyword = Keywords.Text.Replace("%city%", PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString()).
                 Replace("%bedroom%", PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"].ToString()).
                     Replace("%stateprovince%", PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString()).
                     Replace("%country%", PropertiesFullSet.Tables["Properties"].Rows[0]["Country"].ToString()).
@@ -249,19 +246,13 @@ public partial class ViewProperty : CommonPage
                     Replace("%numbedrooms%", PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"].ToString()).
                     Replace("%numsleeps%", PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"].ToString());
 
-        head.Controls.Add(keywords);
-
-        HtmlMeta description = new HtmlMeta();
-
         PropertyDetailInfo pinfo = AjaxProvider.getPropertyDetailInfo(propertyid);
 
         // string Des = "%name% is a %city% %numbedrooms% Bedroom %type%, Sleeps %numsleeps%, Price: %low%-%high% %cur% per %quote%";
         string Des = "%name% is a %city% %numbedrooms% Bedroom %type%, Sleeps %numsleeps%, Price: %low%-%high% %cur% per night";
 
-
-        description.Name = "description";
         if (PropertiesFullSet.Tables["Properties"].Rows.Count < 1)
-            description.Content = "View property";
+            str_meta = "View property";
         else
             /*
               Replace("%stateprovince%", PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"].ToString()).
@@ -277,16 +268,15 @@ public partial class ViewProperty : CommonPage
                      Replace("%high%", PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"].ToString()).
                      Replace("%cur%", PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"].ToString());
          */
-            description.Content = Des.Replace("%city%", PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString()).
-                       Replace("%type%", pinfo.CategoryTypes).
-    Replace("%name%", PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()).
+     str_meta = Des.Replace("%city%", PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString()).
+                       Replace("%type%", pinfo.CategoryTypes).Replace("%name%", PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"].ToString()).
                         Replace("%numbedrooms%", PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"].ToString()).
                         Replace("%numsleeps%", PropertiesFullSet.Tables["Properties"].Rows[0]["NumSleeps"].ToString()).
                         Replace("%low%", PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"].ToString()).
                         Replace("%high%", PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"].ToString()).
                         Replace("%cur%", PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"].ToString()).
                         Replace("%quote%", min_rentaltypes[pinfo.MinimumNightlyRentalID]);
-        head.Controls.Add(description);
+
 
         photosalt = Alt.Text.Replace("%city%", PropertiesFullSet.Tables["Properties"].Rows[0]["City"].ToString()).
             Replace("%bedroom%", PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"].ToString()).

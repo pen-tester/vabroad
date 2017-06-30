@@ -3,10 +3,12 @@
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     <%=countryinfo.City %> Vacation Rentals And Boutique Hotels | Vacation abroad
 </asp:Content>
-
+<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+     <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
+</asp:Content>
 
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
+
     <style>
     /*For footer text*/
        .footer_text{padding:25px 0 0 0;}

@@ -60,6 +60,7 @@ public partial class CountryList : CommonPage
     //For maping.
     protected DataSet ds_citylocations;
     protected string markers="{}";
+    protected string str_meta ,str_keyword = "";
     protected void Page_Load(object sender, System.EventArgs e)
     {
         
@@ -490,7 +491,7 @@ public partial class CountryList : CommonPage
 
         states1 = "";
         string str_states = "";
-        string str_keyword = "";
+      
         int ind = 0;
         // string cls = " class='borderright' ";
         string cls = "border-right:1px solid #0094ff;";
@@ -535,25 +536,14 @@ public partial class CountryList : CommonPage
         int num_properties = MainDataSet.Tables["Properties"].Rows.Count;
         
         
-        Page page1 = (Page)HttpContext.Current.Handler;
+        str_meta = "(%number%) %country% vacation rentals and boutique hotels in %states% etc.";
 
-        HtmlMeta newdescription = new HtmlMeta();
+        str_meta= str_meta.Replace("%country%", country).Replace("%states%", str_states).Replace("%number%", Convert.ToString(num_properties));
 
-        string str_meta = "(%number%) %country% vacation rentals and boutique hotels in %states% etc.";
-
-        newdescription.Name = "description";
-        newdescription.Content = str_meta.Replace("%country%", country).Replace("%states%", str_states).Replace("%number%", Convert.ToString(num_properties));
-
-        head.Controls.Add(newdescription);
-
-        HtmlMeta keywords = new HtmlMeta();
-
-        keywords.Name = "keywords";
-        // keywords.Content = Keywords.Text.Replace("%country%", country).Replace("%stateprovince%", stateprovince).
         //    Replace("%cities%", cities);
         //  keywords.Content = page1.Title;
-        keywords.Content = str_keyword + "etc.";
-        head.Controls.Add(keywords);
+        str_keyword = str_keyword + "etc.";
+
         //For google map
         List<SqlParameter> sparam = new List<SqlParameter>();
         sparam.Add(new SqlParameter("@countryid", countryid));

@@ -9,7 +9,9 @@
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> in <%=stateprovince %> <%=country %> | Vacations Abroad
 </asp:Content>
-
+<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+    <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
+</asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
 
  <link id="jscss" rel="stylesheet"  href="/css/jcarousel.css" />

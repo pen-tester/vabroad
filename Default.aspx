@@ -6,8 +6,11 @@
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Vacations Abroad: Vacation Rentals and Boutique Hotels
 </asp:Content>
+<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+     <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
+    <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
+</asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-    <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
     <style>
         .backimg{width:100%;min-height:150px;} .backtitle{width:100%;font-family: Verdana; font-size: 28px; color: #fff;position:absolute;}
         .topbox{padding:5px 5px;border:2px solid #ff6600;width:600px;margin:auto;}

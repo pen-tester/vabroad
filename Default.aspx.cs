@@ -57,7 +57,7 @@ public partial class Default : CommonPage
                          "CityLatLong ON Cities.City = CityLatLong.City AND Countries.Country = CityLatLong.Country AND StateProvinces.StateProvince = CityLatLong.StateProvince " +
     "where 1=1 AND EXISTS ( SELECT * FROM Properties WHERE (Properties.IfFinished = 1) AND (Properties.IfApproved = 1) AND (Properties.CityID = Cities.ID)  AND NOT EXISTS (SELECT * FROM Auctions WHERE PropertyID = Properties.ID))";
     //protected SqlDataAdapter CitiesAdapter;
-
+    protected string str_meta, str_keyword = "";
     protected void Page_Load(object sender, System.EventArgs e)
     {
 
@@ -138,33 +138,23 @@ public partial class Default : CommonPage
 
         regions = regions.Substring(0, regions.Length - 1);
 
-        HtmlHead head = Page.Header;
-        //Page.ClientScript.RegisterClientScriptInclude("aKeyToIdentifyIt", "/scripts/countryStateCity.js");
-        HtmlMeta keywords = new HtmlMeta();
 
-        keywords.Name = "keywords";
+
         if (PropertiesFullSet.Tables["Properties"].Rows.Count < 1)
-            keywords.Content = "View property";
+            str_keyword = "View property";
         else
-            keywords.Content = Keywords.Text.Replace("%regions%", regions.Trim());
+            str_keyword = Keywords.Text.Replace("%regions%", regions.Trim());
 
-        head.Controls.Add(keywords);
-        HtmlMeta description = new HtmlMeta();
-
-        string meta_str = "";
         DataSet dss = AjaxProvider.getProNumsbyRegion();
         for (int i = 0; i < dss.Tables[0].Rows.Count; i++)
-            meta_str += String.Format("{1} {0} properties, ", dss.Tables[0].Rows[i][0], dss.Tables[0].Rows[i][1]);
+            str_meta += String.Format("{1} {0} properties, ", dss.Tables[0].Rows[i][0], dss.Tables[0].Rows[i][1]);
 
-        meta_str = meta_str.Substring(0, meta_str.Length - 2);
+        str_meta = str_meta.Substring(0, str_meta.Length - 2);
 
-        description.Name = "description";
         if (PropertiesFullSet.Tables["Properties"].Rows.Count < 1)
-            description.Content = "View property";
+            str_meta = "View property";
         else
-            description.Content =  Description.Text.Replace("%regions%", meta_str.Trim());
-
-        head.Controls.Add(description);
+            str_meta =  Description.Text.Replace("%regions%", str_meta.Trim());
 
         if (!IsPostBack)
         {

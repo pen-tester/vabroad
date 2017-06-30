@@ -10,7 +10,9 @@
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     <%=country %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
-
+<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+    <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
+</asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
 <form id="mainform" runat="server">
     <div class="scontainer">

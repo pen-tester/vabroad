@@ -7,13 +7,12 @@
 
     <title> <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder></title>
-    
-    <asp:ContentPlaceHolder id="links" runat="server">
-    </asp:ContentPlaceHolder>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            
+    <asp:ContentPlaceHolder ID="meta" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder id="links" runat="server">
+    </asp:ContentPlaceHolder>
        <!-- <link href="/Assets/css/navigation.css" rel="stylesheet" />-->
  <style>
      .normalbgcolor .scontainer{background-color:#fff;}
