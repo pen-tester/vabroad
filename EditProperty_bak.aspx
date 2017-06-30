@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="~/EditProperty.aspx.cs" Inherits="EditProperty" Title="Edit Property" ValidateRequest="false" EnableEventValidation="false" %>
+<%@ Page Language="C#" MasterPageFile="~/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="~/EditProperty_bak.aspx.cs" Inherits="EditProperty" Title="Edit Property" ValidateRequest="false" EnableEventValidation="false" %>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
     Edit Property

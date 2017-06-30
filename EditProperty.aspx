@@ -297,7 +297,7 @@
                                 </div>
                                 <div class="col-x-1 col-1">
                                     <select class="selectbox" name="_propdisplay" id="_propdisplay" >
-                                        <option value="0">No</option>
+                                        <option value="0" selected="selected">No</option>
                                         <option value="1">Yes</option>
                                     </select>
                                 </div>
