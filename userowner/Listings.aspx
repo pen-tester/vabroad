@@ -271,7 +271,7 @@
                                                        <ItemTemplate>
                                                     <tr>
                                                     <td><a href="<%# CommonFunctions.PrepareURL ("ViewProperty.aspx?UserID=" + userid.ToString () + "&PropertyID=" + Eval("ID"), "*User* Listings") %>"> <%#Eval("ID") %></a></td>
-                                                    <td><%#Eval("Name") %></td>
+                                                    <td><%#Eval("Name2") %></td>
                                                     <td class="btgroupcontainer">
                                                         <div class="buttongroup">
                                                             <asp:Button ID="Button8" OnCommand="bt_delete_Command" CssClass="btnAction" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument='<%#Eval("ID") %>'/>

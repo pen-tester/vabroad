@@ -88,7 +88,7 @@ public partial class accounts_Login : CommonPage
                           Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
                           Response.Redirect(FormsAuthentication.GetRedirectUrl(usrname, false));*/
                         // FormsAuthentication.RedirectFromLoginPage(usrname, false);
-                        FormsAuthentication.SetAuthCookie(usr_name, false);
+                        FormsAuthentication.SetAuthCookie(usr_name, true);
                         if (backlinkpassed) Response.Redirect(backlinkurl);
                       //  if (backlinkpassed) Response.Redirect("http://" + Request.ServerVariables["SERVER_NAME"] + ":" + Request.ServerVariables["SERVER_PORT"] + backlinkurl);
                         else if (AuthenticationManager.IfAdmin)
@@ -188,7 +188,7 @@ public partial class accounts_Login : CommonPage
                           Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
                           Response.Redirect(FormsAuthentication.GetRedirectUrl(signname, false));*/
                         //FormsAuthentication.RedirectFromLoginPage(signname, false);
-                        FormsAuthentication.SetAuthCookie(signname, false);
+                        FormsAuthentication.SetAuthCookie(signname, true);
                         //Response.Write(backlinkurl);
                         if (backlinkpassed) Response.Redirect( backlinkurl);
                         else if (AuthenticationManager.IfAdmin)
@@ -326,7 +326,7 @@ public partial class accounts_Login : CommonPage
 
         string username = "";
         if ((username = AuthenticationManager.Login(usrname.Text, pwd.Text, 0)) != ""){
-            FormsAuthentication.SetAuthCookie(username, false);
+            FormsAuthentication.SetAuthCookie(username, true);
             //            if (backlinkpassed) Response.Redirect("http://" + Request.ServerVariables["SERVER_NAME"] + ":" + Request.ServerVariables["SERVER_PORT"] + backlinkurl);
             if (backlinkpassed) Response.Redirect(backlinkurl);
             else if (AuthenticationManager.IfAdmin)
