@@ -503,42 +503,44 @@ public partial class userowner_SavePropertyInfo : CommonPage
             list_attraction.Add(row["ID"].ToString());
         }
 
-        string[] req_attractionids = Request["attractids"].ToString().Split(new char[] { ',' });
-        string[] req_attractnear = Request["attract_near"].ToString().Split(new char[] { ',' });
-        foreach(string req_attractid in req_attractionids)
+        if (Request["attractids"] != null && Request["attractids"].ToString() != "")
         {
-            int index = list_attraction.IndexOf(req_attractid);
-            if (index >= req_attractnear.Length) return -1;
-            string attract_distanceid = req_attractnear[index];
-            if (list_cur_attracts.Contains(req_attractid)) //Current attract
+            string[] req_attractionids = Request["attractids"].ToString().Split(new char[] { ',' });
+            string[] req_attractnear = Request["attract_near"].ToString().Split(new char[] { ',' });
+            foreach (string req_attractid in req_attractionids)
             {
-                foreach(_AttractionInfo tmp in list_attractionobjects)
+                int index = list_attraction.IndexOf(req_attractid);
+                if (index >= req_attractnear.Length) return -1;
+                string attract_distanceid = req_attractnear[index];
+                if (list_cur_attracts.Contains(req_attractid)) //Current attract
                 {
-                    if(tmp.attrid == req_attractid && tmp.distanceid!= attract_distanceid) //Modified 
+                    foreach (_AttractionInfo tmp in list_attractionobjects)
                     {
-                        param.Clear();
-                        param.Add(new SqlParameter("@propid", propid));
-                        param.Add(new SqlParameter("@attrid", req_attractid));
-                        param.Add(new SqlParameter("@distanceid", attract_distanceid));
-                        param.Add(new SqlParameter("@method", 2));
-                        CommonProvider.getScalarValueFromDB("uspUpdatePropertyAttractionByID", param); //if return value = -1 error
-                        break;
+                        if (tmp.attrid == req_attractid && tmp.distanceid != attract_distanceid) //Modified 
+                        {
+                            param.Clear();
+                            param.Add(new SqlParameter("@propid", propid));
+                            param.Add(new SqlParameter("@attrid", req_attractid));
+                            param.Add(new SqlParameter("@distanceid", attract_distanceid));
+                            param.Add(new SqlParameter("@method", 2));
+                            CommonProvider.getScalarValueFromDB("uspUpdatePropertyAttractionByID", param); //if return value = -1 error
+                            break;
+                        }
                     }
+                    list_cur_attracts.Remove(req_attractid);
                 }
-                list_cur_attracts.Remove(req_attractid);
-            }
-            else //New attract
-            {
-                param.Clear();
-                param.Add(new SqlParameter("@propid", propid));
-                param.Add(new SqlParameter("@attrid", req_attractid));
-                param.Add(new SqlParameter("@distanceid", attract_distanceid));
-                param.Add(new SqlParameter("@method", 0));
-                CommonProvider.getScalarValueFromDB("uspUpdatePropertyAttractionByID", param); //if return value = -1 error
-            }
+                else //New attract
+                {
+                    param.Clear();
+                    param.Add(new SqlParameter("@propid", propid));
+                    param.Add(new SqlParameter("@attrid", req_attractid));
+                    param.Add(new SqlParameter("@distanceid", attract_distanceid));
+                    param.Add(new SqlParameter("@method", 0));
+                    CommonProvider.getScalarValueFromDB("uspUpdatePropertyAttractionByID", param); //if return value = -1 error
+                }
 
+            }
         }
-
         foreach(string removed_attract in list_cur_attracts)
         {
             param.Clear();
