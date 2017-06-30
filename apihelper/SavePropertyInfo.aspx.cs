@@ -160,9 +160,12 @@ public partial class userowner_SavePropertyInfo : CommonPage
                 {
                     return -1;
                 }
-                if (UpdateRoomInfo() == -1)
+                if (!hotel_type.Contains(propinfo.CategoryID))  //If the rental type
                 {
+                    if (UpdateRoomInfo() == -1)
+                    {
 
+                    }
                 }
             }
             catch(Exception ex)
@@ -372,17 +375,21 @@ public partial class userowner_SavePropertyInfo : CommonPage
         roomid_list.Clear();
         room_furniture_list.Clear();
 
-        foreach(DataRow row in ds_roomfurniture.Tables[0].Rows)
+        if (ds_roomfurniture.Tables.Count > 0)
         {
-            if (!roomid_list.Contains(row["RoomID"].ToString()))  //if existed roomid
+            foreach (DataRow row in ds_roomfurniture.Tables[0].Rows)
             {
-                roomid_list.Add(row["RoomID"].ToString());
-            }
-            RoomInfoFurniture tmp = new RoomInfoFurniture();
-            tmp.RoomID = row["RoomID"].ToString();
-            tmp.FurnitureItemID = row["FurnitureItemID"].ToString();
-            if (!room_furniture_list.Contains(tmp)) {
-                  room_furniture_list.Add(tmp);
+                if (!roomid_list.Contains(row["RoomID"].ToString()))  //if existed roomid
+                {
+                    roomid_list.Add(row["RoomID"].ToString());
+                }
+                RoomInfoFurniture tmp = new RoomInfoFurniture();
+                tmp.RoomID = row["RoomID"].ToString();
+                tmp.FurnitureItemID = row["FurnitureItemID"].ToString();
+                if (!room_furniture_list.Contains(tmp))
+                {
+                    room_furniture_list.Add(tmp);
+                }
             }
         }
         //For requested room infos
