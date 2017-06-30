@@ -484,13 +484,16 @@ public partial class userowner_SavePropertyInfo : CommonPage
         param.Clear();
         param.Add(new SqlParameter("@propid", propid));
         DataSet ds_attraction = BookDBProvider.getDataSet("uspGetPropertyAttractionByID", param);
-        foreach(DataRow row in ds_attraction.Tables[0].Rows)
+        if (ds_attraction.Tables.Count > 0)
         {
-            _AttractionInfo tmp = new _AttractionInfo();
-            tmp.attrid = row["AttractionID"].ToString();
-            tmp.distanceid = row["DistanceID"].ToString();
-            list_attractionobjects.Add(tmp);
-            list_cur_attracts.Add(tmp.attrid);
+            foreach (DataRow row in ds_attraction.Tables[0].Rows)
+            {
+                _AttractionInfo tmp = new _AttractionInfo();
+                tmp.attrid = row["AttractionID"].ToString();
+                tmp.distanceid = row["DistanceID"].ToString();
+                list_attractionobjects.Add(tmp);
+                list_cur_attracts.Add(tmp.attrid);
+            }
         }
 
         ds_allattraction = BookDBProvider.getDataSet("uspGetAllAttraction", new List<SqlParameter>());
