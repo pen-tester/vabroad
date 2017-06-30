@@ -207,12 +207,12 @@ function processSubmitResult(response) {
     else if(current_page ==2){
         prop_attraction = response.attractions;
     }
-    if (current_page < 4) {
+    if (current_page < 3) {
         switchPage(current_page + 1);
         buttongroup(current_page);
     }
     else {
-        window.location.replace(site_url + "userowner/listings.aspx?UserID=" + prop_info.UserID);
+        window.location.replace(site_url + "/userowner/listings.aspx?UserID=" + prop_info.UserID);
     }
 }
 
