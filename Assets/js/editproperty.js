@@ -1,4 +1,4 @@
-﻿var current_page = 3;
+﻿var current_page = 0;
 var site_url = "";
 var propertyid = -1, init_region = false, init_country=false, init_state=false, init_type = false, init_city = false;
 var furniture_tag = ""; var submitting = false;
