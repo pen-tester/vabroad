@@ -58,6 +58,9 @@ public class PropertyDetailInfo
     public string LocalAttractions { get; set; }
     public int MinimumNightlyRentalID { get; set; }
     public string MinRateCurrency { get; set; }
+    public string Rates { get; set; }
+    public string CancellationPolicy { get; set; }
+    public string DepositRequired { get; set; }
     public int CityID { get; set; }
     public string City { get; set; }
     public int StateProvinceID { get; set; }

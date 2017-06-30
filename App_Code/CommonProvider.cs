@@ -96,7 +96,7 @@ public class CommonProvider
 
     public static int getScalarValueFromDB(string proc_name, List<SqlParameter> proc_param)
     {
-        int ret = 0;
+        int ret = -1;
         //  adapter.Fill(customers, "Customers");
         try
         {
@@ -117,7 +117,7 @@ public class CommonProvider
 
                 while (reader.Read())
                 {
-                    Int32.TryParse(reader[0].ToString(), out ret);
+                    if(!Int32.TryParse(reader[0].ToString(), out ret))ret= -1;
                     break;
                 }
                 con.Close();

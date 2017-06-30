@@ -1,6 +1,7 @@
-﻿var current_page = 0;
+﻿var current_page = 3;
 var site_url = "";
-var propertyid = -1 ,init_rendering=false;
+var propertyid = -1, init_region = false, init_country=false, init_state=false, init_type = false, init_city = false;
+var furniture_tag = ""; var submitting = false;
 $(document).ready(function () {
     $("#wzardstep" + current_page).show();
     //For clicking step wizard 
@@ -19,10 +20,8 @@ $(document).ready(function () {
     });
     $('.btnnext').click(function () {
         if (current_page == 0 && validatePage(current_page)) { checkCityLocation(); }
-        else if (current_page < 3 && validatePage(current_page)) {
+        else if (current_page < 4 && validatePage(current_page)) {
             SubmitPage(current_page);
-            switchPage(current_page + 1);
-            buttongroup(current_page);
         }
     });
     $('input').keypress(function () {
@@ -35,8 +34,6 @@ $(document).ready(function () {
         refreshListBox("propcategory","getTypeListbyCategory");
     });
     $('#proptypename').change(changePropertyType);
-    refreshListBox("propcategory", "getTypeListbyCategory");
-    changePropertyType();
 
     //For location info
     $('#regionlist').change(function () {
@@ -56,33 +53,60 @@ $(document).ready(function () {
         changeCityEvent();
     });
 
-    /*
-    refreshListBox("citylist", "getCountryList");
-    */
-
+    //For message box
+    $('#msgclose').click(function () {
+        $('#msgdlg').hide();
+    });
 
     //For the existed property
     propertyid = $('#propid').val();
     if (propertyid.toString() != "-1") {
         //prop_info displays all info for the existed one.
-        init_rendering = true;
-        init_webform();
-        $('#regionlist').val(prop_info["RegionID"]);
+        if (prop_info["RegionID"] != 0) {
+            init_region = true; init_country = true; init_state = true; init_city = true;
+            $('#regionlist').val(prop_info["RegionID"]);
+        }
+        if (prop_info["CategoryID"] > 0) {
+            init_type = true;
+            $('#propcategory').val(prop_info["CategoryID"]);
+        }
     }
 
     refreshListBox("regionlist", "getCountryList");
 
+    refreshListBox("propcategory", "getTypeListbyCategory");
 
-    //Jquery plugin chosen
-    $(".chosen-select").chosen();
+
+    //Description and amenities step
+    //For furniture select option
+    var f_count = all_furniture.length;
+    for (var ind_f = 0; ind_f < f_count; ind_f++) {
+        furniture_tag += ("<option value='" + all_furniture[ind_f].ID + "'>" + all_furniture[ind_f].FurnitureItem + " </option>");
+    }
+
+    //add room button
+
+    $('#addroom').click(function () {
+        addNewRoom();
+    });
+
+    switchPage(current_page);
+    buttongroup(current_page);
+     //Jquery plugin chosen
     // $('#proptypename').greenify();
 });
+//Show msgbox
+function showmessagebox(msg) {
+    //$('#modalmsg').text(msg);
+    $('#modalmsg').html(msg);
+    $('#msgdlg').show();
+}
+
 //If there is a existed property, initalize the content based on the current property
-function init_webform(){
+function init_basicstepPage(){
     $('#_propname2').val(prop_info["Name2"]);
     $('#_propname').val(prop_info["Name"]);
     $('#_virttour').val(prop_info["VirtualTour"]);
-    $('#propcategory').val(prop_info["CategoryID"]);
     $('#_propaddr').val(prop_info["Address"]);
     $('#_propdisplay').val(prop_info["IfShowAddress"]);
     $('#_propbedroom').val(prop_info["NumBedrooms"]);
@@ -91,6 +115,10 @@ function init_webform(){
     $('#_propminrental').val(prop_info["MinimumNightlyRentalID"]);
     $('#_proptv').val(prop_info["NumTVs"]);
     $('#_propcd').val(prop_info["NumCDPlayers"]);
+
+    $('#wzardstep0 .chosen-select').chosen();
+
+    changePropertyType();
 }
 
 
@@ -117,6 +145,7 @@ function changePropertyType() {
 }
 function changeCityEvent() {
     var ind = $('#citylist').val();
+    if (ind == null) return;
     if (ind.toString() == "0") {
         $('#additionalcity').show();
         $('#additionalcity').addClass("required");
@@ -129,6 +158,11 @@ function changeCityEvent() {
 //When clicking "next" button, submitting the current page to helper page(to store the current page)
 function SubmitPage(current_page) {
     var frmname = "#frmstep" + current_page;
+    if (submitting) {
+        showmessagebox("Now proecessing!!!");
+        return;
+    }
+    submitting = true;
     $.ajax({
         type: "POST",
         url: site_url + "/apihelper/savepropertyinfo.aspx",
@@ -136,11 +170,50 @@ function SubmitPage(current_page) {
         success: processSubmitResult,
         error: function (response) {
             console.log(response);
+            submitting = false;
+            showmessagebox("Something wrong, please make sure that all fields are filled.");
         }
     });
 }
 function processSubmitResult(response) {
     console.log(response);
+    submitting = false;
+    if (response.status == -1) {
+        showmessagebox("Something wrong, Please contact to system administrator.");
+        return;
+    }
+    prop_info = response.propinfo;
+    if (current_page == 0 && $('#citylist').val().toString() == "0") {
+        init_city = true;
+        var stid = $('#statelist').val();
+        var ind = city_arr.indexOf(stid);
+        city_arr.splice(ind, 1);
+        city_result_arr.splice(ind, 1);
+        refreshListBox("statelist", "getCityList");
+    }
+    if (current_page == 0 && $('#proptypename').val().toString() == "0") {
+        init_type = true;
+        var stid = $('#propcategory').val();
+        var ind = cat_arr.indexOf(stid);
+        cat_arr.splice(ind, 1);
+        result_arr.splice(ind, 1);
+        refreshListBox("propcategory", "getTypeListbyCategory");
+    }
+    $('input[name=propid]').val(prop_info.ID);
+    if (current_page == 1) {
+        prop_amenity = response.amenity_list;
+        prop_furniture = $.parseJSON(response.room_furniture);
+    }
+    else if(current_page ==2){
+        prop_attraction = response.attractions;
+    }
+    if (current_page < 4) {
+        switchPage(current_page + 1);
+        buttongroup(current_page);
+    }
+    else {
+        window.location.replace(site_url + "userowner/listings.aspx?UserID=" + prop_info.UserID);
+    }
 }
 
 function switchPage(target) {
@@ -163,6 +236,10 @@ function switchPage(target) {
     });
     current_page = parseInt(target);
     $('div.step[data-target="' + current_page + '"]').parent().addClass("active");
+    if (target == 0) init_basicstepPage();
+    else if (target == 1) Init_DescriptionStepPage();
+    else if (target == 2) init_AttractionPage();
+    else if (target == 3) init_RatePage();
 }
 
 //Function to validate the each step
@@ -175,32 +252,30 @@ function checkCityLocation() {
         geocodeAddress(city, state, country);
     } else {
         SubmitPage(current_page);
-        switchPage(current_page + 1);
-        buttongroup(current_page);
     }
 }
 function validatePage(page) {
     var result = true;
     $('.error_msg').remove();
-    if (page == 0) {
-        //Check the required field.
-        $('#frmstep0 input').each(function () {
-            if ($(this).hasClass('required')) {
-                if ($(this).val().length == 0) {
-                    $(this).addClass('error_required');
-                    addErrorField(this, "This field is requried");
-                    result = false;
-                }
+    var stepwizardfrm = "#frmstep" + page; //Form id
+        //Check the required field max chars.
+    $(stepwizardfrm +' input').each(function () {
+        if ($(this).hasClass('required')) {
+            if ($(this).val().length == 0) {
+                $(this).addClass('error_required');
+                addErrorField(this, "This field is requried");
+                result = false;
             }
-            if ($(this).hasClass('maxchars')) {
-                if ($(this).val().length> $(this).attr('data-max')) {
-                    $(this).addClass('error_required');
-                    addErrorField(this, "This field length has to be less than " + $(this).attr('data-max'));
-                    result = false;
-                }
+        }
+        if ($(this).hasClass('maxchars')) {
+            if ($(this).val().length> $(this).attr('data-max')) {
+                $(this).addClass('error_required');
+                addErrorField(this, "This field length has to be less than " + $(this).attr('data-max'));
+                result = false;
             }
-        });
-    }
+        }
+    });
+
     return result;
 }
 //Add error field
@@ -252,8 +327,9 @@ function processTypeList(response) {
 }
 function refreshTypeList(index) {
     structureListBox(index, "proptypename", result_arr, ["ID", "Name"], true, "Be creative and create a unique property type in the following field");
-    if (init_rendering) {
+    if (init_type) {
         $('#proptypename').val(prop_info["TypeID"]);
+        init_type = false;
     }
     else {
         $('#proptypename').val($("#proptypename option:first").val());
@@ -316,8 +392,9 @@ function processCountryList(response) {
 }
 function refreshCountryList(index) {
     structureListBox(index, "countrylist", country_result_arr, ["ID", "Country"], false, "");
-    if (init_rendering) {
+    if (init_country) {
         $('#countrylist').val(prop_info["CountryID"]);
+        init_country = false;
     }
     else {
         $('#countrylist').val($("#countrylist option:first").val());
@@ -364,8 +441,9 @@ function processStateList(response) {
 }
 function refreshStateList(index) {
     structureListBox(index, "statelist", state_result_arr, ["ID", "Name"], false, "");
-    if (init_rendering) {
+    if (init_state) {
         $('#statelist').val(prop_info["StateProvinceID"]);
+        init_state = false;
     }
     else {
         $('#statelist').val($("#statelist option:first").val());
@@ -409,14 +487,14 @@ function processCityList(response) {
 }
 function refreshCityList(index) {
     structureListBox(index, "citylist", city_result_arr, ["ID", "Name"], true, "Specify the other city");
-    if (init_rendering) {
+    if (init_city) {
         $('#citylist').val(prop_info["CityID"]);
+        init_city = false;
     }
     else {
         $('#citylist').val($("#citylist option:first").val());
     }
     $('#citylist').trigger("chosen:updated");
-    init_rendering = false;
     changeCityEvent();
 }
 
@@ -465,8 +543,6 @@ function geocodeLatLng(latitude, longitude, country,city) {
                 if (locationDetails.indexOf(country.toLowerCase()) >= 0 && locationDetails.indexOf(city.toLowerCase()) >= 0) {
                     isvalid = true;
                         SubmitPage(current_page);
-                        switchPage(current_page + 1);
-                        buttongroup(current_page);
                     return;
                 }
             }
@@ -478,4 +554,150 @@ function geocodeLatLng(latitude, longitude, country,city) {
         }
     });
     return isvalid;
+}
+// { 8, 2, 5, 16, 11, 24, 2, 19, 22, 12 }; Hotel
+var hotel_type = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12];
+var room_id_arr = []; var newrooms=0;
+function Init_DescriptionStepPage() {  //For descript & amenity page step1
+    $('#roomwarper').hide();
+    newrooms = 0;
+    room_id_arr = [];
+    var count = prop_amenity.length; //For amenities
+    for (var ind = 0; ind < count; ind++) {
+        $('#propamenity option[value=' + prop_amenity[ind].AmenityID + ']').attr('selected', true);
+    }
+    $('#_propdescription').text(prop_info["Description"]); //Description and Amenities
+    $('#_propamenitytxt').text(prop_info["Amenities"]);
+    if (hotel_type.indexOf(prop_info["CategoryID"]) == -1) { //If the vacation rental
+    //    console.log(prop_furniture);
+        $('#roomwarper').show();
+        $('#roomcontainer').empty();
+        var c_furnitures = prop_furniture.length;
+        var roomid;
+        for (var ind_fur = 0 ; ind_fur < c_furnitures; ind_fur++) {
+            roomid = prop_furniture[ind_fur].RoomID;
+            if (room_id_arr.indexOf(roomid) >= 0) { //Existed Room
+                if (prop_furniture[ind_fur].FurnitureItemID != null && prop_furniture[ind_fur].FurnitureItemID != "") {
+                    $('#roomcontainer input[value=' + roomid + ']').parent().find('.roomfurniture option[value=' + prop_furniture[ind_fur].FurnitureItemID + ']').attr('selected', true);
+                }
+            } else { //New room
+                room_id_arr.push(roomid);
+                var room_ind = room_id_arr.indexOf(roomid);
+                var tagcontent = "<div class='srow'> \
+                                    <input type='hidden' name='_roomids' value='" + roomid + "'/>\
+                                <div class='srow group_form roomborder'> \
+                                  <div class='center roomHeaer'>Room " + String.fromCharCode(room_ind + 65) + "</div>\
+                                  <div class='col-x-4 col-3'> \
+                                    <div class='srow group_form'> \
+                                        <div class=''> \
+                                              Title: \
+                                        </div>\
+                                        <div class=''>\
+                                            <input type='text' name='_roomnames'  class='input_text medium_width required' placeholder='Room Title' />\
+                                        </div>\
+                                    </div>\
+                                  </div> \
+                                  <div class='col-x-4 col-9'> \
+                                    <div class='srow group_form'>\
+                                        <div class=''>\
+                                            Sleeping arrangements and Furniture\
+                                        </div>\
+                                        <div class=''>\
+                                            <select class='selectbox chosen-select large_width roomfurniture' multiple='multiple' name='room" + roomid + "'>\
+                                            </select>\
+                                        </div>\
+                                     </div>\
+                                  </div>\
+                                    <div class='buttongroup'>\
+                                        <input class='btnnormal removeroom' type='button'  value ='Remove Room'/>\
+                                    </div>\
+                                </div>\
+                            </div>";
+                $('#roomcontainer').append(tagcontent);
+                $('#roomcontainer input[value=' + roomid + ']').parent().find('input[name=_roomnames]').val(prop_furniture[ind_fur].RoomTitle);
+                $('#roomcontainer input[value=' + roomid + ']').parent().find('.roomfurniture').append(furniture_tag);
+                if (prop_furniture[ind_fur].FurnitureItemID != null && prop_furniture[ind_fur].FurnitureItemID != '') {
+                    $('#roomcontainer input[value=' + roomid + ']').parent().find('.roomfurniture option[value=' + prop_furniture[ind_fur].FurnitureItemID + ']').attr('selected', true);
+                }
+            }
+        }
+    }
+    $('#wzardstep1 .chosen-select').chosen("destroy");
+    $('#wzardstep1 .chosen-select').chosen();
+    $('input').keypress(function () {
+        $(this).parent().find('.error_msg').remove();
+        $(this).remove("error_required");
+    });
+    $('.removeroom').click(function () {
+        console.log("remove");
+        $(this).parent().parent().parent().remove();
+    });
+}
+//When clicking "add new room" button
+function addNewRoom() {
+    var roomid = "new" + newrooms++;
+    var tagcontent = "<div class='srow'> \
+                                    <input type='hidden' name='_roomids' value='" + roomid + "'/>\
+                                <div class='srow group_form roomborder'> \
+                                  <div class='center roomHeaer'>New Room</div>\
+                                  <div class='col-x-4 col-3'> \
+                                    <div class='srow group_form'> \
+                                        <div class=''> \
+                                              Title: \
+                                        </div>\
+                                        <div class=''>\
+                                            <input type='text' name='_roomnames'  class='input_text medium_width required' placeholder='Room Title' />\
+                                        </div>\
+                                    </div>\
+                                  </div> \
+                                  <div class='col-x-4 col-9'> \
+                                    <div class='srow group_form'>\
+                                        <div class=''>\
+                                            Sleeping arrangements and Furniture\
+                                        </div>\
+                                        <div class=''>\
+                                            <select class='selectbox chosen-select large_width roomfurniture' multiple='multiple' name='room" + roomid + "'>\
+                                            </select>\
+                                        </div>\
+                                     </div>\
+                                  </div>\
+                                    <div class='buttongroup'>\
+                                        <input class='btnnormal removeroom' type='button'  value ='Remove Room'/>\
+                                    </div>\
+                                </div>\
+                            </div>";
+    $('#roomcontainer').append(tagcontent);
+    $('#roomcontainer input[value=' + roomid + ']').parent().find('.roomfurniture').append(furniture_tag);
+    $('#roomcontainer').find('.roomfurniture').chosen();
+    $('#roomcontainer').find('.roomfurniture').trigger("chosen:updated");
+
+    $('input').keypress(function () {
+        $(this).parent().find('.error_msg').remove();
+        $(this).remove("error_required");
+    });
+    $('.removeroom').click(function () {
+        console.log("remove");
+        $(this).parent().parent().parent().remove();
+    });
+}
+
+function init_AttractionPage() {
+    var count = prop_attraction.length;
+    $('#_propattract').text(prop_info.LocalAttractions);
+    for (var ind_attr=0 ; ind_attr < count; ind_attr++) {
+        var attrid = prop_attraction[ind_attr].AttractionID;
+        var nearid = prop_attraction[ind_attr].DistanceID;
+        var obj_attr = $('#wzardstep2 input[name=attractids][value=' + attrid + ']');
+        obj_attr.attr("checked", "checked");
+        obj_attr.parent().parent().find('select option[value=' + nearid + ']').attr('selected', 'selected');
+    }
+}
+
+function init_RatePage() {
+    $('#minrate').val(prop_info.MinNightRate);
+    $('#hirate').val(prop_info.HiNightRate);
+    $('#currency').val(prop_info.MinRateCurrency);
+    $('#rates').val(prop_info.Rates);
+    $('#cancel').val(prop_info.CancellationPolicy);
+    $('#deposit').val(prop_info.DepositRequired);
 }

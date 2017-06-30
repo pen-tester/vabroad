@@ -86,6 +86,7 @@
         margin:20px 0;
         border:2px solid #ff6600;
         padding:15px;
+        overflow:visible;
         overflow-x:hidden;
     }
     .stepwzardbox>div:not(.buttongroup) {
@@ -97,7 +98,7 @@
     }
     .btnprev, .btnnext{
         color:#fff; background-color:#154890; border:1px solid #426ebd; padding:5px 0; width:100px; border-radius:5px; cursor:pointer;
-    }
+    } .btnnormal{color:#fff; background-color:#154890; border:1px solid #426ebd; padding:5px; border-radius:5px; cursor:pointer; margin:5px;} .btnnormal:active{ background-color:#426ebd;}
     .btnprev:not(.firststep):active, .btnnext:active{
         background-color:#426ebd;
     }
@@ -129,6 +130,36 @@
     input.error_required, div.error_required{border-color:red;}
     .error_msg{color:red;}
     /*End wizard step box content*/
+    /*For message box*/
+   .modalLoading{
+        margin-top:270px;
+    }
+    .dlgMsg{
+        background-color:#fafbfc;
+        border:5px solid #f0b892;
+        border-radius:55px;
+        color:#767271;
+        width:300px;
+        position:relative;
+        margin:auto;
+        margin-top:300px;
+        padding:40px;
+    }
+     .modalhead{
+        position:absolute;right:15px; top:10px;
+    }
+    .textboxheight{
+        height:80px;
+    }
+    .hidden{display:none;}
+    /*For room info*/
+    .roomrange{border:1px dashed #f0b892; }
+    .roomborder{border:1px dotted #000;margin:5px; padding:10px;}
+    .roomHeaer{color:#ff6600;}
+    .attracationwarpper{
+        background-color:#DBE7F2;
+        padding:10px;
+    }
      @media(max-width:600px){
         .input_text{width:90%;}
      }
@@ -348,8 +379,54 @@
             <div class="" id="wzardstep1">
                 <span class="header_text">Description& Amenities</span>
                 <form id="frmstep1">
-                     <input type="hidden" name="wizardstep"  value="1"/>
+                    <input type="hidden" name="wizardstep"  value="1"/>
                     <input type="hidden" value="<%=propertyid %>"  name="propid" />
+                    <div class="srow group_form">
+                        <div class="col-x-4 col-2">
+                            Description
+                        </div>
+                        <div class="col-x-4 col-8">
+                            <textarea id="_propdescription" name="_propdescription" class="input_text large_width textboxheight" placeholder="Please enter a summary description of your property. Your description must be unique and should not contain text from your personal website as duplicate content will harm your personal website in the search engine rankings."></textarea>
+                        </div>
+                    </div>
+                    <div class="srow group_form">
+                        <div class="col-x-4 col-2">
+                            Amenities
+                        </div>
+                        <div class="col-x-4 col-8">
+                            <textarea id="_propamenitytxt" name="_propamenitytxt" class="input_text large_width textboxheight" placeholder="Please enter original text describing your property amenities. DO NOT COPY TEXT FROM YOUR WEBSITE"></textarea>
+                        </div>
+                    </div>
+                    <div class="srow group_form">
+                        <div class="col-x-4 col-2">
+                            Amenities on site or nearby
+                        </div>
+                        <div class="col-x-4 col-8">
+                            <select id="propamenity"  name="propamenity" class="selectbox chosen-select large_width" multiple="multiple">
+                            <% int am_count = all_amenities.Tables[0].Rows.Count;
+                                for (int am_ind = 0; am_ind < am_count; am_ind++)
+                                {
+                                    var row = all_amenities.Tables[0].Rows[am_ind];
+                                    %>
+                                <option value="<%=row["ID"]%>"><%=row["Amenity"] %></option>
+
+                            <%} %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="srow group_form roomrange page_hid" id="roomwarper">
+                        <div class="srow">
+                            The table below allows you to enter the sleeping arrangements and furniture for each bedroom. 
+                        </div>
+                        <div class="srow" id="roomcontainer">
+                            <input type="hidden" name="_countroom" id="_countroom" value="0" />
+                        </div>
+                        <div class="srow">
+                            <div class="buttongroup">
+                                <input class="btnnormal" type="button" id="addroom" value ="Add Room"/>
+                            </div>
+                        </div>
+                    </div>
                 </form>
                 
             </div>
@@ -358,6 +435,45 @@
                 <form id="frmstep2">
                      <input type="hidden" name="wizardstep"  value="2"/>
                      <input type="hidden" value="<%=propertyid %>"  name="propid" />
+                    <div class="srow group_form">
+                        <div class="col-x-4 col-2">
+                            Local Attractions and Activities: 
+                        </div>
+                        <div class="col-x-4 col-8">
+                            <textarea id="_propattract" name="_propattract" class="input_text large_width textboxheight" placeholder="Please enter unique and original text to describe the local activities above..."></textarea>
+                        </div>
+                    </div>
+                    <div class="srow group_form">
+                         <div class="col-x-4 col-2">
+                         </div>
+                        <div class="col-x-4 col-8">
+                            <div class="srow">
+                                 Then select   for the appropriate local activity from the table below. Next select the distance from the rental to these activities. 
+                            </div>
+                            <div class="srow attracationwarpper">
+                                <% int count_attract = allattractions.Tables[0].Rows.Count;
+                                    for (int ind_attr = 0; ind_attr < count_attract; ind_attr++)
+                                    {
+                                        var row = allattractions.Tables[0].Rows[ind_attr]; %>
+                                <div class="col-x-4 col-6">
+                                    <div class="srow">
+                                        <div class="col-x-2 col-8"><input type="checkbox" name="attractids" value="<%=row["ID"] %>"/><%=row["Attraction"] %></div>
+                                        <div class="col-x-2 col-4">
+                                            <select name="attract_near" class="selectbox">
+			                                    <option selected="selected" value="1">Nearby</option>
+			                                    <option value="2">Under 1 Mile</option>
+			                                    <option value="3">1-5 Miles</option>
+			                                    <option value="4">5-10 Miles</option>
+			                                    <option value="5">10-20 Miles</option>
+			                                    <option value="6">Over 20 Miles</option>
+		                                    </select>
+                                        </div>
+                                    </div>
+                                 </div>
+                                <%} %>
+                            </div>
+                        </div>                       
+                    </div>
                 </form>                
             </div>
             <div class="" id="wzardstep3">
@@ -365,6 +481,67 @@
                  <form id="frmstep3">
                      <input type="hidden" name="wizardstep"  value="3"/>
                      <input type="hidden" value="<%=propertyid %>"  name="propid" />
+                     <div class="srow">
+                         These rates are to provide visitors a general idea of price range for your property and are displayed on the city pages.
+                     </div>
+                     <div class="srow group_form">
+                         <div class="col-2">Rate Range:</div>
+                         <div class="col-10">
+                             <div class="srow">
+                                 <div class="col-4">
+                                     <div> Lowest Nightly Rate:</div>
+                                     <input type="number" id="minrate" name="minrate" class="input_text large_width required" min="0" value="0"/>
+                                 </div>
+                                 <div class="col-4">
+                                     <div> Highest Nightly Rate :</div>
+                                     <input type="number"  id="hirate" name="hirate" class="input_text large_width required" min="0" value="0" />
+                                 </div>
+                                 <div class="col-4">
+                                     <div> Currency </div>
+                                     <div >
+                                            <select class="selectbox" id="currency" name="currency">
+	                                            <option value="EUR">EUR - Euros</option>
+	                                            <option selected="selected" value="USD">USD - US Dollars</option>
+	                                            <option value="AED">AED - United Arab Emirates Dirhams</option>
+	                                            <option value="ARS">ARS - Argentina Pesos</option>
+	                                            <option value="AUD">AUD - Australian Dollars</option>
+	                                            <option value="CAD">CAD - Canadian Dollars</option>
+	                                            <option value="CHF">CHF - Switzerland Franc</option>
+	                                            <option value="CLP">CLP - Chilean Peso</option>
+	                                            <option value="CNY">CNY - Chinese Yuan</option>
+	                                            <option value="CZK">CZK - Czech Crown</option>
+	                                            <option value="GBP">GBP - United Kingdom Pounds</option>
+	                                            <option value="IDR">IDR - Indonesian rupiah</option>
+	                                            <option value="INR">INR - Indian Rupees</option>
+	                                            <option value="LKR">LKR - Sri Lanka Rupee</option>
+	                                            <option value="MAD">MAD - Morocco Dirham</option>
+	                                            <option value="MXN">MXN - Mexico Pesos</option>
+	                                            <option value="MYR">MYR - Malaysian Ringgit</option>
+	                                            <option value="NZD">NZD - New Zealand Dollars</option>
+	                                            <option value="PHP">PHP - Philippines Pesos</option>
+	                                            <option value="RIA">RIA - South Africa Riad</option>
+	                                            <option value="SGD">SGD - Singapore Dollars</option>
+	                                            <option value="THB">THB - Thailand Bhat</option>
+	                                            <option value="TRY">TRY - Turkey Lira</option>
+	                                            <option value="ZAR">ZAR - South African Rand</option>		                                    </select>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+                     <div class="srow group_form">
+                         <div class="col-3">This field displays rates on your individual property page</div>
+                         <div class="col-9"><textarea class="input_text large_width textboxheight" id="rates" name="rates"></textarea></div>
+                     </div>
+                     <div class="srow group_form">
+                         <div class="col-3">Cancellation Policy:</div>
+                         <div class="col-9"><textarea class="input_text large_width textboxheight" id="cancel" name="cancel"></textarea></div>
+                     </div>
+                     <div class="srow group_form">
+                         <div class="col-3">Deposit Required:</div>
+                         <div class="col-9"><textarea class="input_text large_width textboxheight" id="deposit" name="deposit"></textarea></div>
+                     </div>
                 </form>               
             </div>
             <div class="buttongroup">
@@ -377,11 +554,30 @@
         <div class="smallgap"></div>
     </div>
   </div>
+    <!-- Message Box  Modal-->
+    <div id="msgdlg" class="modalform">
+            <div id="modal_loading" class="modalLoading">
+                <div class="loader"> </div>
+            </div>
+            <div id="modal_dialog" class="dlgMsg" >
+                <div class="modalhead">
+                    <span id="msgclose" class="mclose">x</span>
+                </div>
+                <div class="srow">
+                    <div class="col-4">Message:</div>
+                    <div class="col-8" id="modalmsg"></div>
+                </div>
+            </div>
+    </div>
     <script>
         var prop_info=<%=json_propinfo%>;
+        var prop_amenity= <%=json_amenity%>;
+        var prop_furniture= <%=json_roomfurnitures %>;
+        var all_furniture= <%=json_allfurnitures %>;
+        var prop_attraction=<%=json_attractions %>;
     </script>
     <script defer="defer" src="/assets/plugins/custom_chosen/chosen.js"></script>
     <script defer="defer" src="/assets/plugins/chosen/chosen.jquery.min.js"></script>
-   <script defer="defer" src="/assets/js/editproperty.js?2"></script>
+   <script defer="defer" src="/assets/js/editproperty.js?3"></script>
     <script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvUZLV46qiEwP-tQm3gA7xdLYiDuEyW3o&callback=initMap"></script>
 </asp:Content>
