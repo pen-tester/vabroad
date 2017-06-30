@@ -86,8 +86,8 @@
         margin:20px 0;
         border:2px solid #ff6600;
         padding:15px;
-        overflow:visible;
         overflow-x:hidden;
+        overflow:visible;
     }
     .stepwzardbox>div:not(.buttongroup) {
         position:relative;
