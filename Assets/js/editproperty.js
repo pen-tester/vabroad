@@ -108,7 +108,7 @@ function init_basicstepPage(){
     $('#_propname').val(prop_info["Name"]);
     $('#_virttour').val(prop_info["VirtualTour"]);
     $('#_propaddr').val(prop_info["Address"]);
-    $('#_propdisplay').val(prop_info["IfShowAddress"]);
+    if (prop_info["IfShowAddress"] != "" && prop_info["IfShowAddress"]!=null) $('#_propdisplay').val(prop_info["IfShowAddress"]);
     $('#_propbedroom').val(prop_info["NumBedrooms"]);
     $('#_propbathrooms').val(prop_info["NumBaths"]);
     $('#_propsleep').val(prop_info["NumSleeps"]);
