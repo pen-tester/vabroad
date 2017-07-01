@@ -103,18 +103,20 @@ function showmessagebox(msg) {
 }
 
 //If there is a existed property, initalize the content based on the current property
-function init_basicstepPage(){
-    $('#_propname2').val(prop_info["Name2"]);
-    $('#_propname').val(prop_info["Name"]);
-    $('#_virttour').val(prop_info["VirtualTour"]);
-    $('#_propaddr').val(prop_info["Address"]);
-    if (prop_info["IfShowAddress"] != "" && prop_info["IfShowAddress"]!=null) $('#_propdisplay').val(prop_info["IfShowAddress"]);
-    $('#_propbedroom').val(prop_info["NumBedrooms"]);
-    $('#_propbathrooms').val(prop_info["NumBaths"]);
-    $('#_propsleep').val(prop_info["NumSleeps"]);
-    if (prop_info["MinimumNightlyRentalID"] != "" && prop_info["MinimumNightlyRentalID"] != null) $('#_propminrental').val(prop_info["MinimumNightlyRentalID"]);
-    $('#_proptv').val(prop_info["NumTVs"]);
-    $('#_propcd').val(prop_info["NumCDPlayers"]);
+function init_basicstepPage() {
+    if (propertyid != "-1" && propertyid != "0") {
+        $('#_propname2').val(prop_info["Name2"]);
+        $('#_propname').val(prop_info["Name"]);
+        $('#_virttour').val(prop_info["VirtualTour"]);
+        $('#_propaddr').val(prop_info["Address"]);
+        if (prop_info["IfShowAddress"] != "" && prop_info["IfShowAddress"] != null) $('#_propdisplay').val(prop_info["IfShowAddress"]);
+        $('#_propbedroom').val(prop_info["NumBedrooms"]);
+        $('#_propbathrooms').val(prop_info["NumBaths"]);
+        $('#_propsleep').val(prop_info["NumSleeps"]);
+        if (prop_info["MinimumNightlyRentalID"] != "" && prop_info["MinimumNightlyRentalID"] != null) $('#_propminrental').val(prop_info["MinimumNightlyRentalID"]);
+        $('#_proptv').val(prop_info["NumTVs"]);
+        $('#_propcd').val(prop_info["NumCDPlayers"]);
+    }
 
     $('#wzardstep0 .chosen-select').chosen();
 
