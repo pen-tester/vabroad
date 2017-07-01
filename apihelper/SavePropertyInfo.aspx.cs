@@ -336,22 +336,26 @@ public partial class userowner_SavePropertyInfo : CommonPage
         }
 
         char[] spliter = { ',' };
-        string[] amenityval = Request["propamenity"].ToString().Split(spliter);
-        //Check updated amenity id
-        foreach(string req_amenity in amenityval)
+        if(Request["propamenity"]!=null && Request["propamenity"] != "")
         {
-            if (!amenity_arr.Contains(req_amenity)) //New amenity id
+            string[] amenityval = Request["propamenity"].ToString().Split(spliter);
+            //Check updated amenity id
+            foreach (string req_amenity in amenityval)
             {
-                param.Clear();
-                param.Add(new SqlParameter("@propid", propid));
-                param.Add(new SqlParameter("@amenityid", req_amenity));
-                CommonProvider.getScalarValueFromDB("uspUpdatePropertyAmenityID", param); //if return value = -1 error
-             }
-            else //Existed amenity  
-            {
-                amenity_arr.Remove(req_amenity);
+                if (!amenity_arr.Contains(req_amenity)) //New amenity id
+                {
+                    param.Clear();
+                    param.Add(new SqlParameter("@propid", propid));
+                    param.Add(new SqlParameter("@amenityid", req_amenity));
+                    CommonProvider.getScalarValueFromDB("uspUpdatePropertyAmenityID", param); //if return value = -1 error
+                }
+                else //Existed amenity  
+                {
+                    amenity_arr.Remove(req_amenity);
+                }
             }
         }
+
         //For removed amenity id
         foreach(string removed_amenity in amenity_arr)
         {
