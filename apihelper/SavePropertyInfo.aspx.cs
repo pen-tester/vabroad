@@ -336,7 +336,7 @@ public partial class userowner_SavePropertyInfo : CommonPage
         }
 
         char[] spliter = { ',' };
-        if(Request["propamenity"]!=null && Request["propamenity"] != "")
+        if(Request["propamenity"]!=null && Request["propamenity"].ToString() != "")
         {
             string[] amenityval = Request["propamenity"].ToString().Split(spliter);
             //Check updated amenity id
@@ -398,32 +398,37 @@ public partial class userowner_SavePropertyInfo : CommonPage
         }
         //For requested room infos
         char[] spliter = { ',' };
-        string[] req_roomid_list = Request["_roomids"].ToString().Split(spliter);
-        string[] req_roomnames = Request["_roomnames"].ToString().Split(new char[] { ',' });
-        int index = 0;
-        foreach(string req_roomid in req_roomid_list)
+
+        if (Request["_roomids"]!="" && Request["_roomids"].ToString() != "")
         {
-            string req_roomname = req_roomnames[index++];
-            if (roomid_list.Contains(req_roomid))//For existed room , furniture changes
+            string[] req_roomid_list = Request["_roomids"].ToString().Split(spliter);
+            string[] req_roomnames = Request["_roomnames"].ToString().Split(new char[] { ',' });
+            int index = 0;
+            foreach (string req_roomid in req_roomid_list)
             {
-                //Update RoomTitle
-                param.Clear();
-                param.Add(new SqlParameter("@id", req_roomid));
-                param.Add(new SqlParameter("@title", req_roomname));
-                param.Add(new SqlParameter("@method", 2)); //update method
-                CommonProvider.getScalarValueFromDB("uspUpdateRoomInfo", param); //if return value = -1 error
+                string req_roomname = req_roomnames[index++];
+                if (roomid_list.Contains(req_roomid))//For existed room , furniture changes
+                {
+                    //Update RoomTitle
+                    param.Clear();
+                    param.Add(new SqlParameter("@id", req_roomid));
+                    param.Add(new SqlParameter("@title", req_roomname));
+                    param.Add(new SqlParameter("@method", 2)); //update method
+                    CommonProvider.getScalarValueFromDB("uspUpdateRoomInfo", param); //if return value = -1 error
 
-                UpdateFurnitureID(Request["room" + req_roomid].ToString(), req_roomid);
+                    UpdateFurnitureID(Request["room" + req_roomid].ToString(), req_roomid);
 
-                roomid_list.Remove(req_roomid);
-            }else // New Room Info
-            {
-                param.Clear();
-                param.Add(new SqlParameter("@title", req_roomname));
-                param.Add(new SqlParameter("@propid", propid));
-                param.Add(new SqlParameter("@method", 0)); //add method 
-                string newroomid = CommonProvider.getScalarValueFromDB("uspUpdateRoomInfo", param).ToString(); //if return value = -1 error
-                UpdateFurnitureID(Request["room" + req_roomid].ToString(), newroomid);
+                    roomid_list.Remove(req_roomid);
+                }
+                else // New Room Info
+                {
+                    param.Clear();
+                    param.Add(new SqlParameter("@title", req_roomname));
+                    param.Add(new SqlParameter("@propid", propid));
+                    param.Add(new SqlParameter("@method", 0)); //add method 
+                    string newroomid = CommonProvider.getScalarValueFromDB("uspUpdateRoomInfo", param).ToString(); //if return value = -1 error
+                    UpdateFurnitureID(Request["room" + req_roomid].ToString(), newroomid);
+                }
             }
         }
 
