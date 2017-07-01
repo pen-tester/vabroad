@@ -399,7 +399,7 @@ public partial class userowner_SavePropertyInfo : CommonPage
         //For requested room infos
         char[] spliter = { ',' };
 
-        if (Request["_roomids"]!="" && Request["_roomids"].ToString() != "")
+        if (Request["_roomids"]!=null && Request["_roomids"].ToString() != "")
         {
             string[] req_roomid_list = Request["_roomids"].ToString().Split(spliter);
             string[] req_roomnames = Request["_roomnames"].ToString().Split(new char[] { ',' });
