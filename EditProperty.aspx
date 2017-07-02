@@ -265,10 +265,12 @@
                                 </select>
                             </div>
                             <div class="col-x-4 col-3">
+                                <input type="hidden" name="countryname" />
                                 <select class="selectbox chosen-select" name="countrylist" id="countrylist">
                                 </select>
                             </div>
                             <div class="col-x-4 col-3">
+                                <input type="hidden" name="statename" />
                                 <select class="selectbox chosen-select" name="statelist" id="statelist">
                                 </select>
                             </div>
@@ -523,7 +525,8 @@
 	                                            <option value="SGD">SGD - Singapore Dollars</option>
 	                                            <option value="THB">THB - Thailand Bhat</option>
 	                                            <option value="TRY">TRY - Turkey Lira</option>
-	                                            <option value="ZAR">ZAR - South African Rand</option>		                                    </select>
+	                                            <option value="ZAR">ZAR - South African Rand</option>
+		                                    </select>
                                      </div>
                                  </div>
                              </div>
@@ -578,6 +581,6 @@
     </script>
     <script defer="defer" src="/assets/plugins/custom_chosen/chosen.js"></script>
     <script defer="defer" src="/assets/plugins/chosen/chosen.jquery.min.js"></script>
-    <script defer="defer" src="/assets/js/editproperty.js?os=9"></script>
+    <script defer="defer" src="/assets/js/editproperty.js?os=10"></script>
     <script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvUZLV46qiEwP-tQm3gA7xdLYiDuEyW3o&callback=initMap"></script>
 </asp:Content>

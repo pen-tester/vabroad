@@ -401,6 +401,7 @@ function refreshCountryList(index) {
     else {
         $('#countrylist').val($("#countrylist option:first").val());
     }
+    $('input[name=countryname]').val($("#countrylist option:selected").text());
     $('#countrylist').trigger("chosen:updated");
     $('#statelist').html(''); $('#citylist').html(''); $('#citylist').trigger("chosen:updated");
     refreshListBox("countrylist", "getStateList");
@@ -450,6 +451,7 @@ function refreshStateList(index) {
     else {
         $('#statelist').val($("#statelist option:first").val());
     }
+    $('input[name=statename]').val($("#statelist option:selected").text());
     $('#statelist').trigger("chosen:updated");
     refreshListBox("statelist", "getCityList");
 }

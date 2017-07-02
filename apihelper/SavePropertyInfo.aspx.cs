@@ -25,6 +25,8 @@ public class JsonResult
         result = ""; error = "";
         propinfo = new PropertyDetailInfo();
     }
+
+
 }
 
 public partial class userowner_SavePropertyInfo : CommonPage
@@ -35,6 +37,8 @@ public partial class userowner_SavePropertyInfo : CommonPage
 
     public int propid = -1;
     public int[] hotel_type = { 8, 2, 5, 16, 11, 24, 2, 19, 22, 12 };
+    public string error_msg = "";
+    public int error_occured = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Clear();
@@ -249,6 +253,38 @@ public partial class userowner_SavePropertyInfo : CommonPage
                 int newcityid = createNewCity(stateid, newcity);
                 if (newcityid == -1) return null;
                 param.Add(new SqlParameter("@CityID", newcityid));
+
+                if(Request["statename"]!=null && Request["countryname"] != null)
+                {
+                    LatLongInfo latinfo = MainHelper.getCityLocation(newcity, Request["statename"].ToString(), Request["countryname"].ToString());
+                    if (latinfo.status == 0) //Fail to get location info
+                    {
+                        error_msg = String.Format("Fail to get {0} location.", newcity);
+                    }
+                    else if (latinfo.status == 1) //Fail to verify the address
+                    {
+                        error_msg = String.Format("Fail to verify the location of {0}.", newcity);
+                    }
+                    else  //Success to get the latitude and longitude
+                    {
+                        try
+                        {
+                            //Update
+                            List<SqlParameter> tmpparam = new List<SqlParameter>();
+                            tmpparam.Add(new SqlParameter("@stateid", stateid));
+                            tmpparam.Add(new SqlParameter("@city", newcity));
+                            tmpparam.Add(new SqlParameter("@lat", latinfo.latitude));
+                            tmpparam.Add(new SqlParameter("@lng", latinfo.longitude));
+                            BookDBProvider.getDataSet("uspAddLatLong", tmpparam);
+                        }
+                        catch
+                        {
+                            error_msg = "Something is wrong.";
+                        }
+
+                    }
+                }
+ 
             }
             else
             {
