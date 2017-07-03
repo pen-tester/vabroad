@@ -1,5 +1,5 @@
 ﻿var current_page = 0;
-var site_url = "";
+var site_url = "https://www.vacations-abroad.com";
 var propertyid = -1, init_region = false, init_country=false, init_state=false, init_type = false, init_city = false;
 var furniture_tag = ""; var submitting = false;
 $(document).ready(function () {
@@ -167,7 +167,7 @@ function SubmitPage(current_page) {
     submitting = true;
     $.ajax({
         type: "POST",
-        url: site_url + "/apihelper/savepropertyinfo.aspx",
+        url: site_url + "/apihelper/savepropertyinfo.aspx?UserID="+$('#userid').val(),
         data: $(frmname).serialize(),
         success: processSubmitResult,
         error: function (response) {
