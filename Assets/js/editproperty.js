@@ -186,13 +186,8 @@ function processSubmitResult(response) {
         city_result_arr.splice(ind, 1);
         refreshListBox("statelist", "getCityList");
     }
-    if (current_page == 0 && $('#proptypename').val().toString() == "0") {
-        init_type = true;
-        var stid = $('#propcategory').val();
-        var ind = cat_arr.indexOf(stid);
-        cat_arr.splice(ind, 1);
-        result_arr.splice(ind, 1);
-        refreshListBox("propcategory", "getTypeListbyCategory");
+    if (current_page == 0) {
+        $('#additional_type').val(prop_info["PropertyName"]);
     }
     $('input[name=propid]').val(prop_info.ID);
     if (current_page == 1) {
