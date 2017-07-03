@@ -309,17 +309,11 @@ public partial class userowner_SavePropertyInfo : CommonPage
             param.Add(new SqlParameter("@DateAdded", DateTime.Now));
             param.Add(new SqlParameter("@DateStartViewed", DateTime.Now));
 
-            if (Request["proptypename"].ToString() == "0")
-            {
                 string newtype = Request["additional_type"];
                 int categorytype = int.Parse(Request["propcategory"]);
                 int newtypeid = createNewPropertyType(categorytype, newtype);
                 if (newtypeid == -1) return null;
                 param.Add(new SqlParameter("@TypeID", newtypeid));
-            }else
-            {
-                param.Add(new SqlParameter("@TypeID", Request["proptypename"]));
-            }
         }
         catch(Exception ex)
         {

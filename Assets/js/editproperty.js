@@ -116,6 +116,7 @@ function init_basicstepPage() {
         if (prop_info["MinimumNightlyRentalID"] != "" && prop_info["MinimumNightlyRentalID"] != null) $('#_propminrental').val(prop_info["MinimumNightlyRentalID"]);
         $('#_proptv').val(prop_info["NumTVs"]);
         $('#_propcd').val(prop_info["NumCDPlayers"]);
+        $('#additional_type').val(prop_info["PropertyName"]);
     }
 
     $('#wzardstep0 .chosen-select').chosen();
@@ -135,16 +136,8 @@ function refreshListBox(target, funcname) {
 }
 function changePropertyType() {
     $('#proptypename').parent().find('.error_msg').remove();
-    var ind = $('#proptypename').val();
-    if (ind == null) return;
-    if (ind.toString() == "0") {
-        $('#additional_type').show();
-        $('#additional_type').addClass("required");
-    } else {
-        $('#additional_type').hide();
-        $('#additional_type').removeClass("required");
-    }
 }
+
 function changeCityEvent() {
     var ind = $('#citylist').val();
     if (ind == null) return;
@@ -297,7 +290,12 @@ function buttongroup(page) {
 //Function to get the list of the type list by the category type
 var cat_arr = [], calling_id=0 ,result_arr=[];
 function getTypeListbyCategory(cat_id) {
-    var index = cat_arr.indexOf(parseInt(cat_id));
+    if (cat_id.toString() == $('#propcategory').val()) {
+        $('#additional_type').val(prop_info["PropertyName"]);
+    } else {
+        $('#additional_type').val("");
+    }
+ /*   var index = cat_arr.indexOf(parseInt(cat_id));
     if (index == -1) {  //not called yet for category type.
         calling_id = cat_id;  //store the calling category id
         $.ajax({
@@ -313,7 +311,7 @@ function getTypeListbyCategory(cat_id) {
         });
     } else {
         refreshTypeList(index);
-    }
+    }*/
 }
 function processTypeList(response) {
     //console.log(response.d);

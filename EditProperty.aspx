@@ -238,11 +238,7 @@
                                 </select>
                             </div>
                             <div class="col-x-4 col-9">
-                                <select class="selectbox chosen-select" id="proptypename" name="proptypename">
-                                </select>
-                                <div class="group_form">
-                                    <input type="text" class="input_text large_width page_hid" id="additional_type" name="additional_type" placeholder="Be creative and create a unique type." />
-                                </div>
+                                <input type="text" class="input_text large_width required " id="additional_type" name="additional_type" placeholder="Be creative and create a unique type." />
                             </div>
                         </div>
                     </div>
@@ -581,6 +577,6 @@
     </script>
     <script defer="defer" src="/assets/plugins/custom_chosen/chosen.js"></script>
     <script defer="defer" src="/assets/plugins/chosen/chosen.jquery.min.js"></script>
-    <script defer="defer" src="/assets/js/editproperty.js?os=11"></script>
+    <script defer="defer" src="/assets/js/editproperty.js?os=12"></script>
     <script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvUZLV46qiEwP-tQm3gA7xdLYiDuEyW3o&callback=initMap"></script>
 </asp:Content>
