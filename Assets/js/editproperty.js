@@ -135,7 +135,7 @@ function refreshListBox(target, funcname) {
     if (typeof fn === "function") fn(cat_id);
 }
 function changePropertyType() {
-    $('#proptypename').parent().find('.error_msg').remove();
+    $('#additional_type').parent().find('.error_msg').remove();
 }
 
 function changeCityEvent() {
