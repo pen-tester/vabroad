@@ -33,7 +33,6 @@ $(document).ready(function () {
     $('#propcategory').change(function () {
         refreshListBox("propcategory","getTypeListbyCategory");
     });
-    $('#proptypename').change(changePropertyType);
 
     //For location info
     $('#regionlist').change(function () {
@@ -294,6 +293,7 @@ function getTypeListbyCategory(cat_id) {
     } else {
         $('#additional_type').val("");
     }
+    $('#additional_type').parent().find('.error_msg').remove();
  /*   var index = cat_arr.indexOf(parseInt(cat_id));
     if (index == -1) {  //not called yet for category type.
         calling_id = cat_id;  //store the calling category id
