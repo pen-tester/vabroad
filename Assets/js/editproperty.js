@@ -289,7 +289,7 @@ function buttongroup(page) {
 //Function to get the list of the type list by the category type
 var cat_arr = [], calling_id=0 ,result_arr=[];
 function getTypeListbyCategory(cat_id) {
-    if (cat_id.toString() == $('#propcategory').val()) {
+    if (cat_id.toString() == prop_info["CategoryID"]) {
         $('#additional_type').val(prop_info["PropertyName"]);
     } else {
         $('#additional_type').val("");
