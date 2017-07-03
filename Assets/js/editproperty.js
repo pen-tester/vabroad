@@ -53,6 +53,10 @@ $(document).ready(function () {
         changeCityEvent();
     });
 
+    $('#propcategory').change(function () {
+        $('#propcategory').parent().find('.error_msg').remove();
+    });
+
     //For message box
     $('#msgclose').click(function () {
         $('#msgdlg').hide();
