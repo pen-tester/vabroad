@@ -294,7 +294,7 @@ function getTypeListbyCategory(cat_id) {
         $('#additional_type').val("");
     }
     $('#additional_type').parent().find('.error_msg').remove();
-    $('#additional_type').removeClass("error_required");
+    $('#additional_type').removeClass('error_required');
  /*   var index = cat_arr.indexOf(parseInt(cat_id));
     if (index == -1) {  //not called yet for category type.
         calling_id = cat_id;  //store the calling category id
@@ -628,7 +628,7 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
     $('#wzardstep1 .chosen-select').chosen();
     $('input').keypress(function () {
         $(this).parent().find('.error_msg').remove();
-        $(this).remove("error_required");
+        $(this).removeClass('error_required');
     });
     $('.removeroom').click(function () {
         console.log("remove");
@@ -675,7 +675,7 @@ function addNewRoom() {
 
     $('input').keypress(function () {
         $(this).parent().find('.error_msg').remove();
-        $(this).remove("error_required");
+        $(this).removeClass('error_required');
     });
     $('.removeroom').click(function () {
         console.log("remove");
