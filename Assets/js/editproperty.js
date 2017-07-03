@@ -294,7 +294,7 @@ function getTypeListbyCategory(cat_id) {
         $('#additional_type').val("");
     }
     $('#additional_type').parent().find('.error_msg').remove();
-    $('#additional_type').remove("error_required");
+    $('#additional_type').removeClass("error_required");
  /*   var index = cat_arr.indexOf(parseInt(cat_id));
     if (index == -1) {  //not called yet for category type.
         calling_id = cat_id;  //store the calling category id
