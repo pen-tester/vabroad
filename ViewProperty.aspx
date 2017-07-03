@@ -453,7 +453,7 @@
                         </div>--%>
                     
                         <div class="contentfont">
-                            <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Rates"] %><br />
+                            <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Rates"].ToString().Replace(Environment.NewLine, "<br />") %><br />
                         </div>
                         <% if (RatesSet.Tables["Rates"].Rows.Count > 0)
                            { %>
