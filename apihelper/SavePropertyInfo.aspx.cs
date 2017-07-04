@@ -328,8 +328,8 @@ public partial class userowner_SavePropertyInfo : CommonPage
         List<SqlParameter> param = new List<SqlParameter>();
         
         param.Add(new SqlParameter("@ID", _propid));
-        param.Add(new SqlParameter("@Description", Request["_propdescription"]));
-        param.Add(new SqlParameter("@Amenities", Request["_propamenitytxt"]));
+        param.Add(new SqlParameter("@Description", Request["_propdescription"].ToString().Replace(Environment.NewLine,"<br />")));
+        param.Add(new SqlParameter("@Amenities", Request["_propamenitytxt"].ToString().Replace(Environment.NewLine, "<br />")));
         return param;
     }
     //
