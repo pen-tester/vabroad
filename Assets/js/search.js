@@ -35,7 +35,7 @@ function getpropertylist(keyword, proptype, amenitytype, roomnum, sorttype, page
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: processPropertyData,
-        failure: function (response) {
+        error: function (response) {
             console.log(response.d);
         }
     });

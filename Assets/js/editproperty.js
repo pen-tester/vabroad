@@ -3,6 +3,11 @@ var site_url = "https://www.vacations-abroad.com";
 var propertyid = -1, init_region = false, init_country=false, init_state=false, init_type = false, init_city = false;
 var furniture_tag = ""; var submitting = false;
 $(document).ready(function () {
+    String.prototype.replaceAll = function (search, replacement) {
+        var target = this;
+        return target.replace(new RegExp(search, 'g'), replacement);
+    };
+
     $("#wzardstep" + current_page).show();
     //For clicking step wizard 
     $('div.step').click(function () {
@@ -568,8 +573,8 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
     for (var ind = 0; ind < count; ind++) {
         $('#propamenity option[value=' + prop_amenity[ind].AmenityID + ']').attr('selected', true);
     }
-    $('#_propdescription').text(prop_info["Description"]); //Description and Amenities
-    $('#_propamenitytxt').text(prop_info["Amenities"]);
+    $('#_propdescription').text(prop_info["Description"].toString().replaceAll("<br\s*[\/]?>","\n")); //Description and Amenities
+    $('#_propamenitytxt').text(prop_info["Amenities"].toString().replaceAll("<br\s*[\/]?>","\n");
     if (hotel_type.indexOf(prop_info["CategoryID"]) == -1) { //If the vacation rental
     //    console.log(prop_furniture);
         $('#roomwarper').show();
