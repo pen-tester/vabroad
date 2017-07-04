@@ -197,7 +197,7 @@ function processSubmitResult(response) {
     if (current_page == 0) {
         $('#additional_type').val(prop_info["PropertyName"]);
     }
-    $('input[name=propid]').val(prop_info.ID);
+    $('input[name=propid]').val(prop_info["ID"]);
     if (current_page == 1) {
         prop_amenity = response.amenity_list;
         prop_furniture = $.parseJSON(response.room_furniture);
