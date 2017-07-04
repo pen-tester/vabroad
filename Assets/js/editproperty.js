@@ -2,12 +2,13 @@
 var site_url = "https://www.vacations-abroad.com";
 var propertyid = -1, init_region = false, init_country=false, init_state=false, init_type = false, init_city = false;
 var furniture_tag = ""; var submitting = false;
-$(document).ready(function () {
-    String.prototype.replaceAll = function (search, replacement) {
-        var target = this;
-        return target.replace(new RegExp(search, 'g'), replacement);
-    };
 
+String.prototype.replaceAll = function (search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+$(document).ready(function () {
     $("#wzardstep" + current_page).show();
     //For clicking step wizard 
     $('div.step').click(function () {
@@ -575,9 +576,9 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
     }
 //    console.log(prop_info["Description"].toString().replaceAll("<br\s*[\/]?>", "\n"));
     $('#_propdescription').text(prop_info["Description"]); //Description and Amenities
-    $('#_propdescription').text($('#_propdescription').text().replaceAll("<br\s*[\/]?>", "\r\n"));
-    $('#_propamenitytxt').text(prop_info["Amenities"].toString().replaceAll("<br\s*[\/]?>", "\r\n"));
-    $('#_propamenitytxt').text($('#_propamenitytxt').text().replaceAll("<br\s*[\/]?>", "\r\n"));
+    $('#_propdescription').text($('#_propdescription').text().replaceAll("/<br\s*[\/]?>/", "\r\n"));
+    $('#_propamenitytxt').text(prop_info["Amenities"]);
+    $('#_propamenitytxt').text($('#_propamenitytxt').text().replaceAll("/<br\s*[\/]?>/", "\r\n"));
     if (hotel_type.indexOf(prop_info["CategoryID"]) == -1) { //If the vacation rental
     //    console.log(prop_furniture);
         $('#roomwarper').show();
