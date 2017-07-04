@@ -576,9 +576,9 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
     }
 //    console.log(prop_info["Description"].toString().replaceAll("<br\s*[\/]?>", "\n"));
     $('#_propdescription').text(prop_info["Description"]); //Description and Amenities
-    $('#_propdescription').text($('#_propdescription').text().replaceAll("/<br\s*[\/]?>/", "\r\n"));
+    $('#_propdescription').text($('#_propdescription').text().replaceAll("<br />", "\r\n"));
     $('#_propamenitytxt').text(prop_info["Amenities"]);
-    $('#_propamenitytxt').text($('#_propamenitytxt').text().replaceAll("/<br\s*[\/]?>/", "\r\n"));
+    $('#_propamenitytxt').text($('#_propamenitytxt').text().replaceAll("<br />", "\r\n"));
     if (hotel_type.indexOf(prop_info["CategoryID"]) == -1) { //If the vacation rental
     //    console.log(prop_furniture);
         $('#roomwarper').show();
