@@ -434,10 +434,13 @@ public partial class accounts_Login : CommonPage
                 {
 
                 }
-
-                if (AuthenticationManager.Login(LoginName.Text, Password.Text, 0)!="")
+                string username;
+                if ((username=AuthenticationManager.Login(LoginName.Text, Password.Text, 0))!="")
                 {
-                    FormsAuthentication.RedirectFromLoginPage(LoginName.Text, false);
+                    FormsAuthentication.SetAuthCookie(username, true);
+                    //            if (backlinkpassed) Response.Redirect("http://" + Request.ServerVariables["SERVER_NAME"] + ":" + Request.ServerVariables["SERVER_PORT"] + backlinkurl);
+                    if (backlinkpassed) Response.Redirect(backlinkurl);
+                    else  Response.Redirect("/userowner/Listings.aspx?UserID=" + AuthenticationManager.UserID.ToString());
                 }
             }
 
