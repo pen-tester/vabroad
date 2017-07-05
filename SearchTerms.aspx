@@ -81,6 +81,6 @@
         </div>
     </div>
             </div>
-    <script defer="defer" src="Assets/js/search.js"></script>
+    <script defer="defer" src="assets/js/search.js?id=0"></script>
 </form>
 </asp:Content>

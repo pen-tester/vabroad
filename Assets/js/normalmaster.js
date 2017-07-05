@@ -51,7 +51,8 @@ function window_resize(){
         console.log("there is not google cache");
     }
 
-    $('.footertopline').width($('window').width());
+    $('.footertopline').width($(window).width());
+    if($(window).width()<400) $(".topNavigation").width($(window).width());
 }
 
 function redirect() {
