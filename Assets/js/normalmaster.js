@@ -52,7 +52,8 @@ function window_resize(){
     }
 
     $('.footertopline').width($(window).width());
-    if($(window).width()<400) $(".topNavigation").width($(window).width());
+    if ($(window).width() < 400) $(".topNavigation").width($(window).width());
+    else $(".topNavigation").css({ 'width': '' });
 }
 
 function redirect() {
