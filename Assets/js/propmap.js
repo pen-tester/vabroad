@@ -338,7 +338,8 @@ function GetLocation(addr) {
                 var latitude = results[0].geometry.location.lat();
                 var longitude = results[0].geometry.location.lng();
                 //showMsg(latitude + "::: longi" + longitude);
-                getLocationDetails(latitude, longitude);
+                //getLocationDetails(latitude, longitude);
+                addr_verified = true;
             } else {
                 console.log("Request failed.");
                 showMsg("Verification of Address Failed");
