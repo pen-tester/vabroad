@@ -339,6 +339,9 @@ function GetLocation(addr) {
                 var longitude = results[0].geometry.location.lng();
                 //showMsg(latitude + "::: longi" + longitude);
                 //getLocationDetails(latitude, longitude);
+                setMarkers(onemap, latitude, longitude);
+                hlat = latitude;
+                hlng = longitude;
                 addr_verified = true;
             } else {
                 console.log("Request failed.");
