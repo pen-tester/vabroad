@@ -322,7 +322,7 @@ public partial class accounts_Login : CommonPage
     }
     protected void btn_signin_Click(object sender, EventArgs e)
     {
-        logtype = 0;
+        logtype = 1;
         if (!IsValid) return;
 
         string username = "";
@@ -347,7 +347,7 @@ public partial class accounts_Login : CommonPage
 
     protected void bt_register_Click(object sender, EventArgs e)
     {
-        logtype = 1;
+        logtype = 0;
         if (!IsValid)
             return;
 
