@@ -695,6 +695,7 @@ function addNewRoom() {
 function init_AttractionPage() {
     var count = prop_attraction.length;
     $('#_propattract').text(prop_info.LocalAttractions);
+    $('#_propattract').text($('#_propattract').text().replaceAll("<br />", "\r\n"));
     for (var ind_attr=0 ; ind_attr < count; ind_attr++) {
         var attrid = prop_attraction[ind_attr].AttractionID;
         var nearid = prop_attraction[ind_attr].DistanceID;
