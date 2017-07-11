@@ -3,7 +3,7 @@
     EnableEventValidation="false" EnableViewState="true" %>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
-         #googlemap{width:95%; height:310px;margin:0 15px;}
+         #googlemap{width:95%; min-height:310px;margin:0 15px;}
         .footer_text{padding:25px 0 0 0;}
     </style>
 </asp:Content>
