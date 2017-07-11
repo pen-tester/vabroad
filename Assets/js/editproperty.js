@@ -455,6 +455,7 @@ function refreshStateList(index) {
     else {
         $('#statelist').val($("#statelist option:first").val());
     }
+    $('input[name=countryname]').val($("#countrylist option:selected").text());
     $('input[name=statename]').val($("#statelist option:selected").text());
     $('#statelist').trigger("chosen:updated");
     refreshListBox("statelist", "getCityList");
@@ -502,6 +503,7 @@ function refreshCityList(index) {
     else {
         $('#citylist').val($("#citylist option:first").val());
     }
+    $('input[name=statename]').val($("#statelist option:selected").text());
     $('#citylist').trigger("chosen:updated");
     changeCityEvent();
 }
@@ -522,6 +524,7 @@ function geocodeAddress(city, state, country) {
             var longitude = results[0].geometry.location.lng();
             geocodeLatLng(latitude, longitude, country,city);
         } else {
+            addErrorField("#additionalcity", "Geo Error:" + status);
             console.log("get geo code error:" + status);
         }
     });
@@ -558,6 +561,7 @@ function geocodeLatLng(latitude, longitude, country,city) {
             console.log("geocodelatlng No results found");
 
         } else {
+            addErrorField("#additionalcity", "Geo Error:"+status);
             console.log("geocodelatlng error:"+status);
         }
     });
