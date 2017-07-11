@@ -10,6 +10,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="msvalidate.01" content="5724C8F545D1B8C25E26D8232A5FE1CF" />
     <asp:ContentPlaceHolder ID="meta" runat="server"></asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder id="links" runat="server">
     </asp:ContentPlaceHolder>
