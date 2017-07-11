@@ -301,7 +301,7 @@
                         <div class="srow">
                             <div class="col-x-4 col-m-6 col-g-4 center">
                                 <div class="drop-shadow effect4">
-                                  <a href="<%=href.Replace(" ", "_") %>"> <img class="property_img" title="<%=alt %>" alt="<%=alt %>" src="/images/<%= propamen.detail.FileName %>"/></a>
+                                  <a href="<%=href.Replace(" ", "_") %>"> <img class="property_img" title="<%=alt %>" alt="<%=alt %>" src="/images/<%= propamen.detail.FileName.ToLower() %>"/></a>
                                 </div>
                             </div>
                             <div class="col-x-4 col-m-6 col-g-8">
