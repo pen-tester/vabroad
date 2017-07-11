@@ -321,7 +321,7 @@ function setMarkers(map, latitude, longitude) {
         });
        // marker.setCenter(marker.getPosition());
         markers.push(marker);
-        return latlng;
+        return marker;
 }
 
 function clearMarkers() {
