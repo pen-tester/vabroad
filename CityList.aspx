@@ -444,7 +444,7 @@
       var gmarkers = <%=ans%>;
   </script>
    
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
+    <script defer="defer" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
     <script defer="defer" src="/assets/js/citylist.js?28"></script>
 
 <!-- Start of StatCounter Code for Default Guide -->
@@ -454,7 +454,7 @@ var sc_invisible=1;
 var sc_security="b7bf8208"; 
 var scJsHost = (("https:" == document.location.protocol) ?
 "https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
+document.write("<sc"+"ript type='text/javascript' defer='defer' src='" +
 scJsHost+
 "statcounter.com/counter/counter.js'></"+"script>");
 </script>
