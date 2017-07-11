@@ -2,6 +2,9 @@
     var countryname = $('#countryname').val();
     var title = "Vacations Abroad is a directory of " + countryname + " Vacation Rentals and " + countryname + " Boutique Hotels";
     $('#footerlogo').attr({ "title": title, "alt": title });
+
+    //Google map 
+    initializeMap();
 });
 
 var map;
