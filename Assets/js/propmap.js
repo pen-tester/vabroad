@@ -123,7 +123,9 @@ function processProperty(response) {
 
     var lat = property.loc_latlang;
     var lng= property.loc_logitude;
-    setMarkers(onemap,lat, lng);
+    var marker = setMarkers(onemap, lat, lng);
+    var latLng = marker.getPosition(); // returns LatLng object
+    onemap.setCenter(latLng);
     $('#m_addr').val(property.Address)
 }
 
