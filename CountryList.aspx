@@ -22,12 +22,12 @@
         --%>
 
         <div class="srow">
-            <asp:HyperLink ID="hyplnkBackLink" CssClass="backitem" runat="server" ><asp:Literal ID="ltrBackText" runat="server"></asp:Literal></asp:HyperLink>
+            <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx", region).ToLower().Replace(" ","_") %>" class="backitem"><%=country+" <<" %></a>
         </div>
         <div class="srow center">
                 <h1 class="H1CityText">
                     <%--<%= city %> Vacation Rentals--%>
-                    <asp:Literal ID="ltrH11" runat="server"></asp:Literal>
+                    <%=country %> Vacations
 
                 </h1>
         </div>
@@ -72,15 +72,30 @@
                      <div class="srow text-left">  
                 
                              <div class="linkpadding">
-                                 <h2 class="inlineblock orangetxt"><asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
-                                <asp:HyperLink ID="hyplnkAllProps"  Text="AllProperties" runat="server"><h3 class="inlineblock viewalllink"><asp:Literal ID="ltrAllProps" runat="server"></asp:Literal></h3></asp:HyperLink>
+                                 <h2 class="inlineblock orangetxt"><%=country %> Vacation Rentals and Boutique Hotels</h2>
+                                <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/countryproperties.aspx", country).ToLower().Replace(" ","_") %>"><h3 class="inlineblock viewalllink">View all <%=country %> properties</h3></a>
                             </div>  
 
                      </div>          
  
               <div class="srow">
                   <div class="center">
-                        <ul id="Statesul" class="stateful" runat="server">
+                        <ul class="stateful">
+                            <% int num_states = ds_allinfo.Tables[1].Rows.Count;
+                                for (int ind_state = 0; ind_state < num_states; ind_state++)
+                                {
+                                    var row = ds_allinfo.Tables[1].Rows[ind_state];
+                                    string href = String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx",country, row["StateProvince"]).ToLower().Replace(" ", "_");
+                                     %>
+                            <li> 
+                                <a href="<%=href %>" class="StateTitle">
+                                    <%=row["StateProvince"] %>
+                                </a><br />
+                                <a href="<%=href %>">
+                                    <div class='drop-shadow effect4'><img width='160' height='125' src="<%=String.Format("/images/{0}", row["FileName"]).ToLower() %>" alt="<%=row["StateProvince"] %>" title="<%=row["StateProvince"] %>" /></div>
+                                </a>
+                            </li>
+                            <%} %>
                         </ul>
                    </div>
               </div>
@@ -94,10 +109,11 @@
                             </div>
                                 <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                     { %>
+                        <div>
                         <asp:TextBox ID="txtCountryText2" runat="server" Rows="7" TextMode="MultiLine" Width="600px"></asp:TextBox><br />
-                        <center>
-                            <asp:Button ID="btnSubmit2" runat="server" Text="Save Text" OnClick="btnSubmit2_Click" /></center>
-                        <br />
+                       
+                            <asp:Button ID="btnSubmit2" runat="server" Text="Save Text" OnClick="btnSubmit2_Click" />
+                       </div>
                         <% } %>
                         <p><asp:Label ID="lblInfo2" CssClass="contentstyle" runat="server" EnableViewState="False"></asp:Label>
                             </p>
@@ -108,9 +124,16 @@
         </div>
         <div class="srow contentpadding">
                 <ul class="countrylist">
-                    <li><div id="rtHd3" runat="server" style="display:inline;"></div></li>
-                    <asp:Literal id="rtLow3" runat="server">
-                            </asp:Literal>
+                    <li><%=region %> Countries: </li>
+                    <% int num_country = ds_allinfo.Tables[2].Rows.Count;
+                        for (int ind_country = 0; ind_country < num_country; ind_country++)
+                        {
+                            string comma = (ind_country == (num_country - 1)) ? "" : ", ";
+                            var row = ds_allinfo.Tables[2].Rows[ind_country];
+                            string href = String.Format("https://www.vacations-abroad.com/{0}/default.aspx", row["Country"]).ToLower().Replace(" ", "_");
+                             %>
+                    <li><a href="<%=href %>"><%=row["Country"]+comma %></a></li>
+                    <%} %>
                 </ul>
         </div>
         </div>
@@ -121,11 +144,6 @@
 
         </div>
     </div>
-             <asp:Label ID="Title" runat="server" Visible="false"></asp:Label>
-        <asp:Label ID="Keywords" runat="server" Visible="false" Text="%stateprovince% vacation rentals, %stateprovince% Hotels, %stateprovince% Cottages, %stateprovince% B&Bs, %stateprovince% villas , "></asp:Label>
-        <asp:Label ID="Description" runat="server" Visible="false" Text="Relax and unwind in our %stateprovince% vacation rentals, B&Bs and boutique hotels in %country% "></asp:Label>
-        <asp:TextBox runat="server" ID="txtCityVal" value="" Style="display: none;"></asp:TextBox>
-        <asp:TextBox runat="server" ID="txtCityVal2" value="" Style="display: none;"></asp:TextBox>
     </div>
     <script>
         var markers=<%=markers %>;
@@ -142,7 +160,7 @@ var sc_invisible=1;
 var sc_security="ebe10c56"; 
 var scJsHost = (("https:" == document.location.protocol) ?
 "https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
+document.write("<sc"+"ript type='text/javascript' defer='defer' src='" +
 scJsHost+
 "statcounter.com/counter/counter.js'></"+"script>");
 </script>

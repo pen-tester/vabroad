@@ -505,7 +505,7 @@ public class BookDBProvider
 
                     adapter.SelectCommand = cmd;
 
-                    adapter.Fill(inquiry_set, "Result");
+                    adapter.Fill(inquiry_set);
 
                     con.Close();
 
