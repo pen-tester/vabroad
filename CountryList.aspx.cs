@@ -477,97 +477,29 @@ public partial class CountryList : CommonPage
     protected void btnSubmit2_Click(object sender, EventArgs e)
     {
         string strCoutryText2 = txtCountryText2.Text.Replace(Environment.NewLine, "<br />");
-      //  Response.Write(strCoutryText2);
-        DataTable dt = VADBCommander.CountryTextInd(countryid.ToString(), Convert.ToString(ViewState["firstCategory"]));
-        try
-        {
-            if (dt.Rows.Count > 0)
-            {
-                VADBCommander.CountryText2Edit(countryid.ToString(), strCoutryText2, Convert.ToString(ViewState["firstCategory"]));
-            }
-            else
-            {
-                VADBCommander.CountryText2Add(countryid.ToString(), strCoutryText2, Convert.ToString(ViewState["firstCategory"]));
-            }
-            lblInfo2.Text = "Data saved.";
-            DataTable dt4 = VADBCommander.CountryTextInd(countryid.ToString(), Convert.ToString(ViewState["firstCategory"]));
-            if (dt4.Rows.Count > 0)
-            {
-                if (dt4.Rows[0]["CountryText"] != null)
-                {
-                    lblCountryInfo.Text = dt4.Rows[0]["CountryText"].ToString();
-                    txtCountryText.Text = dt4.Rows[0]["CountryText"].ToString().Replace("<br />-ipx-", Environment.NewLine);
 
-                }
-                if (dt4.Rows[0]["CountryText2"] != null)
-                {
-                    lblInfo2.Text = dt4.Rows[0]["CountryText2"].ToString();
-                    if (string.IsNullOrEmpty(lblInfo2.Text) || lblInfo2.Text == "")
-                    {
-                        OrangeTitle.Visible = false;
-                    }
-                    txtCountryText2.Text = dt4.Rows[0]["CountryText2"].ToString().Replace("<br />", Environment.NewLine);
-                }
-                else
-                {
-                    OrangeTitle.Visible = false;
-                }
-            }
-            else
-            {
-                OrangeTitle.Visible = false;
-            }
-        }
-        catch (Exception ex)
-        {
-            lblInfo2.Text = ex.Message;
-        }
-        lblInfo2.ForeColor = System.Drawing.Color.Red;
-    
-    }
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@countryid", countryid));//[uspUpdateCountryText]
+        param.Add(new SqlParameter("@text", strCoutryText2));
+        param.Add(new SqlParameter("@index", 1));
+
+        BookDBProvider.getDataSet("uspUpdateCountryText", param);
+
+        lblInfo2.Text = txtCountryText2.Text;
+     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        HttpResponse.RemoveOutputCacheItem("/StateProvinceList.aspx");
+ 
         string strCountryText = txtCountryText.Text.Replace(Environment.NewLine, "<br />");
-        DataTable dt = VADBCommander.CountryTextInd(countryid.ToString(), Convert.ToString(ViewState["firstCategory"]));
-        try
-        {
-            if (dt.Rows.Count > 0)
-            {
-                VADBCommander.CountryTextEdit(countryid.ToString(), strCountryText, Convert.ToString(ViewState["firstCategory"]));
+        List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@countryid", countryid));//[uspUpdateCountryText]
+        param.Add(new SqlParameter("@text", strCountryText));
+        param.Add(new SqlParameter("@index", 0));
 
-            }
-            else
-            {
-                VADBCommander.CountryTextAdd(countryid.ToString(), strCountryText, Convert.ToString(ViewState["firstCategory"]));
-            }
-            lblInfo.Text = "Data saved.";
-            DataTable dt4 = VADBCommander.CountryTextInd(countryid.ToString(), Convert.ToString(ViewState["firstCategory"]));
-            if (dt4.Rows.Count > 0)
-            {
-                if (dt4.Rows[0]["countryText"] != null)
-                {
-                    lblCountryInfo.Text = dt4.Rows[0]["countryText"].ToString();
-                    txtCountryText.Text = dt4.Rows[0]["countryText"].ToString().Replace("<br />-ipx-", Environment.NewLine);
+        BookDBProvider.getDataSet("uspUpdateCountryText", param);
 
-                }
-                if (dt4.Rows[0]["countryText2"] != null)
-                {
-                    lblInfo2.Text = dt4.Rows[0]["countryText2"].ToString();
-
-                    if (string.IsNullOrEmpty(lblInfo2.Text))
-                    {
-                        OrangeTitle.Visible = false;
-                    }
-                    txtCountryText2.Text = dt4.Rows[0]["countryText2"].ToString().Replace("<br />", Environment.NewLine);
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            lblInfo.Text = ex.Message;
-        }
-
+        //For country description
+        lblCountryInfo.Text = txtCountryText.Text;
     }
 
 
