@@ -321,6 +321,7 @@ function setMarkers(map, latitude, longitude) {
         });
        // marker.setCenter(marker.getPosition());
         markers.push(marker);
+        return latlng;
 }
 
 function clearMarkers() {
@@ -339,10 +340,13 @@ function GetLocation(addr) {
                 var longitude = results[0].geometry.location.lng();
                 //showMsg(latitude + "::: longi" + longitude);
                 //getLocationDetails(latitude, longitude);
-                setMarkers(onemap, latitude, longitude);
+                var marker=setMarkers(onemap, latitude, longitude);
                 hlat = latitude;
                 hlng = longitude;
                 addr_verified = true;
+                var latLng = marker.getPosition(); // returns LatLng object
+                onemap.setCenter(latLng);
+                showMsg("Verification of Address Success");
             } else {
                 console.log("Request failed.");
                 showMsg("Verification of Address Failed");
