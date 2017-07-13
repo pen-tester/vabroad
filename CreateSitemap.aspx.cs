@@ -21,8 +21,8 @@ public partial class CreateSitemap : System.Web.UI.Page
         using (XmlWriter writer = XmlWriter.Create(xmlDoc, settings))
         {
             writer.WriteStartDocument();
-            writer.WriteStartElement("urlset");
-            writer.WriteAttributeString("xmlnss", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            writer.WriteStartElement("urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+           // writer.WriteAttributeString("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9");
             addSpecialElement(writer);
             addRegionElements(writer);
             addCountryElements(writer);
