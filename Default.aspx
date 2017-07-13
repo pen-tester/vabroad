@@ -9,6 +9,20 @@
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
      <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "url": "https://www.vacations-abroad.com",
+  "name": "Vacations Abroad",
+  "logo": "https://www.vacations-abroad.com/assets/img/largelogo.jpg"
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-877-672-2556",
+    "contactType": "Customer service"
+  }
+}
+</script>
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
