@@ -23,6 +23,7 @@ public partial class CreateSitemap : System.Web.UI.Page
             writer.WriteStartDocument();
             writer.WriteStartElement("urlset");
             writer.WriteAttributeString("xmlnss", "http://www.sitemaps.org/schemas/sitemap/0.9");
+            addSpecialElement(writer);
             addRegionElements(writer);
             addCountryElements(writer);
             addStateElements(writer);
@@ -36,6 +37,17 @@ public partial class CreateSitemap : System.Web.UI.Page
     }
 
     public string site_addr = "https://www.vacations-abroad.com";
+
+    public void addSpecialElement(XmlWriter writer)
+    {
+        writer.WriteStartElement("url");
+
+        writer.WriteElementString("loc", String.Format("{0}/default.aspx", site_addr));
+        writer.WriteElementString("changefreq", "hourly");
+        writer.WriteElementString("priority", "1.0");
+
+        writer.WriteEndElement();
+    }
     public void addRegionElements(XmlWriter writer)
     {
         DataSet reg_list = SiteMapHelper.getRegionList();
