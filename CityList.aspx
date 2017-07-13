@@ -315,7 +315,7 @@
                                                 <%=propamen.detail.Name2 %>
                                             </div>                                          
                                             <div class="prop_sleep">
-                                                 <img class="sleepsicon" src="/assets/img/sleeps.png"   /> <span> Sleeps <%=propamen.detail.NumSleeps %> in <%=propamen.detail.NumBedrooms %> bedrooms</span>
+                                                 <img class="sleepsicon" src="/assets/img/sleeps.png" alt="sleep"   /> <span> Sleeps <%=propamen.detail.NumSleeps %> in <%=propamen.detail.NumBedrooms %> bedrooms</span>
                                             </div>
                                             <div class="prop_detail">
                                               <%=propamen.detail.Name %>
