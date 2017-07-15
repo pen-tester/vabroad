@@ -11,6 +11,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="msvalidate.01" content="5724C8F545D1B8C25E26D8232A5FE1CF" />
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "url": "https://www.vacations-abroad.com",
+  "name": "Vacations Abroad",
+  "logo": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-877-672-2556",
+    "contactType": "Customer service"
+  }
+}
+</script>
     <asp:ContentPlaceHolder ID="meta" runat="server"></asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder id="links" runat="server">
     </asp:ContentPlaceHolder>
