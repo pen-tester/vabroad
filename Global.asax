@@ -287,7 +287,7 @@
 
                                     vURL = vURL.ToLower();
                                     vURL = vURL.Replace(' ', '_');
-                                    incoming.Response.Redirect(CommonFunctions.PrepareURL(vURL));
+                                    incoming.Response.RedirectPermanent(CommonFunctions.PrepareURL(vURL));
                                     return;
                                 }
                                 else
