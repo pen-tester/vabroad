@@ -16,11 +16,11 @@
   "url": "https://www.vacations-abroad.com",
   "name": "Vacations Abroad",
   "logo": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
-  "contactPoint": [{
+  "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-877-672-2556",
     "contactType": "Customer service"
-  }]
+  }
 }
 </script>
 </asp:Content>
