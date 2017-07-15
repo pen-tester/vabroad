@@ -22,11 +22,11 @@
     "https://twitter.com/vacationsabroad",
     "https://www.facebook.com/VacationsAbroad"
   ],
-  "contactPoint": {
+  "contactPoint": [{
     "@type": "ContactPoint",
     "telephone": "+1-877-672-2556",
     "contactType": "Customer service"
-  }
+  }]
 }
 </script>
     <asp:ContentPlaceHolder ID="meta" runat="server"></asp:ContentPlaceHolder>
