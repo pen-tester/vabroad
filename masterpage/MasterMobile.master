@@ -18,6 +18,10 @@
   "url": "https://www.vacations-abroad.com",
   "name": "Vacations Abroad",
   "logo": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
+  "sameAs": [
+    "https://twitter.com/vacationsabroad",
+    "https://www.facebook.com/VacationsAbroad"
+  ],
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-877-672-2556",
