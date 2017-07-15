@@ -36,6 +36,8 @@
         sb.AppendLine("<br />");
         sb.AppendLine("Message: " + strMessage);
         sb.AppendLine("<br />");
+        sb.AppendLine("Source" + objErr.Source);
+        sb.AppendLine("<br />");
         sb.AppendLine("Stack Trace: " + strStackTrace);
         if (blShouldSend)
         {
@@ -192,7 +194,7 @@
                                 return;
                             }
                             */
-         //   Response.Write(Request.PhysicalApplicationPath + aspxfile);
+            //   Response.Write(Request.PhysicalApplicationPath + aspxfile);
             if(File.Exists(Request.PhysicalApplicationPath+aspxfile)) {
                 //CommonFunctions.Connection.Close ();
                 return;
@@ -200,7 +202,7 @@
         }
 
 
-      //  return;
+        //  return;
         using(SqlConnection connection = CommonFunctions.GetConnection()) {
             connection.Open();
             // mod by LMG 6-5-08
@@ -285,7 +287,7 @@
 
                                     vURL = vURL.ToLower();
                                     vURL = vURL.Replace(' ', '_');
-                                    incoming.RewritePath(CommonFunctions.PrepareURL(vURL));
+                                    incoming.Response.Redirect(CommonFunctions.PrepareURL(vURL));
                                     return;
                                 }
                                 else
@@ -552,46 +554,46 @@
                 //}
             }
 
-       /*     //citylist url 
-            Regex regex33 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
-            MatchCollection matches33 = regex33.Matches(oldpath);
-            if (matches33.Count > 0)
-            {
-                try
-                {
-                    string country = matches33[0].Groups[1].ToString();
-                    string state = matches33[0].Groups[2].ToString();
-                    string city = matches33[0].Groups[3].ToString();
-                    string apartment = matches33[0].Groups[4].ToString();
+            /*     //citylist url 
+                 Regex regex33 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+                 MatchCollection matches33 = regex33.Matches(oldpath);
+                 if (matches33.Count > 0)
+                 {
+                     try
+                     {
+                         string country = matches33[0].Groups[1].ToString();
+                         string state = matches33[0].Groups[2].ToString();
+                         string city = matches33[0].Groups[3].ToString();
+                         string apartment = matches33[0].Groups[4].ToString();
 
 
-                    //if (CommonFunctions.Connection.State == ConnectionState.Closed)
-                    //CommonFunctions.Connection.Open ();
+                         //if (CommonFunctions.Connection.State == ConnectionState.Closed)
+                         //CommonFunctions.Connection.Open ();
 
-                    GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
-                    GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
-                    GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = state;
-                    GetIDsAdapter.SelectCommand.Parameters["@City"].Value = city;
-                    GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
+                         GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
+                         GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
+                         GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = state;
+                         GetIDsAdapter.SelectCommand.Parameters["@City"].Value = city;
+                         GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
 
-                    //lock(CommonFunctions.Connection)
-                    if (GetIDsAdapter.Fill(MainDataSet) > 0)
-                    {
-                        //CommonFunctions.Connection.Close ();
-                        incoming.RewritePath(CommonFunctions.PrepareURL("CityList.aspx?CityID=" +
-                            ((int)MainDataSet.Tables[0].Rows[0]["CityID"]).ToString() + "&category=" + apartment.ToString() +
-                            ((querystring.Length > 0) ? "&" + querystring : "")));
-                        return;
-                    }
+                         //lock(CommonFunctions.Connection)
+                         if (GetIDsAdapter.Fill(MainDataSet) > 0)
+                         {
+                             //CommonFunctions.Connection.Close ();
+                             incoming.RewritePath(CommonFunctions.PrepareURL("CityList.aspx?CityID=" +
+                                 ((int)MainDataSet.Tables[0].Rows[0]["CityID"]).ToString() + "&category=" + apartment.ToString() +
+                                 ((querystring.Length > 0) ? "&" + querystring : "")));
+                             return;
+                         }
 
-                }
-                catch (Exception exc)
-                {
-                    ProcessException(exc, null);
-                }
-            }
+                     }
+                     catch (Exception exc)
+                     {
+                         ProcessException(exc, null);
+                     }
+                 }
 
-            */
+                 */
 
 
             Regex regexMapsCat = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/Maps.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
@@ -845,58 +847,58 @@
                 }
             }
 
-         /*   // county page
-            Regex regexCounty = new Regex(@"([a-zA-Z_\- ]+)/Holiday-Rentals/([a-zA-Z0-9_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
-            MatchCollection matchesCounty = regexCounty.Matches(oldpath);
-            if (matchesCounty.Count > 0)
-            {
-                try
-                {
-                    //string country = matchesCounty[0].Groups[1].ToString().Replace('_', ' ');
-                    string state = matchesCounty[0].Groups[1].ToString();
-                    string county = matchesCounty[0].Groups[2].ToString();
+            /*   // county page
+               Regex regexCounty = new Regex(@"([a-zA-Z_\- ]+)/Holiday-Rentals/([a-zA-Z0-9_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+               MatchCollection matchesCounty = regexCounty.Matches(oldpath);
+               if (matchesCounty.Count > 0)
+               {
+                   try
+                   {
+                       //string country = matchesCounty[0].Groups[1].ToString().Replace('_', ' ');
+                       string state = matchesCounty[0].Groups[1].ToString();
+                       string county = matchesCounty[0].Groups[2].ToString();
 
-                    string[] vTemp;
+                       string[] vTemp;
 
-                    if(county.Contains("-vacation"))
-                        vTemp = Regex.Split(county, "-vacation");
-                    else
-                        vTemp = Regex.Split(county, "-Vacation");
-
-
-                    DBConnection objCounty = new DBConnection();
-                    DataTable dtC = new DataTable();
+                       if(county.Contains("-vacation"))
+                           vTemp = Regex.Split(county, "-vacation");
+                       else
+                           vTemp = Regex.Split(county, "-Vacation");
 
 
-                    dtC = VADBCommander.CountiesByNameAndState(vTemp[0], state);
-                    //if (dtC.Rows.Count > 0)
-                    //{
-                    //    vCounty = dtC.Rows[0]["county"].ToString();
+                       DBConnection objCounty = new DBConnection();
+                       DataTable dtC = new DataTable();
 
-                    //}
-                    //}    
-                    //GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
-                    //GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
-                    //GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = state;
-                    //GetIDsAdapter.SelectCommand.Parameters["@City"].Value = "";
-                    //GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
 
-                    //lock(CommonFunctions.Connection)
+                       dtC = VADBCommander.CountiesByNameAndState(vTemp[0], state);
+                       //if (dtC.Rows.Count > 0)
+                       //{
+                       //    vCounty = dtC.Rows[0]["county"].ToString();
 
-                    if (dtC.Rows.Count > 0)
-                    {
-                        GetIDsAdapter.Fill(MainDataSet);
-                        incoming.RewritePath(CommonFunctions.PrepareURL("CountiesList.aspx?county=" + dtC.Rows[0]["id"].ToString()));
+                       //}
+                       //}    
+                       //GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
+                       //GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
+                       //GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = state;
+                       //GetIDsAdapter.SelectCommand.Parameters["@City"].Value = "";
+                       //GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
 
-                        return;
-                    }
-                }
-                catch (Exception exc)
-                {
-                    ProcessException(exc, null);
-                }
-            }
-            */
+                       //lock(CommonFunctions.Connection)
+
+                       if (dtC.Rows.Count > 0)
+                       {
+                           GetIDsAdapter.Fill(MainDataSet);
+                           incoming.RewritePath(CommonFunctions.PrepareURL("CountiesList.aspx?county=" + dtC.Rows[0]["id"].ToString()));
+
+                           return;
+                       }
+                   }
+                   catch (Exception exc)
+                   {
+                       ProcessException(exc, null);
+                   }
+               }
+               */
 
 
             Regex regex5 = new Regex(@"(\d+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
