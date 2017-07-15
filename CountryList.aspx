@@ -11,24 +11,6 @@
     <%=country %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx", region,country).ToLower().Replace(" ","_") %>"
-  },
-  "headline": "<%=country %> Vacations",
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
-    "height": 800,
-    "width": 800
-  },
-  "description": "<%=country %> Vacations"
-}
-</script>
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
