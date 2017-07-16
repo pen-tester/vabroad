@@ -45,6 +45,22 @@
     "name": "Linda Jenkins"
   }
 }
+
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+    "@type": "Place",
+    "name": "<%=String.Format("{0} {1}", country, region) %>",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "<%=country %>",
+      "addressLocality": "<%=country %>",
+      "postalCode": "95051",
+      "addressRegion": "<%=country %>",
+      "addressCountry": "<%=country %>"
+   }
+}
 </script>
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
