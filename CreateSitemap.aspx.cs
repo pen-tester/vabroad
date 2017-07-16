@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
-
+//always hourly daily weekly monthly yearly never
 public partial class CreateSitemap : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -72,7 +72,7 @@ public partial class CreateSitemap : System.Web.UI.Page
             writer.WriteStartElement("url");
 
             writer.WriteElementString("loc", String.Format("{0}/{1}/default.aspx", site_addr, reg_list.Tables[0].Rows[i][1]).ToLower().Replace(" ", "_"));
-            writer.WriteElementString("changefreq", "monthly");
+            writer.WriteElementString("changefreq", "daily");
             writer.WriteElementString("priority", "1.0");
 
             writer.WriteEndElement();
@@ -88,7 +88,7 @@ public partial class CreateSitemap : System.Web.UI.Page
             writer.WriteStartElement("url");
 
             writer.WriteElementString("loc", String.Format("{0}/{1}/{2}/default.aspx", site_addr, reg_list.Tables[0].Rows[i][0], reg_list.Tables[0].Rows[i][1]).ToLower().Replace(" ","_"));
-            writer.WriteElementString("changefreq", "monthly");
+            writer.WriteElementString("changefreq", "daily");
             writer.WriteElementString("priority", "0.9");
 
             writer.WriteEndElement();
@@ -103,7 +103,7 @@ public partial class CreateSitemap : System.Web.UI.Page
             writer.WriteStartElement("url");
 
             writer.WriteElementString("loc", String.Format("{0}/{1}/{2}/{3}/default.aspx", site_addr, reg_list.Tables[0].Rows[i][0], reg_list.Tables[0].Rows[i][1], reg_list.Tables[0].Rows[i][2]).ToLower().Replace(" ","_"));
-            writer.WriteElementString("changefreq", "weekly");
+            writer.WriteElementString("changefreq", "daily");
             writer.WriteElementString("priority", "0.8");
 
             writer.WriteEndElement();
@@ -118,7 +118,7 @@ public partial class CreateSitemap : System.Web.UI.Page
             writer.WriteStartElement("url");
 
             writer.WriteElementString("loc", String.Format("{0}/{1}/{2}/{3}/{4}/default.aspx", site_addr, reg_list.Tables[0].Rows[i][0], reg_list.Tables[0].Rows[i][1], reg_list.Tables[0].Rows[i][2], reg_list.Tables[0].Rows[i][3]).ToLower().Replace(" ","_"));
-            writer.WriteElementString("changefreq", "monthly");
+            writer.WriteElementString("changefreq", "daily");
             writer.WriteElementString("priority", "0.7");
 
             writer.WriteEndElement();

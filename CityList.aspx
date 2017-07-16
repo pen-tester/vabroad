@@ -4,6 +4,74 @@
     <%=countryinfo.City %> Vacation Rentals And Boutique Hotels | Vacation abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Event",
+  "name": " <%=countryinfo.City %> Vacations",
+  "startDate": "2017-07-11T19:30-08:00",
+  "location": {
+    "@type": "Place",
+    "name": "<%=String.Format("{0} {1}", countryinfo.City, countryinfo.Country) %>",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "<%=String.Format("{0} {1}", countryinfo.City, countryinfo.Country) %>",
+      "addressLocality": "<%=String.Format("{0} {1}", countryinfo.City, countryinfo.Country) %>",
+      "postalCode": "95051",
+      "addressRegion": "<%=String.Format("{0} {1}", countryinfo.City, countryinfo.Country) %>",
+      "addressCountry": "<%=String.Format("{0} {1}", countryinfo.City, countryinfo.Country) %>"
+    }
+  },
+  "image": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
+  "description": "Join us for vacations abroad.",
+  "endDate": "2017-09-24T23:00-08:00",
+  "offers": {
+    "@type": "Offer",
+    "url": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", countryinfo.Country,countryinfo.StateProvince, countryinfo.City).ToLower().Replace(" ","_")%>",
+    "price": "300",
+    "priceCurrency": "USD",
+    "availability": "http://schema.org/InStock",
+    "validFrom": "2017-01-20T16:20-08:00"
+  },
+  "performer": {
+    "@type": "PerformingGroup",
+    "name": "Linda Jenkins"
+  }
+}
+
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "<%=countryinfo.City %> Vacations",
+  "image": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
+  "description": "<%=countryinfo.CityText %>",
+  "mpn": "925872",
+  "brand": {
+    "@type": "Thing",
+    "name": "Vactions-Abroad"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "89"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "289.99",
+    "priceValidUntil": "2020-11-05",
+    "itemCondition": "http://schema.org/UsedCondition",
+    "availability": "http://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Vacations Abroad"
+    }
+  }
+}
+</script>
+
      <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
 </asp:Content>
 
