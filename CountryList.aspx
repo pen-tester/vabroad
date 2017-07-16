@@ -11,6 +11,41 @@
     <%=country %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Event",
+  "name": " <%=country %> Vacations",
+  "startDate": "2017-07-11T19:30-08:00",
+  "location": {
+    "@type": "Place",
+    "name": "<%=String.Format("{0} {1}", country, region) %>",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "<%=country %>",
+      "addressLocality": "<%=country %>",
+      "postalCode": "95051",
+      "addressRegion": "<%=country %>",
+      "addressCountry": "<%=country %>"
+    }
+  },
+  "image": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
+  "description": "Join us for vacations abroad.",
+  "endDate": "2017-09-24T23:00-08:00",
+  "offers": {
+    "@type": "Offer",
+    "url": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx", region,country)%>",
+    "price": "300",
+    "priceCurrency": "USD",
+    "availability": "http://schema.org/InStock",
+    "validFrom": "2017-01-20T16:20-08:00"
+  },
+  "performer": {
+    "@type": "PerformingGroup",
+    "name": "Linda Jenkins"
+  }
+}
+</script>
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
