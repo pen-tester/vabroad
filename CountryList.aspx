@@ -34,7 +34,7 @@
   "endDate": "2017-09-24T23:00-08:00",
   "offers": {
     "@type": "Offer",
-    "url": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx", region,country)%>",
+    "url": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx", region,country).ToLower().Replace(" ","_")%>",
     "price": "300",
     "priceCurrency": "USD",
     "availability": "http://schema.org/InStock",
