@@ -9,6 +9,18 @@
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 <script type="application/ld+json">
 {
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "https://www.vacations-abroad.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.vacations-abroad.com/searchterms.aspx?SearchTerms={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
   "@context": "http://schema.org/",
   "@type": "Product",
   "name": "Vacations Abroad",
