@@ -23,6 +23,18 @@
     "@type": "AggregateRating",
     "ratingValue": "4.7",
     "reviewCount": "89"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "289.99",
+    "priceValidUntil": "2020-11-05",
+    "itemCondition": "http://schema.org/UsedCondition",
+    "availability": "http://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Vacations Abroad"
+    }
   }
 }
 </script>
