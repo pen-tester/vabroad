@@ -7,6 +7,25 @@
     Vacations Abroad: Vacation Rentals and Boutique Hotels
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "Vacations Abroad",
+  "image": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
+  "description": "Vacations Abroad is a directory of unique vacation rentals, boutique hotels, cozy guesthouses and beach resorts.",
+  "mpn": "925872",
+  "brand": {
+    "@type": "Thing",
+    "name": "Vactions-Abroad"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "89"
+  },
+}
+</script>
      <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
