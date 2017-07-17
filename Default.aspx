@@ -23,7 +23,7 @@
     "@type": "AggregateRating",
     "ratingValue": "4.7",
     "reviewCount": "89"
-  },
+  }
 }
 </script>
      <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
