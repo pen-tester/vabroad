@@ -48,7 +48,22 @@
     "width": 800
   },
   "datePublished": "2015-02-05T08:00:00+08:00",
-  "dateModified": "2015-02-05T09:20:00+08:00"
+  "dateModified": "2015-02-05T09:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Vacations Abroad"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Vacations Abroad",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "A most wonderful property"
 }
 </script>
     <asp:ContentPlaceHolder ID="meta" runat="server"></asp:ContentPlaceHolder>
