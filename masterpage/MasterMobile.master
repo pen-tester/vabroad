@@ -41,6 +41,10 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "headline": "Vacations Abroad",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.vacations-abroad.com"
+  },
   "image": {
     "@type": "ImageObject",
     "url": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
