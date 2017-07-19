@@ -10,6 +10,55 @@
     <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> in <%=stateprovince %> <%=country %> | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Vacations Abroad",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.vacations-abroad.com"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
+    "height": 800,
+    "width": 800
+  },
+  "datePublished": "2015-02-05T08:00:00+08:00",
+  "dateModified": "2015-02-05T09:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Vacations Abroad"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Vacations Abroad",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.vacations-abroad.com/assets/img/publisherlogo.jpg",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "A most wonderful property"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+    "@type": "Place",
+    "name": "<%=String.Format("{0} {1}", stateprovince, country) %>",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "<%=city %>",
+      "addressLocality": "<%=city %>",
+      "postalCode": "95051",
+      "addressRegion": "<%=stateprovince %>",
+      "addressCountry": "<%=country %>"
+   }
+}
+</script>
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">

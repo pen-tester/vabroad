@@ -40,37 +40,6 @@
 }
 
 </script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@type": "Product",
-  "name": "<%=countryinfo.City %> Vacations",
-  "image": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
-  "description": "<%=countryinfo.CityText %>",
-  "mpn": "925872",
-  "brand": {
-    "@type": "Thing",
-    "name": "Vactions-Abroad"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "89"
-  },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "289.99",
-    "priceValidUntil": "2020-11-05",
-    "itemCondition": "http://schema.org/UsedCondition",
-    "availability": "http://schema.org/InStock",
-    "seller": {
-      "@type": "Organization",
-      "name": "Vacations Abroad"
-    }
-  }
-}
-</script>
 
      <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
 </asp:Content>

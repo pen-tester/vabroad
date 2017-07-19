@@ -11,65 +11,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="msvalidate.01" content="5724C8F545D1B8C25E26D8232A5FE1CF" />
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "url": "https://www.vacations-abroad.com",
-  "logo": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+1-877-672-2556",
-    "contactType": "Customer service"
-  }]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Person",
-  "name": "Vacations Abroad",
-  "url": "https://www.vacations-abroad.com",
-  "sameAs": [
-    "https://twitter.com/vacationsabroad",
-    "https://www.facebook.com/VacationsAbroad"
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "headline": "Vacations Abroad",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.vacations-abroad.com"
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
-    "height": 800,
-    "width": 800
-  },
-  "datePublished": "2015-02-05T08:00:00+08:00",
-  "dateModified": "2015-02-05T09:20:00+08:00",
-  "author": {
-    "@type": "Person",
-    "name": "Vacations Abroad"
-  },
-   "publisher": {
-    "@type": "Organization",
-    "name": "Vacations Abroad",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
-      "width": 600,
-      "height": 60
-    }
-  },
-  "description": "A most wonderful property"
-}
-</script>
     <asp:ContentPlaceHolder ID="meta" runat="server"></asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder id="links" runat="server">
     </asp:ContentPlaceHolder>
