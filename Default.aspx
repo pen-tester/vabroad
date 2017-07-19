@@ -10,6 +10,31 @@
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
+  "@type": "Organization",
+  "url": "https://www.vacations-abroad.com",
+  "logo": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+1-877-672-2556",
+    "contactType": "Customer service"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "Vacations Abroad",
+  "url": "https://www.vacations-abroad.com",
+  "sameAs": [
+    "https://twitter.com/vacationsabroad",
+    "https://www.facebook.com/VacationsAbroad"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
   "@type": "WebSite",
   "url": "https://www.vacations-abroad.com",
   "potentialAction": {
