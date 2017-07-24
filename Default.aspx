@@ -76,6 +76,7 @@
 }
 </script>
      <meta name="google-site-verification" content="_9ddkudtxtgt4g9yE9vAW0eNeXoWvWEE0KlOQmQZraE" />
+        <meta name="msvalidate.01" content="0A5E2AD1B7AC258846DB65DB2BBB1417" />
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
