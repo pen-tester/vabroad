@@ -79,7 +79,7 @@ public partial class CountryList : CommonPage
         if (!IsPostBack)
         {
             //For country description
-            lblCountryInfo.Text = ds_allinfo.Tables[0].Rows[0]["countryText"].ToString();
+            lblCountryInfo.Text = ds_allinfo.Tables[0].Rows[0]["countryText"].ToString().Replace(Environment.NewLine, "<br />");
             txtCountryText.Text = ds_allinfo.Tables[0].Rows[0]["countryText"].ToString().Replace("<br />", Environment.NewLine);
 
             if (lblCountryInfo.Text == null || lblCountryInfo.Text == "")
@@ -88,7 +88,7 @@ public partial class CountryList : CommonPage
                 txtCountryText.Text = vText;
             }
 
-            lblInfo2.Text = ds_allinfo.Tables[0].Rows[0]["countryText2"].ToString();
+            lblInfo2.Text = ds_allinfo.Tables[0].Rows[0]["countryText2"].ToString().Replace(Environment.NewLine, "<br />");
             if (string.IsNullOrEmpty(lblInfo2.Text) || lblInfo2.Text == "")
             {
                 OrangeTitle.Visible = false;
@@ -485,7 +485,7 @@ public partial class CountryList : CommonPage
 
         BookDBProvider.getDataSet("uspUpdateCountryText", param);
 
-        lblInfo2.Text = txtCountryText2.Text;
+        lblInfo2.Text = txtCountryText2.Text.Replace(Environment.NewLine, "<br />");
      }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -499,7 +499,7 @@ public partial class CountryList : CommonPage
         BookDBProvider.getDataSet("uspUpdateCountryText", param);
 
         //For country description
-        lblCountryInfo.Text = txtCountryText.Text;
+        lblCountryInfo.Text = txtCountryText.Text.Replace(Environment.NewLine, "<br />");
     }
 
 
