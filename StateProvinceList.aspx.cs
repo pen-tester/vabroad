@@ -255,7 +255,7 @@ public partial class StateProvinceList : CommonPage
     protected void btnSubmit2_Click(object sender, EventArgs e)
     {
         HttpResponse.RemoveOutputCacheItem("/stateprovincelist.aspx");
-        string strCityText2 =Server.HtmlEncode( txtCityText2.Text.Replace(Environment.NewLine, "<br />"));
+        string strCityText2 =txtCityText2.Text;
         DataTable dt = VADBCommander.CityTextByStateInd(stateprovinceid.ToString());
         try
         {
@@ -302,7 +302,7 @@ public partial class StateProvinceList : CommonPage
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         HttpResponse.RemoveOutputCacheItem("/stateprovincelist.aspx");
-       string strCityText =Server.HtmlEncode( txtCityText.Text.Replace(Environment.NewLine, "<br />"));
+       string strCityText = txtCityText.Text;
         DataTable dt = VADBCommander.CityTextByStateInd(stateprovinceid.ToString());
         try
         {
