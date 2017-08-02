@@ -88,7 +88,7 @@ public partial class StateProvinceList : CommonPage
 
 
         ltrH1.Text = countryinfo.StateProvince + " Vacations";
-        lblcityInfo.Text = Server.HtmlDecode(countryinfo.CityText);
+        lblcityInfo.Text = Server.HtmlDecode(countryinfo.CityText).Replace(Environment.NewLine,"<br />");
         if (countryinfo.CityText == null || countryinfo.CityText == "")
         {
             lblcityInfo.Text = String.Format("Vacations-abroad.com is a {0} {1} vacation rental directory of short term {0} vacation condos, privately owned {0} villas and {0} rentals by owner. Our unique and exotic boutique {0} hotels and luxury {0} resorts are perfect {0} {1} rentals for family and groups that are looking for vacation rentals in {0} {1}", countryinfo.City, countryinfo.Country);
@@ -151,7 +151,7 @@ public partial class StateProvinceList : CommonPage
         ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", param);
         markers = CommonProvider.getMarkersJsonString(ds_citylocations);
 
-        lblInfo2.Text = Server.HtmlDecode(countryinfo.CityText2).Replace("<br />", Environment.NewLine );
+        lblInfo2.Text = Server.HtmlDecode(countryinfo.CityText2).Replace( Environment.NewLine , "<br />");
 
         param.Clear();
         param.Add(new SqlParameter("@stateid", stateprovinceid));
@@ -273,13 +273,13 @@ public partial class StateProvinceList : CommonPage
             {
                 if (dt4.Rows[0]["cityText"] != null)
                 {
-                    lblcityInfo.Text = Server.HtmlDecode(dt4.Rows[0]["cityText"].ToString());
+                    lblcityInfo.Text = Server.HtmlDecode(dt4.Rows[0]["cityText"].ToString()).Replace(Environment.NewLine, "<br />");
                     txtCityText.Text = Server.HtmlDecode(dt4.Rows[0]["cityText"].ToString().Replace("<br />-ipx-", Environment.NewLine));
 
                 }
                 if (dt4.Rows[0]["cityText2"] != null)
                 {
-                    lblInfo2.Text =Server.HtmlDecode( dt4.Rows[0]["cityText2"].ToString());
+                    lblInfo2.Text =Server.HtmlDecode( dt4.Rows[0]["cityText2"].ToString()).Replace(Environment.NewLine, "<br />");
                     
                     if (string.IsNullOrEmpty(dt4.Rows[0]["cityText2"].ToString()) || dt4.Rows[0]["cityText2"].ToString() == "")
                     {
@@ -321,13 +321,13 @@ public partial class StateProvinceList : CommonPage
             {
                 if (dt4.Rows[0]["cityText"] != null)
                 {
-                    lblcityInfo.Text = dt4.Rows[0]["cityText"].ToString();
+                    lblcityInfo.Text = dt4.Rows[0]["cityText"].ToString().Replace(Environment.NewLine, "<br />");
                     txtCityText.Text = Server.HtmlDecode(dt4.Rows[0]["cityText"].ToString().Replace("<br />-ipx-", Environment.NewLine));
 
                 }
                 if (dt4.Rows[0]["cityText2"] != null)
                 {
-                    lblInfo2.Text = dt4.Rows[0]["cityText2"].ToString();
+                    lblInfo2.Text = dt4.Rows[0]["cityText2"].ToString().Replace(Environment.NewLine, "<br />");
                     if (string.IsNullOrEmpty(dt4.Rows[0]["cityText2"].ToString()) || dt4.Rows[0]["cityText2"].ToString() == "")
                     {
                         OrangeTitle.Visible = false;
