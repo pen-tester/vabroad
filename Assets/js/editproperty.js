@@ -698,7 +698,8 @@ function addNewRoom() {
 
 function init_AttractionPage() {
     var count = prop_attraction.length;
-    $('#_propattract').text(prop_info.LocalAttractions);
+    var local_attr = HtmlDecoder(prop_info.LocalAttractions);
+    $('#_propattract').text(local_attr);
     $('#_propattract').text($('#_propattract').text().replaceAll("<br />", "\r\n"));
     for (var ind_attr=0 ; ind_attr < count; ind_attr++) {
         var attrid = prop_attraction[ind_attr].AttractionID;
@@ -719,4 +720,14 @@ function init_RatePage() {
     $('#cancel').val($('#cancel').val().replaceAll("<br />", "\r\n"));
     $('#deposit').val(prop_info.DepositRequired);
     $('#deposit').val($('#deposit').val().replaceAll("<br />", "\r\n"));
+}
+
+function HtmlDecoder(encodestr)
+{
+    var parser = new DOMParser;
+    var dom = parser.parseFromString(
+        '<!doctype html><body>' + encodestr,
+        'text/html');
+    var decodedString = dom.body.textContent;
+    return decodedString;
 }
