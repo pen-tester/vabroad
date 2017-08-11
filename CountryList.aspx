@@ -58,14 +58,10 @@
         --%>
 
         <div class="srow">
-            <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx", region).ToLower().Replace(" ","_") %>" class="backitem"><%=country+" <<" %></a>
+            <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx", region).ToLower().Replace(" ","_") %>" class="backitem"><%=region+" Vacations<<" %></a>
         </div>
         <div class="srow center">
-                <h1 class="H1CityText">
-                    <%--<%= city %> Vacation Rentals--%>
-                    <%=country %> Vacations
-
-                </h1>
+                <h1 class="H1CityText"><%=country %> Vacations</h1>
         </div>
         
 
