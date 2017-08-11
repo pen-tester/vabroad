@@ -218,17 +218,17 @@ public partial class ViewProperty : CommonPage
             ipHandler();
             //**find and insert ip + country + date
             hyplnkRegionBackLink.NavigateUrl= "/" + region.ToLower().Replace(" ", "_") + "/default.aspx";
-            ltrRegionBackText.Text = region + "<<";
+            ltrRegionBackText.Text = region + " Vacations<<";
 
             hyplnkCountryBackLink.NavigateUrl = "/" + country.ToLower().Replace(" ", "_") + "/default.aspx";
-            ltrCountryBackText.Text = country + "<<";
+            ltrCountryBackText.Text = country + " Vacations<<";
 
             hyplnkStateBackLink.NavigateUrl = "/" + country.ToLower().Replace(" ", "_") + "/" + stateprovince.ToLower().Replace(" ", "_") + "/default.aspx";
-            ltrStateBackText.Text = stateprovince + "<<";
+            ltrStateBackText.Text = stateprovince + " Vacations<<";
 
             hyplnkCityBackLink.NavigateUrl = "/" + country.ToLower().Replace(" ", "_") + "/" + stateprovince.ToLower().Replace(" ", "_") +
                 "/" + city.ToLower().Replace(" ", "_") + "/default.aspx";
-            ltrCityBackText.Text = city + "<<";
+            ltrCityBackText.Text = city + " Vacations<<";
 
         }
 
