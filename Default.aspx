@@ -49,6 +49,14 @@
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+<ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+  <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/africa/default.aspx">Africa Vacations and Rentals</a></li>
+  <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/asia/default.aspx">Asia Vacations and Rentals</a></li>
+  <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/europe/default.aspx">Europe Vacations and Rentals</a></li>
+  <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/north_america/default.aspx">North America Vacations and Rentals</a></li>
+  <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/oceania/default.aspx">Oceania and Rentals</a></li>
+  <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/south_america/default.aspx">South America Vacations and Rentals</a></li>
+</ul>
     <style>
         .backimg{width:100%;min-height:150px;} .backtitle{width:100%;font-family: Verdana; font-size: 28px; color: #fff;position:absolute;}
         .topbox{padding:5px 5px;border:2px solid #ff6600;width:600px;margin:auto;}
