@@ -40,6 +40,18 @@
 </script>
     <meta name="description" content="<%=Server.HtmlDecode(String.Format("Explore {0} while staying in our boutique hotels and vacation rentals",countryinfo.StateProvince)) %>"/>
     <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
+    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
+
+<% int city_count =list_city.Count;
+    if (city_count > 6) city_count = 6;
+    for (int ind_state = 0; ind_state < city_count; ind_state++)
+    {
+        var row = list_city[ind_state];
+        string href = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", countryinfo.Country, countryinfo.StateProvince, row).ToLower().Replace(" ", "_");
+        %>
+         <li itemprop="name"><a itemprop="url" href="<%=href %>"><%=row %> Boutique Hotels and Vacation Rentals</a></li>
+ <%} %>
+</ul>
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>

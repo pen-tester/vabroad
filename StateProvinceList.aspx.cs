@@ -43,6 +43,7 @@ public partial class StateProvinceList : CommonPage
 
     protected DataSet ds_PropList, ds_citylocations, ds_statelist;
     protected string city_lists = "";
+    protected List<string> list_city = new List<string>();
 
     protected void Page_Load(object sender, System.EventArgs e)
     {
@@ -164,6 +165,7 @@ public partial class StateProvinceList : CommonPage
             DataRow drow = ds_citylocations.Tables[0].Rows[stid];
             string comma = (stid == (citycount - 1)) ? "" : ", ";
             city_lists += (drow["City"]+comma);
+            list_city.Add(drow["City"].ToString());
         }
 
             /*
