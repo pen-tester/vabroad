@@ -145,6 +145,7 @@ public partial class Default : CommonPage
         else
             str_keyword = Keywords.Text.Replace("%regions%", regions.Trim());
 
+        /*
         DataSet dss = AjaxProvider.getProNumsbyRegion();
         for (int i = 0; i < dss.Tables[0].Rows.Count; i++)
             str_meta += String.Format("{1} {0} properties, ", dss.Tables[0].Rows[i][0], dss.Tables[0].Rows[i][1]);
@@ -155,6 +156,8 @@ public partial class Default : CommonPage
             str_meta = "View property";
         else
             str_meta =  Description.Text.Replace("%regions%", str_meta.Trim());
+        */
+        str_meta = "Explore the world undaunted in our vacation rentals and boutique hotels";
 
         if (!IsPostBack)
         {

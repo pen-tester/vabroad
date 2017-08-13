@@ -47,6 +47,13 @@ public partial class CreateSitemap : System.Web.UI.Page
         writer.WriteElementString("priority", "1.0");
 
         writer.WriteEndElement();
+        writer.WriteStartElement("url");
+
+        writer.WriteElementString("loc", String.Format("{0}/searchterms.aspx", site_addr));
+        writer.WriteElementString("changefreq", "daily");
+        writer.WriteElementString("priority", "1.0");
+
+        writer.WriteEndElement();
     }
     public void addRegionElements(XmlWriter writer)
     {

@@ -21,6 +21,7 @@
     </style>--%>
     <%--header--%>
     <div class="internalpagewidth">
+        <div class="gap"></div>
         <div class="upperheader" >
             <h1>South America Vacations</h1>
         </div>
@@ -194,7 +195,8 @@ If you have a large family or group of friends travelling with you, you should p
             <div class="linegreen">
             </div>
     </div>
-  
+          <div class="gap"></div>
+
             </div>
 
    

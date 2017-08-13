@@ -111,7 +111,7 @@ public partial class Default : CommonPage
             keywords.Content = Keywords.Replace("%regions%", regions.Trim());
 
         head.Controls.Add(keywords);
-        string Description = "Book Now: With us! Your South America vacation rental when traveling to Argentina, Brazil, Colombia or Peru.";
+        string Description = "Explore South America while staying in our boutique hotels or vacation rentals.";
         HtmlMeta description = new HtmlMeta();
 
         description.Name = "description";

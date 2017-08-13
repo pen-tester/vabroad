@@ -111,7 +111,7 @@ public partial class Default : CommonPage
             keywords.Content = Keywords.Replace("%regions%", regions.Trim());
 
         head.Controls.Add(keywords);
-        string Description = "Book Now Asia vacation rentals! Direct from owner and enjoy a luxury beach villa or city vacation apartment.";
+        string Description = "Explore Asia while staying in our boutique hotels or vacation rentals.";
         HtmlMeta description = new HtmlMeta();
 
         description.Name = "description";

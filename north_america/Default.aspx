@@ -21,6 +21,7 @@
     </style>--%>
     <%--header--%>
     <div class="internalpagewidth">
+            <div class="gap"></div> 
            <div class="upperheader">
                <h1>North America Vacations</h1>
             </div>
@@ -210,7 +211,8 @@ Mountain cabins in North America ski destinations are usually located in the mid
 
             </div>
             <div class="linegreen">
-            </div>       
+            </div>  
+            <div class="gap"></div>                    
      </div>
   
     </div>
