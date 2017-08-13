@@ -45,6 +45,8 @@
     "name": "Linda Jenkins"
   }
 }
+</script>
+    <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
     <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
 
 <% int count_states = ds_allinfo.Tables[1].Rows.Count;
@@ -57,8 +59,6 @@
          <li itemprop="name"><a itemprop="url" href="<%=href %>"><%=row["StateProvince"] %> Boutique Hotels and Vacation Rentals</a></li>
  <%} %>
 </ul>
-</script>
-    <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
 <form id="mainform" runat="server">
