@@ -53,7 +53,7 @@
     if (count_states > 6) count_states = 6;
     for (int ind_state = 0; ind_state < count_states; ind_state++)
     {
-        var row = ds_allinfo.Tables[1].Rows[count_states];
+        var row = ds_allinfo.Tables[1].Rows[ind_state];
         string href = String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx", country, row["StateProvince"]).ToLower().Replace(" ", "_");
         %>
          <li itemprop="name"><a itemprop="url" href="<%=href %>"><%=row["StateProvince"] %> Boutique Hotels and Vacation Rentals</a></li>
