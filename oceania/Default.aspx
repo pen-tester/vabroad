@@ -21,6 +21,7 @@
     </style>--%>
     <%--header--%>
     <div class="internalpagewidth">
+            <div class="gap"></div>
         <div class="upperheader">
             <h1>Oceania Vacations</h1>
         </div>
@@ -270,6 +271,7 @@
             </div>
             <div class="linegreen">
             </div>
+            <div class="gap"></div>
     </div>
 
 

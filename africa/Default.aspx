@@ -10,6 +10,7 @@
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
         <div class="scontainer">
     <div class="internalpagewidth">
+    <div class="gap"></div>
     <div class="upperheader" >
         <h1>Vacation Rentals in Africa</h1>
     </div>
@@ -207,6 +208,7 @@ Vacations-Abroad.com has painstakingly selected the best Africa vacations rental
             </div>
     </div>
         </div>
+                <div class="gap"></div>
     <%-- <style>
         .PDescText
         {
@@ -249,6 +251,6 @@ Vacations-Abroad.com has painstakingly selected the best Africa vacations rental
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-    </script>--%><script src="/Assets/js/africa.js"></script>
+    </script>--%><script src="/assets/js/africa.js"></script>
             </div>
 </asp:Content>

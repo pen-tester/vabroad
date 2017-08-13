@@ -11,6 +11,7 @@
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
         <div class="scontainer">
     <div class="internalpagewidth">
+    <div class="gap"></div>        
     <div class="upperheader">
         <h1>Experience the ancient cultures of Asia!</h1></br>
     </div>
@@ -189,6 +190,7 @@ The Asia vacation rentals that you'd like to consider would depend upon the purp
             </div>
                     <div class="linegreen">
             </div>
+            <div class="gap"></div> 
         </div>
 
   

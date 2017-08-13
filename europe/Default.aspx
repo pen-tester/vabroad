@@ -11,6 +11,7 @@
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
         <div class="scontainer">
     <div class="internalpagewidth">
+    <div class="gap"></div>
   <div class="upperheader">
         <h1>Europe Vacations</h1>
     </div>
@@ -301,6 +302,7 @@
             </div>
             <div class="linegreen">
             </div>
+            <div class="gap"></div>
         </div>
     </div>
 

@@ -36,42 +36,11 @@
 {
   "@context": "http://schema.org",
   "@type": "WebSite",
-  "url": "https://www.vacations-abroad.com",
+  "url": "https://www.vacations-abroad.com/",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://www.vacations-abroad.com/searchterms.aspx?SearchTerms={search_term_string}",
     "query-input": "required name=search_term_string"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@type": "Product",
-  "name": "Vacations Abroad",
-  "image": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
-  "description": "Vacations Abroad is a directory of unique vacation rentals, boutique hotels, cozy guesthouses and beach resorts.",
-  "mpn": "925872",
-  "brand": {
-    "@type": "Thing",
-    "name": "Vactions-Abroad"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "89"
-  },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "289.99",
-    "priceValidUntil": "2020-11-05",
-    "itemCondition": "http://schema.org/UsedCondition",
-    "availability": "http://schema.org/InStock",
-    "seller": {
-      "@type": "Organization",
-      "name": "Vacations Abroad"
-    }
   }
 }
 </script>

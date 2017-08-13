@@ -111,7 +111,7 @@ public partial class Default : CommonPage
             keywords.Content = Keywords.Replace("%regions%", regions.Trim());
 
         head.Controls.Add(keywords);
-        string Description = "Book now your Europe vacation rentals direct from owner: boutique hotels, B&Bs and vacation apartments.";
+        string Description = "Explore Europe while staying in our boutique hotels or vacation rentals.";
         HtmlMeta description = new HtmlMeta();
 
         description.Name = "description";
