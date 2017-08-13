@@ -449,6 +449,7 @@ public partial class CountryList : CommonPage
         }
 
         string num_properties = ds_allinfo.Tables[3].Rows[0][0].ToString();
+        if (num_states == 0) Response.Redirect("/default.aspx");
         // str_meta = String.Format("({0}) {1} vacation rentals and boutique hotels in {2} etc.", num_properties, country, str_states);
         str_meta = String.Format("Explore {0} while staying in our vacation rentals and boutique hotels.", country);
         str_keyword = str_keyword + " etc.";
