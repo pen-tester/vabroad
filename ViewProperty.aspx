@@ -12,53 +12,40 @@
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "headline": "Vacations Abroad",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.vacations-abroad.com"
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": "<%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %>",
+  "image": "https://www.vacations-abroad.com/images/<% =PhotosSet.Tables["PropertyPhotos"].Rows[0]["FileName"] %>",
+  "description": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["Name"] %>",
+  "brand": {
+    "@type": "Thing",
+    "name": "Vacation Property"
   },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://www.vacations-abroad.com/assets/img/largelogo.jpg",
-    "height": 800,
-    "width": 800
-  },
-  "datePublished": "2015-02-05T08:00:00+08:00",
-  "dateModified": "2015-02-05T09:20:00+08:00",
-  "author": {
-    "@type": "Person",
-    "name": "Vacations Abroad"
-  },
-   "publisher": {
-    "@type": "Organization",
-    "name": "Vacations Abroad",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.vacations-abroad.com/assets/img/publisherlogo.jpg",
-      "width": 600,
-      "height": 60
-    }
-  },
-  "description": "A most wonderful property"
+ <% int count = comment_set.Tables[0].Rows.Count;
+    if (count > 0) {
+        float total = 0;
+        for (int vindex=0; vindex<count; vindex++)
+        {
+            var vrow = comment_set.Tables[0].Rows[vindex];
+            total += Convert.ToInt32(vrow["rating"].ToString());
+        }
+        %>
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "<%=(total/count).ToString("0.0") %>",
+            "reviewCount": "<%=count %>"
+          },
+  <%   
+    } %>
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %>",
+    "highPrice": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>",
+    "priceCurrency": "USD"
+  }
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-    "@type": "Place",
-    "name": "<%=String.Format("{0} {1}", stateprovince, country) %>",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "<%=city %>",
-      "addressLocality": "<%=city %>",
-      "postalCode": "95051",
-      "addressRegion": "<%=stateprovince %>",
-      "addressCountry": "<%=country %>"
-   }
-}
-</script>
+
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
