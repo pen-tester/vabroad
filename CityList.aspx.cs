@@ -139,10 +139,18 @@ public partial class newCityList : CommonPage
             prop_nums[i] = SearchProvider.getNumbersOfCityID(cityid, prop_typeval[i], 0, 0);
         }
 
+        //For the amenity
+        List<string> list_amenity = new List<string>();
+
+
         proplistset = SearchProvider.getAjaxAllPropListSetWithCityID(cityid, rproptype_id, ramenity_id, rbedroom_id,rsort_id);
         for(int i=0;i< proplistset.allnums; i++)
         {
             list_rating.Add(BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID));
+            foreach(AmenityInfo amenity in proplistset.propertyList[i].amenity)
+            {
+                if (!list_amenity.Contains(amenity.Amenity)) list_amenity.Add(amenity.Amenity);
+            }
         }
         // Response.Write(cityid);
         //<meta name="description" content="<%=countryinfo.City %>, <%=countryinfo.StateProvince %> <%=meta_str %>" />
@@ -150,7 +158,15 @@ public partial class newCityList : CommonPage
 
         //  newdescription.Name = "description";
         //  newdescription.Content = Server.HtmlDecode(String.Format("Our {0}, {1} vacation rentals and boutique hotels include: {2} ", countryinfo.City, countryinfo.StateProvince,meta_str));
-        newdescription = String.Format("Our {0}, {1} vacation rentals and boutique hotels include: {2} ", countryinfo.City, countryinfo.StateProvince, meta_str);
+        //newdescription = String.Format("Our {0}, {1} vacation rentals and boutique hotels include: {2} ", countryinfo.City, countryinfo.StateProvince, meta_str);
+        string str_amenity = "";
+        foreach(string amenity in list_amenity)
+        {
+            str_amenity += (", " + amenity);
+        }
+        if (str_amenity.Length > 0) str_amenity = str_amenity.Substring(2);
+        newdescription = String.Format("{0} {1} Vacation Properties starting at {2} with ( {3} )", proplistset.allnums, countryinfo.City, DateTime.Now.ToString("MM dd, yyyy"), str_amenity);
+
         city_ds = AjaxProvider.getCityListbyCityNum(cityid);
       //  Page.Header.Controls.Add(newdescription);
     }

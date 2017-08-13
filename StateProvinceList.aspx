@@ -38,7 +38,7 @@
   }
 }
 </script>
-    <meta name="description" content="<%=Server.HtmlDecode(String.Format("({0}) {1} vacation rentals and boutique hotels in {2}.",prop_nums[2],countryinfo.StateProvince, city_lists)) %>"/>
+    <meta name="description" content="<%=Server.HtmlDecode(String.Format("Explore {0} while staying in our boutique hotels and vacation rentals",countryinfo.StateProvince)) %>"/>
     <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
