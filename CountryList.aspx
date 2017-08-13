@@ -45,7 +45,18 @@
     "name": "Linda Jenkins"
   }
 }
+    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
 
+<% int count_states = ds_allinfo.Tables[1].Rows.Count;
+    if (count_states > 6) count_states = 6;
+    for (int ind_state = 0; ind_state < count_states; count_states++)
+    {
+        var row = ds_allinfo.Tables[1].Rows[count_states];
+        string href = String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx", country, row["StateProvince"]).ToLower().Replace(" ", "_");
+        %>
+         <li itemprop="name"><a itemprop="url" href="<%=href %>"><%=row["StateProvince"] %> Boutique Hotels and Vacation Rentals</a></li>
+ <%} %>
+</ul>
 </script>
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
