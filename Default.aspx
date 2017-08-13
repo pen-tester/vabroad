@@ -49,7 +49,7 @@
     <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
-<ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+<ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
   <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/africa/default.aspx">Africa Vacations and Rentals</a></li>
   <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/asia/default.aspx">Asia Vacations and Rentals</a></li>
   <li itemprop="name"><a itemprop="url" href="https://www.vacations-abroad.com/europe/default.aspx">Europe Vacations and Rentals</a></li>
