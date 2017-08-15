@@ -7,37 +7,6 @@
    <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@type": "Product",
-  "name": "<%=countryinfo.StateProvince %> Vacations",
-  "image": "https://www.vacations-abroad.com/assets/img/companylogo.jpg",
-  "description": "<%=countryinfo.CityText %>",
-  "mpn": "925872",
-  "brand": {
-    "@type": "Thing",
-    "name": "Vactions-Abroad"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "89"
-  },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "289.99",
-    "priceValidUntil": "2020-11-05",
-    "itemCondition": "http://schema.org/UsedCondition",
-    "availability": "http://schema.org/InStock",
-    "seller": {
-      "@type": "Organization",
-      "name": "Vacations Abroad"
-    }
-  }
-}
-</script>
     <meta name="description" content="<%=Server.HtmlDecode(String.Format("Explore {0} while staying in our boutique hotels and vacation rentals",countryinfo.StateProvince)) %>"/>
     <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
     <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
