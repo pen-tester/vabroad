@@ -29,6 +29,10 @@ public partial class accounts_SocialSignup : CommonPage
             LoginName.Text = Tuserid;
             Email.Text = smail;
  
+            if(EmailValidate(smail) > 0)
+            {
+                Response.Redirect("/accounts/login.aspx");
+            }
             //TUserID.Text = TwiID.Value;
             //NewPasswordRequired.Enabled = false;
             Response.Cookies["fbinfo"].Expires = DateTime.Now;
@@ -198,7 +202,7 @@ public partial class accounts_SocialSignup : CommonPage
         args.IsValid = (count == 0);
     }
 
-    protected void EmailValidate(object source, ServerValidateEventArgs args)
+    protected int EmailValidate(string semail)
     {
         int count = 0;
         try
@@ -213,7 +217,7 @@ public partial class accounts_SocialSignup : CommonPage
 
                 using (SqlCommand command = new SqlCommand(sql, con))
                 {
-                    SqlParameter email = new SqlParameter("@email", args.Value);
+                    SqlParameter email = new SqlParameter("@email", semail);
                     command.Parameters.Add(email);
 
                     SqlDataReader reader = command.ExecuteReader();
@@ -234,6 +238,6 @@ public partial class accounts_SocialSignup : CommonPage
             throw ex;
         }
 
-        args.IsValid = (count == 0);
+        return count;
     }
 }
