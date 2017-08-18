@@ -406,7 +406,12 @@ public partial class accounts_Login : CommonPage
 
                 if (rows < 1) return;
 
-                CommonFunctions.sendEmail(LoginName.Text, Email.Text);
+                // CommonFunctions.sendEmail(LoginName.Text, Email.Text);
+                string msg = "New owner registered at " + CommonFunctions.GetSiteName() + ". <br>" +
+                    "Owner details: <br>" +
+                    "Login name:" + LoginName.Text + " <br>" +
+                    "Email address:" + Email.Text + " <br>"; 
+                BookDBProvider.SendEmail(ConfigurationManager.AppSettings["NewOwnerEmail"], "New owner registered at Vacations-abroad.com",msg, Email.Text);
 
                 //                if (regex.Match(message.To.ToString()).Success)
                 //                  smtpclient.Send(message);

@@ -135,12 +135,13 @@ public partial class accounts_SocialSignup : CommonPage
 
                 if (rows < 1) return false;
  
-                CommonFunctions.sendEmail(social.username, social.email);
+               // CommonFunctions.sendEmail(social.username, social.email);
+                string msg = "New owner registered at " + CommonFunctions.GetSiteName() + ". <br>" +
+                    "Owner details: <br>" +
+                    "Login name:" + social.username + " <br>" +
+                    "Email address:" + social.email + " <br>";
+                BookDBProvider.SendEmail(ConfigurationManager.AppSettings["NewOwnerEmail"], "New owner registered at Vacations-abroad.com", msg, social.email);
 
-                //                if (regex.Match(message.To.ToString()).Success)
-                //                  smtpclient.Send(message);
-
-                //CommonFunctions.Connection.Close ();
 
                 connection.Close();
                 if (AuthenticationManager.Login(social.email, social.id, type) != "")
