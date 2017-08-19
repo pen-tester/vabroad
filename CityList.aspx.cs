@@ -144,10 +144,12 @@ public partial class newCityList : CommonPage
 
 
         proplistset = SearchProvider.getAjaxAllPropListSetWithCityID(cityid, rproptype_id, ramenity_id, rbedroom_id,rsort_id);
+        int minrate = 0;
         for(int i=0;i< proplistset.allnums; i++)
         {
             list_rating.Add(BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID));
-            foreach(AmenityInfo amenity in proplistset.propertyList[i].amenity)
+            if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) minrate = proplistset.propertyList[i].detail.MinNightRate;
+            foreach (AmenityInfo amenity in proplistset.propertyList[i].amenity)
             {
                 if (!list_amenity.Contains(amenity.Amenity)) list_amenity.Add(amenity.Amenity);
             }
@@ -165,7 +167,7 @@ public partial class newCityList : CommonPage
             str_amenity += (", " + amenity);
         }
         if (str_amenity.Length > 0) str_amenity = str_amenity.Substring(2);
-        newdescription = String.Format("{0} {1} Vacation Properties starting at {2} with ( {3} )", proplistset.allnums, countryinfo.City, DateTime.Now.ToString("MM dd, yyyy"), str_amenity);
+        newdescription = String.Format("{0} {1} Vacation Properties starting at {2} with ( {3} )", proplistset.allnums, countryinfo.City, minrate, str_amenity);
 
         city_ds = AjaxProvider.getCityListbyCityNum(cityid);
       //  Page.Header.Controls.Add(newdescription);
