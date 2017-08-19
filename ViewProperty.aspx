@@ -41,7 +41,7 @@
     "@type": "AggregateOffer",
     "lowPrice": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %>",
     "highPrice": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>",
-    "priceCurrency": "USD"
+    "priceCurrency": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %>"
   }
 }
 </script>
