@@ -145,10 +145,11 @@ public partial class newCityList : CommonPage
 
         proplistset = SearchProvider.getAjaxAllPropListSetWithCityID(cityid, rproptype_id, ramenity_id, rbedroom_id,rsort_id);
         int minrate = 0;
+        string currency = "USD";
         for(int i=0;i< proplistset.allnums; i++)
         {
             list_rating.Add(BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID));
-            if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) minrate = proplistset.propertyList[i].detail.MinNightRate;
+            if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
             foreach (AmenityInfo amenity in proplistset.propertyList[i].amenity)
             {
                 if (!list_amenity.Contains(amenity.Amenity)) list_amenity.Add(amenity.Amenity);
