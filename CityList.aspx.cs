@@ -141,7 +141,7 @@ public partial class newCityList : CommonPage
 
         //For the amenity
         List<string> list_amenity = new List<string>();
-
+        int[] amenity_ids = { 43, 8, 33, 7, 5, 44, 11, 45, 47, 12, 46, 3, 14 };
 
         proplistset = SearchProvider.getAjaxAllPropListSetWithCityID(cityid, rproptype_id, ramenity_id, rbedroom_id,rsort_id);
         int minrate = 0;
@@ -152,7 +152,7 @@ public partial class newCityList : CommonPage
             if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
             foreach (AmenityInfo amenity in proplistset.propertyList[i].amenity)
             {
-                if (!list_amenity.Contains(amenity.Amenity)) list_amenity.Add(amenity.Amenity);
+                if (!list_amenity.Contains(amenity.Amenity) && Array.IndexOf(amenity_ids, amenity.ID) !=-1) list_amenity.Add(amenity.Amenity);
             }
         }
         // Response.Write(cityid);
