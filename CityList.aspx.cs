@@ -152,7 +152,7 @@ public partial class newCityList : CommonPage
             if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
             foreach (AmenityInfo amenity in proplistset.propertyList[i].amenity)
             {
-                if (!list_amenity.Contains(amenity.Amenity) && Array.IndexOf(amenity_ids, amenity.ID) >-1) list_amenity.Add(amenity.Amenity);
+                if (!list_amenity.Contains(amenity.Amenity) && Array.IndexOf(amenity_ids, amenity.AmenityID) >-1) list_amenity.Add(amenity.Amenity);
             }
         }
         // Response.Write(cityid);
