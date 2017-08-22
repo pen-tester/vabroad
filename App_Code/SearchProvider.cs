@@ -218,7 +218,7 @@ public class SearchProvider
 
                 cmd.Parameters.Add("@cityid", SqlDbType.Int).Value = cityid;
                 cmd.Parameters.Add("@opt", SqlDbType.Int).Value = opt;
-                cmd.Parameters.Add("@str", SqlDbType.NVarChar,8000).Value = str;
+                cmd.Parameters.Add(new SqlParameter("@str", str));
              
                 //   @pagenum int =0,
                 //@ratesort int= 0
