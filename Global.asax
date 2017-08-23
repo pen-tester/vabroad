@@ -55,7 +55,7 @@
 
         //ProcessException (error, Request);		
 
-        Server.ClearError ();
+       // Server.ClearError ();
         Response.Write(sb.ToString());
         //Response.Redirect (CommonFunctions.PrepareURL ("InternalError.aspx"));
     }
