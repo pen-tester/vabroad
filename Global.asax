@@ -456,6 +456,23 @@
                 }
             }
 
+            //write reviews  .../123/newreview.aspx
+            Regex regexRevW = new Regex(@"(\d+)/writereview.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+            MatchCollection matchesRevW = regexRevW.Matches(oldpath);
+            if (matchesRevW.Count > 0)
+            {
+                try
+                {
+                    string propID = matchesRevW[0].Groups[1].ToString();
+                    incoming.RewritePath(CommonFunctions.PrepareURL("writereview.aspx?propID=" + propID));
+                    return;
+                }
+                catch (Exception exc)
+                {
+                    ProcessException(exc, null);
+                }
+            }
+
             //All properties url 
             Regex regex9 = new Regex(@"([a-zA-Z0-9_\- ]+)/countryproperties.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matches9 = regex9.Matches(oldpath);
