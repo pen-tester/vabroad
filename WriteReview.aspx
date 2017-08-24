@@ -109,9 +109,9 @@
             </div>
 
                     <div class="srow" >
-                        <asp:HyperLink ID="hyplnkCountryBackLink" CssClass="backitem" runat="server"><%=country %><<</asp:HyperLink>
-                        <asp:HyperLink ID="hyplnkStateBackLink" CssClass="backitem" runat="server"><%=state %><<</asp:HyperLink>
-                        <asp:HyperLink ID="hyplnkCityBack" CssClass="backitem" runat="server"><%=city %><<</asp:HyperLink>
+                        <asp:HyperLink ID="hyplnkCountryBackLink" CssClass="backitem" runat="server"><%=country %> Vacations<<</asp:HyperLink>
+                        <asp:HyperLink ID="hyplnkStateBackLink" CssClass="backitem" runat="server"><%=state %> Vacations<<</asp:HyperLink>
+                        <asp:HyperLink ID="hyplnkCityBack" CssClass="backitem" runat="server"><%=city %> Vacations<<</asp:HyperLink>
                         <asp:HyperLink ID="hyplnkPropBack" CssClass="backitem" runat="server">Property <%=propNum %></asp:HyperLink>
                         <div class="clear"></div>
                     </div>
