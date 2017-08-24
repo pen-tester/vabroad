@@ -147,7 +147,7 @@ public partial class StateProvinceList : CommonPage
             {
                 Response.StatusCode = 404;
                // Response.Status = "There is no state province";
-                Response.Close();
+                Response.End();
             }
         }
 
