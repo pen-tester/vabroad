@@ -430,49 +430,6 @@
             }
 
 
-
-            /*     //citylist url 
-                 Regex regex33 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
-                 MatchCollection matches33 = regex33.Matches(oldpath);
-                 if (matches33.Count > 0)
-                 {
-                     try
-                     {
-                         string country = matches33[0].Groups[1].ToString();
-                         string state = matches33[0].Groups[2].ToString();
-                         string city = matches33[0].Groups[3].ToString();
-                         string apartment = matches33[0].Groups[4].ToString();
-
-
-                         //if (CommonFunctions.Connection.State == ConnectionState.Closed)
-                         //CommonFunctions.Connection.Open ();
-
-                         GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
-                         GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
-                         GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = state;
-                         GetIDsAdapter.SelectCommand.Parameters["@City"].Value = city;
-                         GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
-
-                         //lock(CommonFunctions.Connection)
-                         if (GetIDsAdapter.Fill(MainDataSet) > 0)
-                         {
-                             //CommonFunctions.Connection.Close ();
-                             incoming.RewritePath(CommonFunctions.PrepareURL("CityList.aspx?CityID=" +
-                                 ((int)MainDataSet.Tables[0].Rows[0]["CityID"]).ToString() + "&category=" + apartment.ToString() +
-                                 ((querystring.Length > 0) ? "&" + querystring : "")));
-                             return;
-                         }
-
-                     }
-                     catch (Exception exc)
-                     {
-                         ProcessException(exc, null);
-                     }
-                 }
-
-                 */
-
-
             Regex regexMapsCat = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/Maps.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matchesMapsCat = regexMapsCat.Matches(oldpath);
             if (matchesMapsCat.Count > 0)
@@ -556,80 +513,11 @@
                     ProcessException(exc, null);
                 }
             }
-            // This forwards to the REGION if the region is found
-            Regex regex4 = new Regex(@"([a-zA-Z0-9_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
-            MatchCollection matches4 = regex4.Matches(oldpath);
-            if(matches4.Count > 0) {
-                try {
-                    string region = matches4[0].Groups[1].ToString();
-
-                    //UNIQUE URL FOR CONTACT PAGE CODE...USES SAME URL TYPE AS REGION
-                    if (region.Contains("Property"))
-                    {
-                        string[] vArray = region.Split('y');
-
-                        incoming.RewritePath(CommonFunctions.PrepareURL("SendEmail.aspx?PropertyID=" + vArray[1].ToString()));
-                        return;
-                    }
-                    else
-                    {
-
-
-                        GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = region;
-                        GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = "";
-                        GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = "";
-                        GetIDsAdapter.SelectCommand.Parameters["@City"].Value = "";
-                        GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
-
-                        //lock(CommonFunctions.Connection)
-                        if (GetIDsAdapter.Fill(MainDataSet) > 0)
-                        {
-                            //CommonFunctions.Connection.Close ();
-                            if (Convert.ToInt32(MainDataSet.Tables[0].Rows[0]["RegionID"]) != 3 && Convert.ToInt32(MainDataSet.Tables[0].Rows[0]["RegionID"]) != 9 && Convert.ToInt32(MainDataSet.Tables[0].Rows[0]["RegionID"]) != 8 && Convert.ToInt32(MainDataSet.Tables[0].Rows[0]["RegionID"]) != 6 && Convert.ToInt32(MainDataSet.Tables[0].Rows[0]["RegionID"]) != 2 && Convert.ToInt32(MainDataSet.Tables[0].Rows[0]["RegionID"]) != 1)
-                            {
-                                incoming.RewritePath(CommonFunctions.PrepareURL("RegionList.aspx?RegionID=" +
-                                    ((int)MainDataSet.Tables[0].Rows[0]["RegionID"]).ToString() +
-                                    ((querystring.Length > 0) ? "&" + querystring : "")));
-                            }
-                            return;
-                        }
-                    }
-                }
-
-                catch(Exception exc) {
-                    ProcessException(exc, null);
-                }
-                try {
-                    string country = matches4[0].Groups[1].ToString();
-
-                    //if (CommonFunctions.Connection.State == ConnectionState.Closed)
-                    //CommonFunctions.Connection.Open ();
-
-                    GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
-                    GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
-                    GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = "";
-                    GetIDsAdapter.SelectCommand.Parameters["@City"].Value = "";
-                    GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
-
-                    //lock(CommonFunctions.Connection)
-                    if(GetIDsAdapter.Fill(MainDataSet) > 0) {
-                        //CommonFunctions.Connection.Close ();
-                        incoming.RewritePath(CommonFunctions.PrepareURL("CountryList.aspx?CountryID=" +
-                            ((int)MainDataSet.Tables[0].Rows[0]["CountryID"]).ToString() +
-                            ((querystring.Length > 0) ? "&" + querystring : "")));
-                        return;
-                    }
-                }
-                catch(Exception exc) {
-                    ProcessException(exc, null);
-                }
-            }
-
+ 
             if(oldpath.IndexOf("?") > 0)
                 oldpath = oldpath.Substring(0, oldpath.IndexOf("?"));
             if(!File.Exists(Request.PhysicalApplicationPath + oldpath)) {
                 //CommonFunctions.Connection.Close ();
-                incoming.RewritePath(CommonFunctions.PrepareURL("default.aspx"));
                 return;
             }
 

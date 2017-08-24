@@ -141,6 +141,16 @@ public partial class StateProvinceList : CommonPage
         dsparam.Add(new SqlParameter("@ratesort", rsort_id));
         ds_PropList = BookDBProvider.getDataSet("uspGetStatePropListByCondition",dsparam);
 
+        if (!IsPostBack)
+        {
+            if (ds_PropList.Tables[0].Rows.Count == 0)
+            {
+                Response.StatusCode = 404;
+                Response.Status = "There is no state province";
+                Response.Close();
+            }
+        }
+
         //Get the city location info
         List<SqlParameter> param = new List<SqlParameter>();
 
