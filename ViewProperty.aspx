@@ -7,7 +7,7 @@
 <%---@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" ---%>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> in <%=stateprovince %> <%=country %> | Vacations Abroad
+    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %> | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 <script type="application/ld+json">
