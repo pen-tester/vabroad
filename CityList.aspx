@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true"
     CodeFile="CityList.aspx.cs" Inherits="newCityList" ValidateRequest="false" EnableEventValidation="false" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    <%=countryinfo.City %> Vacation Rentals And Boutique Hotels | Vacation abroad
+    <%=countryinfo.City %> Vacation Rentals And Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 
