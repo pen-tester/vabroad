@@ -332,7 +332,7 @@
                                                 RATES
                                             </div>
                                             <div class="prop_rates_val center">
-                                                <%=propamen.detail.MinNightRate %> –  <%=propamen.detail.HiNightRate %> <%=propamen.detail.MinRateCurrency %>  <br /> 
+                                                 <%=propamen.detail.MinRateCurrency %> <%=propamen.detail.MinNightRate %> –  <%=propamen.detail.HiNightRate %> <br /> 
                                                        Per Night
                                             </div>                                                        
                                             <div class="cont_button">
