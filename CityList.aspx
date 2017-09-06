@@ -38,6 +38,7 @@
     }
   }] 
 }
+</script>
      <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
 </asp:Content>
 
