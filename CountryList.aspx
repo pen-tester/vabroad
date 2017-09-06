@@ -10,14 +10,14 @@
     "@type": "ListItem",
     "position": 1,
     "item": {
-      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",region) %>",
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",region).ToLower().Replace(" ","_") %>",
       "name": "<%=region %>"
     }
   },{
     "@type": "ListItem",
     "position": 2,
     "item": {
-      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",country) %>",
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",country).ToLower().Replace(" ","_") %>",
       "name": "<%=country %>"
     }
   }]

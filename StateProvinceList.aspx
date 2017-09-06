@@ -17,21 +17,21 @@
     "@type": "ListItem",
     "position": 1,
     "item": {
-      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Region) %>",
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Region).ToLower().Replace(" ","_") %>",
       "name": "<%=countryinfo.Region %>"
     }
   },{
     "@type": "ListItem",
     "position": 2,
     "item": {
-      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Country) %>",
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Country).ToLower().Replace(" ","_") %>",
       "name": "<%=countryinfo.Country %>"
     }
   },{
     "@type": "ListItem",
-    "position": 2,
+    "position": 3,
     "item": {
-      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx",countryinfo.Country,countryinfo.StateProvince) %>",
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx",countryinfo.Country,countryinfo.StateProvince).ToLower().Replace(" ","_") %>",
       "name": "<%=countryinfo.StateProvince %>"
     }
   }] 
