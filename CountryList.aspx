@@ -2,6 +2,27 @@
     CodeFile="~/countrylist.aspx.cs" Inherits="CountryList"
     EnableEventValidation="false" EnableViewState="true" %>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",region) %>",
+      "name": "<%=region %>"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",country) %>",
+      "name": "<%=country %>"
+    }
+  }]
+}
+</script>
     <style>
          #googlemap{width:95%; min-height:310px;margin:0 15px;}
         .footer_text{padding:25px 0 0 0;}

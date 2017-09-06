@@ -9,6 +9,34 @@
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
     <meta name="description" content="<%=Server.HtmlDecode(String.Format("Explore {0} while staying in our boutique hotels and vacation rentals",countryinfo.StateProvince)) %>"/>
     <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Region) %>",
+      "name": "<%=countryinfo.Region %>"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Country) %>",
+      "name": "<%=countryinfo.Country %>"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx",countryinfo.Country,countryinfo.StateProvince) %>",
+      "name": "<%=countryinfo.StateProvince %>"
+    }
+  }] 
+}
+</script>
     <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
 
 <% int city_count =list_city.Count;

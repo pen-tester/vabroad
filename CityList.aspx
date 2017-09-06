@@ -4,7 +4,40 @@
     <%=countryinfo.City %> Vacation Rentals And Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
-
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Region) %>",
+      "name": "<%=countryinfo.Region %>"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/default.aspx",countryinfo.Country) %>",
+      "name": "<%=countryinfo.Country %>"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/default.aspx",countryinfo.Country,countryinfo.StateProvince) %>",
+      "name": "<%=countryinfo.StateProvince %>"
+    }
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "item": {
+      "@id": "<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx",countryinfo.Country,countryinfo.StateProvince, countryinfo.City) %>",
+      "name": "<%=countryinfo.City %>"
+    }
+  }] 
+}
      <meta name="description" content="<%=Server.HtmlDecode(newdescription) %>"/>
 </asp:Content>
 
