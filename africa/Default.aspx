@@ -37,7 +37,7 @@ Each country has its own personality and attractions. Egypt with its ancient rel
 
                 <div class="col-5 center">
                     <div class="wrapper">
-                          <img src="/Images/AfricaVacations.jpg" alt="Sailing down the Nile River in Egypt" height="190" width="300" />
+                          <img src="/Images/AfricaVacations.jpg" alt="Sailing down the Nile River in Egypt" title="Sailing down the Nile River in Egypt" height="190" width="300" />
                             <br />
                             <img src="../Images/likeusonfacebook.jpg" />
                               <div id="fb-root"></div>
@@ -85,7 +85,7 @@ Each country has its own personality and attractions. Egypt with its ancient rel
             </div>
             <div style="margin-top:10px;">
                <div class="col-5 center">
-                    <img src="/images/AfricaDestinations.jpg" alt="The view overlooking Capetown South Africa" height="233" width="300" />
+                    <img src="/images/AfricaDestinations.jpg" alt="The view overlooking Capetown South Africa" title="The view overlooking Capetown South Africa" height="233" width="300" />
                </div>
                <div class="col-7" >
                      Africa safari vacations are famous for their rich wildlife, thick forests, abundant lakes, sprawling African savannahs, and the pervasive charm of what's perhaps the oldest civilization in the world. Families, adventure tourists and idyllic travellers reaching Africa destinations have a well rounded, deeply entertaining experience, whether they are staying at beach destinations in Africa or an Africa safari vacation. The unspoilt natural charm of the shadowy continent is palpable, and it seems to resonate with your soul.
@@ -137,7 +137,7 @@ Although most of the beach resorts are known for their beautiful beaches, side t
                             </p>
                 </div>
                  <div class="col-5 center">
-                                <img src="/images/AfricaBeachVacations.jpg" alt="The exotic beaches of Kenya" height="233" width="300" />
+                                <img src="/images/AfricaBeachVacations.jpg" alt="The exotic beaches of Kenya" title="The exotic beaches of Kenya" height="233" width="300" />
                  </div>
   
             </div>
@@ -176,7 +176,7 @@ Although most of the beach resorts are known for their beautiful beaches, side t
         <div class="newline">
             <%--VBR--%>
             <div class="col-5 center">
-                <img src="/images/AfricaVacationRentals.jpg" alt="A desert city in Morocco" height="245" width="300"/>
+                <img src="/images/AfricaVacationRentals.jpg" alt="A desert city in Morocco" title="A desert city in Morocco" height="245" width="300"/>
             </div>
             <div class="col-7">
  Apart from zooming in on unveiled virgin nature and going wild chasing wildlife in the savannas, one of the most haunting memories you'll have from your Africa vacations is the peace and calm that you experience when you become one with nature. Africa's mystique is a part of its splendour, but the reclusive continent can be hard to explore for the lack of organized data about Africa vacation rentals. Tour operators usually book vacationers in more-or-less standard accommodations, with nothing unique or novel to spice up the vacations. Many tourists generally end up in hotels, where they might not be able to enjoy a fully immersive African adventure.
@@ -229,11 +229,11 @@ Vacations-Abroad.com has painstakingly selected the best Africa vacations rental
         var sc_security = "510252c5";
     </script>
 
-    <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
     <noscript>
         <div class="statcounter">
-            <a title="site stats" href="http://statcounter.com/" target="_blank">
-                <img class="statcounter" src="http://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
+            <a title="site stats" href="https://statcounter.com/" target="_blank">
+                <img class="statcounter" src="https://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
         </div>
     </noscript>
     <!-- End of StatCounter Code for Default Guide -->
@@ -247,7 +247,7 @@ Vacations-Abroad.com has painstakingly selected the best Africa vacations rental
 
         (function () {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 

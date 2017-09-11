@@ -43,7 +43,7 @@ North America family vacations bring Disneyland and Niagara Falls to mind. Guate
                </div>
               <div class="col-5 center">
                   <div class="wrapper">
-                    <img alt="" src="/Images/NorthAmericaVacations.jpg" height="190" width="300" />
+                    <img alt="North America Vacations" title="North America Vacations" src="/Images/NorthAmericaVacations.jpg" height="190" width="300" />
                             <img src="../Images/likeusonfacebook.jpg" />
                               <div id="fb-root"></div>
  
@@ -97,7 +97,7 @@ North America family vacations bring Disneyland and Niagara Falls to mind. Guate
 
          <div class="srow">
             <div class="col-5 center">
-              <img alt="" src="/images/NorthAmericaWinterVacations.jpg" height="233" width="300" />
+              <img alt="North America Vacations" title="North America Vacations" src="/images/NorthAmericaWinterVacations.jpg" height="233" width="300" />
             </div>
              <div class="col-7">
                            <p>
@@ -145,7 +145,7 @@ The best beaches in North America, which include Florida, Mexico and California 
                             <br/>
                 </div>
                 <div class="col-5 center">
-                    <img alt="" src="/images/NorthAmericaBeachVacations.jpg" height="233" width="300" />
+                    <img  alt="North America Vacations" title="North America Vacations" src="/images/NorthAmericaBeachVacations.jpg" height="233" width="300" />
                 </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@ The best beaches in North America, which include Florida, Mexico and California 
                 <div class="srow">
                     <%--image--%>
                     <div class="col-5 center">
-                        <img alt="" src="/images/NorthAmericaVacationRentals.jpg" height="245" width="300"/>
+                        <img  alt="North America Vacations"  title="North America Vacations" src="/images/NorthAmericaVacationRentals.jpg" height="245" width="300"/>
                     </div>
                     <div class="col-7" >
                                 <p>
@@ -216,11 +216,11 @@ Mountain cabins in North America ski destinations are usually located in the mid
      </div>
   
     </div>
-    <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
     <noscript>
         <div class="statcounter">
-            <a title="site stats" href="http://statcounter.com/" target="_blank">
-                <img class="statcounter" src="http://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
+            <a title="site stats" href="https://statcounter.com/" target="_blank">
+                <img class="statcounter" src="https://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
         </div>
     </noscript>
     <!-- End of StatCounter Code for Default Guide -->
@@ -234,7 +234,7 @@ Mountain cabins in North America ski destinations are usually located in the mid
 
         (function () {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 

@@ -131,7 +131,7 @@
             <div class="srow">
                <div class="col-5 center">
 
-                   <img src="/images/oceaniabeachvacations.jpg" height="233" width="300" alt=""/>
+                   <img src="/images/oceaniabeachvacations.jpg" height="233" width="300" alt="Oceania beach vacations take you to some of the most scenic seascapes of the world." title="Oceania beach vacations take you to some of the most scenic seascapes of the world."/>
                </div>
                <div class="col-7">
                            <p>
@@ -154,16 +154,16 @@
             <%--<div style="border: solid 0px #ececec; padding: 2px; background-color: white; text-align: center; width: 800px">
 
                 <div style="float: left; width: 413px;">
-                    <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/spain/balearic_islands/ibiza/default.aspx"><b>Ibiza Spain Beach Vacations</b></a></h3>
+                    <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/spain/balearic_islands/ibiza/default.aspx"><b>Ibiza Spain Beach Vacations</b></a></h3>
                 </div>
                 <div>
-                    <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/spain/balearic_islands/mallorca/default.aspx"><b>Mallorca Spain Beach Vacations</b></a></h3>
+                    <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/spain/balearic_islands/mallorca/default.aspx"><b>Mallorca Spain Beach Vacations</b></a></h3>
                 </div>
                 <div style="float: left; width: 413px;">
-                    <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/greece/cyclades_islands/santorini/default.aspx"><b>Santorini Greece Beach Vacations</b></a></h3>
+                    <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/greece/cyclades_islands/santorini/default.aspx"><b>Santorini Greece Beach Vacations</b></a></h3>
                 </div>
                 <div>
-                    <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/cyprus/paphos/coral_bay/default.aspx"><b>Coral Bay Cyprus Beach Vacations</b></a></h3>
+                    <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/cyprus/paphos/coral_bay/default.aspx"><b>Coral Bay Cyprus Beach Vacations</b></a></h3>
                 </div>
 
             </div>--%>
@@ -192,7 +192,7 @@
 
                 </div>
                 <div class="col-5 center">
-                        <img src="/images/oceaniadestinations.jpg" height="233" width="300" alt=""/>
+                        <img src="/images/oceaniadestinations.jpg" height="233" width="300" alt=""  title="Oceania beach vacations take you to some of the most scenic seascapes of the world."/>
                 </div>
 
             </div>
@@ -203,16 +203,16 @@
                 <%--<div style="border: solid 0px #ececec; padding: 2px; background-color: white; text-align: center; width: 800px">
 
                     <div style="float: left; width: 413px;">
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/france/rhone_alps/chamonix/default.aspx"><b>Chamonix France Ski Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/france/rhone_alps/chamonix/default.aspx"><b>Chamonix France Ski Vacations</b></a></h3>
                     </div>
                     <div>
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/france/rhone_alps/meribel/default.aspx"><b>Meribel France Ski Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/france/rhone_alps/meribel/default.aspx"><b>Meribel France Ski Vacations</b></a></h3>
                     </div>
                     <div style="float: left; width: 413px;">
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/switzerland/valais/zermatt/default.aspx"><b>Zermatt Switzerland Ski Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/switzerland/valais/zermatt/default.aspx"><b>Zermatt Switzerland Ski Vacations</b></a></h3>
                     </div>
                     <div>
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/austria/tyrol/innsbruck/default.aspx"><b>Innsbruck Austria Ski Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/austria/tyrol/innsbruck/default.aspx"><b>Innsbruck Austria Ski Vacations</b></a></h3>
                     </div>
 
                 </div>--%>
@@ -233,7 +233,7 @@
                 <div class="srow">
                     <%--image--%>
                    <div class="col-3">
-                       <img src="/images/oceaniaaccommodation.jpg" height="245px" width="300px" alt=""/>
+                       <img src="/images/oceaniaaccommodation.jpg" height="245px" width="300px" alt=""  title="Oceania beach vacations take you to some of the most scenic seascapes of the world."/>
                    </div>
                     <div class="col-r7">
                                <p>
@@ -255,16 +255,16 @@
                 <%--<div style="border: solid 0px #ececec; padding: 2px; background-color: white; text-align: center; width: 800px">
 
                     <div style="float: left; width: 413px;">
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/greece/attica/athens/default.aspx"><b>Athens Greece Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/greece/attica/athens/default.aspx"><b>Athens Greece Vacations</b></a></h3>
                     </div>
                     <div>
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/spain/madrid/madrid/default.aspx"><b>Madrid Spain Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/spain/madrid/madrid/default.aspx"><b>Madrid Spain Vacations</b></a></h3>
                     </div>
                     <div style="float: left; width: 413px;">
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/czech_republic/praha/prague/default.aspx"><b>Prague Czech Republic Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/czech_republic/praha/prague/default.aspx"><b>Prague Czech Republic Vacations</b></a></h3>
                     </div>
                     <div>
-                        <h3><a class="mainPgCountry" href="http://www.vacations-abroad.com/austria/vienna/vienna/default.aspx"><b>Vienna Austria Vacations</b></a></h3>
+                        <h3><a class="mainPgCountry" href="https://www.vacations-abroad.com/austria/vienna/vienna/default.aspx"><b>Vienna Austria Vacations</b></a></h3>
                     </div>
 
                 </div>--%>
@@ -287,11 +287,11 @@
 
     <!-- Start of StatCounter Code for Default Guide -->
 
-    <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
     <noscript>
         <div class="statcounter">
-            <a title="site stats" href="http://statcounter.com/" target="_blank">
-                <img class="statcounter" src="http://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
+            <a title="site stats" href="https://statcounter.com/" target="_blank">
+                <img class="statcounter" src="https://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
         </div>
     </noscript>
     <!-- End of StatCounter Code for Default Guide -->
@@ -305,7 +305,7 @@
 
         (function () {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
@@ -318,23 +318,23 @@
     runat="server">
     <div class="rhtsection frontSmallerImages">
                         <h2>
-                            <a style="text-decoration: none;" href="http://www.vacations-abroad.com/italy/lazio/rome/default.aspx">
+                            <a style="text-decoration: none;" href="https://www.vacations-abroad.com/italy/lazio/rome/default.aspx">
                                 Rome Italy</a></h2>
-                        <a style="text-decoration: none;" href="http://www.vacations-abroad.com/italy/lazio/rome/default.aspx">
+                        <a style="text-decoration: none;" href="https://www.vacations-abroad.com/italy/lazio/rome/default.aspx">
                             <img src="/images/FrontImage1.jpg" width="181" height="132" alt=""></a>
                     </div>
                     <div class="rhtsection frontSmallerImages">
                         <h2>
-                            <a style="text-decoration: none;" href="http://www.vacations-abroad.com/england/london/default.aspx">
+                            <a style="text-decoration: none;" href="https://www.vacations-abroad.com/england/london/default.aspx">
                                London England</a></h2>
-                        <a style="text-decoration: none;" href="http://www.vacations-abroad.com/england/london/default.aspx">
+                        <a style="text-decoration: none;" href="https://www.vacations-abroad.com/england/london/default.aspx">
                             <img  src="/images/FrontImage2.jpg" width="181" height="132" alt=""></a>
                     </div>
                     <div class="rhtsection frontSmallerImages">
                         <h2>
-                            <a style="text-decoration: none;" href="http://www.vacations-abroad.com/france/ile_de_france/paris/default.aspx">
+                            <a style="text-decoration: none;" href="https://www.vacations-abroad.com/france/ile_de_france/paris/default.aspx">
                                 Paris France</a></h2>
-                        <a style="text-decoration: none;" href="http://www.vacations-abroad.com/france/ile_de_france/paris/default.aspx">
+                        <a style="text-decoration: none;" href="https://www.vacations-abroad.com/france/ile_de_france/paris/default.aspx">
                             <img  src="/images/FrontImage3.jpg" width="181" height="130" alt=""></a>
                     </div>
 </asp:Content>--%>

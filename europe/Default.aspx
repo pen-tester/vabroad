@@ -37,7 +37,7 @@
              </div>
              <div class="col-5 center" >
                  <div class="wrapper">
-              <img src="/images/europevacations.jpg" height="190" width="300" alt="The whitewashed streets of Lisbon Portugal"/>
+              <img src="/images/europevacations.jpg" height="190" width="300" alt="The whitewashed streets of Lisbon Portugal" title="The whitewashed streets of Lisbon Portugal"/>
                             <img src="../Images/likeusonfacebook.jpg" />
                               <div id="fb-root"></div>
 
@@ -170,7 +170,7 @@
 
             <div class="srow">
                 <div class="col-5 center">
-                        <img src="/images/europebeachvacations.jpg" height="233" width="300"  alt="A historic chateau along a river in northern France"/>
+                        <img src="/images/europebeachvacations.jpg" height="233" width="300"  alt="A historic chateau along a river in northern France"  title="A historic chateau along a river in northern France"/>
                 </div>
                           
                 <div class="col-7">
@@ -223,7 +223,7 @@
                             </p><br/>
                 </div>
                 <div class="col-5 center">
-                    <img src="/images/europeskivacations.jpg" height="233" width="300"  alt="The death defying view in Chamonix France"/>
+                    <img src="/images/europeskivacations.jpg" height="233" width="300"  alt="The death defying view in Chamonix France" title="The death defying view in Chamonix France"/>
                 </div>
               </div>
             <div class="newline">
@@ -261,7 +261,7 @@
             <%--VBR--%>
             <div class="srow">
                 <div class="col-5 center">
-                     <img src="/images/europecityvacations.jpg" height="245px" width="300px" alt="The rooftops of Rome Italy"/>
+                     <img src="/images/europecityvacations.jpg" height="245px" width="300px" alt="The rooftops of Rome Italy" title="The rooftops of Rome Italy"/>
                 </div>
                                
                 <div class="col-7">
@@ -329,11 +329,11 @@
     <!-- Start of StatCounter Code for Default Guide -->
 
 
-    <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
     <noscript>
         <div class="statcounter">
-            <a title="site stats" href="http://statcounter.com/" target="_blank">
-                <img class="statcounter" src="http://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
+            <a title="site stats" href="https://statcounter.com/" target="_blank">
+                <img class="statcounter" src="https://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
         </div>
     </noscript>
     <!-- End of StatCounter Code for Default Guide -->
@@ -347,7 +347,7 @@
 
         (function () {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 

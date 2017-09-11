@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-5 center">
                     <div class="wrapper">
-                            <img src="/Images/AsiaVacations.jpg" alt="Beautiful beaches of Indonesia" height="190" width="300" />
+                            <img src="/Images/AsiaVacations.jpg" alt="Beautiful beaches of Indonesia" title="Beautiful beaches of Indonesia" height="190" width="300" />
                             <img src="../Images/likeusonfacebook.jpg" />
                               <div id="fb-root"></div>
                           <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
@@ -83,7 +83,7 @@
 
             <div class="srow">
                 <div class="col-5 center">
-                            <img src="/images/AsiaDestinations.jpg" height="233" width="300" alt="The famous Mehrangharah Fort with the city of Jodhpur, Rajasthan in the background. " />
+                            <img src="/images/AsiaDestinations.jpg" height="233" width="300" alt="The famous Mehrangharah Fort with the city of Jodhpur, Rajasthan in the background. "  title="The famous Mehrangharah Fort with the city of Jodhpur, Rajasthan in the background. " />
                 </div>
                 <div class="col-7">
                             <p>
@@ -125,7 +125,7 @@ Many Asia beach vacations have evolved; originally bohemian destinations for tho
                             </p></div>
 
                  <div class="col-5 center">
-                <img src="/images/AsiaBeachVacations.jpg" height="233" width="300" alt="The amazing beaches and islands of the Philippines" />
+                <img src="/images/AsiaBeachVacations.jpg" height="233" width="300" alt="The amazing beaches and islands of the Philippines" title="The amazing beaches and islands of the Philippines" />
              </div>
               </div>              
   
@@ -162,7 +162,7 @@ Many Asia beach vacations have evolved; originally bohemian destinations for tho
                 <div class="col-5 center">
                     <%--image--%>
 
-                                <img src="/images/AsiaVacationRentals.jpg" height="245" width="300" alt="The rice paddies of Bali Indonesia" />
+                                <img src="/images/AsiaVacationRentals.jpg" height="245" width="300" alt="The rice paddies of Bali Indonesia" title="The rice paddies of Bali Indonesia" />
                    </div>
                 <div class="col-7">
                                 <p>
@@ -196,11 +196,11 @@ The Asia vacation rentals that you'd like to consider would depend upon the purp
   
 
 
-    <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
     <noscript>
         <div class="statcounter">
-            <a title="site stats" href="http://statcounter.com/" target="_blank">
-                <img class="statcounter" src="http://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
+            <a title="site stats" href="https://statcounter.com/" target="_blank">
+                <img class="statcounter" src="https://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
         </div>
     </noscript>
       <script src="/Assets/js/asia.js"></script>

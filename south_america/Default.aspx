@@ -44,7 +44,7 @@
                </div>
                <div class="col-5 center">
                    <div class="wrapper">
-                                <img src="/Images/SouthAmericaVacations.jpg" height="190" width="300" alt="" />
+                                <img src="/Images/SouthAmericaVacations.jpg" height="190" width="300" alt="South America Vacations" title="South America Vacations" />
                                 <img src="../Images/likeusonfacebook.jpg" />
                                   <div id="fb-root"></div>
                     <div class="fb-like" style="float:left;padding-left:5px" data-href="https://www.facebook.com/VacationsAbroad" data-width="75" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
@@ -78,7 +78,7 @@
             <div class="srow">
                 <div class="col-5 center">
 
-                            <img alt="" src="/images/SouthAmericaDestinations.jpg" height="233" width="300" />
+                            <img  alt="South America Vacations" title="South America Vacations" src="/images/SouthAmericaDestinations.jpg" height="233" width="300" />
                 </div>
                 <div class="col-7">
                            <p>
@@ -131,7 +131,7 @@ Copa Cabana, Ipanema, Buenos Aires and Argentina are splendid South America beac
 
                 </div>
                 <div class="col-5 center">
-                    <img src="/images/SouthAmericaBeachVacations.jpg" alt="" height="233" width="300" />
+                    <img src="/images/SouthAmericaBeachVacations.jpg"  alt="South America Vacations" title="South America Vacations" height="233" width="300" />
                 </div>
              </div>
 
@@ -165,7 +165,7 @@ Copa Cabana, Ipanema, Buenos Aires and Argentina are splendid South America beac
           <div class="srow">
                     <%--image--%>
                     <div class="col-5 center">
-                          <img alt="" src="/images/SouthAmericaVacationRentals.jpg" height="245" width="300"/>
+                          <img  alt="South America Vacations" title="South America Vacations" src="/images/SouthAmericaVacationRentals.jpg" height="245" width="300"/>
                     </div>
                      <div class="col-7" >
                                 <p>
@@ -202,11 +202,11 @@ If you have a large family or group of friends travelling with you, you should p
    
     <!-- Start of StatCounter Code for Default Guide -->
 
-    <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
     <noscript>
         <div class="statcounter">
-            <a title="site stats" href="http://statcounter.com/" target="_blank">
-                <img class="statcounter" src="http://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
+            <a title="site stats" href="https://statcounter.com/" target="_blank">
+                <img class="statcounter" src="https://c.statcounter.com/3336280/0/510252c5/1/" alt="site stats"></a>
         </div>
     </noscript>
     <!-- End of StatCounter Code for Default Guide -->
@@ -220,7 +220,7 @@ If you have a large family or group of friends travelling with you, you should p
 
         (function () {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
