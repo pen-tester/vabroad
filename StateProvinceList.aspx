@@ -4,7 +4,7 @@
 
 <%--<%@ OutputCache Duration="600" VaryByParam="*" %>--%>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-   <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels | Vacations Abroad in <%=countryinfo.Country %>
+   <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels  in <%=countryinfo.Country %> | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
     <meta name="description" content="<%=Server.HtmlDecode(String.Format("Explore {0} while staying in our boutique hotels and vacation rentals",countryinfo.StateProvince)) %>"/>
