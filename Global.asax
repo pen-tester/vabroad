@@ -333,7 +333,7 @@
 
                             return;
                         }
-                        else
+ /*                       else
                         {
                             GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
                             GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
@@ -347,7 +347,7 @@
                                       "&category=" + city.ToString()));
                                 return;
                             }
-                        }
+                        }*/
                     }
 
                 }
