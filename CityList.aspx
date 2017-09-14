@@ -1,7 +1,7 @@
 <%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true"
     CodeFile="CityList.aspx.cs" Inherits="newCityList" ValidateRequest="false" EnableEventValidation="false" %>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    <%=countryinfo.City %> Vacation Rentals And Boutique Hotels in <%=countryinfo.StateProvince %> <%=countryinfo.Country %> | Vacations Abroad
+    <%=countryinfo.City %> Vacation Rentals, Boutique Hotels in <%=countryinfo.StateProvince %> <%=countryinfo.Country %> | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 <script type="application/ld+json">
@@ -373,7 +373,7 @@
                                                 <a class="btn_gurantee" href="https://www.vacations-abroad.com/rentalguarantee.aspx">Reservation Guarantee</a>
                                             </div>
                                             <div class="cont_button">
-                                                <a class="btn_moreinfos" href="<%=href %>">More Information</a>
+                                                <a class="btn_moreinfos" href="<%=href %>">Property Info</a>
                                             </div>
                                         </div>
                                     </div>
