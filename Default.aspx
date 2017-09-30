@@ -67,7 +67,7 @@
       @media(max-width:470px){
         .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
         .footeritem{width:190px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
-         .sformgroup{padding-top:40px;}
+         .sformgroup{padding-top:10px;}
        .itemtile{font-variant: small-caps;font-size:6pt;display:block;padding:0px;color:#5a5a5a;font-weight:300;}.itemtext{font-variant:small-caps; font-size:7pt;display:block;padding:2px;}
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
         .contentboxmargin{margin-top:4px;}    .footerarea{float:right; margin:0 20px 0 0;  width:@00px; padding:5px; color:#5a5a5a;text-align:left;}
@@ -85,7 +85,7 @@
         .contentboxmargin{margin-top:4px;}    .footerarea{float:right; margin:10px 20px 0 0;  width:300px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:10px;}.margingroup{margin-top:250px;}
         .link{font-size:8pt;}
-        .sformgroup{padding-top:90px;} 
+        .sformgroup{padding-top:10px;} 
         }
        @media(max-width:720px) and (min-width:560px){
         .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
@@ -94,7 +94,7 @@
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 5px;border:2px solid #ff6600;width:300px;margin:auto;}
         .contentboxmargin{margin-top:4px;}    .footerarea{float:right; margin:5px 30px 0 0;  width:320px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:10px;}.margingroup{margin-top:320px;}
-        .sformgroup{padding-top:125px;}
+        .sformgroup{padding-top:25px;}
        }
         @media(min-width:720px)
         {
@@ -104,7 +104,7 @@
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:600px;margin:auto;}
         .contentboxmargin{margin-top:30px;}    .footerarea{float:right; margin:20px 30px 0 0;  width:400px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:20px;}.margingroup{margin-top:420px;}
-         .sformgroup{padding-top:185px;}
+         .sformgroup{padding-top:35px;}
         }
         @media(min-width:990px)
         {
@@ -114,7 +114,7 @@
        .interalitem{padding:0 0 10px 30px;} a{cursor:pointer;}.topbox{padding:5px 15px;border:2px solid #ff6600;width:600px;margin:auto;}
         .contentboxmargin{margin-top:30px;}    .footerarea{float:right; margin:20px 100px 0 0;  width:400px; padding:5px; color:#5a5a5a;text-align:left;}
         .contentbox{margin-top:20px;}.margingroup{margin-top:540px;}
-        .sformgroup{padding-top:250px;}
+        .sformgroup{padding-top:50px;}
          }
         @media(min-width:1200px)
         {
@@ -125,7 +125,7 @@
          .contentboxmargin{margin-top:30px;}
          .contentbox{margin-top:30px;} .margingroup{margin-top:650px;}
         .footerarea{float:right; margin:20px 170px 0 0;  width:400px; padding:5px; color:#5a5a5a;text-align:left;}
-         .sformgroup{padding-top:300px;} 
+         .sformgroup{padding-top:120px;} 
         }
     </style>
 </asp:Content>
