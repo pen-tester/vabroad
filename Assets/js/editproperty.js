@@ -569,7 +569,15 @@ function geocodeLatLng(latitude, longitude, country,city) {
 }
 // { 8, 2, 5, 16, 11, 24, 2, 19, 22, 12 }; Hotel
 var hotel_type = [8, 2, 5, 16, 11, 24, 2, 19, 22, 12];
-var room_id_arr = []; var newrooms=0;
+var room_id_arr = []; var newrooms = 0;
+function htmlEncode(value) {
+    return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value) {
+    return $('<div/>').html(value).text();
+}
+
 function Init_DescriptionStepPage() {  //For descript & amenity page step1
     $('#roomwarper').hide();
     newrooms = 0;
@@ -582,7 +590,7 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
     $('#_propdescription').text(prop_info["Description"]); //Description and Amenities
     $('#_propdescription').text($('#_propdescription').text().replaceAll("<br />", "\r\n"));
     $('#_propamenitytxt').text(prop_info["Amenities"]);
-    $('#_propamenitytxt').text($('#_propamenitytxt').text().replaceAll("<br />", "\r\n"));
+    $('#_propamenitytxt').html($('#_propamenitytxt').text().replaceAll("<br />", "\r\n"));
     if (hotel_type.indexOf(prop_info["CategoryID"]) == -1) { //If the vacation rental
     //    console.log(prop_furniture);
         $('#roomwarper').show();
