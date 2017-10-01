@@ -39,9 +39,9 @@
     } %>
   "offers": {
     "@type": "AggregateOffer",
-    "lowPrice": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %>",
-    "highPrice": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>",
-    "priceCurrency": "<%= PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %>"
+    "lowPrice": "<%= (PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"].ToString()=="")?0:PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %>",
+    "highPrice": "<%= (PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"].ToString()=="")?0:PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>",
+    "priceCurrency": "<%= (PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"].ToString()=="")?"USD":PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %>"
   }
 }
 </script>
