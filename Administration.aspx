@@ -67,10 +67,12 @@
 								Commission Payable
 							</a>
 						</td>
+                       <td  align="left">
+						   <a href="/admin/verifymap.aspx">Manage Unverified properties</a>
+						</td>
                        <td  align="right">
 						   <a href="/admin/coupons.aspx">Manage Coupons</a>
 						</td>
-
 						<td align="right">
 						   <a href="/ReserveList.aspx">Reserve List</a>
 						</td>

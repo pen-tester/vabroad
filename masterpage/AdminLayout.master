@@ -1,11 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterMobile.master.cs" Inherits="masterpage_NoramlMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminLayout.master.cs" Inherits="masterpage_AdminLayout" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script defer="defer"  src="/assets/js/jquery-3.1.0.min.js"></script>
-    <script defer="defer" src="/assets/js/normalmaster.js?25"></script>
+
     <title> <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder></title>
     <meta charset="utf-8" />
@@ -184,6 +183,8 @@
 </head>
  
 <body style="margin:0 -3px;">
+    <script defer="defer"  src="/assets/js/jquery-3.1.0.min.js"></script>
+    <script defer="defer" src="/assets/js/normalmaster.js?25"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
         <div class="topNavigation">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
@@ -282,7 +283,7 @@
          </div> 
         <div class="normalbgcolor mainContent">
             <asp:ContentPlaceHolder id="bodycontent" runat="server">
-                
+        
             </asp:ContentPlaceHolder>
 
         </div>
@@ -341,3 +342,4 @@
     </div>
 </body>
 </html>
+
