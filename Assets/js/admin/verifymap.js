@@ -142,9 +142,6 @@ function GetLocation(addr) {
             //getLocationDetails(latitude, longitude);
             
             var marker = setMarkers(mainmap, latitude, longitude);
-            hlat = latitude;
-            hlng = longitude;
-            addr_verified = true;
             var latLng = marker.getPosition(); // returns LatLng object
             mainmap.setCenter(latLng);
             //showMsg("Verification of Address Success");
