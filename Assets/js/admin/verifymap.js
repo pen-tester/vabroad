@@ -87,7 +87,7 @@ function getLocationDetails(latitude, longitude) {
                         $("#verifymap").fadeOut();
                         console.log("success", result.d);
                         angular.element($("#ngmainapp")).scope().list_properties();
-                        angular.element($("#ngmainapp")).scope().apply();                        
+                        angular.element($("#ngmainapp")).scope().$apply();                        
 
                     }).fail(function (result, status) {
                         console.log("fail", result);
