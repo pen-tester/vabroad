@@ -157,7 +157,7 @@
                         <td class="address"><input class="addressedit" value="{{decodeHtml(property.Address)}}"/></td>
                         <td>{{getVerified(property.loc_verified)}}</td>
                         <td><a target="_blank"  ng-href="/userowner/propertymap.aspx?userid={{property.UserID}}">Map</a></td>
-                        <td><button ng-show="property.loc_verified!=1 || property.loc_verified==null" class="action">Verify Address</button><span ng-show="property.loc_verified==1">&#x2714;</span></td>
+                        <td><button class="action">Verify Address</button></td>
                     </tr>
                 </tbody>
             </table>

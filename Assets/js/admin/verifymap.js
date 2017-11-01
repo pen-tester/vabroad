@@ -84,10 +84,11 @@ function getLocationDetails(latitude, longitude) {
                         dataType:"json",
                         data: "{ \"propid\": " + $("#selected_id").val() + ", \"lat\":" + latitude + ", \"lg\":" + longitude + "}"
                     }).done(function (result, status) {
-                        angular.element($("#ngmainapp")).scope().list_properties();
-                        angular.element($("#ngmainapp")).scope().apply();
                         $("#verifymap").fadeOut();
                         console.log("success", result.d);
+                        angular.element($("#ngmainapp")).scope().list_properties();
+                        angular.element($("#ngmainapp")).scope().apply();                        
+
                     }).fail(function (result, status) {
                         console.log("fail", result);
                         showMsg("Verification of Address Failed");
