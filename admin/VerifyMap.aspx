@@ -166,7 +166,7 @@
                     Previous
                 </button>
                     <input style="width:30px;" ng-model="currentPage" value="{{currentPage+1}}" ng-change="list_properties(currentPage);" />/{{numberOfPages()}}
-                <button ng-disabled="currentPage >= numberOfPages()" ng-click="currentPage=currentPage+(+1);list_properties(currentPage);">
+                <button ng-disabled="currentPage >= numberOfPages()" ng-click="currentPage=(+currentPage)+(+1);list_properties(currentPage);">
                     Next
                 </button>  
             </div>

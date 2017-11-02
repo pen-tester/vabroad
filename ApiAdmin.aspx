@@ -7,11 +7,19 @@
     [WebMethod]
     // Get session state value.
     public static List<Unverifiedmap_Propery> Get_UnverifiedPropertyList(int page, string sorting_field, int sorttype) {
+        if(AuthenticationManager.IfAuthenticated==false || AuthenticationManager.IfAdmin == false)
+        {
+            return null;
+        }
         return AdminHelper.get_unverfiedmap_properties(page, sorting_field, sorttype);
     }
     [WebMethod]
     // Get session state value.
     public static string update_property_location(int propid, float lat, float lg, string addr) {
+        if(AuthenticationManager.IfAuthenticated==false || AuthenticationManager.IfAdmin == false)
+        {
+            return null;
+        }
         List<SqlParameter> param = new List<SqlParameter>();
         //[uspAddPropLatLong]@propid int=0, @lat float =0, @lng float =0
         param.Add(new SqlParameter("@propid", propid));
@@ -28,6 +36,10 @@
     [WebMethod]
     public static int getnumber_unverifiedpropertylist()
     {
+        if(AuthenticationManager.IfAuthenticated==false || AuthenticationManager.IfAdmin == false)
+        {
+            return 0;
+        }
         List<SqlParameter> param = new List<SqlParameter>();
         //[uspAddPropLatLong]@propid int=0, @lat float =0, @lng float =0
         DataSet ds = AdminHelper.getDataSet("uspGetNumberProperties_map_unverified", param);
