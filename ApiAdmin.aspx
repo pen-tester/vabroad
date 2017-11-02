@@ -6,8 +6,8 @@
 <script runat="server">
     [WebMethod]
     // Get session state value.
-    public static List<Unverifiedmap_Propery> Get_UnverifiedPropertyList() {
-        return AdminHelper.get_unverfiedmap_properties();
+    public static List<Unverifiedmap_Propery> Get_UnverifiedPropertyList(int page, string sorting_field, int sorttype) {
+        return AdminHelper.get_unverfiedmap_properties(page, sorting_field, sorttype);
     }
     [WebMethod]
     // Get session state value.
@@ -19,5 +19,28 @@
         param.Add(new SqlParameter("@lng", lg));
         AdminHelper.getDataSet("uspAddPropLatLong", param);
         return String.Format("{{ id:{0},lat:{1}, lng:{2} }}",propid, lat,lg);
+    }
+
+    [WebMethod]
+    public static int getnumber_unverifiedpropertylist()
+    {
+        List<SqlParameter> param = new List<SqlParameter>();
+        //[uspAddPropLatLong]@propid int=0, @lat float =0, @lng float =0
+        DataSet ds = AdminHelper.getDataSet("uspGetNumberProperties_map_unverified", param);
+        if (ds.Tables.Count > 0)
+        {
+            try
+            {
+                return int.Parse(ds.Tables[0].Rows[0][0].ToString());
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
     }
 </script>

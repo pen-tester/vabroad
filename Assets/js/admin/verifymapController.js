@@ -6,22 +6,24 @@
 });
 
 mainapp.controller('verifyController', function ($scope, $http) {
-    $scope.currentPage = 0;
+    $scope.currentPage = 1;
     $scope.pageSize = 10;
     $scope.requests = [];
     $scope.allrequests = [];
+    $scope.allnumber = 0;
     $scope.numberOfPages = function () {
-        return Math.ceil($scope.requests.length / $scope.pageSize);
+        // return Math.ceil($scope.requests.length / $scope.pageSize);
+        return Math.ceil($scope.allnumber / $scope.pageSize);
     }
     //Sorting..
-    $scope.sortingfield = "";
-    $scope.sorttype = false;
+    $scope.sortingfield = "UserID";
+    $scope.sorttype = 0;
 
     $scope.changesort = function (field) {
         if ($scope.sortingfield != field) {
-            $scope.sorttype = true;
+            $scope.sorttype = 1;
         } else {
-            $scope.sorttype = !($scope.sorttype);
+            $scope.sorttype = 1- $scope.sorttype;
         }
         $scope.sortingfield = field;
     }
@@ -44,11 +46,12 @@ mainapp.controller('verifyController', function ($scope, $http) {
     };
 
 
-    $scope.list_properties = function () {
+    $scope.list_properties = function (page) {
         $http({
             url: '/apiadmin.aspx/get_unverifiedpropertylist',
             method: "POST",
-            data: {},
+            data: "{ \"page\": "+(page-1)+", \"sorting_field\":\""+$scope.sortingfield+"\", \"sorttype\":"+$scope.sorttype+"}",
+            dataType:"json",
             headers:{"Content-Type":"application/json"}
         })
         .then(function (response) {
@@ -61,7 +64,29 @@ mainapp.controller('verifyController', function ($scope, $http) {
         });
     }
 
-    $scope.list_properties();
+    $scope.getall_mapunverified_properties = function () {
+        $http({
+            url: '/apiadmin.aspx/getnumber_unverifiedpropertylist',
+            method: "POST",
+            data: {},
+            headers: { "Content-Type": "application/json" }
+        })
+        .then(function (response) {
+            // success
+            //$scope.allrequests = response.data.d;
+            $scope.allnumber = response.data.d;
+            console.log(response.data);
+        },
+        function (response) { // optional
+            // failed
+        });
+    }
+
+    $scope.update = function () {
+        $scope.list_properties(0);
+        $scope.getall_mapunverified_properties();
+    }
+    $scope.update();
 
     $scope.downloadcsv = function () {
         var table = document.getElementById("table");

@@ -122,20 +122,20 @@
             <table class="" id="proptable">
                 <thead>
                     <tr>                 				 		
-                        <th ng-click="changesort('City')">                     
-                            City<span ng-show="sortingfield=='City' && sorttype==true">&#9650;</span><span ng-show="sortingfield=='City' && sorttype==false">&#9660;</span>
+                        <th ng-click="changesort('City');list_properties(currentPage);">                     
+                            City<span ng-show="sortingfield=='City' && sorttype==true">&#9660;</span><span ng-show="sortingfield=='City' && sorttype==false">&#9650;</span>
                         </th>
-                        <th ng-click="changesort('StateProvince')">                     
-                            State<span ng-show="sortingfield=='StateProvince' && sorttype==true">&#9650;</span><span ng-show="sortingfield=='StateProvince' && sorttype==false">&#9660;</span>
+                        <th ng-click="changesort('StateProvince');list_properties(currentPage);">                     
+                            State<span ng-show="sortingfield=='StateProvince' && sorttype==true">&#9660;</span><span ng-show="sortingfield=='StateProvince' && sorttype==false">&#9650;</span>
                         </th>
-                        <th ng-click="changesort('Country')">                     
-                            Country<span ng-show="sortingfield=='Country' && sorttype==true">&#9650;</span><span ng-show="sortingfield=='Country' && sorttype==false">&#9660;</span>
+                        <th ng-click="changesort('Country');list_properties(currentPage);">                     
+                            Country<span ng-show="sortingfield=='Country' && sorttype==true">&#9660;</span><span ng-show="sortingfield=='Country' && sorttype==false">&#9650;</span>
                         </th>
-                        <th ng-click="changesort('ID')">                     
-                            Property #<span ng-show="sortingfield=='ID' && sorttype==true">&#9650;</span><span ng-show="sortingfield=='ID' && sorttype==false">&#9660;</span>
+                        <th ng-click="changesort('PID');list_properties(currentPage);">                     
+                            Property #<span ng-show="sortingfield=='PID' && sorttype==true">&#9660;</span><span ng-show="sortingfield=='PID' && sorttype==false">&#9650;</span>
                         </th>
-                        <th ng-click="changesort('Address')">                     
-                            Address<span ng-show="sortingfield=='Address' && sorttype==true">&#9650;</span><span ng-show="sortingfield=='Address' && sorttype==false">&#9660;</span>
+                        <th ng-click="changesort('Address');list_properties(currentPage);">                     
+                            Address<span ng-show="sortingfield=='Address' && sorttype==true">&#9660;</span><span ng-show="sortingfield=='Address' && sorttype==false">&#9650;</span>
                         </th>
                         <th>                     
                             Verify Map
@@ -149,11 +149,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="property in requests = (allrequests | filter:filterfunction)|orderBy:sortingfield:sorttype | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <tr ng-repeat="property in requests = (allrequests | filter:filterfunction)">
                         <td class="city">{{property.City}}</td>
                         <td class="state">{{property.StateProvince}}</td>
                         <td class="country">{{property.Country}}</td>
-                        <td class="propid">{{property.ID}}<input type="hidden" value="{{property.ID}}"/></td>
+                        <td class="propid">{{property.PID}}<input type="hidden" value="{{property.PID}}"/></td>
                         <td class="address"><input class="addressedit" value="{{decodeHtml(property.Address)}}"/></td>
                         <td>{{getVerified(property.loc_verified)}}</td>
                         <td><a target="_blank"  ng-href="/userowner/propertymap.aspx?userid={{property.UserID}}">Map</a></td>
@@ -162,11 +162,11 @@
                 </tbody>
             </table>
             <div>
-                <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+                <button ng-disabled="currentPage == 1" ng-click="currentPage=currentPage-1; list_properties(currentPage);">
                     Previous
                 </button>
-                    {{currentPage+1}}/{{numberOfPages()}}
-                <button ng-disabled="currentPage >= requests.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+                    <input style="width:30px;" ng-model="currentPage" value="{{currentPage+1}}" ng-change="list_properties(currentPage);" />/{{numberOfPages()}}
+                <button ng-disabled="currentPage >= numberOfPages()" ng-click="currentPage=currentPage+(+1);list_properties(currentPage);">
                     Next
                 </button>  
             </div>

@@ -13,7 +13,7 @@ using System.Web;
 /// 
 public class Unverifiedmap_Propery
 {
-    public int ID { get; set; }
+    public int PID { get; set; }
     public int UserID { get; set; }
     public int CityID { get; set; }
     public string Address { get; set; }
@@ -75,10 +75,13 @@ public class AdminHelper
         return inquiry_set;
     }
 
-    public static List<Unverifiedmap_Propery> get_unverfiedmap_properties()
+    public static List<Unverifiedmap_Propery> get_unverfiedmap_properties(int page, string sorting_field, int sorttype)
     {
         List<Unverifiedmap_Propery> list = new List<Unverifiedmap_Propery>();
         List<SqlParameter> param = new List<SqlParameter>();
+        param.Add(new SqlParameter("@page", page));
+        param.Add(new SqlParameter("@sort_field", sorting_field));
+        param.Add(new SqlParameter("@sorttype", sorttype));
         DataSet ds_prp = getDataSet("uspGetProperties_map_unverified", param);
         if (ds_prp.Tables.Count > 0)
         {
