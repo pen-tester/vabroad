@@ -26,13 +26,14 @@
         s_state = state;
         s_city = city;
         var addr = $("#verifymap .address input").val();
+        s_addr = addr;
         var address = addr + ", " + city + ", " + state + ", " + country;
         GetLocation(address);
     })
 });
 
 var mainmap;
-var s_country, s_state, s_city;
+var s_country, s_state, s_city, s_addr;
 
 function initialize(gmarkers) {
     mainmap = initializeMap("map_canvas");
@@ -82,7 +83,7 @@ function getLocationDetails(latitude, longitude) {
                         type: "POST",
                         contentType: "application/json; charset=utf-8",
                         dataType:"json",
-                        data: "{ \"propid\": " + $("#selected_id").val() + ", \"lat\":" + latitude + ", \"lg\":" + longitude + "}"
+                        data: "{ \"propid\": " + $("#selected_id").val() + ", \"lat\":" + latitude + ", \"lg\":" + longitude + ", \"addr\":\"" + s_addr + "\"}"
                     }).done(function (result, status) {
                         $("#verifymap").fadeOut();
                         console.log("success", result.d);
