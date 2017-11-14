@@ -136,11 +136,11 @@
     <div class="scontainer"  style="background-color:#f5ede3;">
      <div class="srow">
            <div class="srow center formgroup">
-                <div class="sformgroup backtitle center"><div class="topbox"><h1> <label class="alist" >A Business Director of <br />Vacation Rentals & Boutique Hotels</label></h1></div></div>
+                <div class="sformgroup backtitle center"><div class="topbox"><h1> <label class="alist" >Vacation Rentals & Boutique Hotels</label></h1></div></div>
                 <div class="srow margingroup placeItem" >
                     <div class="center">
                         <div class="footeritem center">
-                            <h2 class="itemtile">Explore the World Undaunted</h2>
+                            <h2 class="itemtile">Explore the World with Us!</h2>
                         </div>
                     </div>
                </div>
