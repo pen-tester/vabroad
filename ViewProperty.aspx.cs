@@ -75,6 +75,7 @@ public partial class ViewProperty : CommonPage
     public DataSet comment_set;
     public List<DataSet> commentimgset_list= new List<DataSet>();
     public bool pass_recaptcha = false;
+    public bool calendar_view = false;
 
     protected void Page_Load(object sender, System.EventArgs e)
     {
@@ -1150,7 +1151,7 @@ public partial class ViewProperty : CommonPage
 
         if (!Page.IsValid) return;
         if (!pass_recaptcha) return;
-        
+
         /*
         if (!User.Identity.IsAuthenticated || !AuthenticationManager.IfAuthenticated)
         {
@@ -1165,7 +1166,9 @@ public partial class ViewProperty : CommonPage
             }
         }
         */
-        
+        calendar_view = CalendarEntriesPresent();
+
+
         if (Page.IsValid)
         {
             string contactname =Server.HtmlEncode(ContactName.Text);

@@ -406,7 +406,10 @@
                 <li data-tab="tabs-1" class="current">Amenities</li>
                 <li data-tab="tabs-5">Attractions</li>
                 <li data-tab="tabs-2">Rates</li>
+                <% if (calendar_view)
+                    { %> 
                 <li data-tab="tabs-6">Calendar</li>
+                <%} %>
                 <li data-tab="tabs-4">Reviews</li>
                 <li data-tab="tabs-3">Inquire</li>
 
@@ -580,6 +583,8 @@
                 </div>
 
             </div>
+            <% if (calendar_view)
+                { %>
             <div id="tabs-6"  class="tab-content">
                       <div class="center">
                          <h3> Property Availability Calendar</h3>
@@ -687,6 +692,7 @@
 
                 </div>
             </div>
+            <% } %>
             <div id="tabs-3"  class="tab-content">
                 
             </div>
