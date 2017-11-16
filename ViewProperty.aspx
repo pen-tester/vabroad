@@ -7,7 +7,7 @@
 <%---@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" ---%>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %> | Vacations Abroad
+    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 <script type="application/ld+json">
@@ -696,17 +696,6 @@
                     <div class="srow">
                         <div class="srow">
                         <div class="col-12">
-                            <div class="srow">
-                                <% DateTime dt;
-                                     DateTime.TryParse(PropertiesFullSet.Tables["Properties"].Rows[0]["DateCreated"].ToString(),out dt);
-                            %>
-                                <label>Member Since:<%= dt.ToString("MMM yyyy") %></label>
-                            </div>
-                            <div class="srow">
-                                <% if (userinfo.Email != "") {%>      
-                                Website Verified
-                                <%} %>
-                            </div>
                             <div class="srow">
                                 <% if (userinfo.Registered != "") {%>      
                                 Member of <%=userinfo.Registered %> Chamber of commerce

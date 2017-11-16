@@ -79,18 +79,18 @@
             <div class="srow contentbox" >
                   <div class="footeritem widewidth">
                    <span class="itemtile">Our Terms For Listing: </span>
-                   <span class="itemtext">1)	Our Booking Fee Is 10% Of The Reservation Amount.</span>
-                   <span class="itemtext">2)	We Do Not Collect Security Deposits, Local Taxes Or Cleaning Fees.</span>
-                   <span class="itemtext">3)	We Can Wire Funds Directly Into Your Bank Account Or Send To You Via Paypal.</span>
-                   <span class="itemtext">4)	We Transfer Funds To You 10 Days Prior To Arrival Of Your Guest.</span>
+                   <span class="itemtext">1)	Our Annual Fee is $150 per property listed on the site.</span>
+                   <span class="itemtext">2)	We do not collect any fees from the person making the inquiry</span>
                    <span class="itemtext shidden">5)	All Listings Include:</span>
                     <div class="interalitem shidden">
-                   <span class="itemtext"> a.	7 Photos.</span>
-                   <span class="itemtext"> b.	Emails Inquiries Regarding Availability.</span>
-                   <span class="itemtext"> c.	Your Ability To Provide A Quote For The Inquiry.</span>
-                   <span class="itemtext"> d.	Upon The Booking Of A Reservation, You Will Receive The Contact Details Of The Person Making The Reservation.</span>
-                        </div>
-
+                       <span class="itemtext"> a.	15 Photos.</span>
+                       <span class="itemtext"> b.	Email storage of the inquiries originating from our site regarding the availability of your property.</span>
+                       <span class="itemtext"> c.	The ability to reply directly to the person making the inquiry.</span>                        
+                    </div>
+                   <span class="itemtext shidden">5)	Free trial.</span>
+                    <div class="interalitem shidden">
+                        <span class="itemtext"> a.	You can receive 3 inquiries per property before you are required to make a payment.</span>
+                    </div>
                      <div class="center">          <a class="link" href="/accounts/login.aspx">      >Click Here to List Your Property<</a></div>
                    <span class="itemtext">The Management AT Vacations-Abroad.Com</span>
 
@@ -105,7 +105,7 @@
     </div>
             </div>
     <script src="/Assets/js/footerpage.js" defer="defer"></script>
-</form>
+    </form>
 </asp:Content>
 
 

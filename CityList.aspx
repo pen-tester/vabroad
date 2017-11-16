@@ -65,7 +65,7 @@
         .prop_amenity{font-size:11pt;color: #3c3c3c; padding:10px;}
         .prop_rates{font-size:12pt;color: #050505;padding:10px;}
         .prop_rates_val{font-size:11pt;color: #3c3c3c;padding:5px 10px;}
-        .btn_moreinfos,.btn_moreinfos:hover{font-variant:small-caps;  font-size:11pt; color:#2f528f;display:inline-block;font-weight:bold;padding:10px 20px;border:2px solid #ffd4c0;}
+        .btn_moreinfos,.btn_moreinfos:hover{font-variant:small-caps;  font-size:11pt; color:#fff;display:inline-block;font-weight:bold;padding:10px 20px;border:2px solid #ffd4c0;background:#2f528f}
         .btn_gurantee, .btn_gurantee:hover{width :100%;display:inline-block; padding:10px 20px; background-color:#4472c4;border:1px solid #2f528f;color:#fff; box-sizing:border-box;}
         .btn_moreinfo,.btn_moreinfo:hover{border-radius:5px; border:3px solid #e1d4c0;font-size:11pt; color:#2f528f;padding:7px 25px;background-color:#f5ede3;font-weight:bold;
                  -moz-box-shadow:
@@ -83,7 +83,7 @@
 	box-shadow: 3px 3px 3px 3px #c5bfb6 inset,-1px -1px 3px 3px #c5bfb6 inset;
     padding:8px 24px 6px 26px;
     }
-    .cont_button{padding:20px 0; width:100%;}
+    .cont_button{padding:20px 0 5px 0; width:100%;}
         [class*=colfield_]{float:left;}
       .mapbox{
          border:3px solid #f0b892;
@@ -162,7 +162,30 @@
      .wraper_buttons{
          padding:15px;
      }
-
+/*For star rating...*/
+    .star {
+        font-size: x-large;
+        width: 20px;
+        display: inline-block;
+        color: gray;
+    }
+    .star:last-child {
+        margin-right: 0;
+    }
+    .star:before {
+        content:'\2605';
+    }
+    .star.on {
+        color: gold;
+    }
+    .star.half:after {
+        content:'\2605';
+        color: gold;
+        position: absolute;
+        margin-left: -20px;
+        width: 10px;
+        overflow: hidden;
+    }
     </style>
 </asp:Content>
 
@@ -362,19 +385,50 @@
                                     </div>
                                     <div class="col-12 col-g-5">
                                         <div class="srow center">
+                                            <!--<div class="cont_button">
+                                                <a class="btn_gurantee" href="https://www.vacations-abroad.com/rentalguarantee.aspx">Reservation Guarantee</a>
+                                            </div>  -->
+                                            <div class="cont_button">
+                                                <a class="btn_moreinfos" href="<%=href %>">Property Info</a>
+                                            </div>
+                                            <% if (addr_verified == 1) {%>
+                                                <div>
+                                                    Location Verified
+                                                </div>
+                                            <% } %>
+                                            <% if (propamen.detail.Website!=null && propamen.detail.Website != "" ) {%>
+                                                <div>
+                                                    Owner Verified
+                                                </div>
+                                            <% } %>
+                                            <% if (propamen.rating!=0 ) {%>
+                                                <div class="stars">
+                                                <%
+                                                    int allstars = Convert.ToInt32(Math.Floor(propamen.rating));
+                                                    for (int star_index = 0; star_index < allstars; star_index++)
+                                                    {%>                                                         
+                                                            <span class="star on"></span> 
+                                                <%      } //End for loop %>
+                                                    <% if (allstars < propamen.rating)
+                                                        {
+                                                            allstars++; %>
+                                                          <span class="star half"></span>
+                                                    <% } %>
+                                                <% for (int star_index = allstars; star_index < 5; star_index++)
+                                                    {%>
+                                                        <span class="star"></span>
+ 
+                                                    <% } //End for loop %>
+                                                    </div>
+                                             <%   } %>
                                             <div class="prop_rates">
                                                 RATES
                                             </div>
                                             <div class="prop_rates_val center">
                                                  <%=propamen.detail.MinRateCurrency %> <%=propamen.detail.MinNightRate %> –  <%=propamen.detail.HiNightRate %> <br /> 
                                                        Per Night
-                                            </div>                                                        
-                                            <div class="cont_button">
-                                                <a class="btn_gurantee" href="https://www.vacations-abroad.com/rentalguarantee.aspx">Reservation Guarantee</a>
-                                            </div>
-                                            <div class="cont_button">
-                                                <a class="btn_moreinfos" href="<%=href %>">Property Info</a>
-                                            </div>
+                                            </div>  
+
                                         </div>
                                     </div>
                                 </div>

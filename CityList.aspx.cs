@@ -48,7 +48,6 @@ public partial class newCityList : CommonPage
     public string meta_str = "";
 
     public AjaxPropListSet proplistset;
-    public List<int> list_rating = new List<int>();
     //live
     protected void Page_Load(object sender, System.EventArgs e)
     {
@@ -148,7 +147,7 @@ public partial class newCityList : CommonPage
         string currency = "USD";
         for(int i=0;i< proplistset.allnums; i++)
         {
-            list_rating.Add(BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID));
+            proplistset.propertyList[i].rating = BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID);
             if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
             foreach (AmenityInfo amenity in proplistset.propertyList[i].amenity)
             {

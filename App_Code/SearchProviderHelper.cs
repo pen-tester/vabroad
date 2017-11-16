@@ -77,13 +77,15 @@ public class PropertyDetailInfo
     public float loc_latlang { get; set; }
     public float loc_logitude { get; set; }
     public int loc_verified { get; set; }
+    //For property owner property
+    public string Website { get; set; }
 }
 
 public class PropertyAmenityInfo
 {
    public  PropertyDetailInfo detail;
     public List<AmenityInfo> amenity = new List<AmenityInfo>();
-
+    public decimal rating = 0;
 }
 
 public class AjaxPropListSet

@@ -231,9 +231,9 @@ public class BookDBProvider
         return true;
     }
 
-    public static int getRatingbyID(int propid)
+    public static decimal getRatingbyID(int propid)
     {
-        int newid = 0;
+        decimal newid = 0;
         try
         {
             using (SqlConnection con = new SqlConnection(connString))
@@ -249,7 +249,7 @@ public class BookDBProvider
                     {
                         if (reader.Read())
                         {
-                            newid = Convert.ToInt32(Math.Round(Convert.ToDecimal(reader[0].ToString())));
+                            newid = Math.Round(Convert.ToDecimal(reader[0].ToString())*2)/2;
                         }
                     }
                     con.Close();
