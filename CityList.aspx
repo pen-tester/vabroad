@@ -63,7 +63,7 @@
         .prop_sleep span{font-size:11pt;color: #050505;display:inline-block; vertical-align:top; padding-top:10px;}
         .prop_detail{font-size:11pt;color: #3c3c3c; padding:0 10px;}
         .prop_amenity{font-size:11pt;color: #3c3c3c; padding:10px;}
-        .prop_rates{font-size:12pt;color: #050505;padding:10px;}
+        .prop_rates{font-size:12pt;color: #050505;padding:10px 0 0 0;}
         .prop_rates_val{font-size:11pt;color: #3c3c3c;padding:5px 10px;}
         .btn_moreinfos,.btn_moreinfos:hover{font-variant:small-caps;  font-size:11pt; color:#fff;display:inline-block;font-weight:bold;padding:10px 20px;border:2px solid #ffd4c0;background:#2f528f}
         .btn_gurantee, .btn_gurantee:hover{width :100%;display:inline-block; padding:10px 20px; background-color:#4472c4;border:1px solid #2f528f;color:#fff; box-sizing:border-box;}
@@ -388,17 +388,24 @@
                                             <!--<div class="cont_button">
                                                 <a class="btn_gurantee" href="https://www.vacations-abroad.com/rentalguarantee.aspx">Reservation Guarantee</a>
                                             </div>  -->
+                                            <div class="prop_rates">
+                                                RATES
+                                            </div>
+                                            <div class="prop_rates_val center">
+                                                 <%=propamen.detail.MinRateCurrency %> <%=propamen.detail.MinNightRate %> –  <%=propamen.detail.HiNightRate %> <br /> 
+                                                       Per Night
+                                            </div>  
                                             <div class="cont_button">
                                                 <a class="btn_moreinfos" href="<%=href %>">Property Info</a>
                                             </div>
-                                            <% if (addr_verified == 1) {%>
-                                                <div>
-                                                    Location Verified
-                                                </div>
-                                            <% } %>
                                             <% if (propamen.detail.Website!=null && propamen.detail.Website != "" ) {%>
                                                 <div>
                                                     Owner Verified
+                                                </div>
+                                            <% } %>
+                                            <% if (addr_verified == 1) {%>
+                                                <div>
+                                                    Location Verified
                                                 </div>
                                             <% } %>
                                             <% if (propamen.rating!=0 ) {%>
@@ -421,13 +428,6 @@
                                                     <% } //End for loop %>
                                                     </div>
                                              <%   } %>
-                                            <div class="prop_rates">
-                                                RATES
-                                            </div>
-                                            <div class="prop_rates_val center">
-                                                 <%=propamen.detail.MinRateCurrency %> <%=propamen.detail.MinNightRate %> –  <%=propamen.detail.HiNightRate %> <br /> 
-                                                       Per Night
-                                            </div>  
 
                                         </div>
                                     </div>
