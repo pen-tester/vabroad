@@ -722,7 +722,7 @@ function init_RatePage() {
     $('#minrate').val(prop_info.MinNightRate);
     $('#hirate').val(prop_info.HiNightRate);
     $('#currency').val(prop_info.MinRateCurrency);
-    $('#rates').val(prop_info.Rates);
+    $('#rates').val(HtmlDecoder(prop_info.Rates));
     $('#rates').val($('#rates').val().replaceAll("<br />","\r\n"));
     $('#cancel').val(prop_info.CancellationPolicy);
     $('#cancel').val($('#cancel').val().replaceAll("<br />", "\r\n"));
