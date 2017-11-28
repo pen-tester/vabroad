@@ -126,7 +126,7 @@ function processProperty(response) {
     var marker = setMarkers(onemap, lat, lng);
     var latLng = marker.getPosition(); // returns LatLng object
     onemap.setCenter(latLng);
-    $('#m_addr').val(property.Address)
+    $('#m_addr').val(HtmlDecoder(property.Address));
 }
 
 function getcountries(cname) {
@@ -391,4 +391,13 @@ function addAllmarkers(map) {
     map.initialZoom = true;
 
     map.fitBounds(bounds);
+}
+
+function HtmlDecoder(encodestr) {
+    var parser = new DOMParser;
+    var dom = parser.parseFromString(
+        '<!doctype html><body>' + encodestr,
+        'text/html');
+    var decodedString = dom.body.textContent;
+    return decodedString;
 }
