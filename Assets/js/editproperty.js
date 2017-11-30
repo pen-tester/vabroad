@@ -592,6 +592,7 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
     $('#_propdescription').text($('#_propdescription').text().replaceAll("<br>", "\r\n"));
     $('#_propamenitytxt').text(HtmlDecoder(prop_info["Amenities"]));
     $('#_propamenitytxt').html($('#_propamenitytxt').text().replaceAll("<br />", "\r\n"));
+    $('#_propamenitytxt').html($('#_propamenitytxt').text().replaceAll("<br>", "\r\n"));
     if (hotel_type.indexOf(prop_info["CategoryID"]) == -1) { //If the vacation rental
     //    console.log(prop_furniture);
         $('#roomwarper').show();
