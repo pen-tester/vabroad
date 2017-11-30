@@ -114,10 +114,10 @@ function showmessagebox(msg) {
 //If there is a existed property, initalize the content based on the current property
 function init_basicstepPage() {
     if (propertyid != "-1" && propertyid != "0") {
-        $('#_propname2').val(prop_info["Name2"]);
-        $('#_propname').val(prop_info["Name"]);
-        $('#_virttour').val(prop_info["VirtualTour"]);
-        $('#_propaddr').val(prop_info["Address"]);
+        $('#_propname2').val(HtmlDecoder(prop_info["Name2"]));
+        $('#_propname').val(HtmlDecoder(prop_info["Name"]));
+        $('#_virttour').val(HtmlDecoder(prop_info["VirtualTour"]));
+        $('#_propaddr').val(HtmlDecoder(prop_info["Address"]));
         if (prop_info["IfShowAddress"] != "" && prop_info["IfShowAddress"] != null) $('#_propdisplay').val(prop_info["IfShowAddress"]);
         $('#_propbedroom').val(prop_info["NumBedrooms"]);
         $('#_propbathrooms').val(prop_info["NumBaths"]);
@@ -587,9 +587,9 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
         $('#propamenity option[value=' + prop_amenity[ind].AmenityID + ']').attr('selected', true);
     }
 //    console.log(prop_info["Description"].toString().replaceAll("<br\s*[\/]?>", "\n"));
-    $('#_propdescription').text(prop_info["Description"]); //Description and Amenities
+    $('#_propdescription').text(HtmlDecoder(prop_info["Description"])); //Description and Amenities
     $('#_propdescription').text($('#_propdescription').text().replaceAll("<br />", "\r\n"));
-    $('#_propamenitytxt').text(prop_info["Amenities"]);
+    $('#_propamenitytxt').text(HtmlDecoder(prop_info["Amenities"]));
     $('#_propamenitytxt').html($('#_propamenitytxt').text().replaceAll("<br />", "\r\n"));
     if (hotel_type.indexOf(prop_info["CategoryID"]) == -1) { //If the vacation rental
     //    console.log(prop_furniture);
@@ -637,7 +637,7 @@ function Init_DescriptionStepPage() {  //For descript & amenity page step1
                                 </div>\
                             </div>";
                 $('#roomcontainer').append(tagcontent);
-                $('#roomcontainer input[value=' + roomid + ']').parent().find('input[name=_roomnames]').val(prop_furniture[ind_fur].RoomTitle);
+                $('#roomcontainer input[value=' + roomid + ']').parent().find('input[name=_roomnames]').val(HtmlDecoder(prop_furniture[ind_fur].RoomTitle));
                 $('#roomcontainer input[value=' + roomid + ']').parent().find('.roomfurniture').append(furniture_tag);
                 if (prop_furniture[ind_fur].FurnitureItemID != null && prop_furniture[ind_fur].FurnitureItemID != '') {
                     $('#roomcontainer input[value=' + roomid + ']').parent().find('.roomfurniture option[value=' + prop_furniture[ind_fur].FurnitureItemID + ']').attr('selected', true);
@@ -724,9 +724,9 @@ function init_RatePage() {
     $('#currency').val(prop_info.MinRateCurrency);
     $('#rates').val(HtmlDecoder(prop_info.Rates));
     $('#rates').val($('#rates').val().replaceAll("<br />","\r\n"));
-    $('#cancel').val(prop_info.CancellationPolicy);
+    $('#cancel').val(HtmlDecoder(prop_info.CancellationPolicy));
     $('#cancel').val($('#cancel').val().replaceAll("<br />", "\r\n"));
-    $('#deposit').val(prop_info.DepositRequired);
+    $('#deposit').val(HtmlDecoder(prop_info.DepositRequired));
     $('#deposit').val($('#deposit').val().replaceAll("<br />", "\r\n"));
 }
 
