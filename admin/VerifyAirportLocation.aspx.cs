@@ -26,7 +26,7 @@ public partial class admin_VerifyAirportLocation : System.Web.UI.Page
                 string lat = row["latitude"].ToString();
                 string lan = row["longitude"].ToString();
                 //string requestUri = string.Format("http ://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false", key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&);
-                string requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false", lat, lan);
+                string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false", lat, lan);
                 WebRequest request = WebRequest.Create(requestUri);
                 WebResponse response = request.GetResponse();
 
