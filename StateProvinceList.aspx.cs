@@ -38,10 +38,11 @@ public partial class StateProvinceList : CommonPage
     public int rproptype_id, rbedroom_id, ramenity_id, rsort_id, pagenum;
     public string meta_str = "";
     protected string markers = "[]";
+    protected string airport_markers = "[]";
 
     protected CountryInfoWithCityID countryinfo;
 
-    protected DataSet ds_PropList, ds_citylocations, ds_statelist;
+    protected DataSet ds_PropList, ds_citylocations, ds_statelist , ds_airports;
     protected string city_lists = "";
     protected List<string> list_city = new List<string>();
 
@@ -161,6 +162,12 @@ public partial class StateProvinceList : CommonPage
         param.Add(new SqlParameter("@amenityid", ramenity_id));
         ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", param);
         markers = CommonProvider.getMarkersJsonString(ds_citylocations);
+
+        sparam.Clear();
+        sparam.Add(new SqlParameter("@state", countryinfo.StateProvince ));
+        ds_airports = BookDBProvider.getDataSet("usp_list_airports_bystate", sparam);
+        airport_markers = CommonProvider.getMarkersJsonString(ds_airports, "airports");
+
 
         lblInfo2.Text = Server.HtmlDecode(countryinfo.CityText2).Replace( Environment.NewLine , "<br />");
 

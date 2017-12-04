@@ -372,9 +372,10 @@
 
     <script>
         var markers=<%=markers %>;
+        var airports_markers = <%=airport_markers %>;
     </script>
 
-    <script type="text/javascript" defer="defer" src="/assets/js/state.js?7">
+    <script type="text/javascript" defer="defer" src="/assets/js/state.js?8">
     </script>
     <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false&callback=initializeMap">
     </script>
