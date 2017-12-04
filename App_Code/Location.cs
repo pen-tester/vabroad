@@ -13,4 +13,5 @@ public class Location
     public double lng;
     public string description;
     public string URL;
+    public string type = "location";
 }

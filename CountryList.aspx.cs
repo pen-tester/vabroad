@@ -44,7 +44,9 @@ public partial class CountryList : CommonPage
     
     //For maping.
     protected DataSet ds_citylocations;
+    protected DataSet ds_airports;
     protected string markers="{}";
+    protected string airports_markers = "{}";
     protected string str_meta ,str_keyword = "";
     protected void Page_Load(object sender, System.EventArgs e)
     {
@@ -461,7 +463,10 @@ public partial class CountryList : CommonPage
             ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCountry", sparam);
 
             markers = CommonProvider.getMarkersJsonString(ds_citylocations);
-
+        sparam.Clear();
+            sparam.Add(new SqlParameter("@country", country));
+            ds_airports = BookDBProvider.getDataSet("usp_list_airports_bycountry", sparam);
+            airports_markers = CommonProvider.getMarkersJsonString(ds_airports,"airports");
 
     }
     static string UppercaseFirst(string s)

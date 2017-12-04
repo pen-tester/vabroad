@@ -20,7 +20,7 @@ public class CommonProvider
         // TODO: Add constructor logic here
         //
     }
-    public static string getMarkersJsonString(DataSet ds_citylocations)
+    public static string getMarkersJsonString(DataSet ds_citylocations, string type="location")
     {
         List<Location> eList = new List<Location>();
         foreach (DataRow dr in ds_citylocations.Tables[0].Rows)
@@ -35,6 +35,7 @@ public class CommonProvider
                 string temps = CommonFunctions.GetSiteAddress() + "/" + dr["Country"].ToString().ToLower().Replace(" ", "_") +
                  "/" + dr["StateProvince"].ToString().ToLower().Replace(" ", "_") + "/" + dr["City"].ToString().ToLower().Replace(" ", "_") + "/default.aspx";
                 e1.URL = temps;
+                e1.type = type;
                 eList.Add(e1);
             }
             catch { }

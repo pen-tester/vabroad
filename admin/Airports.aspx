@@ -1,16 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Airports.aspx.cs" Inherits="admin_Airports" %>
 
-<!DOCTYPE html>
+<%@ Import Namespace="System.Web.Services" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+<script runat="server"> 
+     [WebMethod]
+    public static  List<ObjectName> getcityidlist(int id) {
+        List<string> param = new List<string>();
+        List<string> pname = new List<string>();
+        param.Add(id.ToString()); pname.Add("@id");
+        List<ObjectName> list = MainHelper.getListFromDB<ObjectName>("uspGetCityListByStateID", MainHelper.getSqlParamList(param, pname));
+
+        return list;
+    }
+</script>
