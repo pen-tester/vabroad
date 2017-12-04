@@ -81,6 +81,19 @@ function initializeMap() {
             });
         })(marker, data);
     }
+
+    var icon = "https://www.vacations-abroad.com/assets/img/airports.png";
+    for (i = 0; i < airports_markers.length; i++) {
+        var data = airports_markers[i]
+        var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            icon: icon,
+            map: map,
+            title: data.title
+        });
+        bounds.extend(marker.position);
+    }
     google.maps.event.addListener(map, 'zoom_changed', function () {
         zoomChangeBoundsListener =
             google.maps.event.addListener(map, 'bounds_changed', function (event) {
