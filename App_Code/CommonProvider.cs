@@ -36,6 +36,7 @@ public class CommonProvider
                  "/" + dr["StateProvince"].ToString().ToLower().Replace(" ", "_") + "/" + dr["City"].ToString().ToLower().Replace(" ", "_") + "/default.aspx";
                 e1.URL = temps;
                 e1.type = type;
+                if (e1.type == "airport") e1.title = dr["name"].ToString();
                 eList.Add(e1);
             }
             catch { }

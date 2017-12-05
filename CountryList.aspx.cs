@@ -466,7 +466,7 @@ public partial class CountryList : CommonPage
         sparam.Clear();
             sparam.Add(new SqlParameter("@country", country));
             ds_airports = BookDBProvider.getDataSet("usp_list_airports_bycountry", sparam);
-            airports_markers = CommonProvider.getMarkersJsonString(ds_airports,"airports");
+            airports_markers = CommonProvider.getMarkersJsonString(ds_airports,"airport");
 
     }
     static string UppercaseFirst(string s)
