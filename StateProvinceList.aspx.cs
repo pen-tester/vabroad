@@ -166,7 +166,7 @@ public partial class StateProvinceList : CommonPage
         sparam.Clear();
         sparam.Add(new SqlParameter("@state", countryinfo.StateProvince ));
         ds_airports = BookDBProvider.getDataSet("usp_list_airports_bystate", sparam);
-        airport_markers = CommonProvider.getMarkersJsonString(ds_airports, "airports");
+        airport_markers = CommonProvider.getMarkersJsonString(ds_airports, "airport");
 
 
         lblInfo2.Text = Server.HtmlDecode(countryinfo.CityText2).Replace( Environment.NewLine , "<br />");
