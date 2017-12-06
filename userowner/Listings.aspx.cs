@@ -39,16 +39,16 @@ public partial class userowner_Listing : ClosedPage
 
         owner_ds = BookDBProvider.getDataSet("uspGetOwnerResponseList", param);
         //For Traveller
-     /*   param.Clear();
-        SqlParameter pemail = new SqlParameter("@email", SqlDbType.NVarChar, 500);
-        pemail.Value = userinfo.Email;
-        param.Add(pemail);
+        /*   param.Clear();
+           SqlParameter pemail = new SqlParameter("@email", SqlDbType.NVarChar, 500);
+           pemail.Value = userinfo.Email;
+           param.Add(pemail);
 
-        traveler_ds = BookDBProvider.getDataSet("uspGetTravelerResponseList", param);
+           traveler_ds = BookDBProvider.getDataSet("uspGetTravelerResponseList", param);
 
-    */
+       */
 
-
+        cssclass_tabs[2] = "active";
         if (owner_ds.Tables[0].Rows.Count != 0) cssclass_tabs[0] = "active";
         else
         {
