@@ -15,8 +15,9 @@ public partial class admin_VerifyAirportLocation : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         List<SqlParameter> param = new List<SqlParameter>();
-        
-        DataSet airports = BookDBProvider.getDataSet("usp_list_allairports",param);
+        param.Add(new SqlParameter("@country", "England"));
+        DataSet airports = BookDBProvider.getDataSet("usp_list_allairports_bycountry", param);
+        //For the english ....
         if (airports.Tables.Count > 0)
         {
             int rows = airports.Tables[0].Rows.Count;
@@ -47,10 +48,10 @@ public partial class admin_VerifyAirportLocation : System.Web.UI.Page
                             JArray types = (JArray)obj["types"];
                             if (types.Count > 0)
                             {
-                                if (types[0].ToString() == "country")
+                                if (types[0].ToString() == "administrative_area_level_1")
                                 {
                                     country = obj["long_name"].ToString();
-                                }else if(types[0].ToString() == "administrative_area_level_1")
+                                }else if(types[0].ToString() == "administrative_area_level_2")
                                 {
                                     state = obj["long_name"].ToString();
                                 }else if(types[0].ToString() == "locality")
