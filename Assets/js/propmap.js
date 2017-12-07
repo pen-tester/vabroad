@@ -62,7 +62,7 @@ $(document).ready(function () {
         addr = $('#m_addr').val();
         if (addr == '') { showMsg("The address is not specified."); return; }
         // var fulladdr = addr + ", " + city + ", " + state + ", " + country;
-        var fulladdr = addr +  ", " + country;
+        var fulladdr = addr + ", " + state +", "+ country;
         GetLocation(fulladdr);
     });
 
