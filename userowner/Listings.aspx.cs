@@ -48,7 +48,6 @@ public partial class userowner_Listing : ClosedPage
 
        */
 
-        cssclass_tabs[2] = "active";
         if (owner_ds.Tables[0].Rows.Count != 0) cssclass_tabs[0] = "active";
         else
         {
