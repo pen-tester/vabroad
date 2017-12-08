@@ -39,6 +39,7 @@ public partial class userowner_propertymap : ClosedPage// Page   //ClosedPage
             tparam.Add(new SqlParameter("@lat", hlat));
             tparam.Add(new SqlParameter("@lng", hlng));
             tparam.Add(new SqlParameter("@cityid", hcityid));
+            tparam.Add(new SqlParameter("@addr", haddr));
             BookDBProvider.getDataSet("uspAddPropLatLong", tparam);
         }
 

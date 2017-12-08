@@ -13,6 +13,11 @@ function awayMsg(message) {
 }
 
 $(document).ready(function () {
+    //Clicking the property for editing the map.
+    $(".btnaction").click(function () {
+        var target = $(this).attr("data-target");
+        showeditmap(target);
+    });
     $('.mclose').click(function () {
         var t_id = $(this).attr("data-target");
         $('#' + t_id).hide();
@@ -87,8 +92,6 @@ var country, state, city, addr;
 
 initialize(gmarkers);
 
-var selected_id;
-
 function showeditmap(propid) {
     property_id = propid;
     $('#editform').show();
@@ -97,7 +100,7 @@ function showeditmap(propid) {
         $(".editmapform").fadeIn();
     });
     onemap = initializeMap("propmap");
-    selected_id = propid;
+
     $.ajax({
         type: "POST",
         url: "/ajaxhelper.aspx/getpropertydetailinfo",
@@ -114,7 +117,7 @@ function showeditmap(propid) {
 var countryname, countryid, statename,stateid, cityname,cityid;
 
 function processProperty(response) {
-   // console.log(response.d);
+    console.log(response.d);
     var property = response.d;
     countryname = property.Country;
     statename = property.StateProvince;
@@ -156,9 +159,15 @@ function processCountry(response) {
    // console.log(countryname);
     //$('#m_country').val('"'+countryname+'"');
     //$("#m_country").val($("#m_country option:first").val());
-    $("#m_country option:contains(" + countryname + ")").attr('selected', 'selected');
+   // $("#m_country option:contains(" + countryname + ")").attr('selected', 'selected');
     // $('#m_country').filter(function () {return ($(this).text() == countryname); }).attr('selected', 'selected'); 
-
+    $("#m_country option").each(function () {
+        var text = $(this).text();
+        if (text == countryname) {
+            $(this).attr('selected', 'selected');
+            return false;
+        }
+    });
 
     countryid = $("#m_country").val();
 
@@ -196,7 +205,14 @@ function processStates(response) {
     }
   //  console.log(statename);
     //$('#m_country').val('"'+countryname+'"');
-    $("#m_state option:contains(" + statename + ")").attr('selected', 'selected');
+    // $("#m_state option:contains(" + statename + ")").attr('selected', 'selected');
+    $("#m_state option").each(function () {
+        var statetext = $(this).text();
+        if (statetext == statename) {
+            $(this).attr('selected', 'selected');
+            return false;
+        }
+    });
     stateid = $("#m_state").val();
     $('#m_othercity').hide();
     getCities(stateid);
@@ -235,13 +251,15 @@ function processCities(response) {
     ($('#m_city')).append($("<option></option>")
             .attr("value", 0)
             .text("I have the property in other city"));
-    //$('#m_country').val('"'+countryname+'"');
-   // $("#m_city option:contains(" + cityname + ")").attr('selected', 'selected');
-    $("#m_city option").filter(function () {
-      //  console.log($(this).text() + "  " + cityname);
-        return ($(this).text() == cityname);
-    }).attr('selected', 'selected');
-    //console.log(cityname);
+
+    $("#m_city option").each(function () {
+        var statetext = $(this).text();
+        if (statetext == cityname) {
+            $(this).attr('selected', 'selected');
+            return false;
+        }
+    });
+
     cityid = $("#m_city").val();
     if (count == 0) $('#m_othercity').show();
 }
@@ -268,7 +286,7 @@ function initializeMap(mapid) {
 
 
 function getLocationDetails(latitude, longitude) {
-
+    addr_verified = false;
     var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
             latitude + "," + longitude + "&sensor=false";
     //url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true',
@@ -335,6 +353,7 @@ function clearMarkers() {
 
 
 function GetLocation(addr) {
+    addr_verified = false;
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': addr }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {

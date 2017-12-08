@@ -172,7 +172,6 @@
                      for (int i=0; i<count; i++)
                      {
                          var srow = ds_proplocation.Tables[0].Rows[i];
-                         string action = String.Format("showeditmap({0})", srow["ID"].ToString());
                          int addr_verified;
                          if (!int.TryParse(srow["loc_verified"].ToString(), out addr_verified)) addr_verified = 0;
                          float latitude, longitude;
@@ -200,7 +199,7 @@
                         <td><%=srow["City"] %>  </td>
                         <td><%=srow["Address"] %>  </td>
                         <td><%=addr_verified %>  </td>
-                        <td><input type="button" value="Edit" onclick="<%=action%>" class="btnaction"/></td>
+                        <td><input type="button" value="Edit" data-target="<%=srow["ID"].ToString() %>" class="btnaction"/></td>
                     </tr>
                 <%
                     }
@@ -215,6 +214,6 @@
         var gmarkers=<%=ans%>;
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script src="/assets/js/propmap.js?os=6" defer="defer"></script>
+    <script src="/assets/js/propmap.js?os=7" defer="defer"></script>
 </form>
 </asp:Content>
