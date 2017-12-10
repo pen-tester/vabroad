@@ -711,6 +711,7 @@ function init_AttractionPage() {
     var local_attr = HtmlDecoder(prop_info.LocalAttractions);
     $('#_propattract').text(local_attr);
     $('#_propattract').text($('#_propattract').text().replaceAll("<br />", "\r\n"));
+    $('#_propattract').text($('#_propattract').text().replaceAll("<br>", "\r\n"));
     for (var ind_attr=0 ; ind_attr < count; ind_attr++) {
         var attrid = prop_attraction[ind_attr].AttractionID;
         var nearid = prop_attraction[ind_attr].DistanceID;
@@ -725,11 +726,14 @@ function init_RatePage() {
     $('#hirate').val(prop_info.HiNightRate);
     $('#currency').val(prop_info.MinRateCurrency);
     $('#rates').val(HtmlDecoder(prop_info.Rates));
-    $('#rates').val($('#rates').val().replaceAll("<br />","\r\n"));
+    $('#rates').val($('#rates').val().replaceAll("<br />", "\r\n"));
+    $('#rates').val($('#rates').val().replaceAll("<br>", "\r\n"));
     $('#cancel').val(HtmlDecoder(prop_info.CancellationPolicy));
     $('#cancel').val($('#cancel').val().replaceAll("<br />", "\r\n"));
+    $('#cancel').val($('#cancel').val().replaceAll("<br>", "\r\n"));
     $('#deposit').val(HtmlDecoder(prop_info.DepositRequired));
     $('#deposit').val($('#deposit').val().replaceAll("<br />", "\r\n"));
+    $('#deposit').val($('#deposit').val().replaceAll("<br>", "\r\n"));
 }
 
 function HtmlDecoder(encodestr)
