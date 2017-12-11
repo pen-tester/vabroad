@@ -145,13 +145,7 @@
         </tr>
         <tr>
             <td>
-                <asp:RadioButton ID="SendTrial" runat="server" Width="224px" Height="24px" Text="Send e-mail to all free trial listings"
-                    GroupName="0"></asp:RadioButton>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:RadioButton ID="SendAnnual" runat="server" Width="232px" Height="24px" Text="Send e-mail to all annual fee listings"
+                <asp:RadioButton ID="SendAll" runat="server" Width="232px" Height="24px" Text="Send e-mail to all owners of the properties"
                     GroupName="0"></asp:RadioButton>
             </td>
         </tr>
