@@ -570,15 +570,9 @@ public partial class SendCustomEmail : AdminPage
                         message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
                         message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
 
-                        try
-                        {
-                            smtpclient.Send(message);
-                           // emails = emails + ":::" + message.Subject + ":::" + message.Body;
-                        }
-                        catch (Exception ex)
-                        {
 
-                        }
+                        BookDBProvider.SendEmail((string)datarow["Email"], message.Subject, message.Body);
+
                     }
 
                     DataRow newrow = EmailsSet.Tables["Emails"].NewRow();
