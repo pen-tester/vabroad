@@ -629,7 +629,14 @@ public partial class SendCustomEmail : AdminPage
 				message.Body = message.Body.Replace("\r", "").Replace("\n", Environment.NewLine);
 				message.Headers["Content-Type"] = "text/plain; charset = \"iso-8859-1\"";
 
-				smtpclient.Send (message);
+                try
+                {
+                    smtpclient.Send(message);
+                }
+				catch(Exception ex)
+                {
+
+                }
 			}
 
 			DataRow newrow = EmailsSet.Tables["Emails"].NewRow ();
