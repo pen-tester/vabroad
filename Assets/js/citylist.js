@@ -238,19 +238,32 @@ var min_rentaltypes = ["None", "2 Nights", "3 Nights", "1 Week", "2 Weeks", "Mon
 
 
 
-function addOnemaker(map,data, highlighten) {
-    var myLatlng = new google.maps.LatLng(data.lat, data.lng);
-    var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-    var zindex=100;
-    if (highlighten) {
-        img_url = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
-        zindex=9999;
+function addOnemaker(map, data, highlighten) {
+    var prop_category_types = [[4, 6, 14], [5, 11, 19, 22, 12, 13, 24], [2, 16, 8]];
+    var img_urls = ["http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|154890",
+        "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|6699ff",
+        "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|ff6600",
+        "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|cdbfac"
+    ];
+    var img_index = 3;
+    for (var i = 0; i < 3; i++) {
+        if (prop_category_types[i].indexOf(parseInt(data.categoryid)) > -1) {
+            img_index = i;
+            break;
+        }
     }
+    var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+    //var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+    var zindex=100;
+    
+    var img_url = img_urls[img_index];
+
+
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title: data.title,
-  //      icon: img_url,
+        title: data.description,
+        icon: img_url,
         zIndex: zindex
     });
 

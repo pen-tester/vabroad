@@ -14,4 +14,6 @@ public class Location
     public string description;
     public string URL;
     public string type = "location";
+    public string proptype;
+    public int categoryid=0;
 }

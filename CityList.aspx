@@ -341,8 +341,9 @@
                                 loc.title = Server.HtmlDecode(propamen.detail.Name2);
                                 loc.lat = latitude;
                                 loc.lng = longitude;
-                                loc.description = propamen.detail.Name2;
+                                loc.description = String.Format("{0} Bedrooms {1}",propamen.detail.NumBedrooms, propamen.detail.CategoryTypes);
                                 loc.URL = url;
+                                loc.categoryid = propamen.detail.CategoryID;
                                 eLocation.Add(loc);
                             }
                                                         
@@ -534,7 +535,7 @@
   </script>
    
     <script defer="defer" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/assets/js/citylist.js?28"></script>
+    <script defer="defer" src="/assets/js/citylist.js?29"></script>
 
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
