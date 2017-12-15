@@ -256,8 +256,10 @@ function addOnemaker(map, data, highlighten) {
     //var img_url = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
     var zindex=100;
     
-    var img_url = img_urls[img_index];
-
+    var img_url = {
+        url: img_urls[img_index], // url
+        scaledSize: new google.maps.Size(30, 50)
+    };
 
     var marker = new google.maps.Marker({
         position: myLatlng,
