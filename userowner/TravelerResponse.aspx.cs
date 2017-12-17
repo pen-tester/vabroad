@@ -13,6 +13,7 @@ public partial class userowner_TravelerResponse : CommonPage
     public InquiryInfo inquiryinfo;
     public CountryInfo countryinfo;
     public int quoteid = 0;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         bool vaild_session = true;

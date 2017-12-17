@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using System.Net;
 
 //public partial class newCityList : System.Web.UI.Page
 public partial class newCityList : CommonPage
@@ -147,6 +148,21 @@ public partial class newCityList : CommonPage
         string currency = "USD";
         for(int i=0;i< proplistset.allnums; i++)
         {
+            Uri siteUri = new Uri(proplistset.propertyList[i].detail.Website);
+            WebRequest wr = WebRequest.Create(siteUri);
+
+            // now, request the URL from the server, to check it is valid and works
+            using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    // if the code execution gets here, the URL is valid and is up/works
+                }else
+                {
+                    proplistset.propertyList[i].detail.Website = "";
+                }
+                response.Close();
+            }
             proplistset.propertyList[i].rating = BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID);
             if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
             foreach (AmenityInfo amenity in proplistset.propertyList[i].amenity)
