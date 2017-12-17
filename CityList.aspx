@@ -399,7 +399,7 @@
                                             <div class="cont_button">
                                                 <a class="btn_moreinfos" href="<%=href %>">Property Info</a>
                                             </div>
-                                            <% if (propamen.detail.Website!=null && propamen.detail.Website != "" ) {%>
+                                            <% if (propamen.detail.site_verified != 0 ) {%>
                                                 <div>
                                                     Owner Verified
                                                 </div>

@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using System.Net;
 
 public partial class OwnerInformation : ClosedPage
 {
@@ -199,15 +200,40 @@ public partial class OwnerInformation : ClosedPage
 		MainDataSet.Tables["Users"].Rows[0]["DaytimeTelephone"] = DaytimeTelephone.Text;
 		MainDataSet.Tables["Users"].Rows[0]["MobileTelephone"] = MobileTelephone.Text;
         MainDataSet.Tables["Users"].Rows[0]["dateModified"] = DateTime.Today.ToString();
-
-		if (Website.Text.Length > 0)
+        MainDataSet.Tables["Users"].Rows[0]["site_verified"] = 0;
+        if (Website.Text.Length > 0)
 		{
 			if (!Website.Text.StartsWith ("http://"))
 				Website.Text = "http://" + Website.Text;
 			MainDataSet.Tables["Users"].Rows[0]["Website"] = Website.Text;
-		}
-		else
-			MainDataSet.Tables["Users"].Rows[0]["Website"] = "";
+            //Check the web site is ok
+            Uri siteUri = new Uri(Website.Text);
+            WebRequest wr = WebRequest.Create(siteUri);
+
+            wr.Timeout = 5000;
+            // now, request the URL from the server, to check it is valid and works
+            try
+            {
+                using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
+                {
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        // if the code execution gets here, the URL is valid and is up/works
+                        MainDataSet.Tables["Users"].Rows[0]["site_verified"] = 1;
+                    }
+                    response.Close();
+                }
+            }catch(Exception ex)
+            {
+                
+            }
+
+        }
+        else
+        {
+            MainDataSet.Tables["Users"].Rows[0]["Website"] = "";
+        }
+			
 
 		MainDataSet.Tables["Users"].Rows[0]["Registered"] = Registered.Text;
 		MainDataSet.Tables["Users"].Rows[0]["IfPayTravelAgents"] = PayTravelAgents.Checked;

@@ -79,6 +79,7 @@ public class PropertyDetailInfo
     public int loc_verified { get; set; }
     //For property owner property
     public string Website { get; set; }
+    public int site_verified { get; set; }
 }
 
 public class PropertyAmenityInfo
