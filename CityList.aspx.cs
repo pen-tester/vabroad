@@ -154,18 +154,25 @@ public partial class newCityList : CommonPage
                 WebRequest wr = WebRequest.Create(siteUri);
 
                 // now, request the URL from the server, to check it is valid and works
-                using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
+                try
                 {
-                    if (response.StatusCode == HttpStatusCode.OK)
+                    using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
                     {
-                        // if the code execution gets here, the URL is valid and is up/works
+                        if (response.StatusCode == HttpStatusCode.OK)
+                        {
+                            // if the code execution gets here, the URL is valid and is up/works
+                        }
+                        else
+                        {
+                            proplistset.propertyList[i].detail.Website = "";
+                        }
+                        response.Close();
                     }
-                    else
-                    {
-                        proplistset.propertyList[i].detail.Website = "";
-                    }
-                    response.Close();
+                }catch(Exception ex)
+                {
+                    proplistset.propertyList[i].detail.Website = "";
                 }
+
             }
             proplistset.propertyList[i].rating = BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID);
             if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
