@@ -152,7 +152,7 @@ public partial class newCityList : CommonPage
             {
                 Uri siteUri = new Uri(proplistset.propertyList[i].detail.Website);
                 WebRequest wr = WebRequest.Create(siteUri);
-
+                wr.Timeout = 5000;
                 // now, request the URL from the server, to check it is valid and works
                 try
                 {
