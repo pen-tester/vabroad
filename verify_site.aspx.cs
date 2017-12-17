@@ -26,16 +26,16 @@ public partial class verify_site : System.Web.UI.Page
             for(int i=0;i < count; i++)
             {
                 DataRow row = ds_users.Tables[0].Rows[i];
-
-                if (row["Website"].ToString() == "") continue;
-                Uri siteUri = new Uri(row["Website"].ToString());
-                WebRequest wr = WebRequest.Create(siteUri);
-
-                wr.Timeout = 5000;
                 ds_users.Tables[0].Rows[i]["site_verified"] = 0;
-                // now, request the URL from the server, to check it is valid and works
+                if (row["Website"].ToString() == "") continue;
                 try
                 {
+                    Uri siteUri = new Uri(row["Website"].ToString());
+                    WebRequest wr = WebRequest.Create(siteUri);
+
+                    wr.Timeout = 5000;
+                    ds_users.Tables[0].Rows[i]["site_verified"] = 0;
+                // now, request the URL from the server, to check it is valid and works
                     using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
                     {
                         if (response.StatusCode == HttpStatusCode.OK)
@@ -50,6 +50,7 @@ public partial class verify_site : System.Web.UI.Page
                 {
 
                 }
+                if(i % 100 == 0) users.Update(ds_users, "Users");
             }
 
             users.Update(ds_users, "Users");
