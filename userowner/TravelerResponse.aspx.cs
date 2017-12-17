@@ -26,14 +26,10 @@ public partial class userowner_TravelerResponse : CommonPage
         Int32.TryParse(Request.QueryString["quoteid"], out quoteid);
         if (ds_session.Tables.Count == 0 || ds_session.Tables[0].Rows.Count == 0) //Wrong request
         {
-            Response.Write(String.Format("{0}   {1}", quoteid, session));
-            Response.End();
             vaild_session = false;
         }else
         {
             int qid = int.Parse(ds_session.Tables[0].Rows[0]["emailquoteid"].ToString());
-            Response.Write(String.Format("{0}   {1}", qid, quoteid));
-            Response.End();    
             if (qid != quoteid) //Wrong request 
             {
                 vaild_session = false;
