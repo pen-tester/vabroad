@@ -30,7 +30,8 @@ public partial class userowner_TravelerResponse : CommonPage
         }else
         {
             int qid = int.Parse(ds_session.Tables[0].Rows[0]["emailquoteid"].ToString());
-
+            Response.Write(String.Format("{0}   {1}", qid, quoteid));
+            Response.End();    
             if (qid != quoteid) //Wrong request 
             {
                 vaild_session = false;
