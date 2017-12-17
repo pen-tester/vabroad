@@ -148,20 +148,24 @@ public partial class newCityList : CommonPage
         string currency = "USD";
         for(int i=0;i< proplistset.allnums; i++)
         {
-            Uri siteUri = new Uri(proplistset.propertyList[i].detail.Website);
-            WebRequest wr = WebRequest.Create(siteUri);
-
-            // now, request the URL from the server, to check it is valid and works
-            using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
+            if (proplistset.propertyList[i].detail.Website != null && proplistset.propertyList[i].detail.Website != "")
             {
-                if (response.StatusCode == HttpStatusCode.OK)
+                Uri siteUri = new Uri(proplistset.propertyList[i].detail.Website);
+                WebRequest wr = WebRequest.Create(siteUri);
+
+                // now, request the URL from the server, to check it is valid and works
+                using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
                 {
-                    // if the code execution gets here, the URL is valid and is up/works
-                }else
-                {
-                    proplistset.propertyList[i].detail.Website = "";
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        // if the code execution gets here, the URL is valid and is up/works
+                    }
+                    else
+                    {
+                        proplistset.propertyList[i].detail.Website = "";
+                    }
+                    response.Close();
                 }
-                response.Close();
             }
             proplistset.propertyList[i].rating = BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID);
             if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
