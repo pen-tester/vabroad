@@ -148,32 +148,6 @@ public partial class newCityList : CommonPage
         string currency = "USD";
         for(int i=0;i< proplistset.allnums; i++)
         {
-            if (proplistset.propertyList[i].detail.Website != null && proplistset.propertyList[i].detail.Website != "")
-            {
-                Uri siteUri = new Uri(proplistset.propertyList[i].detail.Website);
-                WebRequest wr = WebRequest.Create(siteUri);
-                wr.Timeout = 5000;
-                // now, request the URL from the server, to check it is valid and works
-                try
-                {
-                    using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
-                    {
-                        if (response.StatusCode == HttpStatusCode.OK)
-                        {
-                            // if the code execution gets here, the URL is valid and is up/works
-                        }
-                        else
-                        {
-                            proplistset.propertyList[i].detail.Website = "";
-                        }
-                        response.Close();
-                    }
-                }catch(Exception ex)
-                {
-                    proplistset.propertyList[i].detail.Website = "";
-                }
-
-            }
             proplistset.propertyList[i].rating = BookDBProvider.getRatingbyID(proplistset.propertyList[i].detail.ID);
             if ((minrate > proplistset.propertyList[i].detail.MinNightRate && minrate > 0) || minrate == 0) { minrate = proplistset.propertyList[i].detail.MinNightRate;  currency = proplistset.propertyList[i].detail.MinRateCurrency; }
             foreach (AmenityInfo amenity in proplistset.propertyList[i].amenity)
