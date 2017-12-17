@@ -29,7 +29,7 @@ public partial class userowner_TravelerResponse : CommonPage
             vaild_session = false;
         }else
         {
-            int qid = int.Parse(ds_session.Tables[0].Rows[0].ToString());
+            int qid = int.Parse(ds_session.Tables[0].Rows[0]["emailquoteid"].ToString());
 
             if (qid != quoteid) //Wrong request 
             {
