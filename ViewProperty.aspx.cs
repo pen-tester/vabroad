@@ -16,6 +16,7 @@ using System.Reflection;
 using System.Net;
 using System.Collections.Specialized;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 public partial class ViewProperty : CommonPage
 {
@@ -1142,6 +1143,8 @@ public partial class ViewProperty : CommonPage
         return (PropertiesFullSet.Tables["Properties"].Rows[0]["Email"] is string) &&
             regex.Match((string)PropertiesFullSet.Tables["Properties"].Rows[0]["Email"]).Success;
     }
+
+    //When the user clicking the book
     protected void SubmitButton_Click(object sender, System.EventArgs e)
     {
         //if (txtimgcode.Text.ToLower() == Session["CaptchaImageText"].ToString().ToLower())
@@ -1241,9 +1244,18 @@ public partial class ViewProperty : CommonPage
                 */
 
             //adding sending email to emailquote table.
-            if (BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment,phone,userid,  propertyid, ownerid, nights))
+            int newid = BookDBProvider.addEmailQuote(contactname, contactemail, arrivedate, adults, children, comment, phone, userid, propertyid, ownerid, nights);
+            if (newid >0)
             {
-                
+                int ses = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+                string session = CreateMD5(ses.ToString());
+
+                List<SqlParameter> spamras = new List<SqlParameter>();
+                spamras.Add(new SqlParameter("@session", session));
+                spamras.Add(new SqlParameter("@quoteid", newid));
+                BookDBProvider.getDataSet("uspAddEmailQuoteSession", spamras);
+
+
                 string ownermsg_format = @"<body>
   <style>
   </style>
@@ -1298,6 +1310,11 @@ public partial class ViewProperty : CommonPage
    	    <a href='https://www.vacations-abroad.com/userowner/listings.aspx' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;'>
 	      <b>Login to Your Account to provide a response / quote.</b>
 	    </a> 
+        <br/>
+        <br/>
+   	    <a href='https://www.vacations-abroad.com/userowner/travelerresponse.aspx?quoteid=%qid&session=%session' style='padding:3px 20px;border:1px solid #000;cursor: pointer;color: #f86308;text-decoration: none;font-size:12pt;'>
+	      <b>Login to Your Account to provide a response / quote.</b>
+	    </a> 
      </td>
     </tr>
     <tr>
@@ -1314,7 +1331,7 @@ public partial class ViewProperty : CommonPage
                 string msg = String.Format(ownermsg_format, DateTime.Now.ToString("MMM d, yyyy"), ownerinfo.firstname,"https://www.vacations-abroad.com/images/"+ propinfo.FileName, propinfo.Name2, propinfo.CategoryTypes, url, propinfo.ID, arrivedate, nights, adults, children,  contactname, comment);
                 //   string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
                 //string admin_msg = String.Format("Dear Linda. <br> The inquiry content is following. <br>The email of Traveler :{1} <br> {0}", msg, contactemail);
-
+                msg= msg.Replace("%qid", newid.ToString()).Replace("%session",session);               
 
                 BookDBProvider.SendEmail(ownerinfo.email,String.Format("{0} {1},Reservation for {2}",  ownerinfo.firstname,ownerinfo.lastname, arrivedate) , msg);
 
@@ -1553,5 +1570,23 @@ public partial class ViewProperty : CommonPage
             //    + PhotosSet.Tables["PropertyPhotos"].Rows[id]["Height"].ToString() + "\" /></li>";
         }
         return result;
+    }
+
+    public static string CreateMD5(string input)
+    {
+        // Use input string to calculate MD5 hash
+        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+        {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            // Convert the byte array to hexadecimal string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
     }
 }

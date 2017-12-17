@@ -1,25 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class userowner_TravelerResponse : ClosedPage
+public partial class userowner_TravelerResponse : CommonPage
 {
     public InquiryInfo inquiryinfo;
     public CountryInfo countryinfo;
     public int quoteid = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        string session;
+        session = Request.QueryString["session"];
+        List<SqlParameter> sparams = new List<SqlParameter>();
+        sparams.Add(new SqlParameter("@session", session));
+        DataSet ds_session = BookDBProvider.getDataSet("uspGetEmailQuoteSession", sparams);
+        if (ds_session.Tables.Count == 0 || ds_session.Tables[0].Rows.Count==0) return;//Wrong request 
+        int qid = int.Parse(ds_session.Tables[0].Rows[0].ToString());
+
+        Int32.TryParse(Request.QueryString["quoteid"], out quoteid);
+
+        if (qid != quoteid) //Wrong request 
+        {
+            return;
+        }
+
+
         if (!AuthenticationManager.IfAuthenticated || !User.Identity.IsAuthenticated)
         {
             FormsAuthentication.SignOut();
         }
 
-        Int32.TryParse(Request.QueryString["quoteid"], out quoteid);
+        
 
         inquiryinfo = BookDBProvider.getQuoteInfo(quoteid);
 

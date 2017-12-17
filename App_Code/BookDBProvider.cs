@@ -1007,7 +1007,7 @@ You have received an inquiry through the vacations-abroad.com website for proper
         return newid;
     }
 
-    public static bool addEmailQuote(string name, string email, string arrive, int adults, int child, string comment, string telephone, int userid, int propid, int ownerid, int nights)
+    public static int addEmailQuote(string name, string email, string arrive, int adults, int child, string comment, string telephone, int userid, int propid, int ownerid, int nights)
     {
         try
         {
@@ -1030,9 +1030,9 @@ You have received an inquiry through the vacations-abroad.com website for proper
                     cmd.Parameters.Add("@PropertyOwnerID", SqlDbType.Int).Value = getValue(ownerid);
                     cmd.Parameters.Add("@Nights", SqlDbType.Int).Value = getValue(nights);
 
-                    int rows = cmd.ExecuteNonQuery();
+                   // int rows = cmd.ExecuteNonQuery();
 
-                    /*
+                    
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.HasRows)
@@ -1040,9 +1040,10 @@ You have received an inquiry through the vacations-abroad.com website for proper
                             if (reader.Read())
                             {
                                 //more code
+                                return int.Parse(reader[0].ToString());
                             }
                         }
-                    }*/
+                    }
 
 
                     con.Close();
@@ -1053,11 +1054,11 @@ You have received an inquiry through the vacations-abroad.com website for proper
         catch(Exception ex)
         {
            // throw ex;
-            return false;
+            return -1;
         }
 
 
-        return true;
+        return -1;
     }
 
 
