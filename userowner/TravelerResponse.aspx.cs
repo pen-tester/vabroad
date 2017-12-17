@@ -15,16 +15,15 @@ public partial class userowner_TravelerResponse : CommonPage
     public int quoteid = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
+        bool vaild_session = true;
         string session;
         session = Request.QueryString["session"];
         List<SqlParameter> sparams = new List<SqlParameter>();
         sparams.Add(new SqlParameter("@session", session));
         DataSet ds_session = BookDBProvider.getDataSet("uspGetEmailQuoteSession", sparams);
-        if (ds_session.Tables.Count == 0 || ds_session.Tables[0].Rows.Count == 0)
+        if (ds_session.Tables.Count == 0 || ds_session.Tables[0].Rows.Count == 0) //Wrong request
         {
-            Response.Write("wrong action");
-            Response.End();
-            return;//Wrong request 
+            vaild_session = false;
         }
         int qid = int.Parse(ds_session.Tables[0].Rows[0].ToString());
 
@@ -32,16 +31,17 @@ public partial class userowner_TravelerResponse : CommonPage
 
         if (qid != quoteid) //Wrong request 
         {
-            Response.Write("wrong action");
-            Response.End();
-            return;//Wrong request 
+            vaild_session = false;
         }
 
-
-        if (!AuthenticationManager.IfAuthenticated || !User.Identity.IsAuthenticated)
+        if(vaild_session == false)
         {
-            FormsAuthentication.SignOut();
+            if (!AuthenticationManager.IfAuthenticated || !User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+            }
         }
+
 
         
 
