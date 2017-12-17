@@ -20,14 +20,21 @@ public partial class userowner_TravelerResponse : CommonPage
         List<SqlParameter> sparams = new List<SqlParameter>();
         sparams.Add(new SqlParameter("@session", session));
         DataSet ds_session = BookDBProvider.getDataSet("uspGetEmailQuoteSession", sparams);
-        if (ds_session.Tables.Count == 0 || ds_session.Tables[0].Rows.Count==0) return;//Wrong request 
+        if (ds_session.Tables.Count == 0 || ds_session.Tables[0].Rows.Count == 0)
+        {
+            Response.Write("wrong action");
+            Response.End();
+            return;//Wrong request 
+        }
         int qid = int.Parse(ds_session.Tables[0].Rows[0].ToString());
 
         Int32.TryParse(Request.QueryString["quoteid"], out quoteid);
 
         if (qid != quoteid) //Wrong request 
         {
-            return;
+            Response.Write("wrong action");
+            Response.End();
+            return;//Wrong request 
         }
 
 
