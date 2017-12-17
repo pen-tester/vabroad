@@ -24,15 +24,18 @@ public partial class userowner_TravelerResponse : CommonPage
         if (ds_session.Tables.Count == 0 || ds_session.Tables[0].Rows.Count == 0) //Wrong request
         {
             vaild_session = false;
-        }
-        int qid = int.Parse(ds_session.Tables[0].Rows[0].ToString());
-
-        Int32.TryParse(Request.QueryString["quoteid"], out quoteid);
-
-        if (qid != quoteid) //Wrong request 
+        }else
         {
-            vaild_session = false;
+            int qid = int.Parse(ds_session.Tables[0].Rows[0].ToString());
+
+            Int32.TryParse(Request.QueryString["quoteid"], out quoteid);
+
+            if (qid != quoteid) //Wrong request 
+            {
+                vaild_session = false;
+            }
         }
+
 
         if(vaild_session == false)
         {
