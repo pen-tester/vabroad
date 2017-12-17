@@ -56,7 +56,7 @@ public partial class userowner_TravelerResponse : CommonPage
         }
 
         if (inquiryinfo.PropertyID == 0) Response.Redirect("/Error.aspx?error=Wrong Inquiry number");
-        if((inquiryinfo.PropertyOwnerID!=userid)&& !AuthenticationManager.IfAdmin) Response.Redirect("/Error.aspx?error=You try to see the other info");
+        if((inquiryinfo.PropertyOwnerID!=userid)&& !AuthenticationManager.IfAdmin && vaild_session==false) Response.Redirect("/Error.aspx?error=You try to see the other info");
 
         countryinfo = BookDBProvider.getCountryInfo(inquiryinfo.PropertyID);
         
