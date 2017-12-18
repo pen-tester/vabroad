@@ -22,7 +22,7 @@ public partial class verify_site : System.Web.UI.Page
             cmdBuilder = new SqlCommandBuilder(users);
             users.Fill(ds_users, "users");
 
-            int count = ds_users.Tables[0].Rows.Count;
+            int count = 0;// ds_users.Tables[0].Rows.Count;
             for(int i=0;i < count; i++)
             {
                 DataRow row = ds_users.Tables[0].Rows[i];
