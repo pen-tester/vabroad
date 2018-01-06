@@ -258,7 +258,7 @@ function addOnemaker(map, data, highlighten) {
     
     var img_url = {
         url: img_urls[img_index], // url
-        scaledSize: new google.maps.Size(30, 50)
+        scaledSize: new google.maps.Size(25, 40)
     };
 
     var marker = new google.maps.Marker({

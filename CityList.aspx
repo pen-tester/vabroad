@@ -535,7 +535,7 @@
   </script>
    
     <script defer="defer" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script defer="defer" src="/assets/js/citylist.js?30"></script>
+    <script defer="defer" src="/assets/js/citylist.js?31"></script>
 
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
