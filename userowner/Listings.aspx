@@ -215,7 +215,8 @@
                                         </tr>
                                      </thead>
                                     <tbody>
-                                        <% for (int o_ind = 0; o_ind < count; o_ind++)
+                                        <%
+                                            for (int o_ind = 0; o_ind < count; o_ind++)
                                             {
                                                 var row = owner_ds.Tables[0].Rows[o_ind];
                                                 int quote;
@@ -261,25 +262,30 @@
                                                     </thead>
                                                 <tbody>
                                                     <%  
+
+                                                        String now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                                         if (property_set.Tables.Count > 0)
                                                         {
                                                             count = property_set.Tables[0].Rows.Count;
-
+                                                            for (int i = 0; i < count; i++)
+                                                            {
+                                                                var property = property_set.Tables[0].Rows[i];
                                                              %>
-                                                    <asp:Repeater runat="server" id="propertylist">
-                                                       <ItemTemplate>
+
                                                     <tr>
-                                                    <td><a href="<%# CommonFunctions.PrepareURL ("ViewProperty.aspx?UserID=" + userid.ToString () + "&PropertyID=" + Eval("ID"), "*User* Listings") %>"> <%#Eval("ID") %></a></td>
-                                                    <td><%#Eval("Name2") %></td>
+                                                    <td><a href="<%= CommonFunctions.PrepareURL ("ViewProperty.aspx?UserID=" + userid.ToString () + "&PropertyID=" + property["id"], "*User* Listings") %>"> <%= property["id"] %></a></td>
+                                                    <td><%= property["Name2"] %></td>
                                                     <td class="btgroupcontainer">
                                                         <div class="buttongroup">
-                                                            <asp:Button ID="Button8" OnCommand="bt_delete_Command" CssClass="btnAction" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument='<%#Eval("ID") %>'/>
-                                                            <asp:Button ID="Button5" OnCommand="bt_edittxt_Command" CssClass="btnAction" runat="server" Text="Edit Text" CommandArgument='<%#Eval("ID") %>'/>
-                                                            <asp:Button ID="Button6" OnCommand="bt_editphoto_Command" CssClass="btnAction" runat="server" Text="Edit Photo" CommandArgument='<%#Eval("ID") %>' />
-                                                            <asp:Button ID="Button7" OnCommand="bt_calendar_Command" CssClass="btnAction" runat="server" Text="Calendar" CommandArgument='<%#Eval("ID") %>' />
-                                                            <asp:Button ID="Button4" OnCommand="bt_payment_Command" CssClass="btnAction" runat="server" Text="Payment" CommandArgument='<%#Eval("ID") %>' />
+                                                            <asp:Button ID="Button8" OnCommand="bt_delete_Command" CssClass="btnAction" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument='<%= property["id"] %>'/>
+                                                            <asp:Button ID="Button5" OnCommand="bt_edittxt_Command" CssClass="btnAction" runat="server" Text="Edit Text" CommandArgument='<%property["id"] %>'/>
+                                                            <asp:Button ID="Button6" OnCommand="bt_editphoto_Command" CssClass="btnAction" runat="server" Text="Edit Photo" CommandArgument='<%= property["id"] %>' />
+                                                            <asp:Button ID="Button7" OnCommand="bt_calendar_Command" CssClass="btnAction" runat="server" Text="Calendar" CommandArgument='<%= property["id"] %>' />
+                                                            <% if (property["RenewalDate"] == null || now.CompareTo(property["RenewalDate"].ToString()) >0)
+                                                                { %>
+                                                            <asp:Button ID="Button4" OnCommand="bt_payment_Command" CssClass="btnAction" runat="server" Text="Payment" CommandArgument='<%= property["id"] %>' />
 
-
+                                                            <% } %>
 
                                                         </div>
                                                                  
@@ -287,10 +293,10 @@
                                                             
                                                     </td>
                                                     </tr>
-                                                           </ItemTemplate>
-                                                    </asp:Repeater>
+
                                                     <%
-                                                       }%>
+                                                            }
+                                                        }%>
                                                 </tbody>
                                             </table>
 

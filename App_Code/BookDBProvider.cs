@@ -459,7 +459,7 @@ public class BookDBProvider
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("select * from Properties em where UserID=@id", con);
+                    SqlCommand cmd = new SqlCommand("select pr.*, ivs.RenewalDate from Properties pr left join (select iv.PropertyID, Max(iv.RenewalDate) as RenewalDate from Invoices iv  group by iv.PropertyID) ivs on ivs.PropertyID =pr.ID  where UserID=@id", con);
                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = ownerid;
 
                     adapter.SelectCommand = cmd;

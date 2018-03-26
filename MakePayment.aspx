@@ -77,7 +77,7 @@
             </td>
             <td style="height: 19px">
 				<%//LMG: problem here, "System.FormatException: Input string was not in a correct format.": (auctionid != -1) ? 5.ToString ("c") : ((invoiceid != -1) ? ((decimal)MainDataSet.Tables["Invoices"].Rows[0]["InvoiceAmount"]).ToString ("c") : int.Parse (System.Configuration.ConfigurationManager.AppSettings["AnnualListingFee"]).ToString ("c")) %>
-                $50 USD
+                $100 USD
             </td>
         </tr>
         <tr>

@@ -26,8 +26,6 @@ public partial class userowner_Listing : ClosedPage
         userinfo = BookDBProvider.getDetailedUserInfo(userid);
 
         property_set = BookDBProvider.getPropertySet(userid);
-        propertylist.DataSource = property_set;
-        propertylist.DataBind();
 
         if (property_set.Tables[0].Rows.Count==0 && userinfo.Zip =="") Response.Redirect("/ownerinformation.aspx?userid="+userinfo.ID);
 
