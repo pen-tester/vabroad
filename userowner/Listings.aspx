@@ -277,10 +277,10 @@
                                                     <td><%= property["Name2"] %></td>
                                                     <td class="btgroupcontainer">
                                                         <div class="buttongroup">
-                                                            <asp:Button ID="Button8" OnCommand="bt_delete_Command" CssClass="btnAction" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument='<%= property["id"] %>'/>
-                                                            <asp:Button ID="Button5" OnCommand="bt_edittxt_Command" CssClass="btnAction" runat="server" Text="Edit Text" CommandArgument='<%property["id"] %>'/>
-                                                            <asp:Button ID="Button6" OnCommand="bt_editphoto_Command" CssClass="btnAction" runat="server" Text="Edit Photo" CommandArgument='<%= property["id"] %>' />
-                                                            <asp:Button ID="Button7" OnCommand="bt_calendar_Command" CssClass="btnAction" runat="server" Text="Calendar" CommandArgument='<%= property["id"] %>' />
+                                                            <asp:Button OnCommand="bt_delete_Command" CssClass="btnAction" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument='<%= property["id"] %>'/>
+                                                            <asp:Button OnCommand="bt_edittxt_Command" CssClass="btnAction" runat="server" Text="Edit Text" CommandArgument='<%= property["id"] %>'/>
+                                                            <asp:Button OnCommand="bt_editphoto_Command" CssClass="btnAction" runat="server" Text="Edit Photo" CommandArgument='<%= property["id"] %>' />
+                                                            <asp:Button OnCommand="bt_calendar_Command" CssClass="btnAction" runat="server" Text="Calendar" CommandArgument='<%= property["id"] %>' />
                                                             <% if (property["RenewalDate"] == null || now.CompareTo(property["RenewalDate"].ToString()) >0)
                                                                 { %>
                                                             <asp:Button ID="Button4" OnCommand="bt_payment_Command" CssClass="btnAction" runat="server" Text="Payment" CommandArgument='<%= property["id"] %>' />
