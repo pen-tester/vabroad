@@ -12,29 +12,29 @@
         if (confirm('Are you certain you want to delete this property?')) {
             var data_target = $(this).attr("data-target");
             var userid = $("#current_userid").val();
-            window.location.href = "deleteproperty.aspx?UserID=" + userid + "&PropertyID=" + data_target;
+            window.location.href = "/deleteproperty.aspx?UserID=" + userid + "&PropertyID=" + data_target;
         }
     });
 
     $(".bt_edittxt_Command").click(function () {
         var data_target = $(this).attr("data-target");
         var userid = $("#current_userid").val();
-        window.location.href = "editproperty.aspx?UserID=" + userid + "&PropertyID=" + data_target;
+        window.location.href = "/editproperty.aspx?UserID=" + userid + "&PropertyID=" + data_target;
     });
     $(".bt_editphoto_Command").click(function () {
         var data_target = $(this).attr("data-target");
         var userid = $("#current_userid").val();
-        window.location.href = "propertyphotos.aspx?UserID=" + userid + "&PropertyID=" + data_target;
+        window.location.href = "/propertyphotos.aspx?UserID=" + userid + "&PropertyID=" + data_target;
     });
     $(".bt_calendar_Command").click(function () {
         var data_target = $(this).attr("data-target");
         var userid = $("#current_userid").val();
-        window.location.href = "propertycalendar.aspx?UserID=" + userid + "&PropertyID=" + data_target;
+        window.location.href = "/propertycalendar.aspx?UserID=" + userid + "&PropertyID=" + data_target;
     });
     $(".bt_payment_Command").click(function () {
         var data_target = $(this).attr("data-target");
         var userid = $("#current_userid").val();
-        window.location.href = "makepayment.aspx?UserID="+userid+"&PropertyID="+data_target+"&InvoiceID=-1";
+        window.location.href = "/makepayment.aspx?UserID="+userid+"&PropertyID="+data_target+"&InvoiceID=-1";
     });
 });
 

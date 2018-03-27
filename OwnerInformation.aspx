@@ -50,7 +50,7 @@
                 <asp:RequiredFieldValidator ID="Requiredfieldvalidator5" runat="server" ControlToValidate="EmailAddress"
                     ErrorMessage="Please enter e-mail address" Display="Dynamic" />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="EmailAddress"
-                    ErrorMessage="Invalid email address entered" ValidationExpression="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
+                    ErrorMessage="Invalid email address entered" ValidationExpression="^\w+([\-\+\.]\w+)*@\w+([\-\.]\w+)*\.\w+([\-\.]\w+)*$"
                     Display="Dynamic" />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="EmailAddress"
                     ErrorMessage="Too long email address entered" ValidationExpression="^.{1,80}$"
