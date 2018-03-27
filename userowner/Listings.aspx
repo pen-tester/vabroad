@@ -284,7 +284,7 @@
                                                             <button type="button"  class="btnAction bt_calendar_Command"  data-target ="<%= property["id"] %>">Calendar</button> 
                                                             <% if (property["RenewalDate"] == null || now.CompareTo(property["RenewalDate"].ToString()) >0)
                                                                 { %>
-                                                            <button type="button" class="btnAction bt_payment_Command" runat="server"   data-target ="<%= property["id"] %>">Payment</button>
+                                                            <button type="button" class="btnAction bt_payment_Command"   data-target ="<%= property["id"] %>">Payment</button>
 
                                                             <% } %>
 
