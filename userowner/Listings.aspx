@@ -252,6 +252,7 @@
                                         
                                     </div>
                                        <div class="srow">
+                                           <input type="hidden" id="current_userid" value="<%=userid.ToString () %>" />
                                             <table>
                                                 <thead>
                                                     <tr>
@@ -277,13 +278,13 @@
                                                     <td><%= property["Name2"] %></td>
                                                     <td class="btgroupcontainer">
                                                         <div class="buttongroup">
-                                                            <asp:Button OnCommand="bt_delete_Command" CssClass="btnAction" runat="server" Text="Delete" OnClientClick="return confirm('Are you certain you want to delete this property?');" CommandArgument="<%= property["id"] %>"/>
-                                                            <asp:Button OnCommand="bt_edittxt_Command" CssClass="btnAction" runat="server" Text="Edit Text" CommandArgument = <%= property["id"] %>"/>
-                                                            <asp:Button OnCommand="bt_editphoto_Command" CssClass="btnAction" runat="server" Text="Edit Photo" CommandArgument="<%= property["id"] %>" />
-                                                            <asp:Button OnCommand="bt_calendar_Command" CssClass="btnAction" runat="server" Text="Calendar" CommandArgument="<%= property["id"] %>" />
+                                                            <button type="button"  class="btnAction bt_delete_Command"   data-target ="<%= property["id"] %>">Delete</button>
+                                                            <button type="button"  class="btnAction bt_edittxt_Command"  data-target = "<%= property["id"] %>">Edit Text</button>
+                                                            <button type="button"  class="btnAction bt_editphoto_Command" data-target ="<%= property["id"] %>">Edit Photo</button> 
+                                                            <button type="button"  class="btnAction bt_calendar_Command"  data-target ="<%= property["id"] %>">Calendar</button> 
                                                             <% if (property["RenewalDate"] == null || now.CompareTo(property["RenewalDate"].ToString()) >0)
                                                                 { %>
-                                                            <asp:Button ID="Button4" OnCommand="bt_payment_Command" CssClass="btnAction" runat="server" Text="Payment" CommandArgument="<%= property["id"] %>" />
+                                                            <button type="button" class="btnAction bt_payment_Command" runat="server"   data-target ="<%= property["id"] %>">Payment</button>
 
                                                             <% } %>
 
@@ -323,6 +324,6 @@
     </div> 
             </div>
          
-    <script src="/Assets/js/listings.js" defer="defer"></script>
+    <script src="/Assets/js/listings.js?1" defer="defer"></script>
 </form>
 </asp:Content>
