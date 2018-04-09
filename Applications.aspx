@@ -79,7 +79,7 @@
             <div class="srow contentbox" >
                   <div class="footeritem widewidth">
                    <span class="itemtile">Our Terms For Listing: </span>
-                   <span class="itemtext">1)	Our Annual Fee is $150 per property listed on the site.</span>
+                   <span class="itemtext">1)	Our Annual Fee is $100 per property listed on the site.</span>
                    <span class="itemtext">2)	We do not collect any fees from the person making the inquiry</span>
                    <span class="itemtext shidden">5)	All Listings Include:</span>
                     <div class="interalitem shidden">
@@ -89,7 +89,7 @@
                     </div>
                    <span class="itemtext shidden">5)	Free trial.</span>
                     <div class="interalitem shidden">
-                        <span class="itemtext"> a.	You can receive 3 inquiries per property before you are required to make a payment.</span>
+                        <span class="itemtext"> a.	You will receive a 3 month free trial before you are required to make a payment.</span>
                     </div>
                      <div class="center">          <a class="link" href="/accounts/login.aspx">      >Click Here to List Your Property<</a></div>
                    <span class="itemtext">The Management AT Vacations-Abroad.Com</span>
