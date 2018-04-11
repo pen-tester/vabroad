@@ -310,9 +310,10 @@
                                           <div class="srow center groupMargin">
                                             <asp:Button ID="Button1" CssClass="btnBlue" runat="server" Text="List A Property" OnClick="ListProperty_Click" />
                                         </div>
-                                        <div class="srow center">
+                                        <!--<div class="srow center">
                                             <asp:Button ID="Button3"  CssClass="btnBlue" OnClick="OurCommision_Click"  runat="server" Text="Our Commission %" />
                                         </div>
+                                        -->
                             </div>
            
 			            </div>
