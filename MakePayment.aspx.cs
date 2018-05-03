@@ -25,6 +25,7 @@ public partial class MakePayment : ClosedPage
 	{
 		SqlCommand getuserid;
 
+        /*
 		if ((Request.Params["InvoiceID"] != null) && (Request.Params["InvoiceID"].Length > 0))
 			try
 			{
@@ -117,7 +118,7 @@ public partial class MakePayment : ClosedPage
 
                 connection.Close();
             }
-		}
+		}*/
 
 		CreditCardType_SelectedIndexChanged (sender, e);
 		Country_SelectedIndexChanged (sender, e);
@@ -431,7 +432,7 @@ public partial class MakePayment : ClosedPage
 
 		smtpclient.Send (message);
 */
-		Response.Redirect (CommonFunctions.PrepareURL ("ThankYouPayment.aspx"));
+		Response.Redirect (CommonFunctions.PrepareURL ("ThankYouPayment.aspx?userid="+userid));
 	}
 
 	protected void CancelButton_Click (object sender, EventArgs e)

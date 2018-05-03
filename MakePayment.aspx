@@ -136,17 +136,15 @@
 								<option value="12">12</option>
 							</select>
                 / 
-                							<select id="ExpirationYear" name="ExpirationYear" runat="server">
-
-								
-								<option value="2015">2015</option>
-								<option value="2016">2016</option>
-								<option value="2017">2017</option>
+                		    <select id="ExpirationYear" name="ExpirationYear" runat="server">
 								<option value="2018">2018</option>
 								<option value="2019">2019</option>
 								<option value="2020">2020</option>
 								<option value="2021">2021</option>
-    								<option value="2022">2022</option>
+    							<option value="2022">2022</option>
+                                <option value="2022">2023</option>
+                                <option value="2022">2024</option>
+                                <option value="2022">2025</option>
 							</select>
 				<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ExpirationMonth"
 					ErrorMessage="RequiredFieldValidator" Display="Dynamic">Please enter expiration month</asp:RequiredFieldValidator>
@@ -555,13 +553,13 @@
         </tr>
     </table>
     <br />
-    <div align="center">
+ <!--   <div align="center">
         <b>Sending a check? Mail to</b><br />
-        <%= CommonFunctions.GetSiteName () %><br />
+
         Suite G 284, 5805 State Bridge Road<br />
         Johns Creek, GA 30097<br />
 	770-687-6889<br />
-    </div>
+    </div>  -->
 </div>
         </div>
     </div>

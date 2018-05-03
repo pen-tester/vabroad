@@ -1,35 +1,18 @@
 <%@ Page Language="C#" MasterPageFile="/masterpage/mastermobile.master" AutoEventWireup="true" CodeFile="ThankYouPayment.aspx.cs" Inherits="ThankYouPayment" Title="Thank you" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodycontent" Runat="Server">
-        <div class="scontainer">
-<div class="internalpage">
-    <div class="srow">
-	<div align="center">
-		<blockquote>
-			<p>
-				<font color="#cc0000" size="5">Thank You For Your payment!</font>
-			</p>
-		</blockquote>
-		<blockquote>
-			<p>
-				<font size="3">Your payment is being processed. Your listing will be converted from the free trial
-					to annual fee as soon as processing is completed. </font>
-			</p>
-		</blockquote>
-	</div>
-	<table width="250" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#e4e4af" id="Table3">
-		<tr>
-			<td>
-				<div align="center">
-					<strong>
-						<a href='<%= CommonFunctions.PrepareURL ("MyAccount.aspx") %>'>
-							Return to Your Account to review the property you just listed and to make any modifications
-						</a>
-					</strong>
-				</div>
-			</td>
-		</tr>
-	</table>
+<div class="scontainer">
+    <div class="internalpage">
+        <input type="hidden" id="userid" value="<%=userid %>" />
+        <div class="srow">
+	    <div align="center">
+		    <blockquote>
+			    <p>
+				    <font color="#cc0000" size="5">Your Payment has been received!</font>
+			    </p>
+		    </blockquote>
+	    </div>
+        </div>
     </div>
 </div>
-            </div>
+     <script src="/assets/js/paymentdone.js" defer="defer"></script>
 </asp:Content>
