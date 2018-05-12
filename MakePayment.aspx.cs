@@ -171,18 +171,15 @@ public partial class MakePayment : ClosedPage
 
 	protected void SubmitButton_Click(object sender, System.EventArgs e)
 	{
-		decimal amount;
+		decimal amount=0;
 		int type;
 
 		if (!IsValid)
 			return;
 
-		if (auctionid == -1)
-			amount = Convert.ToDecimal (ConfigurationManager.AppSettings["AnnualListingFee"]);
-		else
-			amount = Convert.ToDecimal (ConfigurationManager.AppSettings["AuctionListingFee"]);
+        amount = Convert.ToDecimal(ConfigurationManager.AppSettings["AnnualListingFee"]);
 
-		WrongPaymentInformation.Visible = false;
+        WrongPaymentInformation.Visible = false;
 
 	/*	if (CreditCardType.SelectedValue.Length > 1)
 			Response.Redirect (CommonFunctions.PrepareURL ("InternalError.aspx"), true);
