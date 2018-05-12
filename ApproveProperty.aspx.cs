@@ -33,10 +33,10 @@ namespace Vacations
 
 				if (CommonFunctions.SyncFill (PropertiesAdapter, PropertiesSet) > 0)
 				{
-					PropertiesSet.Tables["Properties"].Rows[0]["IfApproved"] = true;;
-
-					//lock (CommonFunctions.Connection)
-						PropertiesAdapter.Update (PropertiesSet);
+					PropertiesSet.Tables["Properties"].Rows[0]["IfApproved"] = true;
+                    PropertiesSet.Tables["Properties"].Rows[0]["PublishedDate"] = DateTime.Now; 
+                    //lock (CommonFunctions.Connection)
+                    PropertiesAdapter.Update (PropertiesSet);
 				}
 			}
 

@@ -225,46 +225,6 @@
         
         <asp:Label ID="EmailAdrError" runat="server" ForeColor="Red" Visible="False"/>
 </div>
-<asp:Repeater ID="Repeater2" runat="server">
-        <HeaderTemplate>
-            <table bordercolor="#ffffff" border="1" cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td bordercolor="#ffffff" colspan="100" align="center">
-                        <b>
-                            <br />
-                            Tours awaiting approval:
-                            <br />
-                            <br />
-                        </b>
-                    </td>
-                </tr>
-        </HeaderTemplate>
-        <ItemTemplate>
-            <tr>
-                <td width="100%" bgcolor="#e4e4af">
-                    <a href='<%# CommonFunctions.PrepareURL (DataBinder.Eval(Container.DataItem, "country", "{0}") + "/" + DataBinder.Eval(Container.DataItem, "stateprovince", "{0}")+ "/" + DataBinder.Eval(Container.DataItem, "city", "{0}_tours/default.aspx")) %>'>
-                        <%# DataBinder.Eval(Container.DataItem, "Name", "{0}") %>
-                    </a>
-                </td>
-                <td bordercolor="#ffffff">
-                    <input type="button" value="Approve" onclick='window.location.href=&quot;<%# CommonFunctions.PrepareURL ("ApproveTour.aspx?UserID=" + DataBinder.Eval(Container.DataItem, "UserID", "{0:d}") + "&tourID=" + DataBinder.Eval(Container.DataItem, "ID", "{0:d}"), "") %>&quot;'>
-                </td>
-                <td bordercolor="#ffffff">
-                    <input type="button" value="Edit" onclick='window.location.href=&quot;<%# CommonFunctions.PrepareURL ("EditTour.aspx?UserID=" + DataBinder.Eval(Container.DataItem, "UserID", "{0:d}") + "&tourID=" + DataBinder.Eval(Container.DataItem, "ID", "{0:d}"), "Administration") %>&quot;'>
-                </td>
-                <td bordercolor="#ffffff">
-                    <input type="button" value="Delete" onclick='window.location.href=&quot;<%# CommonFunctions.PrepareURL ("DeleteTour.aspx?UserID=" + DataBinder.Eval(Container.DataItem, "UserID", "{0:d}") + "&tourID=" + DataBinder.Eval(Container.DataItem, "ID", "{0:d}"), "") %>&quot;'>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <%# DataBinder.Eval(Container.DataItem, "Description", "{0}") %>
-                </td>
-            </tr>
-        </ItemTemplate>
-        <FooterTemplate>
-            </table></FooterTemplate>
-    </asp:Repeater>
 
     <asp:Repeater ID="Repeater1" runat="server" DataMember="Properties" DataSource="<%# PropertiesSet %>">
         <HeaderTemplate>
