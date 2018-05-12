@@ -79,7 +79,7 @@
             <div class="srow contentbox" >
                   <div class="footeritem widewidth">
                    <span class="itemtile">Our Terms For Listing: </span>
-                   <span class="itemtext">1)	Our Annual Fee is $100 per property listed on the site.</span>
+                   <span class="itemtext">1)	Our Annual Fee is $150 per property listed on the site.</span>
                    <span class="itemtext">2)	We do not collect any fees from the person making the inquiry</span>
                    <span class="itemtext shidden">5)	All Listings Include:</span>
                     <div class="interalitem shidden">

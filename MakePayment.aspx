@@ -29,9 +29,7 @@
 	<br />
 	<% } %>
     Thank you for listing your property. To make payment with a credit card; please
-    select the button below. If you find shopping cart difficult to use; we can process your
-    credit card through another company, or you can send payment by Paypal to 
-        ar@vacations-abroad.com. <br /> <br />We only accept Visa, MasterCard, or Diners Club</b><br />
+    select the button below.  <br /> <br />We only accept Visa, MasterCard, or Diners Club</b><br />
 	<br />
 	<asp:Label ID="WrongPaymentInformation" runat="server" ForeColor="Red" Text="Error processing payment:"
 		Visible="False"></asp:Label><br />
