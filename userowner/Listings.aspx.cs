@@ -80,7 +80,7 @@ public partial class userowner_Listing : ClosedPage
         //CommonFunctions.PrepareURL ("MakePayment.aspx?UserID=" + userid.ToString () + "&PropertyID=" + DataBinder.Eval(Container.DataItem, "ID", "{0:d}") + "&InvoiceID=-1", "*User* Listings"
         Button btn = (Button)(sender);
         string prop_id = btn.CommandArgument;
-        Response.Redirect(CommonFunctions.PrepareURL(String.Format("MakePayment.aspx?UserID={0}&PropertyID={1}&InvoiceID=-1",userid, prop_id), "*User* Listings"));
+        Response.Redirect(CommonFunctions.PrepareURL(String.Format("makepayment.aspx?UserID={0}&PropertyID={1}",userid, prop_id), "*User* Listings"));
     }
 
     protected void bt_edittxt_Command(object sender, CommandEventArgs e)
