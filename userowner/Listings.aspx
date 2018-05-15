@@ -282,8 +282,17 @@
                                                             <button type="button"  class="btnAction bt_edittxt_Command"  data-target = "<%= property["id"] %>">Edit Text</button>
                                                             <button type="button"  class="btnAction bt_editphoto_Command" data-target ="<%= property["id"] %>">Edit Photo</button> 
                                                             <button type="button"  class="btnAction bt_calendar_Command"  data-target ="<%= property["id"] %>">Calendar</button>
-                                                           <%= String.Format("{0} {1} {2}", now, property["RenewalDate"].ToString(), String.Compare(now, property["RenewalDate"].ToString())) %>
-                                                            <% if (property["RenewalDate"] == null || String.Compare(now, property["RenewalDate"].ToString()) >0)
+                                                            <%
+                                                                String prpdate = "";
+                                                                try
+                                                                {
+                                                                    prpdate = DateTime.Parse(property["RenewalDate"].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
+
+                                                                }catch(Exception ex)
+                                                                {
+
+                                                                }
+                                                                if (property["RenewalDate"] == null || String.Compare(now, prpdate) >0)
                                                                 { %>
                                                             <button type="button" class="btnAction bt_payment_Command"   data-target ="<%= property["id"] %>">Payment</button>
 
