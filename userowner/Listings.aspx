@@ -281,7 +281,8 @@
                                                             <button type="button"  class="btnAction bt_delete_Command"   data-target ="<%= property["id"] %>">Delete</button>
                                                             <button type="button"  class="btnAction bt_edittxt_Command"  data-target = "<%= property["id"] %>">Edit Text</button>
                                                             <button type="button"  class="btnAction bt_editphoto_Command" data-target ="<%= property["id"] %>">Edit Photo</button> 
-                                                            <button type="button"  class="btnAction bt_calendar_Command"  data-target ="<%= property["id"] %>">Calendar</button> 
+                                                            <button type="button"  class="btnAction bt_calendar_Command"  data-target ="<%= property["id"] %>">Calendar</button>
+                                                            <% = String.Format("%@ %@ %d", now, property["RenewalDate"].ToString(), String.Compare(now, property["RenewalDate"].ToString())) %> 
                                                             <% if (property["RenewalDate"] == null || String.Compare(now, property["RenewalDate"].ToString()) >0)
                                                                 { %>
                                                             <button type="button" class="btnAction bt_payment_Command"   data-target ="<%= property["id"] %>">Payment</button>
