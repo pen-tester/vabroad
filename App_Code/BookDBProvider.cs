@@ -770,7 +770,7 @@ public class BookDBProvider
 
         message.Body = message.Body.Replace("\r", "").Replace("\n", "");
 
-        SmtpClient smtpclient = new SmtpClient("smtp.vacations-abroad.com", 25);
+        SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
 
         string crediental = System.Configuration.ConfigurationManager.AppSettings["smtpCredential"].ToString();
         smtpclient.UseDefaultCredentials = false;

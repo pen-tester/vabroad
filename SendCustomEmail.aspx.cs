@@ -554,7 +554,7 @@ public partial class SendCustomEmail : AdminPage
 
                     if ((datarow["Email"] is string) && regex.Match((string)datarow["Email"]).Success)
                     {
-                        SmtpClient smtpclient = new SmtpClient("smtp.vacations-abroad.com", 25);
+                        SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
 
                         MailMessage message = new MailMessage("noreply@" + CommonFunctions.GetDomainName(), (string)datarow["Email"]);
                         message.Subject = CommonFunctions.GetSiteAddress() +
@@ -604,7 +604,7 @@ public partial class SendCustomEmail : AdminPage
 
                 if ((datarow["Email"] is string) && regex.Match((string)datarow["Email"]).Success)
                 {
-                    SmtpClient smtpclient = new SmtpClient("smtp.vacations-abroad.com", 25);
+                    SmtpClient smtpclient = new SmtpClient("mail.vacations-abroad.com", 25);
 
                     MailMessage message = new MailMessage("noreply@" + CommonFunctions.GetDomainName(), (string)datarow["Email"]);
                     message.Subject = CommonFunctions.GetSiteAddress() +
