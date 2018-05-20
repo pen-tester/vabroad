@@ -117,7 +117,8 @@ namespace Vacations
 																																																					  new System.Data.Common.DataColumnMapping("IfDiscounted", "IfDiscounted"),
 																																																					  new System.Data.Common.DataColumnMapping("IfLastMinuteCancellations", "IfLastMinuteCancellations"),
 																																																					  new System.Data.Common.DataColumnMapping("LastMinuteComments", "LastMinuteComments"),
-																																																					  new System.Data.Common.DataColumnMapping("HomeExchangeCityID1", "HomeExchangeCityID1"),
+                                                                                                                                                                                                                      new System.Data.Common.DataColumnMapping("PublishedDate", "PublishedDate"),
+                                                                                                                                                                                                                      new System.Data.Common.DataColumnMapping("HomeExchangeCityID1", "HomeExchangeCityID1"),
 																																																					  new System.Data.Common.DataColumnMapping("HomeExchangeCityID2", "HomeExchangeCityID2"),
 																																																					  new System.Data.Common.DataColumnMapping("HomeExchangeCityID3", "HomeExchangeCityID3")})});
 			// 
