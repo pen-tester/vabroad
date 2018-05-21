@@ -885,7 +885,8 @@ public partial class ViewProperty : CommonPage
 																																																				  new System.Data.Common.DataColumnMapping("TaxIncluded", "TaxIncluded"),
 																																																				  new System.Data.Common.DataColumnMapping("DateAvailable", "DateAvailable"),
 																																																				  new System.Data.Common.DataColumnMapping("IfDiscounted", "IfDiscounted"),
-																																																				  new System.Data.Common.DataColumnMapping("IfLastMinuteCancellations", "IfLastMinuteCancellations"),
+                                                                                                                                                                                                                  new System.Data.Common.DataColumnMapping("PaymentMethod", "PaymentMethod"),
+                                                                                                                                                                                                                  new System.Data.Common.DataColumnMapping("IfLastMinuteCancellations", "IfLastMinuteCancellations"),
 																																																				  new System.Data.Common.DataColumnMapping("LastMinuteComments", "LastMinuteComments"),
 																																																				  new System.Data.Common.DataColumnMapping("HomeExchangeCityID1", "HomeExchangeCityID1"),
 																																																				  new System.Data.Common.DataColumnMapping("HomeExchangeCityID2", "HomeExchangeCityID2"),
@@ -908,7 +909,7 @@ public partial class ViewProperty : CommonPage
             "ityID = Amenities.ID WHERE (PropertiesAmenities.PropertyID = Properties.ID) AND " +
             "(Amenities.Amenity = \'Pet Friendly\')) THEN \'Yes\' ELSE \'No\' END AS PetFriendly, P" +
             "roperties.ID, Properties.UserID, Properties.Name, Properties.TypeID, Properties." +
-            "Address, Properties.CityID, Properties.IfShowAddress, Properties.NumBedrooms, Pr" +
+            "Address, Properties.CityID, Properties.IfShowAddress, Properties.PaymentMethod  ,Properties.NumBedrooms, Pr" +
             "operties.NumBaths, Properties.NumSleeps,Properties.MinNightRate,Properties.HiNightRate,Properties.MinRateCurrency,Properties.Name2, Properties.MinimumNightlyRentalID, Prop" +
             "erties.NumTVs, Properties.NumVCRs, Properties.NumCDPlayers, Properties.Descripti" +
             "on, Properties.Amenities, Properties.LocalAttractions, Properties.Rates, Propert" +
