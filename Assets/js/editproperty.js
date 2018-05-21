@@ -728,6 +728,16 @@ function init_RatePage() {
     $('#rates').val(HtmlDecoder(prop_info.Rates));
     $('#rates').val($('#rates').val().replaceAll("<br />", "\r\n"));
     $('#rates').val($('#rates').val().replaceAll("<br>", "\r\n"));
+    $('#checkin').val(HtmlDecoder(prop_info.CheckIn));
+    $('#checkin').val($('#checkin').val().replaceAll("<br />", "\r\n"));
+    $('#checkin').val($('#checkin').val().replaceAll("<br>", "\r\n"));
+    $('#checkout').val(HtmlDecoder(prop_info.CheckOut));
+    $('#checkout').val($('#checkout').val().replaceAll("<br />", "\r\n"));
+    $('#checkout').val($('#checkout').val().replaceAll("<br>", "\r\n"));
+   /* $('#paymentmethod').val(HtmlDecoder(prop_info.CancellationPolicy));
+    $('#paymentmethod').val($('#paymentmethod').val().replaceAll("<br />", "\r\n"));
+    $('#paymentmethod').val($('#paymentmethod').val().replaceAll("<br>", "\r\n"));
+    */
     $('#cancel').val(HtmlDecoder(prop_info.CancellationPolicy));
     $('#cancel').val($('#cancel').val().replaceAll("<br />", "\r\n"));
     $('#cancel').val($('#cancel').val().replaceAll("<br>", "\r\n"));

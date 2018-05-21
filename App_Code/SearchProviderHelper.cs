@@ -43,6 +43,8 @@ public class PropertyDetailInfo
     public int UserID { get; set; }
     public string Name { get; set; }
     public string Address { get; set; }
+    public string CheckIn { get; set; }
+    public string CheckOut { get; set; }
     public int TypeID { get; set; }
     public int NumBedrooms { get; set; }
     public int NumBaths { get; set; }

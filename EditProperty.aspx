@@ -534,6 +534,18 @@
                          <div class="col-9"><textarea class="input_text large_width textboxheight" id="rates" name="rates"></textarea></div>
                      </div>
                      <div class="srow group_form">
+                         <div class="col-3">Check In:</div>
+                         <div class="col-9"><textarea class="input_text large_width textboxheight" id="checkin" name="checkin"></textarea></div>
+                     </div>
+                     <div class="srow group_form">
+                         <div class="col-3">Check Out:</div>
+                         <div class="col-9"><textarea class="input_text large_width textboxheight" id="checkout" name="checkout"></textarea></div>
+                     </div>
+                    <!-- <div class="srow group_form">
+                         <div class="col-3">Payment method:</div>
+                         <div class="col-9"><textarea class="input_text large_width textboxheight" id="paymentmethod" name="paymentmethod"></textarea></div>
+                     </div> -->
+                     <div class="srow group_form">
                          <div class="col-3">Cancellation Policy:</div>
                          <div class="col-9"><textarea class="input_text large_width textboxheight" id="cancel" name="cancel"></textarea></div>
                      </div>
@@ -577,6 +589,6 @@
     </script>
     <script defer="defer" src="/assets/plugins/custom_chosen/chosen.js"></script>
     <script defer="defer" src="/assets/plugins/chosen/chosen.jquery.min.js"></script>
-    <script defer="defer" src="/assets/js/editproperty.js?os=36"></script>
+    <script defer="defer" src="/assets/js/editproperty.js?os=37"></script>
     <script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvUZLV46qiEwP-tQm3gA7xdLYiDuEyW3o&callback=initMap"></script>
 </asp:Content>
