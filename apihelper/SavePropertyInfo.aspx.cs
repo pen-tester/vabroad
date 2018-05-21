@@ -352,6 +352,7 @@ public partial class userowner_SavePropertyInfo : CommonPage
         param.Add(new SqlParameter("@cancel", Request["cancel"]));
         param.Add(new SqlParameter("@checkin", Request["checkin"]));
         param.Add(new SqlParameter("@checkout", Request["checkout"]));
+        param.Add(new SqlParameter("@paymentmethod", Request["paymentmethod"]));
         param.Add(new SqlParameter("@deposite", Request["deposit"]));
         param.Add(new SqlParameter("@ratetxt", Request["rates"]));
         return param;

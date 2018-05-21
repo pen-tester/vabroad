@@ -550,8 +550,8 @@
                     <div class="text-left" style="font-size: 11pt; font-family: Arial; color: #000;">
                         Check in time <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CheckIn"] %><br />
                         Check out time   <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CheckOut"] %><br />
-                        Payment methods accepted:
-                            <% if (PaymentMethodsPresent())
+                        Payment methods accepted: <%# PropertiesFullSet.Tables["Properties"].Rows[0]["PaymentMethod"] %>
+                           <% if (1==2)  //PaymentMethodsPresent()
                                { %>
                         <asp:Repeater ID="Repeater4" runat="server" DataMember="PaymentMethods" DataSource="<%# PaymentMethodsSet %>">
                             <HeaderTemplate>
@@ -563,10 +563,10 @@
                             </FooterTemplate>
                         </asp:Repeater>
                         <% }
-                               else
+                              else
                                { %>
-                            Check with Property Owner
-                            <% } %>
+                                    <!-- Check with Property Owner -->
+                            <% } %>  
                         <br />
                         <% if (LodgingTaxPresent())
                            { %>
