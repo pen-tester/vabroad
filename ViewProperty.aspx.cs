@@ -886,8 +886,6 @@ public partial class ViewProperty : CommonPage
 																																																				  new System.Data.Common.DataColumnMapping("DateAvailable", "DateAvailable"),
 																																																				  new System.Data.Common.DataColumnMapping("IfDiscounted", "IfDiscounted"),
                                                                                                                                                                                                                   new System.Data.Common.DataColumnMapping("PaymentMethod", "PaymentMethod"),
-                                                                                                                                                                                                                  new System.Data.Common.DataColumnMapping("CheckIn", "CheckIn"),
-                                                                                                                                                                                                                  new System.Data.Common.DataColumnMapping("CheckOut", "CheckOut"),
                                                                                                                                                                                                                   new System.Data.Common.DataColumnMapping("IfLastMinuteCancellations", "IfLastMinuteCancellations"),
 																																																				  new System.Data.Common.DataColumnMapping("LastMinuteComments", "LastMinuteComments"),
 																																																				  new System.Data.Common.DataColumnMapping("HomeExchangeCityID1", "HomeExchangeCityID1"),
