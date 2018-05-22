@@ -207,13 +207,14 @@ public partial class OwnerInformation : ClosedPage
 				Website.Text = "http://" + Website.Text;
 			MainDataSet.Tables["Users"].Rows[0]["Website"] = Website.Text;
             //Check the web site is ok
-            Uri siteUri = new Uri(Website.Text);
-            WebRequest wr = WebRequest.Create(siteUri);
 
-            wr.Timeout = 5000;
             // now, request the URL from the server, to check it is valid and works
             try
             {
+                Uri siteUri = new Uri(Website.Text);
+                WebRequest wr = WebRequest.Create(siteUri);
+
+                wr.Timeout = 5000;
                 using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
