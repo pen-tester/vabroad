@@ -25,7 +25,6 @@ public partial class MakePayment : ClosedPage
 	{
 		SqlCommand getuserid;
 
-        /*
 		if ((Request.Params["InvoiceID"] != null) && (Request.Params["InvoiceID"].Length > 0))
 			try
 			{
@@ -96,7 +95,7 @@ public partial class MakePayment : ClosedPage
                 connection.Close();
             }
 		}
-		else
+/*		else
 		{
             using(SqlConnection connection = CommonFunctions.GetConnection()) {
                 connection.Open();
@@ -118,7 +117,8 @@ public partial class MakePayment : ClosedPage
 
                 connection.Close();
             }
-		}*/
+		}
+        */
 
 		CreditCardType_SelectedIndexChanged (sender, e);
 		Country_SelectedIndexChanged (sender, e);
