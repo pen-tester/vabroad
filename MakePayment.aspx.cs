@@ -95,7 +95,7 @@ public partial class MakePayment : ClosedPage
                 connection.Close();
             }
 		}
-/*		else
+		else
 		{
             using(SqlConnection connection = CommonFunctions.GetConnection()) {
                 connection.Open();
@@ -118,7 +118,7 @@ public partial class MakePayment : ClosedPage
                 connection.Close();
             }
 		}
-        */
+        
 
 		CreditCardType_SelectedIndexChanged (sender, e);
 		Country_SelectedIndexChanged (sender, e);
