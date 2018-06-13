@@ -37,7 +37,6 @@ Disallow: /Test/
 Disallow: /test2/
 Disallow: /tours/
 Disallow: /Web/
-Disallow: /searchterms.aspx
 Disallow: /Default.aspx
 Disallow: /allproperties.aspx
 Disallow: /SendToAFriend.aspx

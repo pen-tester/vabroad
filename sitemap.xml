@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.vacations-abroad.com/searchterms.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://www.vacations-abroad.com/africa/default.aspx</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -2012,6 +2017,11 @@
   </url>
   <url>
     <loc>https://www.vacations-abroad.com/netherlands/utrecht/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.vacations-abroad.com/india/uttaranchal/default.aspx</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -7406,6 +7416,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.vacations-abroad.com/nepal/sagarmatha/solukhumbu/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.vacations-abroad.com/indonesia/nusa_tenggara_barat/mataram/default.aspx</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -7416,7 +7431,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.vacations-abroad.com/nepal/sagarmatha/kathmandu/default.aspx</loc>
+    <loc>https://www.vacations-abroad.com/india/goa/bogmalo_beach/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vacations-abroad.com/india/uttaranchal/ramnagar/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vacations-abroad.com/usa/indiana/west_baden_springs/default.aspx</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -7882,6 +7907,11 @@
   </url>
   <url>
     <loc>https://www.vacations-abroad.com/italy/campania/sorrento/8184/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vacations-abroad.com/italy/campania/sorrento/8916/default.aspx</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -16736,6 +16766,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.vacations-abroad.com/nepal/sagarmatha/solukhumbu/8914/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.vacations-abroad.com/indonesia/nusa_tenggara_barat/mataram/8908/default.aspx</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -16746,7 +16781,17 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.vacations-abroad.com/nepal/sagarmatha/kathmandu/8909/default.aspx</loc>
+    <loc>https://www.vacations-abroad.com/india/goa/bogmalo_beach/8912/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vacations-abroad.com/india/uttaranchal/ramnagar/8913/default.aspx</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vacations-abroad.com/usa/indiana/west_baden_springs/8915/default.aspx</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
