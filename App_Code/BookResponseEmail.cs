@@ -57,8 +57,7 @@ public class BookResponseEmail
     public static bool updateEmailResponseState(int respid)
     {
         int rows = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("update EmailResponse set IsQuoted =1 where ID=@id and IsValid>0", con))
@@ -74,12 +73,6 @@ public class BookResponseEmail
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            return false;
-        }
 
         return (rows > 0) ? true : false;
     }
@@ -87,8 +80,7 @@ public class BookResponseEmail
     public static EmailResponseInfo getResponseInfo(int id)
     {
         EmailResponseInfo prop_info = new EmailResponseInfo();
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("select * from EmailResponse where ID=@id", con))
@@ -129,12 +121,7 @@ public class BookResponseEmail
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-             throw ex;
-            // return 0;
-        }
+
         return prop_info;
 
 

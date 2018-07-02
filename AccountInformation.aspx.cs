@@ -63,6 +63,7 @@ public partial class AccountInformation : CommonPage
                 if (MainAdapter.Fill(MainDataSet, "Users") == 0)
                 {
                     //CommonFunctions.Connection.Close ();
+                    connection.Close();
                     Response.Redirect(CommonFunctions.PrepareURL("InternalError.aspx"), true);
                 }
 
@@ -155,6 +156,7 @@ public partial class AccountInformation : CommonPage
                 }
                 catch (Exception exc)
                 {
+                    connection.Close();
                     //CommonFunctions.Connection.Close ();
                     if (exc.Message.IndexOf("Cannot insert duplicate key") >= 0)
                     {
@@ -164,6 +166,8 @@ public partial class AccountInformation : CommonPage
                     else
                         throw;
                 }
+
+                connection.Close();
 
                 AuthenticationManager.Authenticate(Username.Text, NewPassword.Text);
 
@@ -214,7 +218,7 @@ public partial class AccountInformation : CommonPage
   //                  smtpclient.Send(message);
 
                 //CommonFunctions.Connection.Close ();
-                connection.Close();
+                
             }
 
             if (!DuplicateUsername.Visible)
@@ -227,7 +231,7 @@ public partial class AccountInformation : CommonPage
 
             using (SqlConnection connection = CommonFunctions.GetConnection())
             {
-                connection.Open();
+                
 
                 if (!AuthenticationManager.IfAdmin)
                     if (!AuthenticationManager.Authenticate((string)MainDataSet.Tables["Users"].Rows[0]["Username"],
@@ -237,6 +241,7 @@ public partial class AccountInformation : CommonPage
                         return;
                     }
 
+                connection.Open();
                 //CommonFunctions.Connection.Open ();
 
                 MainDataSet.Tables["Users"].Rows[0]["Email"] = EmailAddress.Text;

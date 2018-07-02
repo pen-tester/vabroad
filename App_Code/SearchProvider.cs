@@ -22,8 +22,7 @@ public class SearchProvider
     public static int getNumbersOfCityID(int cityid, int proptype, int amenitytype, int roomnum)
     {
         int ret = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 /*   @keyword nvarchar(200) ='',
@@ -53,19 +52,14 @@ public class SearchProvider
                 con.Close();
 
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         return ret;
     }
     public static int getNumbersOf(string keyword, int proptype, int amenitytype, int roomnum)
     {
         int ret = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                      /*   @keyword nvarchar(200) ='',
@@ -95,11 +89,7 @@ public class SearchProvider
                     con.Close();
 
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         return ret;
     }
@@ -114,8 +104,7 @@ public class SearchProvider
         
         
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                     /*   @keyword nvarchar(200) ='',
@@ -157,18 +146,13 @@ public class SearchProvider
                 con.Close();
               
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         foreach(PropertyDetailInfo propinfo in prop_detail)
         {
             PropertyAmenityInfo propamenity = new PropertyAmenityInfo();
             propamenity.detail = propinfo;
-            try
-            {
+
                 using (SqlConnection con = new SqlConnection(connString))
                 {
                     con.Open();
@@ -189,11 +173,7 @@ public class SearchProvider
                     con.Close();
 
                 }
-            }
-            catch (Exception ex)
-            {
 
-            }
             propertyList.Add(propamenity);
         }
         prop_set.propertyList = propertyList;
@@ -203,8 +183,7 @@ public class SearchProvider
 
     public static bool setCityText(int cityid, int opt, string str)
     {
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 /*   @keyword nvarchar(200) ='',
@@ -227,11 +206,7 @@ public class SearchProvider
                 con.Close();
 
             }
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }
+
         return true;
     }
 
@@ -245,8 +220,7 @@ public class SearchProvider
 
 
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 /*   @keyword nvarchar(200) ='',
@@ -286,18 +260,13 @@ public class SearchProvider
                 con.Close();
 
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         foreach (PropertyDetailInfo propinfo in prop_detail)
         {
             PropertyAmenityInfo propamenity = new PropertyAmenityInfo();
             propamenity.detail = propinfo;
-            try
-            {
+
                 using (SqlConnection con = new SqlConnection(connString))
                 {
                     con.Open();
@@ -318,11 +287,7 @@ public class SearchProvider
                     con.Close();
 
                 }
-            }
-            catch (Exception ex)
-            {
 
-            }
             propertyList.Add(propamenity);
         }
         prop_set.propertyList = propertyList;
@@ -339,8 +304,7 @@ public class SearchProvider
 
 
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 /*   @keyword nvarchar(200) ='',
@@ -384,44 +348,42 @@ public class SearchProvider
                 con.Close();
                 
             }
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
+
         
         foreach (PropertyDetailInfo propinfo in prop_detail)
         {
             PropertyAmenityInfo propamenity = new PropertyAmenityInfo();
             propamenity.detail = propinfo;
-            try
-            {
+
                 using (SqlConnection con = new SqlConnection(connString))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("uspGetAmenity", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                       try
+                     {
+                            SqlCommand cmd = new SqlCommand("uspGetAmenity", con);
+                            cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@propid", SqlDbType.Int).Value = propinfo.ID;
+                            cmd.Parameters.Add("@propid", SqlDbType.Int).Value = propinfo.ID;
 
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        AmenityInfo tmp = new AmenityInfo();
-                        tmp.ID = Convert.ToInt32(reader["ID"]);
-                        tmp.Amenity = reader["Amenity"].ToString();
-                        tmp.AmenityID = Convert.ToInt32(reader["AmenityID"]);
-                        propamenity.amenity.Add(tmp);
+                            SqlDataReader reader = cmd.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                AmenityInfo tmp = new AmenityInfo();
+                                tmp.ID = Convert.ToInt32(reader["ID"]);
+                                tmp.Amenity = reader["Amenity"].ToString();
+                                tmp.AmenityID = Convert.ToInt32(reader["AmenityID"]);
+                                propamenity.amenity.Add(tmp);
+                            }
+
+                            con.Close();
                     }
-
-                    con.Close();
-
-                }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+                        //throw ex;
+                    }
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
             propertyList.Add(propamenity);
         }
         prop_set.propertyList = propertyList;

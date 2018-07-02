@@ -137,6 +137,8 @@ public partial class accounts_SocialSignup : CommonPage
                 new SqlCommandBuilder(dataAdapter);
                 int rows = dataAdapter.Update(MainDataSet, "Users");
 
+                connection.Close();
+
                 if (rows < 1) return false;
  
                // CommonFunctions.sendEmail(social.username, social.email);
@@ -147,7 +149,7 @@ public partial class accounts_SocialSignup : CommonPage
                 BookDBProvider.SendEmail(ConfigurationManager.AppSettings["NewOwnerEmail"], "New owner registered at Vacations-abroad.com", msg, social.email);
 
 
-                connection.Close();
+                
                 if (AuthenticationManager.Login(social.email, social.id, type) != "")
                 {
                     FormsAuthentication.RedirectFromLoginPage(LoginName.Text, false);

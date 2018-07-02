@@ -355,6 +355,7 @@ public class AjaxProvider
                             num_list.Add(tmp);
                         }
 
+                        reader.Close();
                     }
 
 

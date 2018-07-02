@@ -39,8 +39,7 @@ public class ContestHelper
     public static int addContest(string name, string text, int price , int validmonth,string ruletext, string startdate)
     {
         int ret = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("uspAddContest", con))
@@ -74,14 +73,7 @@ public class ContestHelper
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-            return -1;
 
-            // return 0;
-        }
         return ret;
 
     }
@@ -89,8 +81,7 @@ public class ContestHelper
     public static int addContestEmail(string first, string last, string email, string phone)
     {
         int ret = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("uspAddContestEmail", con))
@@ -122,14 +113,7 @@ public class ContestHelper
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-            return -1;
 
-            // return 0;
-        }
         return ret;
 
     }
@@ -138,8 +122,7 @@ public class ContestHelper
     {
         //uspGetCountryInfo  @PropID
         ContestInfo contest_info = new ContestInfo();
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("uspGetContest", con))
@@ -173,12 +156,7 @@ public class ContestHelper
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-             throw ex;
-            // return 0;
-        }
+
         return contest_info;
     }
 

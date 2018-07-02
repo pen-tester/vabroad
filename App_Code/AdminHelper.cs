@@ -47,22 +47,30 @@ public class AdminHelper
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
                 {
                     con.Open();
-                    string sql = proc_name;
-
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    foreach (SqlParameter proc_par in proc_param)
+                    try
                     {
-                        cmd.Parameters.Add(proc_par);
+                        string sql = proc_name;
+
+                        SqlCommand cmd = new SqlCommand(sql, con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        foreach (SqlParameter proc_par in proc_param)
+                        {
+                            cmd.Parameters.Add(proc_par);
+                        }
+
+
+                        adapter.SelectCommand = cmd;
+
+                        adapter.Fill(inquiry_set);
+
+                        con.Close();
+                    }
+                    catch(Exception ex)
+                    {
+                        con.Close();
                     }
 
-
-                    adapter.SelectCommand = cmd;
-
-                    adapter.Fill(inquiry_set);
-
-                    con.Close();
 
                 }
             }

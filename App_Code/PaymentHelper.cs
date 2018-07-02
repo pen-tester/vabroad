@@ -80,8 +80,7 @@ public class PaymentHelper
 
         DataSet inquiry_set = new DataSet();
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
@@ -100,11 +99,7 @@ public class PaymentHelper
 
                 }
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         return inquiry_set;
     }
@@ -114,8 +109,7 @@ public class PaymentHelper
 
         DataSet inquiry_set = new DataSet();
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
@@ -134,19 +128,12 @@ public class PaymentHelper
 
                 }
             }
-        }
-        catch (Exception ex)
-        {
-
-        }
 
         return inquiry_set;
     }
 
     public static bool addPaymentLog(Transaction_Item item)
     {
-        try
-        {
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("dbo.uspAddTransactionHistory", con))
@@ -175,21 +162,13 @@ public class PaymentHelper
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-           // return false;
-        }
-
 
         return true;
     }
 
     public static bool addPaymentHistory(Transaction_Item item, InquiryInfo inquiry)
     {
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("dbo.uspAddBookHistory", con))  //payment history completed
@@ -220,13 +199,6 @@ public class PaymentHelper
                     con.Close();
                 }
             }
-
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            return false;
-        }
 
 
         return true;

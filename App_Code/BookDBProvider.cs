@@ -156,8 +156,6 @@ public class BookDBProvider
     public static bool checkUserEmail(string semail)
     {
         int count = 0;
-        try
-        {
 
             using (SqlConnection con = new SqlConnection(connString))
             {
@@ -176,6 +174,7 @@ public class BookDBProvider
                     {
                         count = Convert.ToInt32(reader[0]);
                     }
+                    reader.Close();
                 }
 
 
@@ -183,18 +182,13 @@ public class BookDBProvider
 
                 con.Close();
             }
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
+
         return (count!=0);
     }
 
     public static Boolean addImagecomment(int prop_id,int commentid, List<string> comment, List<string> imgname)
     {
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 int count = imgname.Count;
@@ -220,22 +214,15 @@ public class BookDBProvider
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-            return false;
-            // throw ex;
-            // return 0;
-        }
+
+
         return true;
     }
 
     public static decimal getRatingbyID(int propid)
     {
         decimal newid = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("uspGetRatebyPropID", con))
@@ -257,22 +244,14 @@ public class BookDBProvider
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-//            throw ex;
-            return -1;
 
-            // return 0;
-        }
         return newid;
     }
     public static int addComment(int prop_id,int rate, string fname, string lname, string vmon, string vyear, string email, string phone, string comment)
     {
         //uspGetCountryInfo  @PropID
         int newid = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("uspInsertComments", con))
@@ -308,19 +287,13 @@ public class BookDBProvider
                             newid = Int32.Parse(reader[0].ToString());
                         }
                     }
+                    reader.Close();
                     con.Close();
 
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-            return -1;
-       
-            // return 0;
-        }
+
         return newid; 
     }
 
@@ -328,8 +301,7 @@ public class BookDBProvider
     {
         //uspGetCountryInfo  @PropID
         CountryInfo country_info = new CountryInfo();
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("uspGetCountryInfo", con))
@@ -352,7 +324,7 @@ public class BookDBProvider
                                 country_info.city = reader[2].ToString();
                             }
                         }
-
+                        reader.Close();
                     }
 
 
@@ -361,12 +333,7 @@ public class BookDBProvider
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            // return 0;
-        }
+
         return country_info;
     }
 
@@ -379,8 +346,7 @@ public class BookDBProvider
     {
         DataSet inquiry_set = new DataSet();
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
@@ -397,11 +363,7 @@ public class BookDBProvider
 
                 }
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         return inquiry_set;
     }
@@ -409,8 +371,7 @@ public class BookDBProvider
     {
        DataSet inquiry_set = new DataSet();
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
@@ -427,11 +388,7 @@ public class BookDBProvider
 
                 }
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         return inquiry_set;
     }
@@ -452,8 +409,7 @@ public class BookDBProvider
 
         DataSet inquiry_set = new DataSet();
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
@@ -470,11 +426,7 @@ public class BookDBProvider
 
                 }
             }
-        }
-        catch (Exception ex)
-        {
 
-        }
 
         return inquiry_set;
     }
@@ -485,8 +437,7 @@ public class BookDBProvider
 
         DataSet inquiry_set = new DataSet();
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
@@ -511,11 +462,6 @@ public class BookDBProvider
 
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
 
         return inquiry_set;
     }
@@ -528,8 +474,7 @@ public class BookDBProvider
     public static InquiryInfo getQuoteInfo(int quoteid)
     {
         InquiryInfo propinfo = new InquiryInfo();
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("select * from EmailQuote where ID=@id", con))
@@ -582,12 +527,7 @@ public class BookDBProvider
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            // return 0;
-        }
+
         return propinfo;
 
 
@@ -611,8 +551,7 @@ public class BookDBProvider
     public static PropertyInform getPropertyInfo(int propid)
      {
          PropertyInform propinfo = new PropertyInform();
-         try
-         {
+
              using (SqlConnection con = new SqlConnection(connString))
              {
                  using (SqlCommand cmd = new SqlCommand("select Name,UserID from Properties  where ID=@id", con))
@@ -644,12 +583,7 @@ public class BookDBProvider
                  }
              }
 
-         }
-         catch (Exception ex)
-         {
-             // throw ex;
-             // return 0;
-         }
+
          return propinfo;
 
 
@@ -657,8 +591,7 @@ public class BookDBProvider
     public static DetailedUserInfo getDetailedUserInfo(int user_id)
     {
         DetailedUserInfo userinfo = new DetailedUserInfo();
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("select * from Users  where ID=@id", con))
@@ -688,20 +621,14 @@ public class BookDBProvider
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            // return 0;
-        }
+
         return userinfo;
 
 
     }
     public static UserInfo getUserInfo(int user_id) {
          UserInfo userinfo = new UserInfo();
-         try
-         {
+
              using (SqlConnection con = new SqlConnection(connString))
              {
                  using (SqlCommand cmd = new SqlCommand("select Username,Email,LastName,FirstName,PrimaryTelephone from Users  where ID=@id", con))
@@ -736,12 +663,7 @@ public class BookDBProvider
                  }
              }
 
-         }
-         catch (Exception ex)
-         {
-             // throw ex;
-             // return 0;
-         }
+
          return userinfo;
 
 
@@ -885,8 +807,7 @@ You have received an inquiry through the vacations-abroad.com website for proper
     public static int getUsrIDbyProperty(int propid)
     {
         int ret_val = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("select UserID from Properties  where ID=@id", con))
@@ -916,19 +837,12 @@ You have received an inquiry through the vacations-abroad.com website for proper
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-           // return 0;
-        }
         return ret_val;
     }
 
     public static bool updateEmailQuoteState(int quoteid)
     {
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("update EmailQuote set IfReplied =1 where ID=@id", con))
@@ -944,12 +858,6 @@ You have received an inquiry through the vacations-abroad.com website for proper
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-            // throw ex;
-            return false;
-        }
 
 
         return true;
@@ -962,8 +870,7 @@ You have received an inquiry through the vacations-abroad.com website for proper
         //@UserID, @TravelerID, @QuoteID, @NightRate, @Sum, @CleaningFee, @SecurityDeposit
         //,@LoadingTax, @Balance, @Cancel30,@Cancel60, @Cancel90, @DateReplied,@IsValid
         int newid = 0;
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("dbo.uspAddEmailResponse", con))
@@ -996,12 +903,6 @@ You have received an inquiry through the vacations-abroad.com website for proper
                 }
             }
 
-        }
-        catch (Exception ex)
-        {
-             throw ex;
-            
-        }
 
 
         return newid;
@@ -1009,8 +910,7 @@ You have received an inquiry through the vacations-abroad.com website for proper
 
     public static int addEmailQuote(string name, string email, string arrive, int adults, int child, string comment, string telephone, int userid, int propid, int ownerid, int nights)
     {
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 using (SqlCommand cmd = new SqlCommand("dbo.uspAddEmailQuote", con))
@@ -1050,12 +950,7 @@ You have received an inquiry through the vacations-abroad.com website for proper
                 }
             }
 
-        }
-        catch(Exception ex)
-        {
-           // throw ex;
-            return -1;
-        }
+
 
 
         return -1;

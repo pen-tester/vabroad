@@ -285,6 +285,7 @@ public partial class Administration : AdminPage
             }
             catch (Exception)
             {
+                connection.Close();
                 return;
             }
 
@@ -376,6 +377,7 @@ public partial class Administration : AdminPage
             }
             catch (Exception)
             {
+                connection.Close();
                 return;
             }
 
@@ -466,8 +468,10 @@ public partial class Administration : AdminPage
             }
             catch (Exception)
             {
+                connection.Close();
                 UserIDError.Visible = true;
                 UserIDError.Text = "Please enter valid user ID";
+
                 return;
             }
 
@@ -477,6 +481,7 @@ public partial class Administration : AdminPage
             }
             catch (Exception)
             {
+                connection.Close();
                 UserIDError.Visible = true;
                 UserIDError.Text = "Please enter valid new date";
                 return;

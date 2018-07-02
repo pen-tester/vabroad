@@ -88,11 +88,13 @@ public partial class MakePayment : ClosedPage
 
                 object useridresult = getuserid.ExecuteScalar();
 
-                if(!(useridresult is int) || (((int)useridresult != AuthenticationManager.UserID) &&
+                connection.Close();
+
+                if (!(useridresult is int) || (((int)useridresult != AuthenticationManager.UserID) &&
                         !AuthenticationManager.IfAdmin))
                     Response.Redirect(CommonFunctions.PrepareURL("Login.aspx?BackLink=" + HttpUtility.UrlEncode(Request.Url.ToString())));
                 
-                connection.Close();
+                
             }
 		}
 		else
@@ -111,11 +113,12 @@ public partial class MakePayment : ClosedPage
 
                 object useridresult = getuserid.ExecuteScalar();
 
-                if(!(useridresult is int) || (((int)useridresult != AuthenticationManager.UserID) &&
+                connection.Close();
+                if (!(useridresult is int) || (((int)useridresult != AuthenticationManager.UserID) &&
                         !AuthenticationManager.IfAdmin))
                     Response.Redirect(CommonFunctions.PrepareURL("Login.aspx?BackLink=" + HttpUtility.UrlEncode(Request.Url.ToString())));
 
-                connection.Close();
+                
             }
 		}
         

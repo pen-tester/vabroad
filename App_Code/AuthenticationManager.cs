@@ -98,7 +98,11 @@ public static class AuthenticationManager
 
             //lock(CommonFunctions.Connection)
             if (GetHashAdapter.Fill(SaltSet, "Users") < 1)
+            {
+                connection.Close();
                 return "";
+            }
+                
 
             if(SaltSet.Tables["Users"].Rows.Count > 0)
             {

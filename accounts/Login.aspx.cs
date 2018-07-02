@@ -403,7 +403,7 @@ public partial class accounts_Login : CommonPage
 
                 new SqlCommandBuilder(dataAdapter);
                 int rows = dataAdapter.Update(MainDataSet,"Users");
-
+                connection.Close();
                 if (rows < 1) return;
 
                 // CommonFunctions.sendEmail(LoginName.Text, Email.Text);
@@ -417,7 +417,7 @@ public partial class accounts_Login : CommonPage
                 //                  smtpclient.Send(message);
 
                 //CommonFunctions.Connection.Close ();
-                connection.Close();
+                
 
                 try
                 {
@@ -525,13 +525,14 @@ public partial class accounts_Login : CommonPage
                 }
 
 
-
+                    
 
                 con.Close();
             }
         }
         catch(Exception ex)
         {
+           
             throw ex;
         }
 

@@ -100,8 +100,7 @@ public class CommonProvider
     {
         int ret = -1;
         //  adapter.Fill(customers, "Customers");
-        try
-        {
+
             using (SqlConnection con = new SqlConnection(connString))
             {
                 con.Open();
@@ -125,11 +124,7 @@ public class CommonProvider
                 con.Close();
 
             }
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
+
         return ret;
     
     }
