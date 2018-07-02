@@ -607,7 +607,11 @@ public class BookDBProvider
                                 PropertyInfo[] propertys = userinfo.GetType().GetProperties();
                                 foreach (PropertyInfo info in propertys)
                                 {
-                                    info.SetValue(userinfo, Convert.ChangeType(reader[info.Name], info.PropertyType), null);
+                                    try
+                                    {
+                                        info.SetValue(userinfo, Convert.ChangeType(reader[info.Name], info.PropertyType), null);
+                                    }
+                                    catch { }
                                     //propertyInfo.SetValue(ship, Convert.ChangeType(value, propertyInfo.PropertyType), null);
                                 }
                             }
