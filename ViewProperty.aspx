@@ -867,7 +867,7 @@
 
         <asp:Label ID="devnote" runat="server" Text="" BackColor="White" ForeColor="White"
             Visible="false" />
-        <script defer="defer" src="/Assets/js/viewproperty.js"></script>
+        <script defer="defer" src="/Assets/js/viewproperty.js?11"></script>
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
 var sc_project=3614019; 
