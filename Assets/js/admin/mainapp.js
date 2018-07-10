@@ -1,1 +1,1 @@
-﻿var mainapp = angular.module("mainapp", ["ngRoute"]);
+﻿var mainapp=angular.module("mainapp",["ngRoute"]);

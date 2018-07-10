@@ -1,7 +1,1 @@
-﻿
-$(document).ready(function () {
-    $('img').bind('contextmenu', function (e) {
-        return false;
-    });
-});
-
+﻿$(document).ready(function(){$("img").bind("contextmenu",function(n){return!1})});
