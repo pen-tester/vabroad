@@ -1,6 +1,6 @@
 <%@ Page CodeBehind="PayPalAPIError.aspx.cs" Language="c#" AutoEventWireup="false"  %>
 
-<html>
+<html  xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 	<head>
 		<title>PayPal SDK - TransactionSearch</title>
 		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">

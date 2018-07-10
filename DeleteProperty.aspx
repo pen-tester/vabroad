@@ -1,6 +1,6 @@
 <%@ Page language="c#" Inherits="Vacations.DeleteProperty" CodeFile="DeleteProperty.aspx.cs" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<html>
+<html  xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 	<head>
 		<title>DeleteProperty</title>
 		<meta name="GENERATOR" Content="Microsoft Visual Studio .NET 7.1">
