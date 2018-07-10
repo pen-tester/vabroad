@@ -133,7 +133,7 @@
             <div class="contentpadding">
                              <div class="orangetxt" id="OrangeTitle" runat="server">
                                 <h2 class="orangetxt">
-                                    <%=country %> Vacations: Things to see while on vacation in <%=country %>
+                                    Things to see while on vacation in <%=country %>
                                </h2>
                             </div>
                                 <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
@@ -149,7 +149,7 @@
             </div>
         </div>
         <div class="footer_text">
-            <%=String.Format("{0} vacation rentals and {0} boutique hotels are the perfect opportunity to indulge in {0} vacations.",country) %>
+           
         </div>
         <div class="srow contentpadding">
                 <ul class="countrylist">
