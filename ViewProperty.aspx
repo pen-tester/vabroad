@@ -50,7 +50,7 @@
 </asp:Content>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
 
- <link id="jscss" rel="stylesheet"  href="/css/jcarousel.css" />
+ <link id="jscss" rel="stylesheet"  href="/css/jcarousel.css?1" />
   <style>
       .commentimgrow{margin-top:20px;} .commentrow{margin-top:10px;}.topborder{border-top:2px solid #c4d9e3; }.bottombordder{border-bottom:2px solid #c4d9e3;}
       .btnwritereview,.btnwritereview:hover{padding:5px 20px;border-radius:1em;color:#fff;font-family:arial;font-size:12px;background:#154890;font-weight:700;height:26px;right:6px;box-shadow:2px 2px 6px #154890;border:1px solid #154890;text-decoration:none;}
