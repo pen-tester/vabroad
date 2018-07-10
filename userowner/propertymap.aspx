@@ -214,6 +214,6 @@
         var gmarkers=<%=ans%>;
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false"> </script>
-    <script src="/assets/js/propmap.js?os=8" defer="defer"></script>
+    <script src="/assets/js/propmap.js?1os=8" defer="defer"></script>
 </form>
 </asp:Content>

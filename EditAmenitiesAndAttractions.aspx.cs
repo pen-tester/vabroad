@@ -369,7 +369,7 @@ public partial class EditAmenitiesAndAttractions : ClosedPage
         }
 
         LocationError.Visible = false;
-        Page.Header.Controls.Add(new LiteralControl("<script src='/scripts/countryStateCityBack5.js?1=1' type='text/javascript'></script>"));
+        Page.Header.Controls.Add(new LiteralControl("<script src='/scripts/countryStateCityBack5.js?11=1' type='text/javascript'></script>"));
 
         if (Master.FindControl("BodyTag") is HtmlGenericControl)
         {

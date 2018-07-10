@@ -180,7 +180,7 @@
     </script>
     <script type="text/javascript" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&sensor=false">
     </script>
-    <script type="text/javascript" defer="defer" src="/assets/js/countryproperty.js?5">
+    <script type="text/javascript" defer="defer" src="/assets/js/countryproperty.js?15">
     </script>
 
 
