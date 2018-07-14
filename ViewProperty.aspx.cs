@@ -420,7 +420,7 @@ public partial class ViewProperty : CommonPage
         }
         catch (Exception ex)
         {
-            lblInfo.Text = ex.Message;
+           /// lblInfo.Text = ex.Message;
         }
     }
     public string GetTitle()
