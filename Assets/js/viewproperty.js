@@ -29,8 +29,9 @@ $(document).ready(function () {
 
             $('#inqureform').show();
         } else {
+            var offset = (300 + $("#" + tab_id).offset().top);
             $('html, body').animate({
-                scrollTop: (300+$(this).offset().top)
+                scrollTop: offset
             }, 500);
         }
     });
