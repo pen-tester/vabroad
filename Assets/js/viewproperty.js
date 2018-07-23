@@ -29,7 +29,7 @@ $(document).ready(function () {
 
             $('#inqureform').show();
         } else {
-            var offset = (300 + $("#" + tab_id).offset().top);
+            var offset = (+$("#" + tab_id).offset().top - 200);
             console.log(offset);
             $('html, body').animate({
                 scrollTop: offset
