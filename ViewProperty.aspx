@@ -477,7 +477,55 @@
                 <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Amenities"] %>
   
             </div>
-
+            <div id="tabs-5"  class="tab-content text-center">
+                <div class="center" style="color: #1D2D33;">
+                    <table class="NonTable contentfont">
+                        <tr>
+                            <td align="center" style="color: #000072;">
+                                <a name="Attractions"></a>
+                                <label class="colorOnHover"><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Country"] %> Local Attractions</label>
+                            </td>
+                        </tr>
+                    </table>
+                    <%--attractions--%>
+                    <%if (PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"].ToString().Length > 0)
+                      {%>
+                    <div align="left" class="ViewPropertyPageFonts textfont">
+                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"]%>
+                    </div>
+                    <%} %>
+                    <%--attractions--%>
+                    <% if (AttractionsDistancesSet.Tables[0].Rows.Count > 0)
+                        { %>
+                    <div class="tableCenter">
+                        <asp:Repeater ID="Repeater2" runat="server" DataMember="Attractions" DataSource="<%# AttractionsDistancesSet %>">
+                            <HeaderTemplate>
+                                <table class="proptable">
+                                    <tr>
+                                        <td align="center" colspan="4" style="background-color: #ff6600; color: White; font-size: 12pt;">
+                                            <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> Local Attractions
+                                                
+                                        </td>
+                                    </tr>
+                                    <tr>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <td >
+                                    <%# DataBinder.Eval(Container.DataItem, "Attraction", "{0}") %>
+                                </td>
+                                <td >
+                                    <%# DataBinder.Eval(Container.DataItem, "Distance", "{0}") %>
+                                </td>
+                                <%# IfEvenRow ((System.Data.DataRowView)Container.DataItem) ? "</tr><tr>" : "" %>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </tr> </table>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                    </div>
+                    <%} %>
+                </div>
+            </div>
             <div id="tabs-2"  class="tab-content">
                 <div align="center" class="contentfont" style="color: #343d6c;">
                     <table class="PropTable12">
@@ -774,55 +822,7 @@
                 </div>
                 <%--reviews--%>
             </div>
-            <div id="tabs-5"  class="tab-content text-center">
-                <div class="center" style="color: #1D2D33;">
-                    <table class="NonTable contentfont">
-                        <tr>
-                            <td align="center" style="color: #000072;">
-                                <a name="Attractions"></a>
-                                <label class="colorOnHover"><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Country"] %> Local Attractions</label>
-                            </td>
-                        </tr>
-                    </table>
-                    <%--attractions--%>
-                    <%if (PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"].ToString().Length > 0)
-                      {%>
-                    <div align="left" class="ViewPropertyPageFonts textfont">
-                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"]%>
-                    </div>
-                    <%} %>
-                    <%--attractions--%>
-                    <% if (AttractionsDistancesSet.Tables[0].Rows.Count > 0)
-                        { %>
-                    <div class="tableCenter">
-                        <asp:Repeater ID="Repeater2" runat="server" DataMember="Attractions" DataSource="<%# AttractionsDistancesSet %>">
-                            <HeaderTemplate>
-                                <table class="proptable">
-                                    <tr>
-                                        <td align="center" colspan="4" style="background-color: #ff6600; color: White; font-size: 12pt;">
-                                            <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> Local Attractions
-                                                
-                                        </td>
-                                    </tr>
-                                    <tr>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <td >
-                                    <%# DataBinder.Eval(Container.DataItem, "Attraction", "{0}") %>
-                                </td>
-                                <td >
-                                    <%# DataBinder.Eval(Container.DataItem, "Distance", "{0}") %>
-                                </td>
-                                <%# IfEvenRow ((System.Data.DataRowView)Container.DataItem) ? "</tr><tr>" : "" %>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                </tr> </table>
-                            </FooterTemplate>
-                        </asp:Repeater>
-                    </div>
-                    <%} %>
-                </div>
-            </div>
+            
 
             <asp:Label ID="lblInfo" runat="server" ForeColor="Red"></asp:Label>
             <div class="TitleFont" style="display:none">
@@ -867,7 +867,7 @@
 
         <asp:Label ID="devnote" runat="server" Text="" BackColor="White" ForeColor="White"
             Visible="false" />
-        <script defer="defer" src="/Assets/js/viewproperty.js?11"></script>
+        <script defer="defer" src="/Assets/js/viewproperty.js?12"></script>
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
 var sc_project=3614019; 
