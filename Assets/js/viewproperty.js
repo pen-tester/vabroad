@@ -1,1 +1,112 @@
-﻿var $element,RecaptchaOptions={theme:"white"};function showdlg(t){$("#modalmsg").html(t),$("#msgdlg").show()}function paramcheck(){var t="";if(0==robot)return t="You have to validate that you are not robot.";if(""==$("#bodycontent_ContactName").val())return t="Your name is Required! <br/>";if(""==$("#bodycontent_ContactEmail").val())return t="Your email is Required! <br/>";var o=new RegExp("^[a-zA-Z0-9 .-]+$");return o.test($("#bodycontent_ContactName").val())?(o=new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$")).test($("#bodycontent_ContactEmail").val())?(o=new RegExp("^[0-9]*$")).test($("#bodycontent_HowManyNights").val())?o.test($("#bodycontent_HowManyAdults").val())?o.test($("#bodycontent_HowManyChildren").val())?t:t+="#Children has to be number":t+="#Adults has to be number":t+="#Nights has to be number":t="Email Format is not correct":t="Name Format is not correct"}!function(t){t.fn.gotoLocation=function(){var offset=parseFloat(t(this).offset().top)+350;console.log("click+offset"+offset);t("html, body").animate({scrollTop:offset},500)}}(jQuery),$(document).ready(function(){$element=$("#modal_contents").bind("webkitAnimationEnd",function(){this.style.webkitAnimationName=""}),$("ul.tabs li").click(function(){var t=$(this).attr("data-tab");$("ul.tabs li").removeClass("current"),$(".tab-content").removeClass("current"),$(this).addClass("current"),$("#"+t).addClass("current"),"tabs-3"==t?(console.log("tst"),$element.css("webkitAnimationName","animatetop"),$("#inqureform").show()):$("#"+t).gotoLocation()}),$("#closeform").click(function(){$("#inqureform").hide()}),$("#msgclose").click(function(){$("#msgdlg").hide()}),$("#btnsend").click(function(t){var o=paramcheck();""==o?(robot=0,$("#bodycontent_SubmitButton").click(),console.log("pass the content.")):(console.log(o),showdlg(o))})}),$(window).click(function(t){console.log("windows click"),"inqureform"==t.target.id&&$("#inqureform").hide()});var robot=0;function recaptchaCallback(){robot=1}
+﻿var RecaptchaOptions = {
+    theme: 'white'
+};
+
+
+var $element;
+$(document).ready(function () {
+
+
+    $element = $('#modal_contents').bind('webkitAnimationEnd', function () {
+        this.style.webkitAnimationName = '';
+    });
+
+    $('ul.tabs li').click(function () {
+        var tab_id = $(this).attr('data-tab');
+
+        $('ul.tabs li').removeClass('current');
+        $('.tab-content').removeClass('current');
+
+        $(this).addClass('current');
+        $("#" + tab_id).addClass('current');
+        if (tab_id == "tabs-3") {
+            console.log("tst");
+
+            //robot = 0;
+
+            $element.css('webkitAnimationName', 'animatetop');
+            // you'll probably want to preventDefault here.
+
+            $('#inqureform').show();
+        } else {
+            $('html, body').animate({
+                scrollTop: (300+$(this).offset().top)
+            }, 500);
+        }
+    });
+
+    $('#closeform').click(function () {
+        $('#inqureform').hide();
+    });
+    $('#msgclose').click(function () {
+        $('#msgdlg').hide();
+    });
+    $('#btnsend').click(function (e) {
+        var resp = paramcheck();
+        if (resp == "") {
+            robot = 0;
+            $('#bodycontent_SubmitButton').click();
+            console.log("pass the content.");
+        }
+        else {
+            console.log(resp);
+            showdlg(resp);
+        }
+    });
+
+});
+
+$(window).click(function (event) {
+    console.log("windows click");
+    // $('#inqureform').hide();
+    if (event.target.id == "inqureform") {
+        $('#inqureform').hide();
+    }
+});
+
+function showdlg(msg) {
+    //$('#modalmsg').text(msg);
+    $('#modalmsg').html(msg);
+    $('#msgdlg').show();
+}
+
+function paramcheck() {
+    var resp = "";
+    if (robot == 0) {
+        resp = "You have to validate that you are not robot.";
+        return resp;
+    }
+    if ($('#bodycontent_ContactName').val() == "") { resp = "Your name is Required! <br/>"; return resp; }
+    if ($('#bodycontent_ContactEmail').val() == "") { resp = "Your email is Required! <br/>"; return resp; }
+    var pattern = new RegExp("^[a-zA-Z0-9 \.\-]+$");
+    if (!pattern.test($('#bodycontent_ContactName').val())) {
+        resp = "Name Format is not correct";
+        return resp;
+    }
+    pattern = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$");
+    if (!pattern.test($('#bodycontent_ContactEmail').val())) {
+        resp = "Email Format is not correct";
+        return resp;
+    }
+
+    pattern = new RegExp("^[0-9]*$");
+
+    if (!pattern.test($('#bodycontent_HowManyNights').val())) {
+        resp += "#Nights has to be number";
+        return resp;
+    }
+    if (!pattern.test($('#bodycontent_HowManyAdults').val())) {
+        resp += "#Adults has to be number";
+        return resp;
+    }
+    if (!pattern.test($('#bodycontent_HowManyChildren').val())) {
+        resp += "#Children has to be number";
+        return resp;
+    }
+    return resp;
+}
+
+var robot = 0;
+function recaptchaCallback() {
+    robot = 1;
+}
