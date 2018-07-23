@@ -30,6 +30,7 @@ $(document).ready(function () {
             $('#inqureform').show();
         } else {
             var offset = (300 + $("#" + tab_id).offset().top);
+            console.log(offset);
             $('html, body').animate({
                 scrollTop: offset
             }, 500);
