@@ -491,7 +491,7 @@
                     <%if (PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"].ToString().Length > 0)
                       {%>
                     <div align="left" class="ViewPropertyPageFonts textfont">
-                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"]%>
+                        <%# Server.HtmlDecode(PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"])%>
                     </div>
                     <%} %>
                     <%--attractions--%>
