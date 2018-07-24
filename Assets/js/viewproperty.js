@@ -5,7 +5,7 @@
 
 var $element;
 $(document).ready(function () {
-
+    $("div.ViewPropertyPageFonts").html($("div.ViewPropertyPageFonts").text());
 
     $element = $('#modal_contents').bind('webkitAnimationEnd', function () {
         this.style.webkitAnimationName = '';
