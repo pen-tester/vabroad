@@ -368,7 +368,7 @@
                                     <div class="col-12 col-g-7">
                                         <div class="srow">
                                             <div class="prop_type">
-                                                <%=propamen.detail.CategoryTypes %> in <%=propamen.detail.City %>
+                                                <%=propamen.detail.CategoryTypes %>
                                             </div>
                                             <div class="prop_name">
                                                 <%=propamen.detail.Name2 %>
@@ -494,8 +494,7 @@
                 <input type="hidden"  id="CityParam" name="CityParam"  runat="server" /> 
             <!--Footer text -->
             <div class="footer_text">
-               <%=String.Format("{0} vacation rentals and {0} boutique hotels let you indulge in {0} vacations", countryinfo.City) %> 
-
+              
             </div>
             <!-- Bottom City list -->
              <div class="row">
