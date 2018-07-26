@@ -336,7 +336,7 @@
 
         </div>
         <div class="footer_text">
-           <%=String.Format("{0} vacations offer you the chance to enjoy unique {0} vacation rentals and {0} boutique hotels.",countryinfo.StateProvince) %>  
+           
         </div>
         <div class="country_list_box">
             

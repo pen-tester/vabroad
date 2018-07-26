@@ -121,7 +121,7 @@
                                     <%=row["StateProvince"] %>
                                 </a><br />
                                 <a href="<%=href %>">
-                                    <div class='drop-shadow effect4'><img width='160' height='125' src="<%=String.Format("/images/{0}", row["FileName"]).ToLower() %>" alt="<%=row["StateProvince"] %>" title="<%=row["StateProvince"] %>" /></div>
+                                    <div class='drop-shadow effect4'><img width='160' height='125' src="<%=String.Format("/images/{0}", row["FileName"]).ToLower() %>" alt="<%=String.Format("{0} properties",row["StateProvince"]) %>" title="<%=row["StateProvince"] %>" /></div>
                                 </a>
                             </li>
                             <%} %>
