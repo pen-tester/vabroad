@@ -46,6 +46,8 @@ public partial class StateProvinceList : CommonPage
     protected string city_lists = "";
     protected List<string> list_city = new List<string>();
 
+    protected DataSet ds_allinfo;
+
     protected void Page_Load(object sender, System.EventArgs e)
     {
         //Check the state province id;
@@ -97,54 +99,15 @@ public partial class StateProvinceList : CommonPage
             txtCityText.Text = String.Format("Vacations-abroad.com is a {0} {1} vacation rental directory of short term {0} vacation condos, privately owned {0} villas and {0} rentals by owner. Our unique and exotic boutique {0} hotels and luxury {0} resorts are perfect {0} {1} rentals for family and groups that are looking for vacation rentals in {0} {1}", countryinfo.City, countryinfo.Country);
         }
 
-        //Get the step box value
-
-        List<SqlParameter> numparam = new List<SqlParameter>();
-        for (int i = 0; i < 4; i++)
-        {
-            numparam.Clear();
-            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
-            numparam.Add(new SqlParameter("@roomnum", i));
-            numparam.Add(new SqlParameter("@amenityid", ramenity_id));
-            numparam.Add(new SqlParameter("@proptype", rproptype_id));
-            bedroominfo[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
-        }
-
-        for (int i = 0; i < 5; i++)
-        {
-            numparam.Clear();
-            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
-            numparam.Add(new SqlParameter("@roomnum", rbedroom_id));
-            numparam.Add(new SqlParameter("@proptype", rproptype_id));
-            numparam.Add(new SqlParameter("@amenityid", amenity_id[i]));
-            amenity_nums[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
-            numparam.Clear();
-            numparam.Add(new SqlParameter("@stateid", stateprovinceid));
-            numparam.Add(new SqlParameter("@proptype", prop_typeval[i]));
-           // numparam.Add(new SqlParameter("@roomnum", rbedroom_id));
-            //numparam.Add(new SqlParameter("@proptype", rproptype_id));
-           // numparam.Add(new SqlParameter("@amenityid", ramenity_id));
-            prop_nums[i] = CommonProvider.getScalarValueFromDB("uspGetStatePropNumsByCondition", numparam);
-        }
-
-
         //Get the property list for the state province
+        List<SqlParameter> dparam = new List<SqlParameter>();
+        dparam.Add(new SqlParameter("@stateid", stateprovinceid));//[uspGetCountry_Prop_StateInfo]
+        ds_allinfo = BookDBProvider.getDataSet("uspGetState_Prop_CityInfo", dparam);
 
-        List<SqlParameter> dsparam = new List<SqlParameter>();
-        dsparam.Add(new SqlParameter("@stateid", stateprovinceid));
-        dsparam.Add(new SqlParameter("@proptype", rproptype_id));
-        dsparam.Add(new SqlParameter("@roomnum", rbedroom_id));
-        dsparam.Add(new SqlParameter("@amenityid", ramenity_id));
-        dsparam.Add(new SqlParameter("@ratesort", rsort_id));
-        ds_PropList = BookDBProvider.getDataSet("uspGetStatePropListByCondition",dsparam);
 
         if (!IsPostBack)
         {
-            if (ds_PropList.Tables[0].Rows.Count == 0)
+            if (ds_allinfo.Tables[1].Rows.Count == 0)
             {
                 Response.StatusCode = 404;
                // Response.Status = "There is no state province";
@@ -185,90 +148,8 @@ public partial class StateProvinceList : CommonPage
             list_city.Add(drow["City"].ToString());
         }
 
-            /*
 
-                    HtmlHead head = Page.Header;
-
-
-
-
-                    //FillCitiesColumn();
-                    /* HtmlMeta description = new HtmlMeta();
-
-                     description.Name = "description";
-                     description.Content = Description.Text.Replace("%country%", country).Replace("%stateprovince%", stateprovince).
-                         Replace("%cities%", cities);
-                     // Description OVER RIDE area
-
-                     string DescripReplacement = MainDataSet.Tables["Location"].Rows[0]["descriptionoverride"].ToString();
-                     if (DescripReplacement.Length > 0)
-                         description.Content = DescripReplacement;
-                    description.Content = "Plan your next " + stateprovince + " vacation: where to stay and places to visit!";
-
-                    head.Controls.Add(description);
-                    /////
-                    List<SqlParameter> param = new List<SqlParameter>();
-                    param.Add(new SqlParameter("@stid", stateprovinceid));
-                    ds_PTypeNum = BookDBProvider.getDataSet("uspGetPropNumListbyState", param);
-
-             ///*       if (!IsPostBack)
-              //      {
-                        List<SqlParameter> sparam = new List<SqlParameter>();
-                        sparam.Add(new SqlParameter("@stid", stateprovinceid));
-                        ds_PropList = BookDBProvider.getDataSet("uspGetStatePropList", sparam);
-
-                         sparam.Clear();
-                        sparam.Add(new SqlParameter("@stid", stateprovinceid));
-                        ds_citylocations = BookDBProvider.getDataSet("uspGetCityLocationListbyCondition", sparam);
-
-                    markers = CommonProvider.getMarkersJsonString(ds_citylocations);
-                    // }
-
-                    if (IsPostBack)
-                    {
-                        ptype = int.Parse(Request["ptypes"]);
-                        psleep = int.Parse(Request["psleep"]);
-                    }
-
-                    for (int i=0; i < 4; i++)
-                    {
-                        param.Clear();
-                        param.Add(new SqlParameter("@stid", stateprovinceid));
-                        param.Add(new SqlParameter("@sleep", i));
-                        param.Add(new SqlParameter("@ptype", ptype));
-                        DataSet ds_tmp = BookDBProvider.getDataSet("uspGetStatePropNumListbySleep",param);
-                        sleeps[i] = int.Parse(ds_tmp.Tables[0].Rows[0]["Num"].ToString());
-                    }
-
-
-
-
-                    Page page1 = (Page)HttpContext.Current.Handler;
-
-
-                    HtmlMeta newdescription = new HtmlMeta();
-
-                    int counts = AjaxProvider.getPropertyNumsbyState(stateprovinceid);
-
-                    string str_meta = "(%counts%) %state% vacation rentals and boutique hotels in %cities%.";
-                    newdescription.Name = "description";
-                    newdescription.Content = str_meta.Replace("%state%", stateprovince ).Replace("%cities%", str_cities).Replace("%counts%", ds_PropList.Tables[0].Rows.Count.ToString());
-
-                    head.Controls.Add(newdescription);
-
-
-
-                    HtmlMeta keywords = new HtmlMeta();
-
-                    keywords.Name = "keywords";
-                    keywords.Content = Keywords.Text.Replace("%country%", country).Replace("%stateprovince%", stateprovince).
-                        Replace("%cities%", cities);
-                    keywords.Content = page1.Title;
-                    head.Controls.Add(keywords);
-                   // ((System.Web.UI.WebControls.Image)Master.FindControl("Logo")).AlternateText = page1.Title;
-                   // Page.Header.Controls.Add(new LiteralControl("<link href='http://vacations-abroad.com/css/StyleSheetBig4.css' rel='stylesheet' type='text/css'></script>"));
-                   */
-        }
+    }
   
     //For state province text update
     protected void btnSubmit2_Click(object sender, EventArgs e)

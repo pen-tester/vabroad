@@ -179,82 +179,12 @@
                 <asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
 
         </div>
-    <div class="srow">
-            <!--- For Search Filter Area   Step Box  -->
-            <div class="srow">
-                <div class="borerstep">
-                    <div class="stepfont">
-                        <div class="colfield_1">
-                                <label> Step 1: </label>
-                        </div>
-                            <div class="colfield_2">
-                                <ul class="step_line">
-                                <% 
-        //"City" vacation Rentals (count) "City" Hotesl (count)
-                                    for (int i = 0; i < 3; i++) {%>
-                                <li> <input type="radio" name="proptype" value="<%=prop_typeval[i]%>" /> <%=str_propcate[i] %> (<%=prop_nums[i] %>)</li>
-                            <%} %>
-                   
-                            </ul>
-                            </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="stepfont">
-                        <div class="colfield_1">
-                            <label> Step 2: </label> 
-                        </div>
-                        <div class="colfield_2">
-                            <ul class="step_line">
-                                <li>  <input type="radio"  name="roomnums"  value="1" /> 0-2 BD (<%=bedroominfo[1] %>)</li>
-                                <li> <input type="radio"   name="roomnums" value="2" /> 3-4 BD (<%=bedroominfo[2] %>)</li>
-                                <li> <input type="radio"  name="roomnums" value="3" /> 5+ BD (<%=bedroominfo[3] %>)</li>
-                                <li> <input type="radio"  name="roomnums" value="0" /> Display All (<%=bedroominfo[0] %>)</li>
-                            </ul>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="stepfont">
-                        <div class="colfield_1">
-                                <label> Step 3: </label>
-                        </div>
-                        <div class="colfield_2">
-                            <ul class="step_line">
-                                <li> <input type="radio"  name="amenitytype" value="8" /> Hot Tub(<%=amenity_nums[0] %>)</li>
-                                <li> <input type="radio"  name="amenitytype" value="33" /> Internet(<%=amenity_nums[1] %>)</li>
-                                <li> <input type="radio"  name="amenitytype" value="1" /> Pets(<%=amenity_nums[2] %>)</li>
-                                <li> <input type="radio"  name="amenitytype" value="11" /> Pool(<%=amenity_nums[3] %>)</li>
-                                <li> <input type="radio"  name="amenitytype" value="0" /> Display All(<%=amenity_nums[4] %>)</li>
-                                </ul>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="stepfont">
-                        <div class="colfield_1">
-                            <label> Step 4: </label>
-                        </div>
-                        <div class="colfield_s2">
-                            <ul class="step_line">
-                                <li> <input type="radio"  name="pricesort" value="1" /> High to Low Rate</li>
-                                <li> <input type="radio"  name="pricesort" value="2" /> Low to High Rate</li>
-                                <li> <input type="radio"  name="pricesort" value="0" /> Display All</li>
-                            </ul>
-                        </div>
-                        <div class="colfield_3">
-                            <div class="btn_wrapper">
-                                <input type="submit" id="refresh" class="btnsigns" value="Search" />
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-    </div>
         <div class="srow">
             <div class="center">
             <div class="srow">
                 <%
 
-                    int counts = ds_PropList.Tables[0].Rows.Count;
+                    int counts = ds_allinfo.Tables[1].Rows.Count;
                     //For google map markers
                     for (int rind = 0; rind < counts; rind++)
                     {
@@ -263,20 +193,15 @@
                         %>
                         </div>
                   <%}
-                          var vrow = ds_PropList.Tables[0].Rows[rind];
-                          int vpropid = int.Parse(vrow["ID"].ToString());
-                          string str_city = vrow["City"].ToString();
-                          string str_state= vrow["StateProvince"].ToString();
-                          string str_country= vrow["Country"].ToString();
-                          string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
-                          string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
+                      var vrow = ds_allinfo.Tables[1].Rows[rind];
+                      int vpropid = int.Parse(vrow["ID"].ToString());
+                      string str_city = vrow["City"].ToString();
+                      string str_state= vrow["StateProvince"].ToString();
+                      string str_country= vrow["Country"].ToString();
+                      string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
+                      string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
 
-                          string alt;
-                          int prop_cat;
-                          int.TryParse(vrow["Category"].ToString(), out prop_cat);
-                          if (proptypeinfo.Contains(prop_cat)) alt = vrow["Name2"].ToString();
-                          else alt = vrow["Name2"].ToString();
-
+                      string alt = String.Format("{0} properties", str_city);
 
                       if (rind % 4 == 0) {
                      %>
@@ -285,12 +210,7 @@
                         <%} %>
                     <div class="col-3">
                         <div><a href="<%=city_url %>"><%=str_city %></a></div>
-                        <div class="imgwrapper"><a href="<%=url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></a></div>
-                        <div><span class='scomments'><%=vrow["CategoryTypes"]%> Sleeps <%=vrow["NumSleeps"] %> </span> <br />
-                             <span class='scomments'>Rates <%=vrow["minNightRate"] %> - <%=vrow["HiNightRate"] %> <%=vrow["minRateCurrency"] %>
-                          </span>
-
-                        </div>
+                        <div class="imgwrapper"><a href="<%=city_url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></a></div>
                     </div>
                     
 
