@@ -181,41 +181,32 @@
         </div>
         <div class="srow">
             <div class="center">
-            <div class="srow">
-                <%
+               <ul class="stateful">
+                    <%
 
-                    int counts = ds_allinfo.Tables[1].Rows.Count;
-                    //For google map markers
-                    for (int rind = 0; rind < counts; rind++)
-                    {
-                        if (rind != 0 && rind % 4 == 0)
+                        int counts = ds_allinfo.Tables[1].Rows.Count;
+                        //For google map markers
+                        for (int rind = 0; rind < counts; rind++)
                         {
-                        %>
-                        </div>
-                  <%}
-                      var vrow = ds_allinfo.Tables[1].Rows[rind];
-                      int vpropid = int.Parse(vrow["ID"].ToString());
-                      string str_city = vrow["City"].ToString();
-                      string str_state= vrow["StateProvince"].ToString();
-                      string str_country= vrow["Country"].ToString();
-                      string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
-                      string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
+                          var vrow = ds_allinfo.Tables[1].Rows[rind];
+                          int vpropid = int.Parse(vrow["ID"].ToString());
+                          string str_city = vrow["City"].ToString();
+                          string str_state= vrow["StateProvince"].ToString();
+                          string str_country= vrow["Country"].ToString();
+                          string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
+                          string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
 
-                      string alt = String.Format("{0} properties", str_city);
+                          string alt = String.Format("{0} properties", str_city);
 
-                      if (rind % 4 == 0) {
-                     %>
-                            <div class="srow normalGroup">
-                            
-                        <%} %>
-                    <div class="col-3">
-                        <div><a href="<%=city_url %>"><%=str_city %></a></div>
-                        <div class="imgwrapper"><a href="<%=city_url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></a></div>
-                    </div>
+                         %>
+                        <li>
+                            <a href="<%=city_url %>"  class="StateTitle"><%=str_city %></a><br />
+                            <a href="<%=city_url %>"><div class="drop-shadow effect4"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></div></a>
+                        </li>
                     
 
-                <%} %>
-                </div>
+                     <%} %>
+                </ul>
             </div>
             </div>
         </div>
