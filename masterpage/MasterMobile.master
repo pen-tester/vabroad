@@ -185,9 +185,6 @@
  
 <body style="margin:0 -3px;">
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <div id="styles">
-
-    </div>
         <div class="topNavigation">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
                 <div class="scontainer">
@@ -342,6 +339,9 @@
         <div class="center">
             <img src="/assets/img/logofooter.jpg" id="footerlogo" alt="Vacations Abroad is a directory of unique vacation rentals, boutique hotels, cozy guesthouses and beach resorts." title="Vacations Abroad is a directory of unique vacation rentals, boutique hotels, cozy guesthouses and beach resorts."/><label class="footertxt">Is a registered trademark</label>
         </div>
+    </div>
+    <div id="styles">
+
     </div>
 </body>
 </html>
