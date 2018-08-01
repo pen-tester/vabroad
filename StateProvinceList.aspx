@@ -223,7 +223,7 @@
                            { %>
                     <div class="subtitle" visible="true" id="OrangeTitle" runat="server">
 
-                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"><%=countryinfo.StateProvince %> Vacations: Things to see while on vacation in <%=countryinfo.Country %></h2>
+                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"> Things to see while on vacation in <%=countryinfo.StateProvince %> <%=countryinfo.Country %></h2>
   
                     </div>
                        <%} %>
