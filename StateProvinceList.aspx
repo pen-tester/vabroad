@@ -196,7 +196,7 @@
                           string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
                           string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
 
-                          string alt = String.Format("{0} properties", str_city);
+                          string alt = String.Format("{0} Vacations", str_city);
 
                          %>
                         <li>

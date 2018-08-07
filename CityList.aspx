@@ -305,7 +305,7 @@
                 <div class="page_hid" id="cpage<%=pg %>">
                    
                     <%  //Loop for each property
-                       // int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
+                        // int maxitem = (proplistset.allnums > (pg + 1) * 20) ? (pg + 1) * 20 : proplistset.allnums;
                         int maxitem = (proplistset.allnums > (pg + 1) * 10) ? (pg + 1) * 10 : proplistset.allnums;
                         //for (int i = 0pg*20; i < proplistset.allnums; i++)
                         for (int i = pg*10; i < maxitem; i++)
@@ -323,15 +323,15 @@
                             //console.log(am_count);
                             //string alt = (!property_typeval.Contains(propamen.detail.Category)) ? propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Vacation Rental" : propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Hotel";
                             string alt = propamen.detail.Name2;
-                            if (proptypeinfo.Contains(propamen.detail.CategoryID)) alt = propamen.detail.Name2;
-                            else alt = propamen.detail.Name2 ;
+                            if (proptypeinfo.Contains(propamen.detail.CategoryID)) alt = String.Format("{0} {1} vacation properties", propamen.detail.City, propamen.detail.StateProvince);
+                            else alt =  String.Format("{0} {1} boutique hotel", propamen.detail.City, propamen.detail.StateProvince);;
 
                             int addr_verified;
                             addr_verified = propamen.detail.loc_verified;
                             double latitude, longitude;
                             latitude = propamen.detail.loc_latlang;
                             longitude = propamen.detail.loc_logitude;
-                            
+
                             string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx",
                                 propamen.detail.Country, propamen.detail.StateProvince, propamen.detail.City, propamen.detail.ID).ToLower().Replace(" ", "_");
 
@@ -346,7 +346,7 @@
                                 loc.categoryid = propamen.detail.CategoryID;
                                 eLocation.Add(loc);
                             }
-                                                        
+
                             for (int j = 0; j < am_count; j++)
                             {
                                 if(filtered_amenity.Contains(propamen.amenity[j].AmenityID)) amenity += (propamen.amenity[j].Amenity + ", ");

@@ -102,7 +102,7 @@
                 
                              <div class="linkpadding">
                                  <h2 class="inlineblock orangetxt"><%=country %> Vacation Rentals and Boutique Hotels</h2>
-                                <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/countryproperties.aspx", country).ToLower().Replace(" ","_") %>"><h3 class="inlineblock viewalllink">View all <%=country %> properties</h3></a>
+                                <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/countryproperties.aspx", country).ToLower().Replace(" ","_") %>"><h3 class="inlineblock viewalllink">View all <%=country %> vacation properties</h3></a>
                             </div>  
 
                      </div>          
@@ -121,7 +121,7 @@
                                     <%=row["StateProvince"] %>
                                 </a><br />
                                 <a href="<%=href %>">
-                                    <div class='drop-shadow effect4'><img width='160' height='125' src="<%=String.Format("/images/{0}?1", row["FileName"]).ToLower() %>" alt="<%=String.Format("{0} properties",row["StateProvince"]) %>" title="<%=String.Format("{0} properties",row["StateProvince"]) %>" /></div>
+                                    <div class='drop-shadow effect4'><img width='160' height='125' src="<%=String.Format("/images/{0}?1", row["FileName"]).ToLower() %>" alt="<%=String.Format("{0} vacations",row["StateProvince"]) %>" title="<%=String.Format("{0} vacations",row["StateProvince"]) %>" /></div>
                                 </a>
                             </li>
                             <%} %>
@@ -133,7 +133,7 @@
             <div class="contentpadding">
                              <div class="orangetxt" id="OrangeTitle" runat="server">
                                 <h2 class="orangetxt">
-                                    Things to see while on vacation in <%=country %>
+                                    <%=country %> vacation ideas
                                </h2>
                             </div>
                                 <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
