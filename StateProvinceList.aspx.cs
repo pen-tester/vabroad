@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -68,25 +68,28 @@ public partial class StateProvinceList : CommonPage
 
         ltrHeading.Text = String.Format("{0} Vacation Rentals and Boutique Hotels", countryinfo.StateProvince);
 
+        rproptype_id = 0;
+        rbedroom_id = 0;
+        ramenity_id = 0;
+        rsort_id = 0;
+        pagenum = 0;
         //For stepbox radio button value, description text
         if (!IsPostBack)
         {
             txtCityText.Text = Server.HtmlDecode(countryinfo.CityText).Replace("<br />", Environment.NewLine);
             txtCityText2.Text = Server.HtmlDecode(countryinfo.CityText2).Replace("<br />", Environment.NewLine);
             //txtCityText2.Text = countryinfo.CityText2;
-            rproptype_id = 0;
-            rbedroom_id = 0;
-            ramenity_id = 0;
-            rsort_id = 0;
-            pagenum = 0;
         }
         else
         {
+
+            /*
             rproptype_id = Int32.Parse(Request.Form["proptype"]);
             rbedroom_id = Int32.Parse(Request.Form["roomnums"]);
             ramenity_id = Int32.Parse(Request.Form["amenitytype"]);
             rsort_id = Int32.Parse(Request.Form["pricesort"]);
             pagenum = Int32.Parse(Request.Form["pagenums"]);
+            */
 
         }
 
