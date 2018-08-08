@@ -11,9 +11,7 @@
 
     protected void Application_PreSendRequestHeaders (object sender, EventArgs e)
     {
-        /*  foreach (string cookiename in Response.Cookies)
-              Response.Cookies[cookiename].Path = "/; HttpOnly";
-              */
+
     }
 
     protected void Application_Error (object sender, EventArgs e)
@@ -39,25 +37,7 @@
         sb.AppendLine("Source" + objErr.Source);
         sb.AppendLine("<br />");
         sb.AppendLine("Stack Trace: " + strStackTrace);
-        if (blShouldSend)
-        {
-            //Utility.SendMail("steve@digitaltoolfactory.net", "There has been an error on the Vacations-Abroad.com Site", sb.ToString());
-        }
-
-        //Exception error = Server.GetLastError ();
-        //while (error is System.Web.HttpUnhandledException)
-        //    error = error.InnerException;
-        //if (error == null)
-        //return;
-        //
-        // if (CommonFunctions.Connection.State == ConnectionState.Closed)
-        // CommonFunctions.Connection.Open ();
-
-        //ProcessException (error, Request);		
-
-       // Server.ClearError ();
         Response.Write(sb.ToString());
-        //Response.Redirect (CommonFunctions.PrepareURL ("InternalError.aspx"));
     }
 
     private void ProcessException (Exception error, HttpRequest Request)
@@ -116,31 +96,6 @@
 
         if (sOldPath.Contains(" ")) return;
 
-        //if (wwwtest.IndexOf("www.vacations-abroad") == -1)
-        //{
-        //    if (sOldPath == "/default.aspx") sOldPath = "";
-        //    redirtext = "http://www.vacations-abroad.com" + sOldPath;
-        //    Response.Clear();
-        //    Response.Status = "301 Moved Permanently";
-        //    Response.AddHeader("Location", redirtext);
-        //    Response.End();
-        //};
-
-        //Nimesh www Logic
-        //string URL = Context.Request.Url.AbsoluteUri.ToString();
-        //string host = Context.Request.Url.Host.ToLower();
-        //if (false == host.StartsWith("www."))
-        //{
-        //Uri uri = new Uri(URL);
-        //UriBuilder builder = new UriBuilder(uri);
-        //builder.Host = "www." + builder.Host;
-        //Uri result = builder.Uri;
-        //URL = result.AbsoluteUri.ToString();
-
-        //HttpContext.Current.Response.Clear();
-        //HttpContext.Current.Response.Status = "301 Moved Permanently";
-        //HttpContext.Current.Response.AddHeader("Location", URL);
-        //}
         string rawurl = Request.Path.ToLower();
         if (rawurl.Contains("ajaxhelper.aspx") || rawurl.Contains("webservice.asmx"))
         {
@@ -157,29 +112,27 @@
         else
             querystring = "";
 
-        // Response.Write(oldpath + "   " + querystring);
-        // return;
+
+        //Check the requested aspx file is existed in the system...  like /aspxhelper...
         int ind = oldpath.IndexOf(".aspx");
         if(ind != -1) {
-
             string aspxfile = oldpath.Substring(0, ind+5);
-            /*
-                            if(File.Exists(Request.PhysicalApplicationPath + aspxfile)) {
-                                //CommonFunctions.Connection.Close ();
-                                incoming.RewritePath(CommonFunctions.PrepareURL(aspxfile +
-                                    ((querystring.Length > 0) ? "?" + querystring : "")));
-                                return;
-                            }
-                            */
-            //   Response.Write(Request.PhysicalApplicationPath + aspxfile);
             if(File.Exists(Request.PhysicalApplicationPath+aspxfile)) {
                 //CommonFunctions.Connection.Close ();
                 return;
             }
         }
 
+        //If the requested path is aspx generated resource.
+        if(Request.RawUrl.IndexOf("WebResource.axd") >= 0)
+            return;
 
-        //  return;
+        //Timer to do something in background regardless of the webrequest
+        if(timer == null)
+            timer = new System.Threading.Timer(new TimerCallback(TimerCallback), null, 0,
+                Convert.ToInt32(ConfigurationManager.AppSettings["Timeout"]) * 60 * 1000);
+
+        //if not existed..
         using(SqlConnection connection = CommonFunctions.GetConnection()) {
             connection.Open();
             // mod by LMG 6-5-08
@@ -190,24 +143,14 @@
 
             DataSet MainDataSet = new DataSet();
 
-            if(timer == null)
-                timer = new System.Threading.Timer(new TimerCallback(TimerCallback), null, 0,
-                    Convert.ToInt32(ConfigurationManager.AppSettings["Timeout"]) * 60 * 1000);
             // This is apparently doing what an HttpHandler is meant to do.
             // the gets the current Full URL
-
-
-            if(Request.RawUrl.IndexOf("WebResource.axd") >= 0)
-                return;
-
-
-
-
 
             if(oldpath.ToLower().StartsWith(Request.ApplicationPath.ToLower()))
                 oldpath = oldpath.Substring(Request.ApplicationPath.Length);
             while(oldpath.StartsWith("/"))
                 oldpath = oldpath.Substring(1);
+
             oldpath = oldpath.Replace("_", " ");
             oldpath = oldpath.Replace("%20", " ");
 
@@ -215,8 +158,9 @@
                 incoming.RewritePath("default.aspx" + ((querystring.Length > 0) ? "?" + querystring : ""));
                 return;
             }
+            
             //  I believe that this part basically scans the URL?  to see if there's a match for city, state, or country
-
+            //For the property
             Regex regex1 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/(\d+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matches1 = regex1.Matches(oldpath);
 
@@ -227,11 +171,6 @@
                     string state = matches1[0].Groups[2].ToString();
                     string city = matches1[0].Groups[3].ToString();
                     int propnumber = Convert.ToInt32(matches1[0].Groups[4].ToString());
-
-                    //if (CommonFunctions.Connection.State == ConnectionState.Closed)
-                    //CommonFunctions.Connection.Open ();
-                    //  I believe that this part basically scans the URL?  to see if there's a match for city, state, or country
-                    //  if the URL contains a valid property #, then this is the next calc for that.
 
                     GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
                     GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
@@ -248,7 +187,6 @@
                     else
                     {
                         //lock(CommonFunctions.Connection)
-
                         if (GetIDsAdapter.Fill(MainDataSet) > 0)
                         {
                             //CommonFunctions.Connection.Close ();
@@ -256,22 +194,6 @@
                                 propnumber.ToString() + ((querystring.Length > 0) ? "&" + querystring : "")));
                             return;
                         }
-                        else if (!string.IsNullOrEmpty(country))
-                            if (!string.IsNullOrEmpty(state))
-                                if (!string.IsNullOrEmpty(city))
-                                {//IF COUNTRY, CITY, AND STATE VALUES EXIST..SEND TO CITY PAGE
-                                    string vURL = country + "/" + state + "/" + city + "/default.aspx";
-
-                                    vURL = vURL.ToLower();
-                                    vURL = vURL.Replace(' ', '_');
-                                    incoming.Response.RedirectPermanent(CommonFunctions.PrepareURL(vURL));
-                                    return;
-                                }
-                                else
-                                {
-                                    incoming.RewritePath("http://www.Microsoft.com");
-
-                                }
                     }
                 }
                 catch(Exception exc) {
@@ -308,18 +230,6 @@
                     GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
 
                     //lock(CommonFunctions.Connection)
-                    if (city.Contains("add") && city.Contains("tour"))
-                    {
-                        incoming.RewritePath(CommonFunctions.PrepareURL("tourterms.aspx"));
-                        return;
-                    }
-                    if (city.Contains("add") && city.Contains("property"))
-                    {
-                        incoming.RewritePath(CommonFunctions.PrepareURL("propertyterms.aspx"));
-                        return;
-                    }
-                    else
-                    {
                         if (GetIDsAdapter.Fill(MainDataSet) > 0)
                         {
                             //CommonFunctions.Connection.Close ();
@@ -333,23 +243,6 @@
 
                             return;
                         }
- /*                       else
-                        {
-                            GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
-                            GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
-                            GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = state;
-                            GetIDsAdapter.SelectCommand.Parameters["@City"].Value = "";
-                            GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
-                            if (GetIDsAdapter.Fill(MainDataSet) > 0)
-                            {
-                                incoming.RewritePath(CommonFunctions.PrepareURL("StateProvinceList.aspx?StateProvinceID=" +
-                                       ((int)MainDataSet.Tables[0].Rows[0]["StateProvinceID"]).ToString() +
-                                      "&category=" + city.ToString()));
-                                return;
-                            }
-                        }*/
-                    }
-
                 }
                 catch (Exception exc)
                 {
@@ -506,6 +399,40 @@
                 }
             }
 
+            Regex regex10 = new Regex(@"([a-zA-Z0-9_\- ]+)/([a-zA-Z0-9_\- ]+)/stateproperties.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+            MatchCollection matches10 = regex10.Matches(oldpath);
+            if (matches10.Count > 0)
+            {
+                try
+                {
+                    string country = matches10[0].Groups[1].ToString();
+                    string state = matches10[0].Groups[2].ToString();
+
+                    //if (CommonFunctions.Connection.State == ConnectionState.Closed)
+                    //CommonFunctions.Connection.Open ();
+
+                    GetIDsAdapter.SelectCommand.Parameters["@Region"].Value = "";
+                    GetIDsAdapter.SelectCommand.Parameters["@Country"].Value = country;
+                    GetIDsAdapter.SelectCommand.Parameters["@StateProvince"].Value = state;
+                    GetIDsAdapter.SelectCommand.Parameters["@City"].Value = "";
+                    GetIDsAdapter.SelectCommand.Parameters["@PropertyID"].Value = -1;
+
+                    //lock(CommonFunctions.Connection)
+                    if(GetIDsAdapter.Fill(MainDataSet) > 0) {
+                        //CommonFunctions.Connection.Close ();
+                        incoming.RewritePath(CommonFunctions.PrepareURL("stateproperties.aspx?StateProvinceID=" +
+                            ((int)MainDataSet.Tables[0].Rows[0]["StateProvinceID"]).ToString() +
+                            ((querystring.Length > 0) ? "&" + querystring : "")));
+                        return;
+                    }
+                }
+                catch (Exception exc)
+                {
+                    ProcessException(exc, null);
+                }
+            }
+
+
 
             Regex regexMapsCat = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/Maps.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matchesMapsCat = regexMapsCat.Matches(oldpath);
@@ -590,7 +517,7 @@
                     ProcessException(exc, null);
                 }
             }
- 
+
             if(oldpath.IndexOf("?") > 0)
                 oldpath = oldpath.Substring(0, oldpath.IndexOf("?"));
             if(!File.Exists(Request.PhysicalApplicationPath + oldpath)) {
