@@ -194,7 +194,10 @@
                                 <div class="col-3">
                                     <div><a href="<%=city_url %>"><%=str_city %></a></div>
                                     <div class="imgwrapper"><a href="<%=url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></a></div>
-                                    
+                                    <div>
+                                        <span class='scomments'><%=vrow["CategoryTypes"]%> Sleeps <%=vrow["NumSleeps"] %> </span> <br />
+                                         <span class='scomments'>Rates <%=vrow["minNightRate"] %> - <%=vrow["HiNightRate"] %> <%=vrow["minRateCurrency"] %> </span>
+                                    </div>
                                 </div>
                     
 
