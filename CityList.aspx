@@ -368,7 +368,7 @@
                                     <div class="col-12 col-g-7">
                                         <div class="srow">
                                             <div class="prop_type">
-                                                <%=propamen.detail.CategoryTypes %>
+                                                <%=propamen.detail.City %> <%=propamen.detail.CategoryTypes %>
                                             </div>
                                             <div class="prop_name">
                                                 <%=propamen.detail.Name2 %>

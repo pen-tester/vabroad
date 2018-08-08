@@ -177,7 +177,7 @@
 
             <h2 class="orangetxt">
                 <asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
-
+                <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/stateproperties.aspx", countryinfo.Country, countryinfo.StateProvince).ToLower().Replace(" ","_") %>"><h3 class="inlineblock viewalllink">View all <%=countryinfo.StateProvince %> vacation properties</h3></a>
         </div>
         <div class="srow">
             <div class="center">
@@ -223,7 +223,7 @@
                            { %>
                     <div class="subtitle" visible="true" id="OrangeTitle" runat="server">
 
-                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"> Things to see while on vacation in <%=countryinfo.StateProvince %> <%=countryinfo.Country %></h2>
+                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;">  <%=countryinfo.StateProvince %> Vacation Ideas</h2>
   
                     </div>
                        <%} %>
