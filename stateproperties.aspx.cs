@@ -96,7 +96,7 @@ public partial class stateproperties : CommonPage
         str_propcate[1] = String.Format("{0} {1}", countryinfo.StateProvince, str_propcate[1]);
 
         //For stepbox radio button value, description text
-        if (!IsPostBack)
+        if (!(HttpContext.Current.Request.HttpMethod=="POST"))
         {
             //txtCityText2.Text = countryinfo.CityText2;
             rproptype_id = 0;
