@@ -1,97 +1,235 @@
-<%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master" AutoEventWireup="true"
-    CodeFile="stateproperties.aspx.cs" Inherits="stateproperties" EnableEventValidation="false" %>
+<%@ Page Language="C#" MasterPageFile="~/masterpage/MasterMobile.master"
+    AutoEventWireup="true" CodeFile="~/stateproperties.aspx.cs" Inherits="stateproperties"
+    EnableEventValidation="false" ValidateRequest="false"  %>
 
+<%--<%@ OutputCache Duration="600" VaryByParam="*" %>--%>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    Vacation Properties in <%=country %>
+   <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
-
-<asp:Content ID="link" ContentPlaceHolderID="links" runat="server">
+<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+    <meta name="description" content="<%=Server.HtmlDecode(String.Format("Explore {0} while staying in our boutique hotels and vacation rentals",countryinfo.StateProvince)) %>"/>
+    <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
+</asp:Content>
+<asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
-        .imgCenter{margin:auto;}.imgwrapper{margin:auto;width:170px;text-align:left;}.scomments{display:block;}
-        .topMargin{margin-top:20px;}                                                                                     
+        .normalGroup{margin-top:20px;}.radiogroup{display:inline-block;}
+        .footer_text{padding:25px 0 0 0;}
+        /* For map*/                      
+        #googlemap{width:95%; height:310px;margin:0 15px;}
+        /*For the step box*/
+        ul.step_line{display:block; margin:0;padding:0;}
+        ul.step_line li{display:inline-block; padding:3px 0px;}
+        .btn_wrapper{padding:5px 0 0 15px;display:inline-block;}
+        .cont_button{padding:20px 0; width:100%;}
+        .country_list_box ul li:first-child{
+            color:#000;
+        }
+     [class*=colfield_]{float:left;}
+     @media(max-width:600px){
+        .colfield_1{width:65px;}
+        .colfield_2{}
+        .colfield_3{width:200px;text-align:right;}
+        .mapbox{
+            width:95%; margin:250px auto;
+            height:270px;
+        }
+        #map_canvas{
+              width:95%;
+              height:250px;
+        }
+     }
+     @media(max-width:768px) and (min-width:600px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:350px;text-align:right;}
+        .property_img{ width: 240px; height:170px;}
+     }
+     @media(min-width:768px)and (max-width:992px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:460px;}
+        .colfield_3{width:350px;text-align:right;}
+        .property_img{ width: 260px; height:180px;}
+     }
+     @media(max-width:1200px )and (min-width:992px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:560px;}
+        .colfield_3{width:250px;text-align:right;}
+        .property_img{ width: 260px; height:180px;}
+     }
+     @media(min-width:1200px){
+        .colfield_1{width:65px;}
+        .colfield_2{width:560px;}
+        .colfield_3{width:450px;text-align:right;}
+     }
     </style>
 </asp:Content>
-
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
-<form id="mainform" runat="server">
-        <div class="scontainer">
-    <div class="internalpagewidth">
-   <asp:Label ID="Label2" runat="server" Visible="false" Text="%country% vacation Rentals, %country% Holiday Rentals, %country% Rental Accommodations"></asp:Label>
-    <asp:Label ID="Title" runat="server" Visible="false" Text="Vacation Properties in %country%"></asp:Label>
-    <asp:Label ID="Keywords" runat="server" Visible="false" Text="%country% apartments, %country% villas, %country% hotels, %country% B&Bs."></asp:Label>
-    <asp:Label ID="Description" runat="server" Visible="false" Text="%country%  Find and Book : Apartments, Villas, Hotels and B&Bs"></asp:Label>
-    <asp:TextBox runat="server" ID="txtCityVal" value="" Style="display: none;"></asp:TextBox>
-    <asp:TextBox runat="server" ID="txtCityVal2" value="" Style="display: none;"></asp:TextBox>
-    <input type="hidden" name="step1radio" value="" />
-    <input type="hidden" name="step2radio" value="" />
-    <input type="hidden" name="step3radio" value="" />
-    <div class="srow">
-                 <div  class="listingPagesContainer">
-                        <asp:HyperLink ID="hyplnkCountryBackLink" runat="server" CssClass="backitem"><asp:Literal ID="ltrCountryBackText"  runat="server"></asp:Literal></asp:HyperLink>
-                        <div class="clear"></div>
-                        <h1 class="listingPagesH1Color H1CityText" style="text-align: center;position: relative; top: -5px" >
-                            <asp:Literal ID="ltrH11" runat="server"></asp:Literal>
-                            <br />
-                        </h1>
-                    </div>
-    </div>
-    <div class="srow">
-        <div class="borerstep">
+<form id="mainform">
+    <div class="scontainer">
+        <input type="hidden" name="proptyperadio" value="<%=rproptype_id %>" />
+        <input type="hidden" name="bedroomtyperadio" value="<%=rbedroom_id %>" />
+        <input type="hidden" name="amenityradio" value="<%=ramenity_id %>" />
+        <input type="hidden" name="sortradio" value="<%=rsort_id %>" />
+        <input type="hidden" name="pagenums" value="<%=pagenum %>" />
+            <input type="hidden" id="statename" value="<%=countryinfo.StateProvince %>" />
+         <div class="srow">
+               <div class="internalpagewidth">
+                    <div class="srow">
+                           <div>
+                            <div >
+                                <a class="backitem" href="<%=String.Format("/" + countryinfo.Region.ToLower().Replace(" ", "_") + "/default.aspx") %>"><%=countryinfo.Region %> Vacations<< </a>
+                                <a class="backitem" href="<%=String.Format("/" + countryinfo.Country.ToLower().Replace(" ", "_") + "/default.aspx") %>"><%=countryinfo.Country %> Vacations<<</a>
+                                <div class="clear">
+
+                             </div>
+                            </div>
+ 
+                                  <h1 class="H1CityText center">
+                                    <%=String.Format("Vacation Properties in {0} {1}",countryinfo.StateProvince ,countryinfo.Country) %>
+                                    <br />
+                                </h1>
+                            </div>
+
             <div class="srow">
-              <div class="stepfont">
-                <div class="col-1">
-                   <label> Step 1:</label>
-                </div>
-                <div class="col-11">
-                    <asp:RadioButtonList ID="rdoBedrooms" runat="server" RepeatDirection="Horizontal" RepeatColumns="6"
-                                            RepeatLayout="Flow" AutoPostBack="True" OnSelectedIndexChanged="rdoBedrooms_SelectedIndexChanged"/>
-
-                </div>
-            </div>
-             </div>
-            <div class="srow">
-            <div class="stepfont">
-                <div class="col-1">
-                   <label> Step 2:</label>
-                </div>
-                <div class="col-9">
-                    <asp:RadioButtonList ID="rdoFilter" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                        <asp:ListItem>Sleeps 1-4</asp:ListItem>
-                        <asp:ListItem>Sleeps 5-8</asp:ListItem>
-                        <asp:ListItem>Sleeps 9+</asp:ListItem>
-                        <asp:ListItem Selected="True">Display All</asp:ListItem>
-                    </asp:RadioButtonList>
-                </div>
-                <div class="col-2">
-                    <div>
-                    <asp:Button ID="btnFilter" runat="server" Text="Search" Style="width: 117px !important;white-space: normal;white-space: normal;border-radius: 1em;
-                            color: white;font-family: arial; font-size: 12px;background: #154890;cursor:pointer;font-weight: bold;height: 26px;right: 6px;top: -22px;
-                                                                    
-                            width: 120px;box-shadow: 2px 2px 6px #154890;border: 1px solid #154890;"
-                        OnClick="btnFilter_Click" CausesValidation="False"
-                        OnClientClick="$('#ctl00_Content_selectedRdoTypes').val($('.test').find('input:checked')[0].value)" />
+                    <!--- For Search Filter Area   Step Box  -->
+                    <div class="srow">
+                        <div class="borerstep">
+                            <div class="stepfont">
+                                <div class="colfield_1">
+                                        <label> Step 1: </label>
+                                </div>
+                                    <div class="colfield_2">
+                                        <ul class="step_line">
+                                        <% 
+                //"City" vacation Rentals (count) "City" Hotesl (count)
+                                            for (int i = 0; i < 3; i++) {%>
+                                        <li> <input type="radio" name="proptype" value="<%=prop_typeval[i]%>" /> <%=str_propcate[i] %> (<%=prop_nums[i] %>)</li>
+                                    <%} %>
+                   
+                                    </ul>
+                                    </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="stepfont">
+                                <div class="colfield_1">
+                                    <label> Step 2: </label> 
+                                </div>
+                                <div class="colfield_2">
+                                    <ul class="step_line">
+                                        <li>  <input type="radio"  name="roomnums"  value="1" /> 0-2 BD (<%=bedroominfo[1] %>)</li>
+                                        <li> <input type="radio"   name="roomnums" value="2" /> 3-4 BD (<%=bedroominfo[2] %>)</li>
+                                        <li> <input type="radio"  name="roomnums" value="3" /> 5+ BD (<%=bedroominfo[3] %>)</li>
+                                        <li> <input type="radio"  name="roomnums" value="0" /> Display All (<%=bedroominfo[0] %>)</li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="stepfont">
+                                <div class="colfield_1">
+                                        <label> Step 3: </label>
+                                </div>
+                                <div class="colfield_2">
+                                    <ul class="step_line">
+                                        <li> <input type="radio"  name="amenitytype" value="8" /> Hot Tub(<%=amenity_nums[0] %>)</li>
+                                        <li> <input type="radio"  name="amenitytype" value="33" /> Internet(<%=amenity_nums[1] %>)</li>
+                                        <li> <input type="radio"  name="amenitytype" value="1" /> Pets(<%=amenity_nums[2] %>)</li>
+                                        <li> <input type="radio"  name="amenitytype" value="11" /> Pool(<%=amenity_nums[3] %>)</li>
+                                        <li> <input type="radio"  name="amenitytype" value="0" /> Display All(<%=amenity_nums[4] %>)</li>
+                                        </ul>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="stepfont">
+                                <div class="colfield_1">
+                                    <label> Step 4: </label>
+                                </div>
+                                <div class="colfield_s2">
+                                    <ul class="step_line">
+                                        <li> <input type="radio"  name="pricesort" value="1" /> High to Low Rate</li>
+                                        <li> <input type="radio"  name="pricesort" value="2" /> Low to High Rate</li>
+                                        <li> <input type="radio"  name="pricesort" value="0" /> Display All</li>
+                                    </ul>
+                                </div>
+                                <div class="colfield_3">
+                                    <div class="btn_wrapper">
+                                        <input type="submit" id="refresh" class="btnsigns" value="Search" />
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
             </div>
-                </div>
 
-        </div>
+                <div class="srow">
+                    <div class="center">
+                        <div class="srow">
+                            <%
+                                int counts = ds_allinfo.Tables[1].Rows.Count;
+                                //For google map markers
+                                for (int rind = 0; rind < counts; rind++)
+                                {
+                                    if (rind != 0 && rind % 4 == 0)
+                                    {
+                                    %>
+                                    </div>
+                              <%}
+                                      var vrow = ds_PropList.Tables[0].Rows[rind];
+                                      int vpropid = int.Parse(vrow["ID"].ToString());
+                                      string str_city = vrow["City"].ToString();
+                                      string str_state= vrow["StateProvince"].ToString();
+                                      string str_country= vrow["Country"].ToString();
+                                      string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
+                                      string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
+                                       string alt;
+                                      int prop_cat;
+                                      int.TryParse(vrow["Category"].ToString(), out prop_cat);
+                                      if (proptypeinfo.Contains(prop_cat)) alt = vrow["Name2"].ToString();
+                                      else alt = vrow["Name2"].ToString();
+                                  if (rind % 4 == 0) {
+                                 %>
+                                        <div class="srow normalGroup">
+                            
+                                    <%} %>
+                                <div class="col-3">
+                                    <div><a href="<%=city_url %>"><%=str_city %></a></div>
+                                    <div class="imgwrapper"><a href="<%=city_url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></a></div>
+                                </div>
+                    
+
+                            <%} %>
+                            </div>
+                        </div>
+                    </div>
+         </div>
+ 
+
+
+            </div>
+         </div>
     </div>
 
-    <span id="test234" runat="server" style="display: none"></span>
-        <div class="srow">
-
-    <div>
-        <div class="PurpleTable" id="allcountryproperties" runat="server"/>
-        <asp:Label ID="lblInfo22" runat="server" ForeColor="Red"></asp:Label>
-    </div>
-        </div>
-
-
-
-    </div>
- </div>
-    <script type="text/javascript" src="/scripts/pager.js"></script>	
-    <script src="/Assets/js/countryproperty.js"></script>
 </form>
+
+    <script type="text/javascript" defer="defer" src="/assets/js/statelistall.js?8">
+    </script>
+
+        <!-- Start of StatCounter Code for Default Guide -->
+        <script type="text/javascript">
+        var sc_project=3345780; 
+        var sc_invisible=1; 
+        var sc_security="c7e8957f"; 
+        var scJsHost = (("https:" == document.location.protocol) ?
+        "https://secure." : "http://www.");
+        document.write("<sc"+"ript type='text/javascript' src='" +
+        scJsHost+
+        "statcounter.com/counter/counter.js'></"+"script>");
+        </script>
+        <noscript><div class="statcounter"><a title="real time web
+        analytics" href="http://statcounter.com/"
+        target="_blank"><img class="statcounter"
+        src="//c.statcounter.com/3345780/0/c7e8957f/1/" alt="real
+        time web analytics"></a></div></noscript>
+        <!-- End of StatCounter Code for Default Guide -->
+
 </asp:Content>
