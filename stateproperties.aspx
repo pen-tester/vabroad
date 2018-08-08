@@ -193,7 +193,8 @@
                                     <%} %>
                                 <div class="col-3">
                                     <div><a href="<%=city_url %>"><%=str_city %></a></div>
-                                    <div class="imgwrapper"><a href="<%=city_url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></a></div>
+                                    <div class="imgwrapper"><a href="<%=url %>"><img src="/images/<%=vrow["FileName"] %>" class="imgstyle" alt="<%=alt %>" title="<%=alt %>"/></a></div>
+                                    
                                 </div>
                     
 
