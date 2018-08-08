@@ -165,7 +165,7 @@
                     <div class="center">
                         <div class="srow">
                             <%
-                                int counts = ds_allinfo.Tables[1].Rows.Count;
+                                 int counts = ds_PropList.Tables[0].Rows.Count;
                                 //For google map markers
                                 for (int rind = 0; rind < counts; rind++)
                                 {
