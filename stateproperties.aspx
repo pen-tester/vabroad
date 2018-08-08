@@ -64,7 +64,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="bodycontent" runat="Server">
-<form id="mainform">
+<form id="mainform" method="post">
     <div class="scontainer">
         <input type="hidden" name="proptyperadio" value="<%=rproptype_id %>" />
         <input type="hidden" name="bedroomtyperadio" value="<%=rbedroom_id %>" />
@@ -209,7 +209,7 @@
             </div>
          </div>
     </div>
-
+    </div>
 </form>
 
     <script type="text/javascript" defer="defer" src="/assets/js/statelistall.js?8">
