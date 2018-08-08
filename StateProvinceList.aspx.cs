@@ -66,8 +66,6 @@ public partial class StateProvinceList : CommonPage
         hyplnkCountryBackLink.NavigateUrl = "/" + countryinfo.Country.ToLower().Replace(" ", "_") + "/default.aspx";
 
 
-        ltrHeading.Text = String.Format("{0} Vacation Rentals and Boutique Hotels", countryinfo.StateProvince);
-
         rproptype_id = 0;
         rbedroom_id = 0;
         ramenity_id = 0;

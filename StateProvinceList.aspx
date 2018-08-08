@@ -173,10 +173,9 @@
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
-         <div class="heding_box center">
-
-            <h2 class="orangetxt">
-                <asp:Literal ID="ltrHeading" runat="server"></asp:Literal></h2>
+         <div class="linkpadding">
+            <h2 class="inlineblock orangetxt">
+               <%=String.Format("{0} Vacation Rentals and Boutique Hotels", countryinfo.StateProvince); %> </h2>
                 <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/{1}/stateproperties.aspx", countryinfo.Country, countryinfo.StateProvince).ToLower().Replace(" ","_") %>"><h3 class="inlineblock viewalllink">View all <%=countryinfo.StateProvince %> vacation properties</h3></a>
         </div>
         <div class="srow">
