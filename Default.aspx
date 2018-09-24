@@ -68,6 +68,7 @@
         /*For front page explaination    */
         .explaination_area{
             background:#fff;
+            padding:30px;
         }
 
         .explaination_area .title{
@@ -81,6 +82,7 @@
         }
         .explaination_area .detail{
             list-style-type:lower-alpha;
+            padding-left: 40px;
         }
       @media(max-width:470px){
         .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
