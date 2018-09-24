@@ -151,24 +151,20 @@
 <form id="mainform" runat="server">
     <div class="bgimg">
     <div class="scontainer"  style="background-color:#f5ede3;">
-     <div class="srow">
-           <div class="srow center formgroup">
-                <div class="sformgroup backtitle center"><div class="topbox"><h1> <label class="alist" >Vacation Rentals & Boutique Hotels</label></h1></div></div>
-                <div class="srow margingroup placeItem" >
-                    <div class="center">
-                        <div class="footeritem center">
-                            <h2 class="itemtile">Explore the World with Us!</h2>
+         <div class="srow">
+               <div class="srow center formgroup">
+                    <div class="sformgroup backtitle center"><div class="topbox"><h1> <label class="alist" >Vacation Rentals & Boutique Hotels</label></h1></div></div>
+                    <div class="srow margingroup placeItem" >
+                        <div class="center">
+                            <div class="footeritem center">
+                                <h2 class="itemtile">Explore the World with Us!</h2>
+                            </div>
                         </div>
-                    </div>
+                   </div>
                </div>
-           </div>
-        <img src="/assets/img/landing.jpg" class="backimg " alt="Vacations Abroad"/>
+            <img src="/assets/img/landing.jpg" class="backimg " alt="Vacations Abroad"/>
 
-    </div>
-        <div class="internalpage" style="background-color:#f5ede3;">
-          <div class ="srow center">
-  <div>
-    </div>
+        </div>
 
     <div class="explaination_area">
         <div class="title">The definition for "Abroad" is a Foreign Land or Foreign Country. </div>
@@ -206,6 +202,12 @@
                 </li>
         </ul>
                 
+    </div>
+
+
+        <div class="internalpage" style="background-color:#f5ede3;">
+          <div class ="srow center">
+  <div>
     </div>
 
     <br />
