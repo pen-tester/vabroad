@@ -112,7 +112,7 @@ public class MainHelper
     public static LatLongInfo getCityLocationInfo(string addr,string country)
     {
         LatLongInfo info = new LatLongInfo();
-        string url = "http://maps.google.com/maps/api/geocode/json?address=" + addr + "&sensor=false";
+        string url = "https://maps.google.com/maps/api/geocode/json?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&address=" + addr + "&sensor=false";
 
         try
         {
@@ -140,7 +140,7 @@ public class MainHelper
                     response.Close();
 
                     //Get location info details
-                    string detail_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + info.latitude + "," + info.longitude + "&sensor=false";
+                    string detail_url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyD5PJ9egY0xvdrEKU_MFSDqKKxTCT4vwJM&latlng=" + info.latitude + "," + info.longitude + "&sensor=false";
                     WebRequest req_detail = WebRequest.Create(detail_url);
 
                     using (WebResponse det_response = req_detail.GetResponse())
