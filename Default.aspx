@@ -65,6 +65,23 @@
         .topbox h1{display:inline;font-size:28px;margin:0;padding:0; -webkit-margin-before: 0;  -webkit-margin-after: 0; -webkit-margin-start: 0px;    -webkit-margin-end: 0px;}
         .footeritem h2{padding:0px;margin:0px;}
         .alist{display: block;}
+        /*For front page explaination    */
+        .explaination_area{
+            background:#fff;
+        }
+
+        .explaination_area .title{
+  
+        }
+        .explaination_area h2{
+  
+        }
+        .explaination_area .main{
+  
+        }
+        .explaination_area .detail{
+            list-style-type:lower-alpha;
+        }
       @media(max-width:470px){
         .alist{ color:#000;padding:3px 20px; font-family:Verdana; font-size:14pt; background-color:#fff;margin:auto;}
         .footeritem{width:190px; background-color:#f5ede3;border:2px solid #cdbfac;padding:5px; color:#5a5a5a;margin:auto;text-align:left;}
@@ -152,6 +169,45 @@
           <div class ="srow center">
   <div>
     </div>
+
+    <div class="explaination_area">
+        <div class="title">The definition for "Abroad" is a Foreign Land or Foreign Country. </div>
+        <h2 class="orangetxt">Planning a Vacation Abroad?</h2>
+        <div class="main">If you are planning a foreign vacation, then your main concern revolves around finding the proper accommodation that will be located near all the sites you plan to visit and within your budget.  Plus, on site amenities at your accommodations during your foreign vacation are very important.  
+        Experiencing a "Vacation Abroad" offers the opportunity to indulge in a variety of types of properties.  The property maybe located in a historic city surrounded by museums, art galleries, famous restaurants.  Or the property maybe surrounded by dramatic scenery: mountains, wine vineyards or beautiful beaches.  Your foreign vacation will immerse you in a culture that maybe totally unique and expand your view of the world. As you travel more and more, the world seems to get smaller and the people you meet while you travel become lifelong friends.  And once you have experienced a “Foreign Vacation” you may become addicted. 
+
+        On our website we have two main categories of vacation properties that will suite your needs for your next vacation abroad.  The categories are: Vacation Rentals Abroad and Boutique Hotels Abroad.  
+        </div>
+
+        <h2 class="orangetxt">Vacation Rentals Abroad </h2>
+        <div class="main">
+            These vacation properties are a good selection for family get together or individuals that prefer privacy and independence during their travels.  The properties that fall into this category are villas, cottages, apartments and condos.  
+        </div>
+        <ul class="detail">
+            <li>
+                What to expect while staying in Vacation Rentals Abroad.
+                Vacation Rental properties usually have a full kitchen with all the necessary appliances.  There is limited customer services available when you make a reservation at these types of properties.   This will apply to condos, apartments, villas or cottages. 
+            </li>
+            <li>
+                Many times, the advantage of booking a vacation rental abroad is that the pricing is more affordable than hotels.  And if you do a thorough search and evaluation of a property you can save a lot of money on your vacation. 
+            </li>
+        </ul>
+       <h2  class="orangetxt"> Boutique Hotels Abroad </h2>
+        <div class="main">
+            These vacation properties are designed for those that may prefer more services associated with their rental.  Such as a delicious breakfast available on the premises or enjoying the interaction with other travelers.  These properties are usually small guesthouses and B&Bs. 
+        </div>
+        <ul class="detail">
+                <li>
+                    What to expect while staying in a Boutique Hotels Abroad
+        Boutique Hotel properties almost never come equipped with a private kitchen.  At most there might be a microwave and coffee pot in the room.  However, there is usually someone in the office that can help you with directions, things to do, and recommend the best attractions to visit. 
+                </li>
+                <li>
+                    The advantages of booking a boutique hotel abroad is the luxury and customer service. 
+                </li>
+        </ul>
+                
+    </div>
+
     <br />
     <div id="map_canvas" style="width: 90%; height: 485px;margin:0px auto; "></div>
 
