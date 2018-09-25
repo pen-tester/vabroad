@@ -196,7 +196,7 @@
         </div>
         <ul class="detail">
                 <li>
-                    What to expect while staying in a Boutique Hotels Abroad
+                    What to expect while staying in a Boutique Hotels Abroad.
         Boutique Hotel properties almost never come equipped with a private kitchen.  At most there might be a microwave and coffee pot in the room.  However, there is usually someone in the office that can help you with directions, things to do, and recommend the best attractions to visit. 
                 </li>
                 <li>
