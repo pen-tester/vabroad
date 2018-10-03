@@ -416,7 +416,7 @@
                 <li data-tab="tabs-1">Write a Review</li>
             </ul>
             <div id="tabs-5"  class="tab-content text-center">
-                <h4><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["State"] %> Attractions</h4>
+                <h4><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"] %> Attractions</h4>
                 <div class="center" style="color: #1D2D33;">
                     <table class="NonTable contentfont">
                         <tr>
