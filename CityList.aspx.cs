@@ -91,7 +91,7 @@ public partial class newCityList : CommonPage
         hyplnkCountryBackLink.NavigateUrl = "/" +  countryinfo.Country.ToLower().Replace(" ", "_") + "/default.aspx";
         hyplnkStateBackLink.NavigateUrl = "/" + countryinfo.Country.ToLower().Replace(" ", "_") + "/" + countryinfo.StateProvince.ToLower().Replace(" ", "_") + "/default.aspx";
 
-        ltrH11.Text = countryinfo.City + "  Vacation Rentals and Boutique Hotels";
+        ltrH11.Text = countryinfo.City + "  Vacations";
         lblcity.Text = Server.HtmlDecode( countryinfo.CityText);
         if (countryinfo.CityText == null || countryinfo.CityText == "")
         {
