@@ -62,7 +62,7 @@
         .topbox{padding:5px 5px;border:2px solid #ff6600;width:600px;margin:auto;}
         .formgroup{width:100%;position:relative;} .bgimg{background-color:#f5ede3;}
         .placeItem{position:absolute;width:100%;}
-        .topbox h1{display:inline;font-size:28px;margin:0;padding:0; -webkit-margin-before: 0;  -webkit-margin-after: 0; -webkit-margin-start: 0px;    -webkit-margin-end: 0px;}
+        .topbox h1{font-size:28px;margin:0;padding:3px; -webkit-margin-before: 0;  -webkit-margin-after: 0; -webkit-margin-start: 0px;    -webkit-margin-end: 0px;}
         .footeritem h2{padding:0px;margin:0px;}
         .alist{display: block;}
         /*For front page explaination    */
@@ -155,7 +155,7 @@
     <div class="scontainer"  style="background-color:#f5ede3;">
          <div class="srow">
                <div class="srow center formgroup">
-                    <div class="sformgroup backtitle center"><div class="topbox"><h1> <label class="alist" >Vacation Rentals & Boutique Hotels</label></h1></div></div>
+                    <div class="sformgroup backtitle center"><div class="topbox"><h1 class="alist">Vacation Rentals & Boutique Hotels</h1></div></div>
                     <div class="srow margingroup placeItem" >
                         <div class="center">
                             <div class="footeritem center">

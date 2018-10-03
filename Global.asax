@@ -161,7 +161,7 @@
             
             //  I believe that this part basically scans the URL?  to see if there's a match for city, state, or country
             //For the property
-            Regex regex1 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/(\d+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+            Regex regex1 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/(\d+)/default.aspx$", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matches1 = regex1.Matches(oldpath);
 
 
@@ -202,7 +202,7 @@
             }
 
             // This forwards to the CITY if the city is found
-            Regex regex2 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+            Regex regex2 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx$", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matches2 = regex2.Matches(oldpath);
             bool tours = false;
 
@@ -254,7 +254,7 @@
 
 
             // This forwards to the STATE if the State is found
-            Regex regex3 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+            Regex regex3 = new Regex(@"([a-zA-Z_\- ]+)/([a-zA-Z_\- ]+)/default.aspx$", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matches3 = regex3.Matches(oldpath);
             if(matches3.Count > 0) {
                 try {
@@ -290,7 +290,7 @@
             }
 
             // This forwards to the REGION if the region is found
-            Regex regex4 = new Regex(@"([a-zA-Z0-9_\- ]+)/default.aspx", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+            Regex regex4 = new Regex(@"([a-zA-Z0-9_\- ]+)/default.aspx$", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
             MatchCollection matches4 = regex4.Matches(oldpath);
             if(matches4.Count > 0) {
                 try {
