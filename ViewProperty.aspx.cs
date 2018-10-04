@@ -896,7 +896,7 @@ public partial class ViewProperty : CommonPage
         // sqlSelectCommand1
         // 
         this.sqlSelectCommand1.CommandText = "SELECT CityID, MinimumNightlyRentalTypes.Name AS MinimumNightlyRental, " +
-            " PropertyTypes.Name as Type, Users.FirstName, Users.LastName, Users.PrimaryTelephone, Users.Country" +
+            " PropertyTypes.Name as Type,PropertyCategories.CategoryTypes, Users.FirstName, Users.LastName, Users.PrimaryTelephone, Users.Country" +
             " AS OwnerCountry, Users.Email, Users.Username, Users.Address AS OwnerAddress, Us" +
             "ers.EveningTelephone, Users.DaytimeTelephone, Users.MobileTelephone, Users.Websi" +
             "te, Users.City AS OwnerCity, Users.State AS OwnerState, Users.Zip AS OwnerZip, U" +

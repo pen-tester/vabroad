@@ -7,7 +7,7 @@
 <%---@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" ---%>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> | Vacations Abroad
+    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 <script type="application/ld+json">
@@ -75,6 +75,11 @@
         position:absolute;right:15px; top:10px;
     }
     .hidden{display:none;}
+    .contenttitle{
+        text-align:center;
+        color: #000;
+        font-size: 18px;
+    }
   </style>
 </asp:Content>
 
@@ -338,10 +343,10 @@
      <div class="srow">
                     <div class="center">
                         <h1 class="H1CityText">
-                            <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> </h1>
+                            <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %>                            
+                        </h1>
                         <br />
-
-                       
+                      
                     </div>
      </div>
      <div class="srow">
@@ -415,58 +420,70 @@
                 <% } %>
                 <li data-tab="tabs-1">Write a Review</li>
             </ul>
-            <div id="tabs-5"  class="tab-content text-center">
-                <h4><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"] %> Attractions</h4>
-                <div class="center" style="color: #1D2D33;">
-                    <table class="NonTable contentfont">
-                        <tr>
-                            <td align="center" style="color: #000072;">
-                                <a name="Attractions"></a>
-                                <label class="colorOnHover"><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Country"] %> Local Attractions</label>
-                            </td>
-                        </tr>
-                    </table>
-                    <%--attractions--%>
-                    <%if (PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"].ToString().Length > 0)
-                      {%>
-                    <div align="left" class="ViewPropertyPageFonts textfont">
-                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"]%>
+            <div id="tabs-1"  class="tab-content current textfont">   <!--Amenities -->
+                <h2 class="contenttitle"><%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> Amenities</h2>
+                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br /><br />
+                    <div class="textfont amenitybackground">
+                       <div class="bulletwrap">
+                        <span class="dotstyle">&#9679;</span> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
+                        TVs </div>
+                          <% int rows = AmenitiesSet.Tables[0].Rows.Count;
+                            for (int rind = 0; rind < rows; rind++)
+                            {
+                                string ame_pro = AmenitiesSet.Tables[0].Rows[rind][1].ToString();
+                                if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Alarm Clock" && ame_pro !="Coffee Pot")
+                                {
+                               %>
+                             <div class="bulletwrap"> <span class="dotstyle">&#9679;</span> <%=ame_pro %></div>
+                            <%}
+                              }%>
+
+      
                     </div>
-                    <%} %>
-                    <%--attractions--%>
-                    <% if (AttractionsDistancesSet.Tables[0].Rows.Count > 0)
-                        { %>
-                    <div class="tableCenter">
-                        <asp:Repeater ID="Repeater2" runat="server" DataMember="Attractions" DataSource="<%# AttractionsDistancesSet %>">
-                            <HeaderTemplate>
-                                <table class="proptable">
-                                    <tr>
-                                        <td align="center" colspan="4" style="background-color: #ff6600; color: White; font-size: 12pt;">
-                                            <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> Local Attractions
-                                                
+                <div class ="center" style="margin-top:30px;">
+                        <table class="PropTable10">
+                            <tr>
+                                <asp:Repeater ID="Repeater5" runat="server" DataMember="RoomInfo" DataSource="<%# RoomsFurnitureSet %>">
+                                    <HeaderTemplate>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <td style="font-size: 14px; background-color: #ff6414; color: #f5ede3;">
+                                            <%# DataBinder.Eval(Container.DataItem, "RoomTitle", "{0}") %>
                                         </td>
-                                    </tr>
-                                    <tr>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <td >
-                                    <%# DataBinder.Eval(Container.DataItem, "Attraction", "{0}") %>
-                                </td>
-                                <td >
-                                    <%# DataBinder.Eval(Container.DataItem, "Distance", "{0}") %>
-                                </td>
-                                <%# IfEvenRow ((System.Data.DataRowView)Container.DataItem) ? "</tr><tr>" : "" %>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                </tr> </table>
-                            </FooterTemplate>
-                        </asp:Repeater>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                    </FooterTemplate>
+                                </asp:Repeater>
+                            </tr>
+                            <tr>
+                                <asp:Repeater ID="Repeater6" runat="server" DataMember="RoomInfo" DataSource="<%# RoomsFurnitureSet %>">
+                                    <HeaderTemplate>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <td class="PropTable10B ViewPropertyPageFonts">
+                                            <asp:Repeater ID="Repeater7" runat="server" DataMember="FurnitureItems" DataSource='<%# ((System.Data.DataRowView)Container.DataItem).CreateChildView("RoomsFurniture") %>'>
+                                                <HeaderTemplate>
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <%# DataBinder.Eval(Container.DataItem, "FurnitureItem", "{0}") %><%# !CommonFunctions.IfLastRow ((System.Data.DataRowView)Container.DataItem) ? "," : "." %>
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                </FooterTemplate>
+                                            </asp:Repeater>
+                                        </td>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                    </FooterTemplate>
+                                </asp:Repeater>
+                            </tr>
+                        </table>
                     </div>
-                    <%} %>
-                </div>
+                <br />
+                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Amenities"] %>
+  
             </div>
-            <div id="tabs-2"  class="tab-content">
-                <h3><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> Rates</h3>
+            <div id="tabs-2"  class="tab-content">   <!--Rates -->
+                <h3  class="contenttitle"><%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> Rates</h3>
                 <div align="center" class="contentfont" style="color: #343d6c;">
                     <table class="PropTable12">
                         <tr>
@@ -572,68 +589,58 @@
                 </div>
 
             </div>
-            <div id="tabs-1"  class="tab-content current textfont">
-                <h2><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Type"] %> Amenities</h2>
-                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Description"] %><br /><br />
-                    <div class="textfont amenitybackground">
-                       <div class="bulletwrap">
-                        <span class="dotstyle">&#9679;</span> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumTVs"] %>
-                        TVs </div>
-                          <% int rows = AmenitiesSet.Tables[0].Rows.Count;
-                            for (int rind = 0; rind < rows; rind++)
-                            {
-                                string ame_pro = AmenitiesSet.Tables[0].Rows[rind][1].ToString();
-                                if (ame_pro != "DVD" && ame_pro != "Toaster" && ame_pro != "Alarm Clock" && ame_pro !="Coffee Pot")
-                                {
-                               %>
-                             <div class="bulletwrap"> <span class="dotstyle">&#9679;</span> <%=ame_pro %></div>
-                            <%}
-                              }%>
 
-      
+            <div id="tabs-5"  class="tab-content text-center"> <!--Attraction -->
+                <h4  class="contenttitle"><%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> Attractions</h4>
+                <div class="center" style="color: #1D2D33;">
+                    <table class="NonTable contentfont">
+                        <tr>
+                            <td align="center" style="color: #000072;">
+                                <a name="Attractions"></a>
+                                <label class="colorOnHover"><%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Country"] %> Local Attractions</label>
+                            </td>
+                        </tr>
+                    </table>
+                    <%--attractions--%>
+                    <%if (PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"].ToString().Length > 0)
+                      {%>
+                    <div align="left" class="ViewPropertyPageFonts textfont">
+                        <%# PropertiesFullSet.Tables["Properties"].Rows[0]["LocalAttractions"]%>
                     </div>
-                <div class ="center" style="margin-top:30px;">
-                        <table class="PropTable10">
-                            <tr>
-                                <asp:Repeater ID="Repeater5" runat="server" DataMember="RoomInfo" DataSource="<%# RoomsFurnitureSet %>">
-                                    <HeaderTemplate>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <td style="font-size: 14px; background-color: #ff6414; color: #f5ede3;">
-                                            <%# DataBinder.Eval(Container.DataItem, "RoomTitle", "{0}") %>
+                    <%} %>
+                    <%--attractions--%>
+                    <% if (AttractionsDistancesSet.Tables[0].Rows.Count > 0)
+                        { %>
+                    <div class="tableCenter">
+                        <asp:Repeater ID="Repeater2" runat="server" DataMember="Attractions" DataSource="<%# AttractionsDistancesSet %>">
+                            <HeaderTemplate>
+                                <table class="proptable">
+                                    <tr>
+                                        <td align="center" colspan="4" style="background-color: #ff6600; color: White; font-size: 12pt;">
+                                            <%# PropertiesFullSet.Tables["Properties"].Rows[0]["City"] %> Local Attractions
+                                                
                                         </td>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                            </tr>
-                            <tr>
-                                <asp:Repeater ID="Repeater6" runat="server" DataMember="RoomInfo" DataSource="<%# RoomsFurnitureSet %>">
-                                    <HeaderTemplate>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <td class="PropTable10B ViewPropertyPageFonts">
-                                            <asp:Repeater ID="Repeater7" runat="server" DataMember="FurnitureItems" DataSource='<%# ((System.Data.DataRowView)Container.DataItem).CreateChildView("RoomsFurniture") %>'>
-                                                <HeaderTemplate>
-                                                </HeaderTemplate>
-                                                <ItemTemplate>
-                                                    <%# DataBinder.Eval(Container.DataItem, "FurnitureItem", "{0}") %><%# !CommonFunctions.IfLastRow ((System.Data.DataRowView)Container.DataItem) ? "," : "." %>
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                </FooterTemplate>
-                                            </asp:Repeater>
-                                        </td>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                            </tr>
-                        </table>
+                                    </tr>
+                                    <tr>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <td >
+                                    <%# DataBinder.Eval(Container.DataItem, "Attraction", "{0}") %>
+                                </td>
+                                <td >
+                                    <%# DataBinder.Eval(Container.DataItem, "Distance", "{0}") %>
+                                </td>
+                                <%# IfEvenRow ((System.Data.DataRowView)Container.DataItem) ? "</tr><tr>" : "" %>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </tr> </table>
+                            </FooterTemplate>
+                        </asp:Repeater>
                     </div>
-                <br />
-                <%= PropertiesFullSet.Tables["Properties"].Rows[0]["Amenities"] %>
-  
+                    <%} %>
+                </div>
             </div>
+            
 
 
             <% if (calendar_view)
