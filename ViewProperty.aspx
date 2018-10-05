@@ -418,7 +418,9 @@
                     { %>
                     <li data-tab="tabs-4">Reviews</li>
                 <% } %>
-                <li data-tab="tabs-1">Write a Review</li>
+                <% string st="";
+                    if (AuthenticationManager.IfAdmin && Request.QueryString["simple"]=="true") st = "?propid=" + propertyid; %>                                    
+                <li data-tab="tabs-1" data-target="<%=st %>">Write a Review</li>
             </ul>
             <div id="tabs-1"  class="tab-content current textfont">   <!--Amenities -->
                 <h2 class="contenttitle"><%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> Amenities</h2>
@@ -591,7 +593,7 @@
             </div>
 
             <div id="tabs-5"  class="tab-content text-center"> <!--Attraction -->
-                <h4  class="contenttitle"><%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> Attractions</h4>
+                <h4  class="contenttitle"><%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["StateProvince"] %> Attractions</h4>
                 <div class="center" style="color: #1D2D33;">
                     <table class="NonTable contentfont">
                         <tr>
@@ -769,13 +771,6 @@
                             </div>
                         </div>
                         </div>
-                        <div class="col-12">
-                            <div class="centered">
-                            <% string st="";
-                                if (AuthenticationManager.IfAdmin && Request.QueryString["simple"]=="true") st = "?propid=" + propertyid; %>
-                             <a href='writereview.aspx<%=st %>' class="btnwritereview">Write a Review</a>
-                            </div>
-                        </div>
                     </div>
                     <div class="srow commentimgrow">
                         <% int count = comment_set.Tables[0].Rows.Count;
@@ -878,7 +873,7 @@
 
         <asp:Label ID="devnote" runat="server" Text="" BackColor="White" ForeColor="White"
             Visible="false" />
-        <script defer="defer" src="/Assets/js/viewproperty.js?15"></script>
+        <script defer="defer" src="/Assets/js/viewproperty.js?16"></script>
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
 var sc_project=3614019; 

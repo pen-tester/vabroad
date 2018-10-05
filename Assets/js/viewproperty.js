@@ -28,12 +28,9 @@ $(document).ready(function () {
             // you'll probably want to preventDefault here.
 
             $('#inqureform').show();
-        } else {
-            var offset = (+$("#" + tab_id).offset().top - 200);
-            console.log(offset);
-            $('html, body').animate({
-                scrollTop: offset
-            }, 500);
+        } else if (tab_id == "tabs-1") {
+            var target = $(this).attr('data-target');
+            window.location.href = 'writereview.aspx' + target;
         }
     });
 
