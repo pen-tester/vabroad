@@ -203,7 +203,7 @@ public partial class OwnerInformation : ClosedPage
         MainDataSet.Tables["Users"].Rows[0]["site_verified"] = 0;
         if (Website.Text.Length > 0)
 		{
-			if (!Website.Text.StartsWith ("http://"))
+			if (!Website.Text.StartsWith ("http://") && !Website.Text.StartsWith("https://"))
 				Website.Text = "http://" + Website.Text;
 			MainDataSet.Tables["Users"].Rows[0]["Website"] = Website.Text;
             //Check the web site is ok

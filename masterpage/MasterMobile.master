@@ -184,7 +184,7 @@
 </head>
  
 <body style="margin:0 -3px;">
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<div id = "mainapp">
         <div class="topNavigation">
             <div class="headerunderline" style="margin-top:20px;padding-bottom:10px;">
                 <div class="scontainer">
@@ -285,7 +285,6 @@
             <asp:ContentPlaceHolder id="bodycontent" runat="server">
                 
             </asp:ContentPlaceHolder>
-
         </div>
     <div class="clear"></div>
 
@@ -343,5 +342,8 @@
      <div id="styles">
 
     </div>
+</div>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
 </body>
 </html>
