@@ -116,7 +116,7 @@ public partial class CountryList : CommonPage
         string top_states = "";
         for(int ind_state = 0; ind_state<num_states; ind_state++)
         {
-            top_states = ", " + ds_allinfo.Tables[4].Rows[ind_state]["StateProvince"].ToString();
+            top_states += (", " + ds_allinfo.Tables[4].Rows[ind_state]["StateProvince"].ToString());
         }
         if (top_states.Length > 1) top_states = top_states.Substring(2);
         str_meta = String.Format("Plan your 2019 {0} Vacation and book the perfect boutique hotel or vacation rental in {1} plus other locations.", country, top_states);

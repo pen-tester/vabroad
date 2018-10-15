@@ -7,7 +7,7 @@
    <%=countryinfo.StateProvince %> Vacation Rentals, Boutique Hotels | Vacations Abroad
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
-    <meta name="description" content="<%=Server.HtmlDecode(String.Format("Explore {0} while staying in our boutique hotels and vacation rentals",countryinfo.StateProvince)) %>"/>
+    <meta name="description" content="<%=Server.HtmlDecode(String.Format("Plan your 2019 {0} Vacation and book the perfect boutique hotel or vacation rental in {1} plus other locations.",countryinfo.StateProvince, top_cities)) %>"/>
     <meta name="keywords" content="<%=Server.HtmlDecode(String.Format("{0} vacation rentals, {0} Hotels, {0} Cottages, {0} B&Bs, {0} villas , {1} ",countryinfo.StateProvince, city_lists)) %>"/>
 <script type="application/ld+json">
 {

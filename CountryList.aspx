@@ -101,7 +101,7 @@
                      <div class="srow text-left">  
                 
                              <div class="linkpadding">
-                                 <h2 class="inlineblock orangetxt"><%=country %> Vacation Rentals and Boutique Hotels</h2>
+                                 <h2 class="inlineblock orangetxt">Destinations for <%=country %> Vacations</h2>
                                 <a href="<%=String.Format("https://www.vacations-abroad.com/{0}/countryproperties.aspx", country).ToLower().Replace(" ","_") %>"><h3 class="inlineblock viewalllink">View all <%=country %> vacation properties</h3></a>
                             </div>  
 
@@ -133,8 +133,8 @@
             <div class="contentpadding">
                              <div class="orangetxt" id="OrangeTitle" runat="server">
                                 <h2 class="orangetxt">
-                                    <%=country %> vacation ideas
-                               </h2>
+                                    Ideas for Vacations to  <%=country %>
+                                </h2>
                             </div>
                                 <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
                     { %>

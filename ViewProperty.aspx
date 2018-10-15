@@ -7,7 +7,7 @@
 <%---@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" ---%>
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> | Vacations Abroad
+    <%=city %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["NumBedrooms"] %> Bedroom <%# PropertiesFullSet.Tables["Properties"].Rows[0]["CategoryTypes"] %> |  <%# PropertiesFullSet.Tables["Properties"].Rows[0]["Name2"] %>
 </asp:Content>
 <asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
 <script type="application/ld+json">
@@ -400,6 +400,10 @@
                     <br />
                     Rates: <%# PropertiesFullSet.Tables["Properties"].Rows[0]["HiNightRate"] %>-<%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinNightRate"] %> <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinRateCurrency"] %> per night. Minimum Rental - <%# PropertiesFullSet.Tables["Properties"].Rows[0]["MinimumNightlyRental"] %>. <br />
                     <%# ((int)PropertiesFullSet.Tables["Properties"].Rows[0]["IfPaid"] == 1) && (bool)PropertiesFullSet.Tables["Properties"].Rows[0]["IfShowAddress"] ? "Address: " + PropertiesFullSet.Tables["Properties"].Rows[0]["Address"] : "" %>
+                    <br />
+                    <% if (userinfo.Registered != "") {%>      
+                    Member of <%=userinfo.Registered %> Chamber of commerce
+                    <%} %>
                 </h2>
 
             </div>
@@ -761,17 +765,6 @@
             <div id="tabs-4"  class="tab-content">
                 <%--reviews--%>
                 <div id="divReviews" runat="server" class="contentfont">
-                    <div class="srow">
-                        <div class="srow">
-                        <div class="col-12">
-                            <div class="srow">
-                                <% if (userinfo.Registered != "") {%>      
-                                Member of <%=userinfo.Registered %> Chamber of commerce
-                                <%} %>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
                     <div class="srow commentimgrow">
                         <% int count = comment_set.Tables[0].Rows.Count;
                             for (int i = 0; i < count; i++)
@@ -873,7 +866,7 @@
 
         <asp:Label ID="devnote" runat="server" Text="" BackColor="White" ForeColor="White"
             Visible="false" />
-        <script defer="defer" src="/Assets/js/viewproperty.js?16"></script>
+        <script defer="defer" src="/Assets/js/viewproperty.js?17"></script>
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
 var sc_project=3614019; 

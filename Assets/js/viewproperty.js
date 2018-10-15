@@ -31,6 +31,10 @@ $(document).ready(function () {
         } else if (tab_id == "tabs-1") {
             var target = $(this).attr('data-target');
             window.location.href = 'writereview.aspx' + target;
+        } else {
+            $("html, body").animate({
+                scrollTop: $("#" + tab_id).offset().top
+            })
         }
     });
 

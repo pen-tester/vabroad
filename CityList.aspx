@@ -323,8 +323,9 @@
                             //console.log(am_count);
                             //string alt = (!property_typeval.Contains(propamen.detail.Category)) ? propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Vacation Rental" : propamen.detail.City + " " + propamen.detail.NumBedrooms + " bedroom Hotel";
                             string alt = propamen.detail.Name2;
-                            if (proptypeinfo.Contains(propamen.detail.CategoryID)) alt = String.Format("{0} {1} boutique hotel", propamen.detail.City, propamen.detail.StateProvince);
-                            else alt =  String.Format("{0} {1} vacation rental", propamen.detail.City, propamen.detail.StateProvince);;
+                            // if (proptypeinfo.Contains(propamen.detail.CategoryID)) alt = String.Format("{0} {1} boutique hotel", propamen.detail.City, propamen.detail.StateProvince);
+                            //else alt =  String.Format("{0} {1} vacation rental", propamen.detail.City, propamen.detail.StateProvince);;
+                            alt = String.Format("{0} {1} vacations", propamen.detail.City, propamen.detail.StateProvince);
 
                             int addr_verified;
                             addr_verified = propamen.detail.loc_verified;

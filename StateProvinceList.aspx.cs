@@ -47,6 +47,7 @@ public partial class StateProvinceList : CommonPage
     protected List<string> list_city = new List<string>();
 
     protected DataSet ds_allinfo;
+    protected string top_cities = "";
 
     protected void Page_Load(object sender, System.EventArgs e)
     {
@@ -148,8 +149,12 @@ public partial class StateProvinceList : CommonPage
             city_lists += (drow["City"]+comma);
             list_city.Add(drow["City"].ToString());
         }
-
-
+        int num_cities = Math.Min(ds_allinfo.Tables[4].Rows.Count, 4);
+        for(int i=0; i < num_cities; i++)
+        {
+            top_cities += (", " + ds_allinfo.Tables[4].Rows[i]["City"].ToString());
+        }
+        if (top_cities.Length > 1) top_cities = top_cities.Substring(2);
     }
   
     //For state province text update
