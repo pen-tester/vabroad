@@ -227,7 +227,7 @@ public partial class OwnerInformation : ClosedPage
                 }
             }catch(Exception ex)
             {
-                
+                throw ex;
             }
 
         }
