@@ -217,7 +217,6 @@ public partial class OwnerInformation : ClosedPage
                 wr.Timeout = 5000;
                 using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
                 {
-                    MainDataSet.Tables["Users"].Rows[0]["site_verified"] = response.StatusCode;
                     if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.MovedPermanently)
                     {
                         // if the code execution gets here, the URL is valid and is up/works
@@ -227,7 +226,10 @@ public partial class OwnerInformation : ClosedPage
                 }
             }catch(Exception ex)
             {
-                throw ex;
+                if(ex.Message.IndexOf("403")>0)
+                    MainDataSet.Tables["Users"].Rows[0]["site_verified"] = 1;
+                //throw ex;
+
             }
 
         }
