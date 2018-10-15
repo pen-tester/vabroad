@@ -217,7 +217,7 @@ public partial class OwnerInformation : ClosedPage
                 wr.Timeout = 5000;
                 using (HttpWebResponse response = (HttpWebResponse)wr.GetResponse())
                 {
-                    if (response.StatusCode == HttpStatusCode.OK)
+                    if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.MovedPermanently || response.StatusCode == HttpStatusCode.Moved)
                     {
                         // if the code execution gets here, the URL is valid and is up/works
                         MainDataSet.Tables["Users"].Rows[0]["site_verified"] = 1;
