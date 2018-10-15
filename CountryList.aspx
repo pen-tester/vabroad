@@ -2,6 +2,16 @@
     CodeFile="~/countrylist.aspx.cs" Inherits="CountryList"
     EnableEventValidation="false" EnableViewState="true" %>
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
+    <style>
+         #googlemap{width:95%; min-height:310px;margin:0 15px;}
+        .footer_text{padding:25px 0 0 0;}
+    </style>
+</asp:Content>
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    <%=country %> Vacation Rentals, Boutique Hotels | Vacations Abroad
+</asp:Content>
+<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
+    <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -23,17 +33,7 @@
   }]
 }
 </script>
-    <style>
-         #googlemap{width:95%; min-height:310px;margin:0 15px;}
-        .footer_text{padding:25px 0 0 0;}
-    </style>
-</asp:Content>
-<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
-    <%=country %> Vacation Rentals, Boutique Hotels | Vacations Abroad
-</asp:Content>
-<asp:Content ID="meta" ContentPlaceHolderID="meta" runat="server">
-    <meta name="description" content="<%=str_meta %>" /><meta name="keywords" content="<%=str_keyword %>" />
-    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
+  <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" style="display:none">
 
 <% int count_states = ds_allinfo.Tables[1].Rows.Count;
     if (count_states > 6) count_states = 6;

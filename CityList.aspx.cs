@@ -168,7 +168,7 @@ public partial class newCityList : CommonPage
             str_amenity += (", " + amenity);
         }
         if (str_amenity.Length > 0) str_amenity = str_amenity.Substring(2);
-        newdescription = String.Format("{0} {1} Vacation Properties starting at {2} {4} with ( {3} )", proplistset.allnums, countryinfo.City, minrate, str_amenity,currency);
+        newdescription = String.Format("{0} Vacation Rentals & Boutique Hotels - where you will find a selection of vacation properties to help you plan the perfect {0} {1} vacation.",  countryinfo.City, countryinfo.StateProvince);
 
         city_ds = AjaxProvider.getCityListbyCityNum(cityid);
       //  Page.Header.Controls.Add(newdescription);
