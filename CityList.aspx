@@ -98,6 +98,7 @@
           width:550px;
           height:350px;
       }
+      h1.H1CityText, h2.orangetxt, h3.orangetxt{color:#000;}
      @media(max-width:600px){
         .colfield_1{width:65px;}
         .colfield_2{}

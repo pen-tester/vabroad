@@ -4,7 +4,8 @@
 <asp:Content ID="links" ContentPlaceHolderID="links" runat="server">
     <style>
          #googlemap{width:95%; min-height:310px;margin:0 15px;}
-        .footer_text{padding:25px 0 0 0;}
+        .footer_text{padding:25px 0 0 0;} h1.H1CityText, h2.orangetxt, h3.orangetxt{color:#000;}
+
     </style>
 </asp:Content>
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">

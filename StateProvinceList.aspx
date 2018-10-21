@@ -64,6 +64,7 @@
         .country_list_box ul li:first-child{
             color:#000;
         }
+        h1.H1CityText, h2.orangetxt, h3.orangetxt{color:#000;}
      [class*=colfield_]{float:left;}
      @media(max-width:600px){
         .colfield_1{width:65px;}

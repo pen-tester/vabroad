@@ -80,6 +80,7 @@
         color: #000;
         font-size: 18px;
     }
+    h1.H1CityText, h2.orangetxt, h3.orangetxt{color:#000;}
   </style>
 </asp:Content>
 
