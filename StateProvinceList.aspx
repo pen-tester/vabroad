@@ -196,7 +196,7 @@
                           string url = String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/{3}/default.aspx", str_country, str_state, str_city, vpropid).ToLower().Replace(" ", "_");
                           string city_url= String.Format("https://www.vacations-abroad.com/{0}/{1}/{2}/default.aspx", str_country, str_state, str_city).ToLower().Replace(" ", "_");
 
-                          string alt = String.Format("{0} Vacations", str_city);
+                          string alt = String.Format("Destination {0} vacations", str_city);
 
                          %>
                         <li>
@@ -222,9 +222,7 @@
                        <%if (countryinfo.CityText2 != null && countryinfo.CityText2 != "")
                            { %>
                     <div class="subtitle" visible="true" id="OrangeTitle" runat="server">
-
-                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;">  <%=countryinfo.StateProvince %> Vacation Ideas</h2>
-  
+                        <h2 class="orangetxt" style="margin-top:55px; background-color:white;"> Ideas for <%=countryinfo.StateProvince %> vacations </h2>  
                     </div>
                        <%} %>
 

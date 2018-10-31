@@ -122,7 +122,7 @@
                                     <%=row["StateProvince"] %>
                                 </a><br />
                                 <a href="<%=href %>">
-                                    <div class='drop-shadow effect4'><img width='160' height='125' src="<%=String.Format("/images/{0}?1", row["FileName"]).ToLower() %>" alt="<%=String.Format("{0} vacations",row["StateProvince"]) %>" title="<%=String.Format("{0} vacations",row["StateProvince"]) %>" /></div>
+                                    <div class='drop-shadow effect4'><img width='160' height='125' src="<%=String.Format("/images/{0}?1", row["FileName"]).ToLower() %>" alt="<%=String.Format("Destinations for {0} Vacations",row["StateProvince"]) %>" title="<%=String.Format("Destinations for {0} Vacations",row["StateProvince"]) %>" /></div>
                                 </a>
                             </li>
                             <%} %>
@@ -134,7 +134,7 @@
             <div class="contentpadding">
                              <div class="orangetxt" id="OrangeTitle" runat="server">
                                 <h2 class="orangetxt">
-                                    Ideas for Vacations to  <%=country %>
+                                    Ideas for <%=country %> vacations
                                 </h2>
                             </div>
                                 <% if (AuthenticationManager.IfAuthenticated && AuthenticationManager.IfAdmin)
